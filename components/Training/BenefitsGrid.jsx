@@ -47,7 +47,7 @@ const benefits = [
     glowColor: "shadow-emerald-500/20",
     borderColor: "border-emerald-400/20",
     gradient: "from-emerald-500/20 to-transparent",
-    description: "Curriculum designed by hiring managers to make you instantly employable. Learn the exact tech stack and practices top companies are hiring for right now.",
+    description: "Our 90% Practical Training methodology ensures you are JOB READY from day one. Learn by doing with real-world case studies and live campaigns.",
     features: [
       "Resume Building",
       "Mock Interviews",

@@ -5,7 +5,6 @@ import PricingTable from '../../components/Training/PricingTable'
 import LocationSchedule from '../../components/Training/LocationSchedule'
 import Credibility from '../../components/Training/Credibility'
 import ContactForm from '../../components/Training/ContactForm'
-import StickyCTA from '../../components/Training/StickyCTA'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 
@@ -27,7 +26,6 @@ export default function TrainingPage() {
       <Credibility />
       <ContactForm />
       <Footer />
-      <StickyCTA />
     </main>
   )
 }

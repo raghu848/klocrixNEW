@@ -23,9 +23,9 @@ const features = [
   {
     icon: TrendingUp,
     title: 'Job Ready',
-    description: 'Get Job Ready Quickly',
+    description: '90% Practical Training → JOB READY',
     gradient: 'from-[#00ff88] to-[#00cc6a]',
-    stats: 'Career Ready',
+    stats: 'Hands-on',
   },
 ]
 
@@ -320,7 +320,7 @@ export default function HeroSimple() {
             { label: 'Hiring Partners', value: '150+' },
             { label: 'Success Velocity', value: 'High' },
             { label: 'Course Completion', value: '98%' },
-            { label: 'Job Readiness', value: 'Ready' },
+            { label: 'Methodology', value: '90% Practical' },
             { label: 'Salary Growth', value: 'Proven' },
           ].map((stat, i) => (
             <div key={i} className="text-center">
