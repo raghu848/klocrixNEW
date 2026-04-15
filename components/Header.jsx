@@ -206,15 +206,15 @@ export default function Header() {
             <div className="h-6 w-px bg-white/10" />
             <Link
               href="/contact"
-              className="relative group overflow-hidden bg-[rgba(0,209,255,0.05)] border border-[rgba(0,209,255,0.3)] px-6 py-2.5 flex items-center gap-3 transition-colors hover:bg-[rgba(0,209,255,0.1)]"
+              className="relative group px-8 py-3 overflow-hidden"
             >
-              <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-[rgba(0,209,255,0.2)] to-transparent translate-x-[-200%] group-hover:animate-[sweep_1.5s_infinite]" />
-              <div className="w-1.5 h-1.5 bg-[#00D1FF] group-hover:shadow-[0_0_8px_#00D1FF] transition-shadow" />
-              <span className="text-[#00D1FF] text-[12px] tracking-[0.2em] uppercase relative z-10" style={{ fontFamily: "'Share Tech Mono', monospace" }}>
+              <div className="absolute inset-0 border border-[#00D1FF]/30 transition-all duration-300 group-hover:border-[#00D1FF]" />
+              <div className="absolute inset-0 bg-[#00D1FF] translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+              <span className="relative z-10 text-[#00D1FF] group-hover:text-black text-[11px] font-bold tracking-[0.3em] uppercase transition-colors duration-300" style={{ fontFamily: "'Roboto Mono', monospace" }}>
                 INIT.PROJECT
               </span>
-              <div className="absolute right-0 bottom-0 w-2 h-2 border-b border-r border-[#00D1FF] opacity-50" />
-              <div className="absolute left-0 top-0 w-2 h-2 border-t border-l border-[#00D1FF] opacity-50" />
+              <div className="absolute -left-1 -top-1 w-2 h-2 bg-[#050505] rotate-45 border-r border-[#00D1FF]/40" />
+              <div className="absolute -right-1 -bottom-1 w-2 h-2 bg-[#050505] rotate-45 border-l border-[#00D1FF]/40" />
             </Link>
           </div>
 
@@ -297,12 +297,15 @@ export default function Header() {
                   <Link
                     href="/contact"
                     onClick={closeMobileMenu}
-                    className="w-full relative group overflow-hidden bg-[rgba(0,209,255,0.05)] border border-[rgba(0,209,255,0.3)] py-4 flex items-center justify-center gap-3 active:bg-[rgba(0,209,255,0.1)]"
+                    className="group relative w-full h-14 overflow-hidden flex items-center justify-center transition-all active:scale-95"
                   >
-                    <div className="w-2 h-2 bg-[#00D1FF] shadow-[0_0_8px_#00D1FF]" />
-                    <span className="text-[#00D1FF] text-[14px] tracking-[0.2em] uppercase" style={{ fontFamily: "'Share Tech Mono', monospace" }}>
+                    <div className="absolute inset-0 border border-[#00D1FF]/30 transition-all group-hover:border-[#00D1FF]" />
+                    <div className="absolute inset-0 bg-[#00D1FF] translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+                    <span className="relative z-10 text-[#00D1FF] group-hover:text-black font-bold tracking-[0.3em] uppercase transition-colors duration-300 text-sm" style={{ fontFamily: "'Roboto Mono', monospace" }}>
                       INITIATE_PROJECT
                     </span>
+                    <div className="absolute -left-1 -top-1 w-2.5 h-2.5 bg-[#050505] rotate-45 border-r border-[#00D1FF]/40" />
+                    <div className="absolute -right-1 -bottom-1 w-2.5 h-2.5 bg-[#050505] rotate-45 border-l border-[#00D1FF]/40" />
                   </Link>
                 </div>
               </div>

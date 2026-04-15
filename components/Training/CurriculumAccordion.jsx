@@ -74,10 +74,10 @@ export default function CurriculumAccordion() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 flex flex-wrap justify-center gap-4 uppercase tracking-widest">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#243A73] to-[#243A73]/60">12-Week Industry-Ready</span>
-            <span style={{ WebkitTextStroke: '1.5px rgba(36, 58, 115, 0.8)', color: 'transparent' }}>Curriculum</span>
+            <span className="text-indigo-950">12-Week Industry-Ready</span>
+            <span className="text-blue-700">Curriculum</span>
           </h2>
-          <p className="text-xl text-[#243A73]/70 max-w-2xl mx-auto">
+          <p className="text-xl text-indigo-950/80 font-medium max-w-3xl mx-auto leading-relaxed" style={{ textShadow: 'none' }}>
             From basics to advanced freelancing - everything you need to land your dream job
           </p>
         </motion.div>
@@ -97,21 +97,21 @@ export default function CurriculumAccordion() {
                 className="w-full px-8 py-6 flex items-center justify-between text-left hover:bg-[#FAF7F2]/50 transition-colors"
               >
                 <div className="flex items-center gap-4">
-                  <div className="bg-[#F9C74F]/10 p-3 rounded-xl">
-                    <BookOpen className="text-[#F9C74F]" size={24} />
+                  <div className="bg-amber-100 p-3 rounded-xl">
+                    <BookOpen className="text-amber-600" size={24} />
                   </div>
                   <div>
-                    <h3 className="text-2xl font-heading font-bold text-[#243A73] uppercase tracking-wider">
+                    <h3 className="text-2xl font-heading font-bold text-indigo-950 uppercase tracking-wider">
                       MODULE {module.id}: {module.title}
                     </h3>
-                    <p className="text-[#243A73]/60 mt-1">{module.duration}</p>
+                    <p className="text-indigo-900/60 font-medium mt-1" style={{ textShadow: 'none' }}>{module.duration}</p>
                   </div>
                 </div>
                 <motion.div
                   animate={{ rotate: openModule === module.id ? 180 : 0 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <ChevronDown className="text-[#243A73]/60" size={24} />
+                  <ChevronDown className="text-slate-500" size={24} />
                 </motion.div>
               </button>
 
@@ -124,17 +124,18 @@ export default function CurriculumAccordion() {
                     transition={{ duration: 0.3 }}
                     className="overflow-hidden"
                   >
-                    <div className="px-8 pb-6">
-                      <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4">
+                    <div className="px-8 pb-6 bg-white/50 border-t border-gray-100">
+                      <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
                         {module.topics.map((topic, index) => (
                           <motion.li
                             key={index}
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: index * 0.05 }}
-                            className="flex items-center gap-2 text-[#243A73]/80"
+                            className="flex items-center gap-3 text-indigo-950/90 font-medium"
+                            style={{ textShadow: 'none' }}
                           >
-                            <span className="text-[#F9C74F] font-bold">•</span>
+                            <span className="text-amber-500 text-lg">✦</span>
                             <span>{topic}</span>
                           </motion.li>
                         ))}

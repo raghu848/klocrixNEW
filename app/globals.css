@@ -27,6 +27,12 @@
     letter-spacing: 0.05em;
   }
 
+  p {
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.4), 0 0 16px rgba(0, 209, 255, 0.4);
+    opacity: 1;
+  }
+
   /* Custom scrollbar */
   ::-webkit-scrollbar {
     width: 8px;
@@ -42,7 +48,7 @@
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #39FF14;
+    background: #f62727;
   }
 }
 
@@ -148,5 +154,14 @@
     height: 2px;
     background: linear-gradient(45deg, #fff, transparent);
     border-radius: 50%;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }

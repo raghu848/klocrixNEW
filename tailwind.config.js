@@ -11,7 +11,7 @@ module.exports = {
         background: '#050505',
         surface: '#0D0D0D',
         primary: '#00D1FF',
-        accent: '#39FF14',
+        accent: '#f62727',
         'text-primary': '#FFFFFF',
         'text-secondary': '#A0A0A0',
         'glass-border': 'rgba(255, 255, 255, 0.1)',

@@ -1,6 +1,7 @@
 'use client'
 
 import { useRef, useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight, CheckCircle, Zap, Shield, TrendingUp, Users } from 'lucide-react'
 import { cn } from '../lib/utils'
 import Link from 'next/link'
@@ -18,73 +19,247 @@ function HeroSection() {
     <section className="relative min-h-[100dvh] flex flex-col items-center justify-center overflow-hidden pt-36 lg:pt-48 pb-20 mt-10 lg:mt-0">
       <CosmicBackground />
 
+      {/* Subtle scanline texture */}
+      <div
+        className="pointer-events-none absolute inset-0 z-0"
+        style={{
+          backgroundImage:
+            'repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,209,255,0.015) 3px, rgba(0,209,255,0.015) 4px)',
+        }}
+      />
+
       <div className="relative z-10 w-full max-w-7xl px-4 flex flex-col items-center">
-        {/* Futuristic Headline Container */}
+
+        {/* ── Headline ── */}
         <div className="text-center mb-10 md:mb-14">
           <h1 className="text-5xl md:text-7xl lg:text-8xl xl:text-[8rem] font-bold font-heading mb-6 leading-none tracking-tighter">
-            <span className="block text-white">BEYOND CODE.</span>
-            <span className="block text-transparent bg-clip-text bg-gradient-to-b from-white to-white/20">BEYOND CUSTOM.</span>
-            <span className="block text-5xl md:text-6xl lg:text-7xl xl:text-8xl mt-4" style={{ WebkitTextStroke: '2px rgba(255,255,255,0.8)', color: 'transparent' }}>ENGINEER DIGITAL DNA.</span>
+            <span
+              className="block text-white"
+              style={{ textShadow: '0 0 60px rgba(0,209,255,0.25)' }}
+            >
+              BEYOND CODE.
+            </span>
+            <span
+              className="block text-transparent bg-clip-text"
+              style={{
+                backgroundImage:
+                  'linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.12) 100%)',
+              }}
+            >
+              BEYOND CUSTOM.
+            </span>
+            <span
+              className="block text-5xl md:text-6xl lg:text-7xl xl:text-8xl mt-4"
+              style={{
+                WebkitTextStroke: '1.5px rgba(0,209,255,0.75)',
+                color: 'transparent',
+                textShadow: '0 0 35px rgba(0,209,255,0.2)',
+              }}
+            >
+              ENGINEER DIGITAL DNA.
+            </span>
           </h1>
         </div>
 
-        {/* Glassmorphic UI Card (Macro-View) */}
+        {/* ── Main card ── */}
         <div className="relative w-full max-w-6xl group">
-          <div className="absolute -inset-1 lg:-inset-2 bg-gradient-to-r from-primary to-accent rounded-none blur-lg opacity-30 group-hover:opacity-60 transition duration-1000 group-hover:duration-200"></div>
-          <div className="relative glass-effect glow-edge-blue p-8 md:p-20 flex flex-col lg:flex-row items-center gap-16 backdrop-blur-xl">
 
-            {/* Left Content */}
+          {/* Glow halo */}
+          <div
+            className="absolute -inset-px opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-none"
+            style={{
+              background:
+                'linear-gradient(135deg, rgba(0,209,255,0.4) 0%, transparent 40%, rgba(57,255,20,0.3) 100%)',
+              filter: 'blur(12px)',
+            }}
+          />
+
+          {/* Card shell */}
+          <div
+            className="relative p-8 md:p-20 flex flex-col lg:flex-row items-center gap-16"
+            style={{
+              background:
+                'linear-gradient(135deg, rgba(2,8,20,0.97) 0%, rgba(0,16,36,0.95) 100%)',
+              border: '1px solid rgba(0,209,255,0.18)',
+              boxShadow:
+                'inset 0 1px 0 rgba(255,255,255,0.04), 0 0 0 1px rgba(0,0,0,0.4), 0 40px 80px rgba(0,0,0,0.7)',
+            }}
+          >
+            {/* Corner brackets */}
+            {[
+              'top-0 left-0 border-t border-l',
+              'top-0 right-0 border-t border-r',
+              'bottom-0 left-0 border-b border-l',
+              'bottom-0 right-0 border-b border-r',
+            ].map((cls, i) => (
+              <span
+                key={i}
+                className={`absolute ${cls} w-5 h-5`}
+                style={{ borderColor: 'rgba(0,209,255,0.45)' }}
+              />
+            ))}
+
+            {/* ── Left content ── */}
             <div className="flex-1 text-left">
-              <h2 className="text-2xl md:text-3xl font-heading text-white mb-6 tracking-wide">
-                ELEVATE BUSINESS INTELLIGENCE WITH <span className="text-accent">AI-DRIVEN SOLUTIONS</span>
+              <h2 className="text-2xl md:text-3xl font-heading text-white mb-6 tracking-wide leading-snug">
+                ELEVATE BUSINESS INTELLIGENCE WITH{' '}
+                <span
+                  className="text-transparent bg-clip-text"
+                  style={{
+                    backgroundImage: 'linear-gradient(90deg, #00D1FF 0%, #f62727 100%)',
+                  }}
+                >
+                  AI-DRIVEN SOLUTIONS
+                </span>
               </h2>
-              <p className="text-lg md:text-xl text-text-secondary mb-10 leading-relaxed font-light">
-                Klocrix doesn't just build software; we architect the foundational systems that transform ambitious companies into market leaders. We fuse 25 years of mastery with cutting-edge innovation to deliver bespoke solutions that are as unique as your ambition.
+
+              <p className="text-lg md:text-xl text-white/45 mb-10 leading-relaxed font-light max-w-lg">
+                Klocrix doesn't just build software; we architect the foundational systems that
+                transform ambitious companies into market leaders. We fuse 25 years of mastery
+                with cutting-edge innovation to deliver bespoke solutions that are as unique as
+                your ambition.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-6">
-                <Link href="/services" className="btn-futuristic text-lg py-4 px-10">
-                  EXPLORE PLATFORM
+              <div className="flex flex-col sm:flex-row gap-6 items-start sm:items-center">
+                <Link
+                  href="/services"
+                  className="relative group px-12 py-5 overflow-hidden transition-all duration-500 hover:shadow-[0_0_40px_rgba(0,209,255,0.25)]"
+                >
+                  {/* Subtle glass effect base */}
+                  <div className="absolute inset-0 bg-white/5 backdrop-blur-sm" />
+                  
+                  {/* Neon border trace */}
+                  <div className="absolute inset-0 border border-[#00D1FF]/40 group-hover:border-[#00D1FF] transition-colors duration-500" />
+                  
+                  {/* Filling background */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#00D1FF]/20 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out" />
+                  
+                  <span className="relative z-10 flex items-center gap-4 text-[#00D1FF] text-[13px] font-bold tracking-[0.4em] uppercase transition-all duration-500 group-hover:gap-6">
+                    EXPLORE PLATFORM
+                    <ArrowRight className="w-4 h-4 transition-transform duration-500 group-hover:translate-x-1" />
+                  </span>
+
+                  {/* Corner accents */}
+                  <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-[#00D1FF]" />
+                  <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-[#00D1FF]" />
                 </Link>
-                <div className="hidden sm:flex items-center space-x-2 text-primary font-mono text-sm tracking-widest">
-                  <span className="w-8 h-[1px] bg-primary"></span>
-                  <span>SYSTEM_ONLINE: VERSION_4.0</span>
+
+                <div className="hidden sm:flex items-center space-x-2 font-mono text-xs tracking-widest text-white/25">
+                  <span
+                    className="w-8 h-px"
+                    style={{ background: 'rgba(0,209,255,0.4)' }}
+                  />
+                  <span>SYSTEMONLINE: VERSION4.0</span>
                 </div>
               </div>
             </div>
 
-            {/* Right Visualization (Data Dash Mockup) */}
+            {/* ── Right visualization ── */}
             <div className="flex-1 w-full max-w-[400px]">
-              <div className="aspect-square border border-white/10 relative p-4 flex items-center justify-center overflow-hidden">
-                <div className="absolute inset-0 bg-primary/5"></div>
-                {/* Simulated Data Visualization */}
-                <svg viewBox="0 0 100 100" className="w-full h-full text-primary">
+              <div
+                className="aspect-square relative p-4 flex items-center justify-center overflow-hidden"
+                style={{
+                  background: 'rgba(0,8,20,0.7)',
+                  border: '1px solid rgba(0,209,255,0.1)',
+                  boxShadow: 'inset 0 0 50px rgba(0,209,255,0.03)',
+                }}
+              >
+                {/* Corner ticks on chart */}
+                {[
+                  'top-2 left-2 border-t border-l',
+                  'top-2 right-2 border-t border-r',
+                  'bottom-2 left-2 border-b border-l',
+                  'bottom-2 right-2 border-b border-r',
+                ].map((cls, i) => (
+                  <span
+                    key={i}
+                    className={`absolute ${cls} w-3 h-3`}
+                    style={{ borderColor: 'rgba(0,209,255,0.3)' }}
+                  />
+                ))}
+
+                <svg
+                  viewBox="0 0 100 100"
+                  className="w-full h-full"
+                  style={{ filter: 'drop-shadow(0 0 8px rgba(0,209,255,0.4))' }}
+                >
+                  <defs>
+                    <linearGradient id="lg1" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#00D1FF" />
+                      <stop offset="100%" stopColor="#f62727" />
+                    </linearGradient>
+                    <linearGradient id="lg2" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" stopColor="#00D1FF" stopOpacity="0.25" />
+                      <stop offset="100%" stopColor="#00D1FF" stopOpacity="0" />
+                    </linearGradient>
+                  </defs>
+
+                  {/* Grid */}
+                  {[25, 50, 75].map((v) => (
+                    <g key={v}>
+                      <line x1="10" y1={v} x2="90" y2={v} stroke="rgba(0,209,255,0.07)" strokeWidth="0.5" />
+                      <line x1={v + 5} y1="10" x2={v + 5} y2="90" stroke="rgba(0,209,255,0.07)" strokeWidth="0.5" />
+                    </g>
+                  ))}
+
+                  {/* Axes */}
+                  <line x1="10" y1="10" x2="10" y2="90" stroke="rgba(0,209,255,0.2)" strokeWidth="0.5" />
+                  <line x1="10" y1="90" x2="90" y2="90" stroke="rgba(0,209,255,0.2)" strokeWidth="0.5" />
+
+                  {/* Area fill */}
+                  <path
+                    d="M 10 90 L 30 70 L 50 80 L 70 40 L 90 20 L 90 90 Z"
+                    fill="url(#lg2)"
+                  />
+
+                  {/* Main line */}
                   <path
                     d="M 10 90 L 30 70 L 50 80 L 70 40 L 90 20"
                     fill="none"
-                    stroke="currentColor"
+                    stroke="url(#lg1)"
                     strokeWidth="2"
                     strokeLinecap="round"
-                    className="drop-shadow-[0_0_8px_rgba(0,209,255,0.8)]"
+                    strokeLinejoin="round"
                   />
-                  <circle cx="10" cy="90" r="2" fill="currentColor" />
-                  <circle cx="30" cy="70" r="2" fill="currentColor" />
-                  <circle cx="50" cy="80" r="2" fill="currentColor" />
-                  <circle cx="70" cy="40" r="2" fill="currentColor" />
-                  <circle cx="90" cy="20" r="2" fill="#39FF14" className="animate-pulse" />
 
-                  {/* Grid lines */}
-                  <line x1="10" y1="10" x2="10" y2="90" stroke="white" strokeWidth="0.2" opacity="0.3" />
-                  <line x1="10" y1="90" x2="90" y2="90" stroke="white" strokeWidth="0.2" opacity="0.3" />
+                  {/* Data points */}
+                  {[[10, 90], [30, 70], [50, 80], [70, 40]].map(([cx, cy], i) => (
+                    <circle key={i} cx={cx} cy={cy} r="2" fill="#00D1FF" />
+                  ))}
+
+                  {/* Live endpoint */}
+                  <circle cx="90" cy="20" r="2.5" fill="#f62727">
+                    <animate attributeName="opacity" values="1;0.4;1" dur="1.4s" repeatCount="indefinite" />
+                  </circle>
+                  <circle cx="90" cy="20" r="5" fill="none" stroke="#f62727" strokeWidth="0.6" opacity="0.5">
+                    <animate attributeName="r" values="5;9;5" dur="1.4s" repeatCount="indefinite" />
+                    <animate attributeName="opacity" values="0.5;0;0.5" dur="1.4s" repeatCount="indefinite" />
+                  </circle>
                 </svg>
-                {/* Floating scanline */}
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/10 to-transparent h-[20%] w-full animate-scan" style={{ top: '-100%' }}></div>
+
+                {/* Scanline sweep */}
+                <div
+                  className="absolute inset-x-0 h-[22%] pointer-events-none"
+                  style={{
+                    background:
+                      'linear-gradient(180deg, transparent 0%, rgba(0,209,255,0.06) 50%, transparent 100%)',
+                    animation: 'scanSweep 3.5s linear infinite',
+                    top: '-22%',
+                  }}
+                />
               </div>
             </div>
 
           </div>
         </div>
       </div>
+
+      <style>{`
+        @keyframes scanSweep {
+          0%   { top: -22%; }
+          100% { top: 100%; }
+        }
+      `}</style>
     </section>
   )
 }
@@ -285,10 +460,17 @@ function SolutionsGridSection() {
                 </p>
 
                 {/* Stat chip */}
-                <div className="inline-flex items-center gap-2 mt-6 px-3 py-1 self-start"
-                  style={{ border: `1px solid ${accentColor}25`, background: `${accentColor}08`, fontFamily: "'Share Tech Mono', monospace", fontSize: '10px', letterSpacing: '2px', color: `${accentColor}B0` }}>
-                  <div className="w-1.5 h-1.5 rounded-full blink-dot" style={{ background: accentColor }} />
-                  {item.stat}
+                <div className="flex items-center justify-between mt-auto pt-6">
+                  <div className="inline-flex items-center gap-2 px-3 py-1"
+                    style={{ border: `1px solid ${accentColor}25`, background: `${accentColor}08`, fontFamily: "'Share Tech Mono', monospace", fontSize: '10px', letterSpacing: '2px', color: `${accentColor}B0` }}>
+                    <div className="w-1.5 h-1.5 rounded-full blink-dot" style={{ background: accentColor }} />
+                    {item.stat}
+                  </div>
+                  
+                  <div className="flex items-center gap-2 text-[10px] font-bold tracking-[0.2em] transition-all group-hover:gap-4" style={{ color: accentColor, fontFamily: "'Roboto Mono', monospace" }}>
+                    EXPLORE_NODE
+                    <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                  </div>
                 </div>
 
                 {/* Bottom bar */}
@@ -303,122 +485,147 @@ function SolutionsGridSection() {
   )
 }
 
-// Feature Showcase Section Component
-function FeatureShowcaseSection() {
+// Success Gallery Section Component (Redesigned from Case Files)
+function SuccessGallery() {
   const features = [
     {
-      tag: "CASE.01 // REAL ESTATE INTELLIGENCE",
+      tag: "STRATEGIC // REAL ESTATE AI",
       title: "BRAIN FOR A BILLION-DOLLAR PORTFOLIO",
-      description: "Architected a centralized data warehouse and custom ML models to predict asset performance and tenant churn. A total operational command system.",
+      description: "We architected a centralized data warehouse and custom machine learning models to predict asset performance and tenant churn with surgical precision. A total operational command system for modern real estate moguls.",
       metrics: [
-        { val: "75%", label: "PROCESSING REDUCTION" },
-        { val: "94%", label: "PREDICTION ACCURACY", green: true }
+        { val: "75%", label: "PROCESSING REDUCE", color: "text-blue-400" },
+        { val: "94%", label: "PREDICTION ACCURACY", color: "text-emerald-400" }
       ],
       client: "Baresght",
-      badge: "PORTFOLIO INTELLIGENCE",
-      align: "left"
-    },
-    {
-      tag: "CASE.02 // FINTECH PERSONALIZATION",
-      title: "HYPER-PERSONALIZED FINANCIAL DASHBOARD",
-      description: "Engineered a cutting-edge financial dashboard with AI-powered personalization and real-time analytics. User behaviour rewired at the product level.",
-      metrics: [
-        { val: "60%", label: "CHURN REDUCTION" },
-        { val: "35%", label: "DAU INCREASE", green: true }
-      ],
-      client: "Savvy App",
-      badge: "FINTECH DASHBOARD",
+      image: "/case-studies/real_estate.png",
       align: "right"
     },
     {
-      tag: "CASE.03 // SEMANTIC INFRASTRUCTURE",
-      title: "AI-POWERED SEMANTIC SEARCH ENGINE",
-      description: "Built enterprise-grade semantic search infrastructure processing millions of complex queries with sub-100ms response. Language as a search medium.",
+      tag: "FINTECH // HYPER-PERSONALIZATION",
+      title: "REDEFINING THE DIGITAL WALLET EXPERIENCE",
+      description: "Engineered a cutting-edge financial dashboard using AI-powered behavioral analytics. We rewired user engagement at the product level, creating a hyper-personalized journey for millions of active traders.",
       metrics: [
-        { val: "10M+", label: "DAILY QUERIES" },
-        { val: "<100ms", label: "QUERY RESPONSE", green: true }
+        { val: "60%", label: "CHURN REDUCTION", color: "text-blue-400" },
+        { val: "35%", label: "DAU INCREASE", color: "text-emerald-400" }
+      ],
+      client: "Savvy App",
+      image: "/case-studies/fintech.png",
+      align: "left"
+    },
+    {
+      tag: "INFRASTRUCTURE // SEMANTIC SEARCH",
+      title: "SUB-100MS SEMANTIC INTELLIGENCE",
+      description: "Built enterprise-grade semantic search infrastructure processing millions of complex queries. By leveraging language as a search medium, we achieved sub-100ms response times for a global user base.",
+      metrics: [
+        { val: "10M+", label: "DAILY QUERIES", color: "text-blue-400" },
+        { val: "<100ms", label: "LATENCY", color: "text-emerald-400" }
       ],
       client: "Splore",
-      badge: "SEMANTIC SEARCH ENGINE",
-      align: "left"
+      image: "/case-studies/semantic.png",
+      align: "right"
     }
   ]
 
   return (
-    <section className="relative bg-[#050508] pb-24">
-
-      {/* Section label */}
-      <div className="flex items-center justify-center gap-6 mb-16 px-8">
-        <div className="flex-1 max-w-[200px] h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.08))' }} />
-        <span style={{ fontFamily: "'Orbitron', sans-serif", fontSize: '0.8rem', letterSpacing: '0.2em', color: 'rgba(255,255,255,0.25)' }}>CASE FILES</span>
-        <div className="flex-1 max-w-[200px] h-px" style={{ background: 'linear-gradient(-90deg, transparent, rgba(255,255,255,0.08))' }} />
+    <section className="relative bg-[#050508] py-32 overflow-hidden">
+      {/* Decorative background label */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 opacity-[0.02] pointer-events-none whitespace-nowrap select-none">
+        <span className="text-[20vw] font-black font-heading tracking-tighter">SUCCESS</span>
       </div>
 
-      {features.map((feature, i) => {
-        const isLeft = feature.align === 'left'
-        const ContentBlock = (
-          <div key="content" className="relative overflow-hidden p-14"
-            style={{ background: 'rgba(8,12,22,0.8)', border: '1px solid rgba(0,209,255,0.12)' }}>
-            {/* Top line */}
-            <div className="absolute top-0 left-0 right-0 h-px opacity-40"
-              style={{ background: 'linear-gradient(90deg, transparent, #00D1FF, transparent)' }} />
-            <div style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: '10px', letterSpacing: '4px', color: '#00D1FF', opacity: 0.6, marginBottom: '18px' }}>
-              {feature.tag}
-            </div>
-            <h3 className="text-white mb-5" style={{ fontFamily: "'Orbitron', sans-serif", fontSize: 'clamp(0.85rem,1.4vw,1rem)', fontWeight: 700, letterSpacing: '0.1em', lineHeight: 1.5 }}>
-              {feature.title}
-            </h3>
-            <p style={{ fontFamily: "'Rajdhani', sans-serif", fontSize: '0.92rem', color: 'rgba(180,210,240,0.6)', lineHeight: 1.8, fontWeight: 300 }}>
-              {feature.description}
-            </p>
-            <div className="flex gap-8 mt-9">
-              {feature.metrics.map((m, mi) => (
-                <div key={mi} className="flex flex-col gap-1">
-                  <span style={{ fontFamily: "'Orbitron', sans-serif", fontSize: '1.5rem', fontWeight: 900, color: m.green ? '#00FF88' : '#00D1FF', lineHeight: 1 }}>
-                    {m.val}
-                  </span>
-                  <span style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: '9px', letterSpacing: '3px', color: 'rgba(255,255,255,0.3)' }}>
-                    {m.label}
-                  </span>
+      <div className="container-custom relative z-10">
+        {/* Section Header */}
+        <div className="flex flex-col items-center mb-24">
+          <div className="flex items-center gap-4 mb-6">
+            <div className="w-12 h-px bg-gradient-to-r from-transparent to-blue-500" />
+            <span className="text-blue-400 font-bold tracking-[0.4em] uppercase text-xs">Proven Impact</span>
+            <div className="w-12 h-px bg-gradient-to-l from-transparent to-blue-500" />
+          </div>
+          <h2 className="text-4xl md:text-6xl font-black font-heading text-center text-white mb-6 uppercase tracking-tight">
+            Success <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">Stories</span>
+          </h2>
+          <p className="text-gray-500 text-center max-w-xl font-light tracking-wide uppercase text-sm">
+            Deconstructing complex business challenges into elegant digital victories.
+          </p>
+        </div>
+
+        {/* Gallery Grid */}
+        <div className="flex flex-col gap-32">
+          {features.map((item, i) => (
+            <motion.div 
+              key={i}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className={cn(
+                "flex flex-col lg:items-center gap-12 lg:gap-20",
+                item.align === 'left' ? "lg:flex-row-reverse" : "lg:flex-row"
+              )}
+            >
+              {/* Visual Side */}
+              <div className="flex-1 relative group">
+                <div className="absolute -inset-4 bg-blue-500/10 rounded-[2rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                <div className="relative aspect-[4/3] rounded-[2rem] overflow-hidden border border-white/10 bg-white/5">
+                  <img 
+                    src={item.image} 
+                    alt={item.title}
+                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                  />
+                  {/* Overlay Gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#050508] via-transparent to-transparent opacity-60" />
+                  
+                  {/* Floating ID Tag */}
+                  <div className="absolute top-6 left-6 px-4 py-2 rounded-xl bg-black/60 backdrop-blur-md border border-white/10 font-mono text-[10px] tracking-widest text-blue-400">
+                    PRJ_ID: {i + 1} // ACTIVE
+                  </div>
                 </div>
-              ))}
-            </div>
-          </div>
-        )
-
-        const VisualBlock = (
-          <div key="visual" className="relative flex items-center justify-center overflow-hidden"
-            style={{ background: 'rgba(4,8,18,0.95)', border: '1px solid rgba(0,209,255,0.1)', minHeight: '320px' }}>
-            {/* Radar rings */}
-            {[60, 120, 200, 300].map((size, ri) => (
-              <div key={ri} className="radar-ring absolute"
-                style={{ width: size, height: size, animationDelay: `${-ri}s` }} />
-            ))}
-            {/* Brackets */}
-            {[
-              { top: '16px', left: '16px', borderTop: '1.5px solid rgba(0,209,255,0.5)', borderLeft: '1.5px solid rgba(0,209,255,0.5)' },
-              { top: '16px', right: '16px', borderTop: '1.5px solid rgba(0,209,255,0.5)', borderRight: '1.5px solid rgba(0,209,255,0.5)' },
-              { bottom: '16px', left: '16px', borderBottom: '1.5px solid rgba(0,209,255,0.5)', borderLeft: '1.5px solid rgba(0,209,255,0.5)' },
-              { bottom: '16px', right: '16px', borderBottom: '1.5px solid rgba(0,209,255,0.5)', borderRight: '1.5px solid rgba(0,209,255,0.5)' },
-            ].map((s, bi) => <div key={bi} className="absolute w-8 h-8" style={s} />)}
-            <div className="relative z-10 text-center">
-              <div style={{ fontFamily: "'Orbitron', sans-serif", fontSize: 'clamp(1.4rem,3vw,2rem)', fontWeight: 900, color: 'rgba(255,255,255,0.07)', letterSpacing: '0.2em', textTransform: 'uppercase' }}>
-                {feature.client}
               </div>
-              <div className="inline-block mt-4 px-4 py-1.5"
-                style={{ border: '1px solid rgba(0,209,255,0.25)', fontFamily: "'Share Tech Mono', monospace", fontSize: '10px', letterSpacing: '3px', color: 'rgba(0,209,255,0.5)' }}>
-                {feature.badge}
-              </div>
-            </div>
-          </div>
-        )
 
-        return (
-          <div key={i} className="grid grid-cols-2 mb-px" style={{ opacity: 1 }}>
-            {isLeft ? [ContentBlock, VisualBlock] : [VisualBlock, ContentBlock]}
-          </div>
-        )
-      })}
+              {/* Content Side */}
+              <div className="flex-1">
+                <div className="flex flex-col gap-6">
+                  <span className="text-emerald-400 font-bold tracking-[0.3em] uppercase text-[10px] border-l-2 border-emerald-500 pl-4">
+                    {item.tag}
+                  </span>
+                  <h3 className="text-3xl md:text-4xl font-bold font-heading text-white leading-tight uppercase tracking-tight">
+                    {item.title}
+                  </h3>
+                  <p className="text-gray-400 text-lg leading-relaxed font-light">
+                    {item.description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-12 mt-4">
+                    {item.metrics.map((m, mi) => (
+                      <div key={mi} className="flex flex-col">
+                        <span className={cn("text-4xl font-black font-heading mb-1", m.color)}>
+                          {m.val}
+                        </span>
+                        <span className="text-[10px] uppercase tracking-widest text-gray-600 font-bold">
+                          {m.label}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="mt-8 pt-8 border-t border-white/5 flex items-center justify-between">
+                    <span className="text-white/20 font-bold tracking-[0.2em] text-xs uppercase">
+                      Client: <span className="text-white/40">{item.client}</span>
+                    </span>
+                    <motion.button
+                      whileHover={{ x: 10 }}
+                      className="flex items-center gap-3 text-blue-400 font-bold text-sm uppercase tracking-widest group"
+                    >
+                      Analyze Case
+                      <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                    </motion.button>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
     </section>
   )
 }
@@ -458,9 +665,9 @@ function StatsSection() {
                 <div className="text-[10px] font-mono tracking-[0.3em] text-white opacity-60 mb-4 uppercase">
                   {stat.label}
                 </div>
-                <div className="text-text-secondary text-sm leading-relaxed font-light">
+                <p className="text-text-secondary text-sm leading-relaxed font-light">
                   {stat.description}
-                </div>
+                </p>
               </div>
             </div>
           ))}
@@ -544,9 +751,25 @@ function FuturisticContactSection() {
               </div>
               <button
                 type="submit"
-                className="w-full btn-futuristic mt-8"
+                className="group relative w-full h-14 mt-8 overflow-hidden transition-all duration-500 active:scale-95"
               >
-                SUBMIT_TRANSMISSION
+                {/* Neon core background */}
+                <div className="absolute inset-0 bg-[#00D1FF] transition-all duration-500 group-hover:bg-[#00FF88]" />
+                
+                {/* Shimmer sweep effect */}
+                <div className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/40 to-transparent" />
+                
+                {/* Border line */}
+                <div className="absolute inset-[1px] border border-black/10 group-hover:border-white/20 transition-colors" />
+
+                <span className="relative z-10 flex items-center justify-center gap-3 text-black text-[12px] font-bold tracking-[0.4em] uppercase">
+                  SUBMIT_TRANSMISSION
+                  <Zap className="w-3.5 h-3.5 group-hover:animate-pulse" />
+                </span>
+
+                {/* Corner highlights */}
+                <div className="absolute top-0 right-0 w-2 h-2 bg-white/30 rotate-45 translate-x-1 -translate-y-1" />
+                <div className="absolute bottom-0 left-0 w-2 h-2 bg-black/20 rotate-45 -translate-x-1 translate-y-1" />
               </button>
             </form>
           </div>
@@ -566,7 +789,7 @@ export default function HomePage() {
       <TrustedBySection />
       <SolutionsGridSection />
       <StatsSection />
-      <FeatureShowcaseSection />
+      <SuccessGallery />
       <FuturisticContactSection />
       <Footer />
     </main>

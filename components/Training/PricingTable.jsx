@@ -22,7 +22,7 @@ const features = [
   },
   {
     icon: Users,
-    text: 'Job Placement Assistance',
+    text: 'Dedicated Career Support',
     description: 'Career support & interview preparation',
   },
   {
@@ -32,7 +32,7 @@ const features = [
   },
   {
     icon: Shield,
-    text: '15-Day Money Back Guarantee',
+    text: '15-Day Satisfaction Period',
     description: 'Risk-free enrollment with full refund',
   },
 ]
@@ -77,7 +77,7 @@ export default function PricingTable() {
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#243A73] to-[#243A73]/60">Investment That Pays</span>
             <span style={{ WebkitTextStroke: '1.5px rgba(36, 58, 115, 0.8)', color: 'transparent' }}>Back 10X</span>
           </h2>
-          <p className="text-base sm:text-lg text-[#243A73]/70 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-[#243A73]/70 max-w-2xl mx-auto" style={{ textShadow: 'none' }}>
             One-time payment. Lifetime skills. Unlimited earning potential.
           </p>
         </motion.div>
@@ -133,7 +133,7 @@ export default function PricingTable() {
                           {feature.text}
                           <Check className="text-[#F9C74F] opacity-0 group-hover:opacity-100 transition-opacity hidden sm:block" size={16} />
                         </h4>
-                        <p className="text-xs sm:text-sm text-[#243A73]/60">{feature.description}</p>
+                        <p className="text-xs sm:text-sm text-[#243A73]/60" style={{ textShadow: 'none' }}>{feature.description}</p>
                       </div>
                     </div>
                   </motion.div>
@@ -180,7 +180,7 @@ export default function PricingTable() {
                     <p className="text-[#F9C74F] font-semibold mt-2 text-base sm:text-lg">
                       Save ₹20,000 • 40% OFF
                     </p>
-                    <p className="text-[#243A73]/60 text-xs sm:text-sm mt-1">One-time payment • No hidden fees</p>
+                    <p className="text-[#243A73]/60 text-xs sm:text-sm mt-1" style={{ textShadow: 'none' }}>One-time payment • No hidden fees</p>
                   </div>
 
                   {/* Right: Batch Info */}
@@ -217,7 +217,7 @@ export default function PricingTable() {
                   </motion.a>
 
                   <p className="text-center text-[#243A73]/60 text-xs sm:text-sm">
-                    ✨ Join 500+ successful students • 4.9/5 rating • 90% job placement rate
+                    ✨ Join 500+ successful students • 4.9/5 rating • Proven career growth tracks
                   </p>
                 </div>
               </div>

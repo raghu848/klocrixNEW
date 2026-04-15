@@ -251,16 +251,13 @@ export default function Footer() {
                 {/* Cyber Return to Top Button */}
                 <button
                   onClick={scrollToTop}
-                  className="mt-8 group relative w-full h-10 flex items-center justify-center text-[#00D1FF] overflow-hidden transition-all hover:scale-[1.02] active:scale-95 shadow-[0_0_10px_rgba(0,209,255,0.05)] hover:shadow-[0_0_15px_rgba(0,209,255,0.2)]"
-                  style={{ background: 'rgba(0,209,255,0.05)', border: '1px solid rgba(0,209,255,0.3)', clipPath: 'polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px)' }}
+                  className="mt-8 group relative w-16 h-16 mx-auto flex items-center justify-center transition-all bg-transparent border border-[#00D1FF]/30 rounded-full hover:border-[#00D1FF] active:scale-90"
                 >
-                  <div className="absolute inset-0 bg-[#00D1FF]/10 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300" />
-                  <div className="relative z-10 flex items-center gap-2" style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: '10px', letterSpacing: '2px' }}>
-                    <ArrowUp className="w-3 h-3 group-hover:-translate-y-0.5 transition-transform" />
-                    INIT_SCROLL_TOP
-                  </div>
-                  <div className="absolute top-0 right-0 w-1.5 h-1.5 border-l border-b border-[#00D1FF] opacity-50" />
-                  <div className="absolute bottom-0 left-0 w-1.5 h-1.5 border-r border-t border-[#00D1FF] opacity-50" />
+                  <div className="absolute inset-0 bg-[#00D1FF]/5 group-hover:bg-[#00D1FF] scale-0 group-hover:scale-100 rounded-full transition-transform duration-500" />
+                  <ArrowUp className="w-5 h-5 text-[#00D1FF] group-hover:text-black transition-all duration-300 relative z-10" />
+                  
+                  {/* Rotating outer ring segment */}
+                  <div className="absolute inset-[-4px] border-t border-r border-transparent group-hover:border-[#00D1FF]/40 rounded-full animate-[spin_3s_linear_infinite]" />
                 </button>
               </div>
             </div>

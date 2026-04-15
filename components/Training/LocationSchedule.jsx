@@ -19,7 +19,7 @@ export default function LocationSchedule() {
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#243A73] to-[#243A73]/60">Convenient for</span>
             <span style={{ WebkitTextStroke: '1.5px rgba(36, 58, 115, 0.8)', color: 'transparent' }}>Tricity Students</span>
           </h2>
-          <p className="text-xl text-[#243A73]/70">
+          <p className="text-xl text-[#243A73]/70" style={{ textShadow: 'none' }}>
             Easy to reach from Chandigarh, Mohali, and Zirakpur
           </p>
         </motion.div>
@@ -43,7 +43,7 @@ export default function LocationSchedule() {
               <p className="text-lg text-[#243A73] font-semibold">
                 📍 Industrial Area, Phase 8, Mohali
               </p>
-              <p className="text-[#243A73]/70">
+              <p className="text-[#243A73]/70" style={{ textShadow: 'none' }}>
                 5 mins from Chandigarh, 20 mins from Zirakpur
               </p>
               <div className="flex items-center gap-2 text-[#243A73]/70 mt-4">
@@ -70,11 +70,11 @@ export default function LocationSchedule() {
             <div className="space-y-4">
               <div className="bg-[#FAF7F2] p-4 rounded-xl border border-[#4CAF50]/20">
                 <p className="font-semibold text-[#243A73] mb-2">⏰ Mon-Fri | 7-10 PM</p>
-                <p className="text-[#243A73]/70 text-sm">Perfect for Working Professionals</p>
+                <p className="text-[#243A73]/70 text-sm" style={{ textShadow: 'none' }}>Perfect for Working Professionals</p>
               </div>
               <div className="bg-[#FAF7F2] p-4 rounded-xl border border-[#4CAF50]/20">
                 <p className="font-semibold text-[#243A73] mb-2">⏰ Mon-Fri | 4-7 PM</p>
-                <p className="text-[#243A73]/70 text-sm">Ideal for Students</p>
+                <p className="text-[#243A73]/70 text-sm" style={{ textShadow: 'none' }}>Ideal for Students</p>
               </div>
               <div className="flex items-center gap-2 text-[#243A73]/70 mt-4">
                 <Users size={20} />
