@@ -75,24 +75,24 @@ export default function Footer() {
   }
 
   return (
-    <footer className="relative z-10 bg-[#050508] border-t border-[#00D1FF]/20 pt-24 pb-12 overflow-hidden">
+    <footer className="relative z-10 bg-[#050508] border-t border-[#10CEE4]/20 pt-24 pb-12 overflow-hidden">
       <style dangerouslySetInnerHTML={{
         __html: `
         @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap');
         .cyber-link { position: relative; transition: all 0.3s ease; }
-        .cyber-link::before { content: '>'; position: absolute; left: -16px; opacity: 0; color: #00D1FF; font-family: 'Share Tech Mono', monospace; transition: all 0.3s ease; transform: translateX(-5px); }
+        .cyber-link::before { content: '>'; position: absolute; left: -16px; opacity: 0; color: #10CEE4; font-family: 'Share Tech Mono', monospace; transition: all 0.3s ease; transform: translateX(-5px); }
         .cyber-link:hover::before { opacity: 1; transform: translateX(0); }
-        .cyber-link:hover { color: #00D1FF; text-shadow: 0 0 8px rgba(0,209,255,0.6); transform: translateX(4px); }
-        @keyframes pulse-dot { 0%, 100% { opacity: 1; box-shadow: 0 0 8px #00D1FF; } 50% { opacity: 0.4; box-shadow: 0 0 2px #00D1FF; } }
+        .cyber-link:hover { color: #10CEE4; text-shadow: 0 0 8px rgba(16,206,228,0.6); transform: translateX(4px); }
+        @keyframes pulse-dot { 0%, 100% { opacity: 1; box-shadow: 0 0 8px #10CEE4; } 50% { opacity: 0.4; box-shadow: 0 0 2px #10CEE4; } }
         .animate-pulse-dot { animation: pulse-dot 2s infinite; }
-        .footer-bg-sweep { background: linear-gradient(90deg, transparent, rgba(0,209,255,0.05), transparent); background-size: 200% 100%; animation: sweep 8s linear infinite; }
+        .footer-bg-sweep { background: linear-gradient(90deg, transparent, rgba(16,206,228,0.05), transparent); background-size: 200% 100%; animation: sweep 8s linear infinite; }
       ` }} />
 
       {/* Futuristic Grid Background */}
       <div
         className="absolute inset-0 opacity-[0.03] pointer-events-none"
         style={{
-          backgroundImage: `linear-gradient(#00D1FF 1px, transparent 1px), linear-gradient(90deg, #00D1FF 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(#10CEE4 1px, transparent 1px), linear-gradient(90deg, #10CEE4 1px, transparent 1px)`,
           backgroundSize: '40px 40px'
         }}
       />
@@ -101,23 +101,23 @@ export default function Footer() {
       <div className="absolute top-0 left-0 w-full h-[1px] footer-bg-sweep mix-blend-screen" />
 
       {/* Floating Orbs (Subtle) */}
-      <div className="absolute top-1/4 right-0 w-96 h-96 bg-[#00D1FF]/5 blur-[120px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-[#00FF88]/3 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/4 right-0 w-96 h-96 bg-[#10CEE4]/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-[#10CEE4]/3 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="container-custom relative z-10 px-6 lg:px-12 max-w-[1400px]">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 mb-20">
 
           {/* Company Info - Data Fortress Block */}
           <div className="lg:col-span-4 relative group">
-            <div className="absolute -inset-0.5 bg-gradient-to-br from-[#00D1FF]/10 to-[#00FF88]/5 opacity-50 blur-md group-hover:opacity-100 transition duration-500"></div>
-            <div className="relative h-full bg-[#0A0E1C]/90 backdrop-blur-xl border border-[#00D1FF]/20 p-8 lg:p-10 flex flex-col"
+            <div className="absolute -inset-0.5 bg-gradient-to-br from-[#10CEE4]/10 to-[#10CEE4]/5 opacity-50 blur-md group-hover:opacity-100 transition duration-500"></div>
+            <div className="relative h-full bg-[#0A0E1C]/90 backdrop-blur-xl border border-[#10CEE4]/20 p-8 lg:p-10 flex flex-col"
               style={{ clipPath: 'polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 24px 100%, 0 calc(100% - 24px))' }}>
 
-              <Link href="/" className="inline-block mb-10 group/logo">
+              <Link href="/" className="inline-block mb-10 group/logo ml-4">
                 <img
-                  src="/Rectangle 1.png"
+                  src="/case-studies/Asset 2.png"
                   alt="Klocrix Logo"
-                  className="h-10 md:h-12 w-auto object-contain transition-transform duration-500 group-hover/logo:scale-[1.03]"
+                  className="h-20 md:h-28 w-auto object-contain transition-transform duration-500 group-hover/logo:scale-[1.03]"
                 />
               </Link>
 
@@ -128,7 +128,7 @@ export default function Footer() {
               </div>
 
               <div className="flex gap-4 items-center">
-                <span style={{ fontFamily: "'Share Tech Mono', monospace" }} className="text-[#00D1FF]/50 text-[10px] tracking-[0.2em] mr-2">LINK_NET:</span>
+                <span style={{ fontFamily: "'Share Tech Mono', monospace" }} className="text-[#10CEE4]/50 text-[10px] tracking-[0.2em] mr-2">LINK_NET:</span>
                 {socialLinks.map((social) => {
                   const Icon = social.icon
                   return (
@@ -137,11 +137,11 @@ export default function Footer() {
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="relative w-10 h-10 flex items-center justify-center text-[#00D1FF]/70 transition-colors duration-300 overflow-hidden group/social"
-                      style={{ border: '1px solid rgba(0,209,255,0.2)', clipPath: 'polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px)' }}
+                      className="relative w-10 h-10 flex items-center justify-center text-[#10CEE4]/70 transition-colors duration-300 overflow-hidden group/social"
+                      style={{ border: '1px solid rgba(16,206,228,0.2)', clipPath: 'polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px)' }}
                     >
-                      <div className="absolute inset-0 bg-[#00D1FF]/10 translate-y-[100%] group-hover/social:translate-y-0 transition-transform duration-300" />
-                      <Icon className="w-4 h-4 relative z-10 group-hover/social:text-[#00FF88] transition-colors" />
+                      <div className="absolute inset-0 bg-[#10CEE4]/10 translate-y-[100%] group-hover/social:translate-y-0 transition-transform duration-300" />
+                      <Icon className="w-4 h-4 relative z-10 group-hover/social:text-[#10CEE4] transition-colors" />
                     </a>
                   )
                 })}
@@ -155,7 +155,7 @@ export default function Footer() {
             {/* COMPANY */}
             <div>
               <div className="flex items-center gap-2 mb-8">
-                <div className="w-1.5 h-1.5 rounded-full bg-[#00D1FF] animate-pulse-dot" />
+                <div className="w-1.5 h-1.5 rounded-full bg-[#10CEE4] animate-pulse-dot" />
                 <h3 style={{ fontFamily: "'Share Tech Mono', monospace" }} className="text-xs tracking-[0.3em] text-white uppercase">
                   /COMPANY
                 </h3>
@@ -178,7 +178,7 @@ export default function Footer() {
             {/* SERVICES */}
             <div>
               <div className="flex items-center gap-2 mb-8">
-                <div className="w-1.5 h-1.5 rounded-full bg-[#00FF88] animate-pulse" />
+                <div className="w-1.5 h-1.5 rounded-full bg-[#10CEE4] animate-pulse" />
                 <h3 style={{ fontFamily: "'Share Tech Mono', monospace" }} className="text-xs tracking-[0.3em] text-white uppercase">
                   /SERVICES
                 </h3>
@@ -201,7 +201,7 @@ export default function Footer() {
             {/* RESOURCES */}
             <div>
               <div className="flex items-center gap-2 mb-8">
-                <div className="w-1.5 h-1.5 rounded-full bg-[#00D1FF] animate-pulse-dot" />
+                <div className="w-1.5 h-1.5 rounded-full bg-[#10CEE4] animate-pulse-dot" />
                 <h3 style={{ fontFamily: "'Share Tech Mono', monospace" }} className="text-xs tracking-[0.3em] text-white uppercase">
                   /RESOURCES
                 </h3>
@@ -224,7 +224,7 @@ export default function Footer() {
             {/* CONTACT */}
             <div>
               <div className="flex items-center gap-2 mb-8">
-                <div className="w-1 h-3 bg-[#00D1FF]" />
+                <div className="w-1 h-3 bg-[#10CEE4]" />
                 <h3 style={{ fontFamily: "'Share Tech Mono', monospace" }} className="text-xs tracking-[0.3em] text-white uppercase">
                   /CONTACT
                 </h3>
@@ -232,12 +232,12 @@ export default function Footer() {
               <div className="space-y-6">
                 {contactInfo.slice(2).map((contact) => (
                   <div key={contact.title} className="group/contact">
-                    <div style={{ fontFamily: "'Share Tech Mono', monospace" }} className="text-[10px] text-[#00D1FF]/60 mb-1.5 uppercase tracking-widest flex items-center gap-1.5">
-                      <ChevronRight className="w-3 h-3 text-[#00D1FF] opacity-0 group-hover/contact:opacity-100 transition-opacity -ml-4 absolute" />
+                    <div style={{ fontFamily: "'Share Tech Mono', monospace" }} className="text-[10px] text-[#10CEE4]/60 mb-1.5 uppercase tracking-widest flex items-center gap-1.5">
+                      <ChevronRight className="w-3 h-3 text-[#10CEE4] opacity-0 group-hover/contact:opacity-100 transition-opacity -ml-4 absolute" />
                       [{contact.title}]
                     </div>
                     {contact.href ? (
-                      <a href={contact.href} style={{ fontFamily: "'Rajdhani', sans-serif" }} className="text-[1.05rem] text-[#E0E5EC] hover:text-[#00FF88] transition-colors font-medium block">
+                      <a href={contact.href} style={{ fontFamily: "'Rajdhani', sans-serif" }} className="text-[1.05rem] text-[#E0E5EC] hover:text-[#10CEE4] transition-colors font-medium block">
                         {contact.content}
                       </a>
                     ) : (
@@ -251,13 +251,13 @@ export default function Footer() {
                 {/* Cyber Return to Top Button */}
                 <button
                   onClick={scrollToTop}
-                  className="mt-8 group relative w-16 h-16 mx-auto flex items-center justify-center transition-all bg-transparent border border-[#00D1FF]/30 rounded-full hover:border-[#00D1FF] active:scale-90"
+                  className="mt-8 group relative w-16 h-16 mx-auto flex items-center justify-center transition-all bg-transparent border border-[#10CEE4]/30 rounded-full hover:border-[#10CEE4] active:scale-90"
                 >
-                  <div className="absolute inset-0 bg-[#00D1FF]/5 group-hover:bg-[#00D1FF] scale-0 group-hover:scale-100 rounded-full transition-transform duration-500" />
-                  <ArrowUp className="w-5 h-5 text-[#00D1FF] group-hover:text-black transition-all duration-300 relative z-10" />
+                  <div className="absolute inset-0 bg-[#10CEE4]/5 group-hover:bg-[#10CEE4] scale-0 group-hover:scale-100 rounded-full transition-transform duration-500" />
+                  <ArrowUp className="w-5 h-5 text-[#10CEE4] group-hover:text-black transition-all duration-300 relative z-10" />
                   
                   {/* Rotating outer ring segment */}
-                  <div className="absolute inset-[-4px] border-t border-r border-transparent group-hover:border-[#00D1FF]/40 rounded-full animate-[spin_3s_linear_infinite]" />
+                  <div className="absolute inset-[-4px] border-t border-r border-transparent group-hover:border-[#10CEE4]/40 rounded-full animate-[spin_3s_linear_infinite]" />
                 </button>
               </div>
             </div>
@@ -268,19 +268,19 @@ export default function Footer() {
         {/* Bottom Bar - Data Stream */}
         <div className="border-t border-[#00D1FF]/20 pt-8 mt-8 relative">
           {/* Subtle glowing center highlight on border */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-px bg-gradient-to-r from-transparent via-[#00D1FF]/50 to-transparent" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-px bg-gradient-to-r from-transparent via-[#10CEE4]/50 to-transparent" />
 
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div style={{ fontFamily: "'Share Tech Mono', monospace" }} className="text-[10px] text-[#00D1FF]/50 uppercase tracking-[0.2em] relative">
+            <div style={{ fontFamily: "'Share Tech Mono', monospace" }} className="text-[10px] text-[#10CEE4]/50 uppercase tracking-[0.2em] relative">
               © {new Date().getFullYear()} KLOCRIX_B_S_P_LTD_ // ALL_RIGHTS_RESERVED
             </div>
 
             <div className="flex items-center space-x-6">
-              <div style={{ fontFamily: "'Share Tech Mono', monospace" }} className="flex items-center space-x-2 text-[10px] text-[#00FF88] tracking-widest border border-[#00FF88]/20 bg-[#00FF88]/5 px-3 py-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#00FF88] shadow-[0_0_5px_#00FF88] animate-pulse"></span>
+              <div style={{ fontFamily: "'Share Tech Mono', monospace" }} className="flex items-center space-x-2 text-[10px] text-[#10CEE4] tracking-widest border border-[#10CEE4]/20 bg-[#10CEE4]/5 px-3 py-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#10CEE4] shadow-[0_0_5px_#10CEE4] animate-pulse"></span>
                 <span>STATUS: ONLINE</span>
               </div>
-              <div style={{ fontFamily: "'Share Tech Mono', monospace" }} className="text-[10px] text-[#00D1FF]/50 tracking-widest hidden sm:block">
+              <div style={{ fontFamily: "'Share Tech Mono', monospace" }} className="text-[10px] text-[#10CEE4]/50 tracking-widest hidden sm:block">
                 GEO_LOC: [MOHALI_IN] [LUTON_UK]
               </div>
             </div>

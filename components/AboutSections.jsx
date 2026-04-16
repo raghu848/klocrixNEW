@@ -117,7 +117,7 @@ export function MissionVisionSection() {
       icon: Target,
       title: "Our Mission",
       description: "To arm ambitious businesses with the definitive technological advantage by fusing relentless innovation with proven expertise.",
-      gradient: "from-blue-500 to-cyan-500"
+      gradient: "from-[#10CEE4] to-cyan-500"
     },
     {
       icon: Eye,

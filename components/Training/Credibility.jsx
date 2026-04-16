@@ -71,7 +71,7 @@ export default function Credibility() {
               <motion.div
                 key={index}
                 variants={fadeInUp}
-                className="flex items-center gap-3 bg-[#FAF7F2] px-6 py-4 rounded-2xl shadow-lg border border-[#4CAF50]/30"
+                className="flex items-center gap-3 bg-[#FAF7F2] px-6 py-4 rounded-2xl shadow-lg border border-[#10CEE4]/30"
               >
                 <Icon className="text-[#F9C74F]" size={24} />
                 <span className="font-semibold text-[#243A73]">{marker.text}</span>
@@ -93,7 +93,7 @@ export default function Credibility() {
               key={index}
               variants={fadeInUp}
               whileHover={{ y: -8, scale: 1.02 }}
-              className="bg-[#FAF7F2] p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all border border-[#4CAF50]/20"
+              className="bg-[#FAF7F2] p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all border border-[#10CEE4]/20"
             >
               <div className="flex items-center gap-1 mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (

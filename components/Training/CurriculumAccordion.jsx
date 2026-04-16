@@ -90,7 +90,7 @@ export default function CurriculumAccordion() {
               whileInView="animate"
               viewport={{ once: true }}
               variants={fadeInUp}
-              className="bg-[#FAF7F2] rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow border border-[#4CAF50]/20"
+              className="bg-[#FAF7F2] rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow border border-[#10CEE4]/20"
             >
               <button
                 onClick={() => setOpenModule(openModule === module.id ? null : module.id)}

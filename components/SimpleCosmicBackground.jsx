@@ -41,8 +41,8 @@ export default function SimpleCosmicBackground() {
         className="absolute inset-0 opacity-[0.05]"
         style={{
           backgroundImage: `
-            linear-gradient(to right, #00D1FF 1px, transparent 1px),
-            linear-gradient(to bottom, #00D1FF 1px, transparent 1px)
+            linear-gradient(to right, #10CEE4 1px, transparent 1px),
+            linear-gradient(to bottom, #10CEE4 1px, transparent 1px)
           `,
           backgroundSize: '80px 80px',
         }}
@@ -54,7 +54,7 @@ export default function SimpleCosmicBackground() {
         style={{
           opacity: 'var(--opacity, 0)',
           background: `
-            radial-gradient(600px circle at var(--mouse-x, 0) var(--mouse-y, 0), rgba(0, 209, 255, 0.12), transparent 40%)
+            radial-gradient(600px circle at var(--mouse-x, 0) var(--mouse-y, 0), rgba(16, 206, 228, 0.12), transparent 40%)
           `
         }}
       />
@@ -65,8 +65,8 @@ export default function SimpleCosmicBackground() {
         style={{
           opacity: 'var(--opacity, 0)',
           backgroundImage: `
-            linear-gradient(to right, rgba(0, 209, 255, 0.5) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(0, 209, 255, 0.5) 1px, transparent 1px)
+            linear-gradient(to right, rgba(16, 206, 228, 0.5) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(16, 206, 228, 0.5) 1px, transparent 1px)
           `,
           backgroundSize: '80px 80px',
           maskImage: 'radial-gradient(400px circle at var(--mouse-x, 0) var(--mouse-y, 0), black, transparent)',
@@ -83,7 +83,7 @@ export default function SimpleCosmicBackground() {
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
-              boxShadow: '0 0 10px #00D1FF, 0 0 20px #00D1FF',
+              boxShadow: '0 0 10px #10CEE4, 0 0 20px #10CEE4',
               opacity: 0.1 + Math.random() * 0.3,
               animation: `float ${5 + Math.random() * 10}s infinite ease-in-out`,
               animationDelay: `${Math.random() * 5}s`

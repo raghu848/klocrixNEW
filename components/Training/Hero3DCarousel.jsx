@@ -24,7 +24,7 @@ const features = [
     icon: TrendingUp,
     title: 'Job Ready',
     description: '90% Practical Training → JOB READY',
-    gradient: 'from-[#00ff88] to-[#00cc6a]',
+    gradient: 'from-[#10CEE4] to-[#0A8DA2]',
     stats: 'Hands-on',
   },
 ]
@@ -43,7 +43,7 @@ const skills = [
 const floatingKeywords = [
   { text: 'SEO', color: '#00d4ff' },
   { text: 'PPC', color: '#F9C74F' },
-  { text: 'Analytics', color: '#00ff88' },
+  { text: 'Analytics', color: '#10CEE4' },
   { text: 'Content', color: '#ff6b9d' },
   { text: 'Social', color: '#00d4ff' },
   { text: 'ROI', color: '#FFC300' },
@@ -51,7 +51,7 @@ const floatingKeywords = [
 
 // Enhanced Logical Background Component
 function LogicalBackground() {
-  const bitstreamColors = ['text-blue-400', 'text-cyan-400', 'text-purple-400', 'text-emerald-400']
+  const bitstreamColors = ['text-blue-400', 'text-cyan-400', 'text-purple-400', 'text-[#10CEE4]']
   const keywords = ['AI_MODEL_v2.1', 'NEURAL_LINK_ACTIVE', 'DATA_STREAM_ROI', 'ALGO_SYNC_01', 'GROWTH_PROTOCOL']
 
   return (
@@ -136,9 +136,9 @@ function LogicalBackground() {
       <motion.div 
         animate={{ top: ['-20%', '120%'] }}
         transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
-        className="absolute left-0 w-full h-[4px] bg-gradient-to-r from-transparent via-cyan-500/30 to-transparent z-1 blur-[1px]"
+        className="absolute left-0 w-full h-[4px] bg-gradient-to-r from-transparent via-[#10CEE4]/30 to-transparent z-1 blur-[1px]"
       >
-        <div className="w-full h-full bg-cyan-400/10" />
+        <div className="w-full h-full bg-[#10CEE4]/10" />
       </motion.div>
     </div>
   )
@@ -149,7 +149,7 @@ function JourneyPath() {
   const steps = [
     { label: 'Learn', icon: BookOpen, color: 'text-blue-400' },
     { label: 'Implement', icon: Target, color: 'text-amber-400' },
-    { label: 'Succeed', icon: TrendingUp, color: 'text-emerald-400' },
+    { label: 'Succeed', icon: TrendingUp, color: 'text-[#10CEE4]' },
   ]
 
   return (
@@ -229,7 +229,7 @@ export default function HeroSimple() {
             className="flex items-center justify-center gap-2 mb-6"
           >
             <div className="h-[1px] w-8 bg-blue-500/50" />
-            <span className="text-blue-400 font-bold tracking-[0.3em] uppercase text-xs">Industry Standard Training</span>
+            <span className="text-[#10CEE4] font-bold tracking-[0.3em] uppercase text-xs">Industry Standard Training</span>
             <div className="h-[1px] w-8 bg-blue-500/50" />
           </motion.div>
 
@@ -239,7 +239,7 @@ export default function HeroSimple() {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="text-6xl md:text-8xl font-heading font-black mb-10 leading-[1] tracking-tight text-white uppercase"
           >
-            Master <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">Digital Marketing</span>
+            Master <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#10CEE4] to-[#10CEE4]/60">Digital Marketing</span>
           </motion.h1>
 
           <motion.p
@@ -298,7 +298,7 @@ export default function HeroSimple() {
               <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-6 shadow-xl`}>
                 <feature.icon className="text-white" size={24} />
               </div>
-              <div className="text-emerald-400 text-sm font-bold mb-2 flex items-center gap-2">
+              <div className="text-[#10CEE4] text-sm font-bold mb-2 flex items-center gap-2">
                 <Star size={14} fill="currentColor" />
                 {feature.stats}
               </div>

@@ -64,9 +64,9 @@ export default function Header() {
           left: 0;
           width: 0%;
           height: 1px;
-          background: #00D1FF;
+          background: #10CEE4;
           transition: width 0.3s ease;
-          box-shadow: 0 0 8px #00D1FF;
+          box-shadow: 0 0 8px #10CEE4;
         }
         .nav-link-hover:hover::after, .nav-link-active::after {
           width: 100%;
@@ -78,7 +78,7 @@ export default function Header() {
           content: 'KLOCRIX';
           position: absolute;
           left: 2px;
-          text-shadow: -1px 0 #00D1FF;
+          text-shadow: -1px 0 #10CEE4;
           top: 0;
           color: white;
           background: transparent;
@@ -104,25 +104,25 @@ export default function Header() {
           position: absolute;
           width: 8px;
           height: 8px;
-          border: 1px solid #00D1FF;
+          border: 1px solid #10CEE4;
         }
       ` }} />
       <header className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
         isScrolled
-          ? "py-2 bg-[#050508]/85 backdrop-blur-xl border-b border-[rgba(0,209,255,0.15)] shadow-[0_4px_30px_rgba(0,0,0,0.5)]"
+          ? "py-2 bg-[#050508]/85 backdrop-blur-xl border-b border-[rgba(16,206,228,0.15)] shadow-[0_4px_30px_rgba(0,0,0,0.5)]"
           : "py-6 bg-transparent"
       )}>
-        <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#00D1FF]/30 to-transparent" />
+        <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#10CEE4]/30 to-transparent" />
 
         <div className="max-w-[1400px] mx-auto px-6 flex items-center justify-between">
 
           {/* Logo Section */}
-          <Link href="/" className="relative z-50 flex items-center group">
+          <Link href="/" className="relative z-50 flex items-center group ml-4 md:ml-8">
             <img
-              src="/Rectangle 1.png"
+              src="/case-studies/Asset 2.png"
               alt="Klocrix Logo"
-              className="h-10 md:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.03]"
+              className="h-12 md:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.03]"
             />
           </Link>
 
@@ -139,23 +139,23 @@ export default function Header() {
                     >
                       <span className={cn(
                         "text-[15px] tracking-[0.1em] transition-colors nav-link-hover",
-                        isActive ? "text-[#00D1FF] nav-link-active" : "text-gray-300 hover:text-white"
+                        isActive ? "text-[#10CEE4] nav-link-active" : "text-gray-300 hover:text-white"
                       )} style={{ fontFamily: "'Rajdhani', sans-serif", fontWeight: 600, textTransform: 'uppercase' }}>
                         {item.name}
                       </span>
-                      <ChevronDown className={cn("w-3.5 h-3.5 text-gray-400 transition-transform duration-300", activeDropdown === index ? "rotate-180 text-[#00D1FF]" : "")} />
+                      <ChevronDown className={cn("w-3.5 h-3.5 text-gray-400 transition-transform duration-300", activeDropdown === index ? "rotate-180 text-[#10CEE4]" : "")} />
                     </div>
                   ) : (
                     <Link
                       href={item.href}
                       className={cn(
                         "block py-2 text-[15px] tracking-[0.1em] transition-colors nav-link-hover relative",
-                        isActive ? "text-[#00D1FF] nav-link-active" : "text-gray-300 hover:text-white",
-                        item.highlight ? "text-[#00FF88] hover:text-[#00FF88]" : ""
+                        isActive ? "text-[#10CEE4] nav-link-active" : "text-gray-300 hover:text-white",
+                        item.highlight ? "text-[#10CEE4] hover:text-[#10CEE4]" : ""
                       )}
                       style={{ fontFamily: "'Rajdhani', sans-serif", fontWeight: 600, textTransform: 'uppercase' }}
                     >
-                      {item.highlight && <span className="absolute -top-1 -right-2 w-1.5 h-1.5 bg-[#00FF88] border border-black rounded-full animate-ping" />}
+                      {item.highlight && <span className="absolute -top-1 -right-2 w-1.5 h-1.5 bg-[#10CEE4] border border-black rounded-full animate-ping" />}
                       {item.name}
                     </Link>
                   )}
@@ -169,12 +169,12 @@ export default function Header() {
                           animate={{ opacity: 1, y: 0, rotateX: 0 }}
                           exit={{ opacity: 0, y: 10, rotateX: -10 }}
                           transition={{ duration: 0.2 }}
-                          className="absolute top-[calc(100%+15px)] left-1/2 -translate-x-1/2 w-64 bg-[#050508]/95 backdrop-blur-md border border-[rgba(0,209,255,0.2)] shadow-[0_10px_40px_rgba(0,209,255,0.15)] origin-top z-50 overflow-hidden"
+                          className="absolute top-[calc(100%+15px)] left-1/2 -translate-x-1/2 w-64 bg-[#050508]/95 backdrop-blur-md border border-[rgba(16,206,228,0.2)] shadow-[0_10px_40px_rgba(16,206,228,0.15)] origin-top z-50 overflow-hidden"
                         >
                           {/* Decorative header */}
                           <div className="bg-[rgba(0,209,255,0.05)] px-4 py-2 border-b border-[rgba(0,209,255,0.2)] flex items-center gap-2">
-                            <Terminal className="w-3 h-3 text-[#00D1FF]" />
-                            <span className="text-[#00D1FF] text-[9px] tracking-[0.2em] uppercase" style={{ fontFamily: "'Share Tech Mono', monospace" }}>Directory Access</span>
+                            <Terminal className="w-3 h-3 text-[#10CEE4]" />
+                            <span className="text-[#10CEE4] text-[9px] tracking-[0.2em] uppercase" style={{ fontFamily: "'Share Tech Mono', monospace" }}>Directory Access</span>
                           </div>
                           <div className="p-2 flex flex-col">
                             {item.submenu.map((subItem) => (
@@ -184,8 +184,8 @@ export default function Header() {
                                 className="group/sub block px-4 py-3 relative overflow-hidden"
                                 onClick={() => setActiveDropdown(null)}
                               >
-                                <div className="absolute inset-0 bg-gradient-to-r from-[rgba(0,209,255,0.1)] to-transparent opacity-0 translate-x-[-100%] transition-all duration-300 group-hover/sub:opacity-100 group-hover/sub:translate-x-0" />
-                                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-0 bg-[#00D1FF] transition-all duration-300 group-hover/sub:h-4" />
+                                <div className="absolute inset-0 bg-gradient-to-r from-[rgba(16,206,228,0.1)] to-transparent opacity-0 translate-x-[-100%] transition-all duration-300 group-hover/sub:opacity-100 group-hover/sub:translate-x-0" />
+                                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-0 bg-[#10CEE4] transition-all duration-300 group-hover/sub:h-4" />
                                 <span className="relative z-10 text-[13px] text-gray-300 group-hover/sub:text-white transition-colors" style={{ fontFamily: "'Rajdhani', sans-serif", fontWeight: 500, letterSpacing: '0.05em' }}>
                                   {subItem.name}
                                 </span>
@@ -208,19 +208,19 @@ export default function Header() {
               href="/contact"
               className="relative group px-8 py-3 overflow-hidden"
             >
-              <div className="absolute inset-0 border border-[#00D1FF]/30 transition-all duration-300 group-hover:border-[#00D1FF]" />
-              <div className="absolute inset-0 bg-[#00D1FF] translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-              <span className="relative z-10 text-[#00D1FF] group-hover:text-black text-[11px] font-bold tracking-[0.3em] uppercase transition-colors duration-300" style={{ fontFamily: "'Roboto Mono', monospace" }}>
+              <div className="absolute inset-0 border border-[#10CEE4]/30 transition-all duration-300 group-hover:border-[#10CEE4]" />
+              <div className="absolute inset-0 bg-[#10CEE4] translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+              <span className="relative z-10 text-[#10CEE4] group-hover:text-black text-[11px] font-bold tracking-[0.3em] uppercase transition-colors duration-300" style={{ fontFamily: "'Roboto Mono', monospace" }}>
                 INIT.PROJECT
               </span>
-              <div className="absolute -left-1 -top-1 w-2 h-2 bg-[#050505] rotate-45 border-r border-[#00D1FF]/40" />
-              <div className="absolute -right-1 -bottom-1 w-2 h-2 bg-[#050505] rotate-45 border-l border-[#00D1FF]/40" />
+              <div className="absolute -left-1 -top-1 w-2 h-2 bg-[#050505] rotate-45 border-r border-[#10CEE4]/40" />
+              <div className="absolute -right-1 -bottom-1 w-2 h-2 bg-[#050505] rotate-45 border-l border-[#10CEE4]/40" />
             </Link>
           </div>
 
           {/* Mobile Menu Toggle */}
           <button
-            className="lg:hidden relative z-50 p-2 text-white hover:text-[#00D1FF] transition-colors"
+            className="lg:hidden relative z-50 p-2 text-white hover:text-[#10CEE4] transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -235,10 +235,10 @@ export default function Header() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
-              className="absolute top-full left-0 w-full lg:hidden bg-[#050508]/95 backdrop-blur-xl border-b border-[rgba(0,209,255,0.2)] shadow-2xl h-[calc(100vh-80px)] overflow-y-auto"
+              className="absolute top-full left-0 w-full lg:hidden bg-[#050508]/95 backdrop-blur-xl border-b border-[rgba(16,206,228,0.2)] shadow-2xl h-[calc(100vh-80px)] overflow-y-auto"
             >
               <div className="px-6 py-8 flex flex-col gap-6">
-                <div className="text-[10px] text-[rgba(0,209,255,0.5)] tracking-[0.3em] font-mono border-b border-white/5 pb-2 mb-2">
+                <div className="text-[10px] text-[rgba(16,206,228,0.5)] tracking-[0.3em] font-mono border-b border-white/5 pb-2 mb-2">
                   // NAVIGATION_MATRIX
                 </div>
                 {navigation.map((item, index) => (
@@ -248,7 +248,7 @@ export default function Header() {
                         href={item.href}
                         className={cn(
                           "text-xl tracking-[0.1em] uppercase transition-colors",
-                          pathname === item.href ? "text-[#00D1FF]" : "text-gray-200"
+                          pathname === item.href ? "text-[#10CEE4]" : "text-gray-200"
                         )}
                         style={{ fontFamily: "'Orbitron', sans-serif", fontWeight: 700 }}
                         onClick={item.submenu ? undefined : closeMobileMenu}
@@ -260,7 +260,7 @@ export default function Header() {
                           className="p-2 text-gray-400 focus:outline-none"
                           onClick={() => handleDropdownToggle(index)}
                         >
-                          <ChevronDown className={cn("w-6 h-6 transition-transform", activeDropdown === index ? "rotate-180 text-[#00D1FF]" : "")} />
+                          <ChevronDown className={cn("w-6 h-6 transition-transform", activeDropdown === index ? "rotate-180 text-[#10CEE4]" : "")} />
                         </button>
                       )}
                     </div>
@@ -273,7 +273,7 @@ export default function Header() {
                             initial={{ height: 0, opacity: 0 }}
                             animate={{ height: 'auto', opacity: 1 }}
                             exit={{ height: 0, opacity: 0 }}
-                            className="overflow-hidden border-l-2 border-[#00D1FF]/30 ml-2 pl-4 mt-2 flex flex-col gap-4 py-2"
+                            className="overflow-hidden border-l-2 border-[#10CEE4]/30 ml-2 pl-4 mt-2 flex flex-col gap-4 py-2"
                           >
                             {item.submenu.map((subItem) => (
                               <Link
@@ -299,13 +299,13 @@ export default function Header() {
                     onClick={closeMobileMenu}
                     className="group relative w-full h-14 overflow-hidden flex items-center justify-center transition-all active:scale-95"
                   >
-                    <div className="absolute inset-0 border border-[#00D1FF]/30 transition-all group-hover:border-[#00D1FF]" />
-                    <div className="absolute inset-0 bg-[#00D1FF] translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-                    <span className="relative z-10 text-[#00D1FF] group-hover:text-black font-bold tracking-[0.3em] uppercase transition-colors duration-300 text-sm" style={{ fontFamily: "'Roboto Mono', monospace" }}>
+                    <div className="absolute inset-0 border border-[#10CEE4]/30 transition-all group-hover:border-[#10CEE4]" />
+                    <div className="absolute inset-0 bg-[#10CEE4] translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+                    <span className="relative z-10 text-[#10CEE4] group-hover:text-black font-bold tracking-[0.3em] uppercase transition-colors duration-300 text-sm" style={{ fontFamily: "'Roboto Mono', monospace" }}>
                       INITIATE_PROJECT
                     </span>
-                    <div className="absolute -left-1 -top-1 w-2.5 h-2.5 bg-[#050505] rotate-45 border-r border-[#00D1FF]/40" />
-                    <div className="absolute -right-1 -bottom-1 w-2.5 h-2.5 bg-[#050505] rotate-45 border-l border-[#00D1FF]/40" />
+                    <div className="absolute -left-1 -top-1 w-2.5 h-2.5 bg-[#050505] rotate-45 border-r border-[#10CEE4]/40" />
+                    <div className="absolute -right-1 -bottom-1 w-2.5 h-2.5 bg-[#050505] rotate-45 border-l border-[#10CEE4]/40" />
                   </Link>
                 </div>
               </div>

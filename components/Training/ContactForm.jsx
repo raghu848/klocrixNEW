@@ -225,7 +225,7 @@ export default function ContactForm() {
             </form>
 
             {/* Contact Info */}
-            <div className="mt-8 pt-6 border-t border-[#4CAF50]/10">
+            <div className="mt-8 pt-6 border-t border-[#10CEE4]/10">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-center">
                 <div className="bg-gradient-to-br from-[#F9C74F]/10 to-[#FFC300]/10 rounded-xl p-4">
                   <p className="font-semibold text-[#243A73]">WhatsApp</p>

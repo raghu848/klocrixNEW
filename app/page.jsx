@@ -24,7 +24,7 @@ function HeroSection() {
         className="pointer-events-none absolute inset-0 z-0"
         style={{
           backgroundImage:
-            'repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,209,255,0.015) 3px, rgba(0,209,255,0.015) 4px)',
+            'repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(16,206,228,0.015) 3px, rgba(16,206,228,0.015) 4px)',
         }}
       />
 
@@ -35,7 +35,7 @@ function HeroSection() {
           <h1 className="text-5xl md:text-7xl lg:text-8xl xl:text-[8rem] font-bold font-heading mb-6 leading-none tracking-tighter">
             <span
               className="block text-white"
-              style={{ textShadow: '0 0 60px rgba(0,209,255,0.25)' }}
+              style={{ textShadow: '0 0 60px rgba(16,206,228,0.25)' }}
             >
               BEYOND CODE.
             </span>
@@ -51,9 +51,9 @@ function HeroSection() {
             <span
               className="block text-5xl md:text-6xl lg:text-7xl xl:text-8xl mt-4"
               style={{
-                WebkitTextStroke: '1.5px rgba(0,209,255,0.75)',
+                WebkitTextStroke: '1.5px rgba(16,206,228,0.75)',
                 color: 'transparent',
-                textShadow: '0 0 35px rgba(0,209,255,0.2)',
+                textShadow: '0 0 35px rgba(16,206,228,0.2)',
               }}
             >
               ENGINEER DIGITAL DNA.
@@ -69,7 +69,7 @@ function HeroSection() {
             className="absolute -inset-px opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-none"
             style={{
               background:
-                'linear-gradient(135deg, rgba(0,209,255,0.4) 0%, transparent 40%, rgba(57,255,20,0.3) 100%)',
+                'linear-gradient(135deg, rgba(16,206,228,0.4) 0%, transparent 40%, rgba(16,206,228,0.3) 100%)',
               filter: 'blur(12px)',
             }}
           />
@@ -80,7 +80,7 @@ function HeroSection() {
             style={{
               background:
                 'linear-gradient(135deg, rgba(2,8,20,0.97) 0%, rgba(0,16,36,0.95) 100%)',
-              border: '1px solid rgba(0,209,255,0.18)',
+              border: '1px solid rgba(16,206,228,0.18)',
               boxShadow:
                 'inset 0 1px 0 rgba(255,255,255,0.04), 0 0 0 1px rgba(0,0,0,0.4), 0 40px 80px rgba(0,0,0,0.7)',
             }}
@@ -95,7 +95,7 @@ function HeroSection() {
               <span
                 key={i}
                 className={`absolute ${cls} w-5 h-5`}
-                style={{ borderColor: 'rgba(0,209,255,0.45)' }}
+                style={{ borderColor: 'rgba(16,206,228,0.45)' }}
               />
             ))}
 
@@ -106,7 +106,7 @@ function HeroSection() {
                 <span
                   className="text-transparent bg-clip-text"
                   style={{
-                    backgroundImage: 'linear-gradient(90deg, #00D1FF 0%, #f62727 100%)',
+                    backgroundImage: 'linear-gradient(90deg, #10CEE4 0%, #f62727 100%)',
                   }}
                 >
                   AI-DRIVEN SOLUTIONS
@@ -123,31 +123,31 @@ function HeroSection() {
               <div className="flex flex-col sm:flex-row gap-6 items-start sm:items-center">
                 <Link
                   href="/services"
-                  className="relative group px-12 py-5 overflow-hidden transition-all duration-500 hover:shadow-[0_0_40px_rgba(0,209,255,0.25)]"
+                  className="relative group px-12 py-5 overflow-hidden transition-all duration-500 hover:shadow-[0_0_40px_rgba(16,206,228,0.25)]"
                 >
                   {/* Subtle glass effect base */}
                   <div className="absolute inset-0 bg-white/5 backdrop-blur-sm" />
                   
                   {/* Neon border trace */}
-                  <div className="absolute inset-0 border border-[#00D1FF]/40 group-hover:border-[#00D1FF] transition-colors duration-500" />
+                  <div className="absolute inset-0 border border-[#10CEE4]/40 group-hover:border-[#10CEE4] transition-colors duration-500" />
                   
                   {/* Filling background */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#00D1FF]/20 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#10CEE4]/20 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out" />
                   
-                  <span className="relative z-10 flex items-center gap-4 text-[#00D1FF] text-[13px] font-bold tracking-[0.4em] uppercase transition-all duration-500 group-hover:gap-6">
+                  <span className="relative z-10 flex items-center gap-4 text-[#10CEE4] text-[13px] font-bold tracking-[0.4em] uppercase transition-all duration-500 group-hover:gap-6">
                     EXPLORE PLATFORM
                     <ArrowRight className="w-4 h-4 transition-transform duration-500 group-hover:translate-x-1" />
                   </span>
 
                   {/* Corner accents */}
-                  <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-[#00D1FF]" />
-                  <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-[#00D1FF]" />
+                  <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-[#10CEE4]" />
+                  <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-[#10CEE4]" />
                 </Link>
 
                 <div className="hidden sm:flex items-center space-x-2 font-mono text-xs tracking-widest text-white/25">
                   <span
                     className="w-8 h-px"
-                    style={{ background: 'rgba(0,209,255,0.4)' }}
+                    style={{ background: 'rgba(16,206,228,0.4)' }}
                   />
                   <span>SYSTEMONLINE: VERSION4.0</span>
                 </div>
@@ -160,8 +160,8 @@ function HeroSection() {
                 className="aspect-square relative p-4 flex items-center justify-center overflow-hidden"
                 style={{
                   background: 'rgba(0,8,20,0.7)',
-                  border: '1px solid rgba(0,209,255,0.1)',
-                  boxShadow: 'inset 0 0 50px rgba(0,209,255,0.03)',
+                  border: '1px solid rgba(16,206,228,0.1)',
+                  boxShadow: 'inset 0 0 50px rgba(16,206,228,0.03)',
                 }}
               >
                 {/* Corner ticks on chart */}
@@ -174,37 +174,37 @@ function HeroSection() {
                   <span
                     key={i}
                     className={`absolute ${cls} w-3 h-3`}
-                    style={{ borderColor: 'rgba(0,209,255,0.3)' }}
+                    style={{ borderColor: 'rgba(16,206,228,0.3)' }}
                   />
                 ))}
 
                 <svg
                   viewBox="0 0 100 100"
                   className="w-full h-full"
-                  style={{ filter: 'drop-shadow(0 0 8px rgba(0,209,255,0.4))' }}
+                  style={{ filter: 'drop-shadow(0 0 8px rgba(16,206,228,0.4))' }}
                 >
                   <defs>
                     <linearGradient id="lg1" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" stopColor="#00D1FF" />
+                      <stop offset="0%" stopColor="#10CEE4" />
                       <stop offset="100%" stopColor="#f62727" />
                     </linearGradient>
                     <linearGradient id="lg2" x1="0%" y1="0%" x2="0%" y2="100%">
-                      <stop offset="0%" stopColor="#00D1FF" stopOpacity="0.25" />
-                      <stop offset="100%" stopColor="#00D1FF" stopOpacity="0" />
+                      <stop offset="0%" stopColor="#10CEE4" stopOpacity="0.25" />
+                      <stop offset="100%" stopColor="#10CEE4" stopOpacity="0" />
                     </linearGradient>
                   </defs>
 
                   {/* Grid */}
                   {[25, 50, 75].map((v) => (
                     <g key={v}>
-                      <line x1="10" y1={v} x2="90" y2={v} stroke="rgba(0,209,255,0.07)" strokeWidth="0.5" />
-                      <line x1={v + 5} y1="10" x2={v + 5} y2="90" stroke="rgba(0,209,255,0.07)" strokeWidth="0.5" />
+                      <line x1="10" y1={v} x2="90" y2={v} stroke="rgba(16,206,228,0.07)" strokeWidth="0.5" />
+                      <line x1={v + 5} y1="10" x2={v + 5} y2="90" stroke="rgba(16,206,228,0.07)" strokeWidth="0.5" />
                     </g>
                   ))}
 
                   {/* Axes */}
-                  <line x1="10" y1="10" x2="10" y2="90" stroke="rgba(0,209,255,0.2)" strokeWidth="0.5" />
-                  <line x1="10" y1="90" x2="90" y2="90" stroke="rgba(0,209,255,0.2)" strokeWidth="0.5" />
+                  <line x1="10" y1="10" x2="10" y2="90" stroke="rgba(16,206,228,0.2)" strokeWidth="0.5" />
+                  <line x1="10" y1="90" x2="90" y2="90" stroke="rgba(16,206,228,0.2)" strokeWidth="0.5" />
 
                   {/* Area fill */}
                   <path
@@ -224,7 +224,7 @@ function HeroSection() {
 
                   {/* Data points */}
                   {[[10, 90], [30, 70], [50, 80], [70, 40]].map(([cx, cy], i) => (
-                    <circle key={i} cx={cx} cy={cy} r="2" fill="#00D1FF" />
+                    <circle key={i} cx={cx} cy={cy} r="2" fill="#10CEE4" />
                   ))}
 
                   {/* Live endpoint */}
@@ -242,7 +242,7 @@ function HeroSection() {
                   className="absolute inset-x-0 h-[22%] pointer-events-none"
                   style={{
                     background:
-                      'linear-gradient(180deg, transparent 0%, rgba(0,209,255,0.06) 50%, transparent 100%)',
+                      'linear-gradient(180deg, transparent 0%, rgba(16,206,228,0.06) 50%, transparent 100%)',
                     animation: 'scanSweep 3.5s linear infinite',
                     top: '-22%',
                   }}
@@ -302,7 +302,7 @@ function SolutionsGridSection() {
       description: "Elite-level strategy, design, development, and data science under one roof. This seamless integration eliminates miscommunication.",
       index: "SYS.02 // FULL_STACK",
       stat: "SYNC ENGAGED",
-      variant: "green"
+      variant: "cyan"
     },
     {
       icon: Zap,
@@ -318,7 +318,7 @@ function SolutionsGridSection() {
       description: "We are ruthlessly focused on your bottom line. Every feature is scrutinized: Will this drive value for your business?",
       index: "SYS.04 // ROI_ENGINE",
       stat: "RETURNS MAXIMIZED",
-      variant: "green"
+      variant: "cyan"
     }
   ]
 
@@ -335,17 +335,14 @@ function SolutionsGridSection() {
       <div
         className="absolute inset-0 opacity-100 pointer-events-none"
         style={{
-          backgroundImage: `linear-gradient(rgba(0,209,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,209,255,0.04) 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(rgba(16,206,228,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(16,206,228,0.04) 1px, transparent 1px)`,
           backgroundSize: '60px 60px',
           animation: 'gridShift 20s linear infinite'
         }}
       />
 
-      {/* Floating orbs */}
-      <div className="absolute -top-24 -right-24 w-[500px] h-[500px] rounded-full pointer-events-none"
-        style={{ background: 'rgba(0,209,255,0.07)', filter: 'blur(100px)', animation: 'orbFloat 12s ease-in-out infinite alternate' }} />
-      <div className="absolute -bottom-20 -left-16 w-[400px] h-[400px] rounded-full pointer-events-none"
-        style={{ background: 'rgba(0,255,136,0.06)', filter: 'blur(100px)', animation: 'orbFloat 12s ease-in-out infinite alternate-reverse' }} />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full pointer-events-none"
+        style={{ background: 'rgba(16,206,228,0.07)', filter: 'blur(100px)', animation: 'orbFloat 12s ease-in-out infinite alternate' }} />
 
       <style dangerouslySetInnerHTML={{
         __html: `
@@ -353,21 +350,21 @@ function SolutionsGridSection() {
         @keyframes gridShift { 0%{background-position:0 0} 100%{background-position:60px 60px} }
         @keyframes orbFloat { from{transform:translate(0,0) scale(1)} to{transform:translate(30px,20px) scale(1.1)} }
         @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.15} }
-        @keyframes pulse { 0%,100%{box-shadow:0 0 0 0 rgba(0,209,255,0.4)} 50%{box-shadow:0 0 0 6px rgba(0,209,255,0)} }
+        @keyframes pulse { 0%,100%{box-shadow:0 0 0 0 rgba(16,206,228,0.4)} 50%{box-shadow:0 0 0 6px rgba(16,206,228,0)} }
         @keyframes sweep { 0%{background-position:200% 0%} 100%{background-position:-200% 0%} }
         @keyframes radarExpand { 0%{opacity:0.6;transform:scale(0.8)} 100%{opacity:0;transform:scale(1.4)} }
         @keyframes glitch1 { 0%,90%,100%{transform:translate(0)} 92%{transform:translate(-3px,1px)} 96%{transform:translate(3px,-1px)} }
         @keyframes glitch2 { 0%,88%,100%{transform:translate(0)} 90%{transform:translate(3px,-2px)} 94%{transform:translate(-3px,2px)} }
         .glitch { position:relative; display:inline-block; }
         .glitch::before,.glitch::after { content:attr(data-text); position:absolute; top:0; left:0; width:100%; height:100%; }
-        .glitch::before { color:#00D1FF; text-shadow:-2px 0 #00D1FF; clip-path:polygon(0 30%,100% 30%,100% 50%,0 50%); animation:glitch1 4s infinite step-start; }
-        .glitch::after { color:#00FF88; text-shadow:2px 0 #00FF88; clip-path:polygon(0 60%,100% 60%,100% 75%,0 75%); animation:glitch2 4s infinite step-start; }
-        .card-sweep-cyan { background: linear-gradient(125deg,rgba(0,209,255,0) 40%,rgba(0,209,255,0.07) 60%,rgba(0,209,255,0) 80%); background-size:300% 300%; }
-        .card-sweep-green { background: linear-gradient(125deg,rgba(0,255,136,0) 40%,rgba(0,255,136,0.07) 60%,rgba(0,255,136,0) 80%); background-size:300% 300%; }
+        .glitch::before { color:#10CEE4; text-shadow:-2px 0 #10CEE4; clip-path:polygon(0 30%,100% 30%,100% 50%,0 50%); animation:glitch1 4s infinite step-start; }
+        .glitch::after { color:#10CEE4; text-shadow:2px 0 #10CEE4; clip-path:polygon(0 60%,100% 60%,100% 75%,0 75%); animation:glitch2 4s infinite step-start; }
+        .card-sweep-cyan { background: linear-gradient(125deg,rgba(16,206,228,0) 40%,rgba(16,206,228,0.07) 60%,rgba(16,206,228,0) 80%); background-size:300% 300%; }
+        .card-sweep-green { background: linear-gradient(125deg,rgba(16,206,228,0) 40%,rgba(16,206,228,0.07) 60%,rgba(16,206,228,0) 80%); background-size:300% 300%; }
         .card-hover-sweep:hover .sweep-layer { opacity:1; animation: sweep 1.8s linear infinite; }
         .blink-dot { animation: blink 1.4s step-start infinite; }
         .diamond-pulse { animation: pulse 2s ease-in-out infinite; }
-        .radar-ring { position:absolute; border-radius:50%; border:1px solid rgba(0,209,255,0.06); animation:radarExpand 4s linear infinite; }
+        .radar-ring { position:absolute; border-radius:50%; border:1px solid rgba(16,206,228,0.06); animation:radarExpand 4s linear infinite; }
       ` }} />
 
       <div className="relative z-10 w-full max-w-[1400px] mx-auto">
@@ -375,16 +372,16 @@ function SolutionsGridSection() {
         {/* Header */}
         <div className="text-center px-4 mb-20">
           <div className="flex items-center justify-center gap-4 mb-6">
-            <div className="w-16 h-px" style={{ background: 'linear-gradient(90deg, transparent, #00D1FF)' }} />
-            <span style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: '11px', letterSpacing: '4px', color: '#00D1FF', opacity: 0.7 }}>
+            <div className="w-16 h-px" style={{ background: 'linear-gradient(90deg, transparent, #10CEE4)' }} />
+            <span style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: '11px', letterSpacing: '4px', color: '#10CEE4', opacity: 0.7 }}>
               SYSTEM // KLOCRIX DIFFERENTIAL
             </span>
-            <div className="w-16 h-px" style={{ background: 'linear-gradient(-90deg, transparent, #00D1FF)' }} />
+            <div className="w-16 h-px" style={{ background: 'linear-gradient(-90deg, transparent, #10CEE4)' }} />
           </div>
 
           <h2 style={{ fontFamily: "'Orbitron', sans-serif", fontWeight: 900, fontSize: 'clamp(2.2rem,5vw,4.2rem)', letterSpacing: '0.05em', lineHeight: 1.05, marginBottom: '20px' }}>
             <span className="text-white glitch" data-text="FEELING">FEELING</span>{' '}
-            <span style={{ WebkitTextStroke: '1px rgba(0,209,255,0.7)', color: 'transparent' }}>THE GAP?</span>
+            <span style={{ WebkitTextStroke: '1px rgba(16,206,228,0.7)', color: 'transparent' }}>THE GAP?</span>
           </h2>
 
           <p style={{ fontFamily: "'Rajdhani', sans-serif", fontSize: '1.05rem', color: 'rgba(200,220,255,0.55)', letterSpacing: '0.06em', fontWeight: 300, maxWidth: '500px', margin: '0 auto 30px' }}>
@@ -393,11 +390,11 @@ function SolutionsGridSection() {
 
           {/* HUD divider */}
           <div className="flex items-center justify-center gap-3">
-            <div className="flex-1 max-w-[160px] h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(0,209,255,0.5))' }} />
-            <div className="w-1 h-1 rounded-full bg-[#00D1FF] opacity-50" />
-            <div className="w-2 h-2 border border-[#00D1FF] rotate-45 diamond-pulse" />
-            <div className="w-1 h-1 rounded-full bg-[#00D1FF] opacity-50" />
-            <div className="flex-1 max-w-[160px] h-px" style={{ background: 'linear-gradient(-90deg, transparent, rgba(0,209,255,0.5))' }} />
+            <div className="flex-1 max-w-[160px] h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(16,206,228,0.5))' }} />
+            <div className="w-1 h-1 rounded-full bg-[#10CEE4] opacity-50" />
+            <div className="w-2 h-2 border border-[#10CEE4] rotate-45 diamond-pulse" />
+            <div className="w-1 h-1 rounded-full bg-[#10CEE4] opacity-50" />
+            <div className="flex-1 max-w-[160px] h-px" style={{ background: 'linear-gradient(-90deg, transparent, rgba(16,206,228,0.5))' }} />
           </div>
         </div>
 
@@ -406,21 +403,21 @@ function SolutionsGridSection() {
           {solutions.map((item, index) => {
             const Icon = item.icon
             const isCyan = item.variant === 'cyan'
-            const accentColor = isCyan ? '#00D1FF' : '#00FF88'
+            const accentColor = isCyan ? '#10CEE4' : '#10CEE4'
             return (
               <div
                 key={index}
                 className="card-hover-sweep group w-full relative overflow-hidden flex flex-col p-8 sm:p-10"
                 style={{
                   background: 'rgba(10,14,28,0.92)',
-                  border: `1px solid ${isCyan ? 'rgba(0,209,255,0.18)' : 'rgba(0,255,136,0.15)'}`,
+                  border: `1px solid ${isCyan ? 'rgba(16,206,228,0.18)' : 'rgba(16,206,228,0.15)'}`,
                   clipPath: 'polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 22px 100%, 0 calc(100% - 22px))',
                   transition: 'transform 0.4s cubic-bezier(.2,.8,.3,1), border-color 0.3s',
                   cursor: 'pointer'
                 }}
                 onMouseEnter={e => {
                   e.currentTarget.style.transform = 'translateY(-8px) scale(1.02)'
-                  e.currentTarget.style.borderColor = isCyan ? 'rgba(0,209,255,0.45)' : 'rgba(0,255,136,0.45)'
+                  e.currentTarget.style.borderColor = isCyan ? 'rgba(16,206,228,0.45)' : 'rgba(16,206,228,0.45)'
                 }}
                 onMouseLeave={e => {
                   e.currentTarget.style.transform = ''
@@ -431,9 +428,9 @@ function SolutionsGridSection() {
                 <div className={cn("sweep-layer absolute inset-0 opacity-0 pointer-events-none transition-opacity", isCyan ? "card-sweep-cyan" : "card-sweep-green")} />
 
                 {/* Corner notches */}
-                <div className="absolute top-0 right-0 w-6 h-6 opacity-50"
+                <div className="absolute top-0 right-0 w-6 h-6 opacity-50 group-hover:opacity-100 transition-opacity"
                   style={{ borderLeft: `1px solid ${accentColor}`, borderBottom: `1px solid ${accentColor}` }} />
-                <div className="absolute bottom-0 left-0 w-6 h-6 opacity-50"
+                <div className="absolute bottom-0 left-0 w-6 h-6 opacity-50 group-hover:opacity-100 transition-opacity"
                   style={{ borderRight: `1px solid ${accentColor}`, borderTop: `1px solid ${accentColor}` }} />
 
                 {/* Index */}
@@ -493,8 +490,8 @@ function SuccessGallery() {
       title: "BRAIN FOR A BILLION-DOLLAR PORTFOLIO",
       description: "We architected a centralized data warehouse and custom machine learning models to predict asset performance and tenant churn with surgical precision. A total operational command system for modern real estate moguls.",
       metrics: [
-        { val: "75%", label: "PROCESSING REDUCE", color: "text-blue-400" },
-        { val: "94%", label: "PREDICTION ACCURACY", color: "text-emerald-400" }
+        { val: "75%", label: "PROCESSING REDUCE", color: "text-[#10CEE4]" },
+        { val: "94%", label: "PREDICTION ACCURACY", color: "text-[#10CEE4]" }
       ],
       client: "Baresght",
       image: "/case-studies/real_estate.png",
@@ -505,8 +502,8 @@ function SuccessGallery() {
       title: "REDEFINING THE DIGITAL WALLET EXPERIENCE",
       description: "Engineered a cutting-edge financial dashboard using AI-powered behavioral analytics. We rewired user engagement at the product level, creating a hyper-personalized journey for millions of active traders.",
       metrics: [
-        { val: "60%", label: "CHURN REDUCTION", color: "text-blue-400" },
-        { val: "35%", label: "DAU INCREASE", color: "text-emerald-400" }
+        { val: "60%", label: "CHURN REDUCTION", color: "text-[#10CEE4]" },
+        { val: "35%", label: "DAU INCREASE", color: "text-[#10CEE4]" }
       ],
       client: "Savvy App",
       image: "/case-studies/fintech.png",
@@ -517,8 +514,8 @@ function SuccessGallery() {
       title: "SUB-100MS SEMANTIC INTELLIGENCE",
       description: "Built enterprise-grade semantic search infrastructure processing millions of complex queries. By leveraging language as a search medium, we achieved sub-100ms response times for a global user base.",
       metrics: [
-        { val: "10M+", label: "DAILY QUERIES", color: "text-blue-400" },
-        { val: "<100ms", label: "LATENCY", color: "text-emerald-400" }
+        { val: "10M+", label: "DAILY QUERIES", color: "text-[#10CEE4]" },
+        { val: "<100ms", label: "LATENCY", color: "text-[#10CEE4]" }
       ],
       client: "Splore",
       image: "/case-studies/semantic.png",
@@ -537,12 +534,12 @@ function SuccessGallery() {
         {/* Section Header */}
         <div className="flex flex-col items-center mb-24">
           <div className="flex items-center gap-4 mb-6">
-            <div className="w-12 h-px bg-gradient-to-r from-transparent to-blue-500" />
-            <span className="text-blue-400 font-bold tracking-[0.4em] uppercase text-xs">Proven Impact</span>
-            <div className="w-12 h-px bg-gradient-to-l from-transparent to-blue-500" />
+            <div className="w-12 h-px bg-gradient-to-r from-transparent to-[#10CEE4]" />
+            <span className="text-[#10CEE4] font-bold tracking-[0.4em] uppercase text-xs">Proven Impact</span>
+            <div className="w-12 h-px bg-gradient-to-l from-transparent to-[#10CEE4]" />
           </div>
           <h2 className="text-4xl md:text-6xl font-black font-heading text-center text-white mb-6 uppercase tracking-tight">
-            Success <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">Stories</span>
+            Success <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#10CEE4] to-[#10CEE4]/60">Stories</span>
           </h2>
           <p className="text-gray-500 text-center max-w-xl font-light tracking-wide uppercase text-sm">
             Deconstructing complex business challenges into elegant digital victories.
@@ -565,7 +562,7 @@ function SuccessGallery() {
             >
               {/* Visual Side */}
               <div className="flex-1 relative group">
-                <div className="absolute -inset-4 bg-blue-500/10 rounded-[2rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                <div className="absolute -inset-4 bg-[#10CEE4]/10 rounded-[2rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                 <div className="relative aspect-[4/3] rounded-[2rem] overflow-hidden border border-white/10 bg-white/5">
                   <img 
                     src={item.image} 
@@ -576,7 +573,7 @@ function SuccessGallery() {
                   <div className="absolute inset-0 bg-gradient-to-t from-[#050508] via-transparent to-transparent opacity-60" />
                   
                   {/* Floating ID Tag */}
-                  <div className="absolute top-6 left-6 px-4 py-2 rounded-xl bg-black/60 backdrop-blur-md border border-white/10 font-mono text-[10px] tracking-widest text-blue-400">
+                  <div className="absolute top-6 left-6 px-4 py-2 rounded-xl bg-black/60 backdrop-blur-md border border-white/10 font-mono text-[10px] tracking-widest text-[#10CEE4]">
                     PRJ_ID: {i + 1} // ACTIVE
                   </div>
                 </div>
@@ -585,7 +582,7 @@ function SuccessGallery() {
               {/* Content Side */}
               <div className="flex-1">
                 <div className="flex flex-col gap-6">
-                  <span className="text-emerald-400 font-bold tracking-[0.3em] uppercase text-[10px] border-l-2 border-emerald-500 pl-4">
+                  <span className="text-[#10CEE4] font-bold tracking-[0.3em] uppercase text-[10px] border-l-2 border-[#10CEE4] pl-4">
                     {item.tag}
                   </span>
                   <h3 className="text-3xl md:text-4xl font-bold font-heading text-white leading-tight uppercase tracking-tight">
@@ -614,7 +611,7 @@ function SuccessGallery() {
                     </span>
                     <motion.button
                       whileHover={{ x: 10 }}
-                      className="flex items-center gap-3 text-blue-400 font-bold text-sm uppercase tracking-widest group"
+                      className="flex items-center gap-3 text-[#10CEE4] font-bold text-sm uppercase tracking-widest group"
                     >
                       Analyze Case
                       <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
@@ -683,7 +680,7 @@ function FuturisticContactSection() {
     <section className="relative py-32 md:py-48 mt-12 md:mt-24 overflow-hidden bg-[#050505]">
       {/* Vortex Background */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] h-[200%] bg-[radial-gradient(circle_at_center,_rgba(0,209,255,0.1)_0%,_transparent_70%)] animate-[spin_20s_linear_infinite]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] h-[200%] bg-[radial-gradient(circle_at_center,_rgba(16,206,228,0.1)_0%,_transparent_70%)] animate-[spin_20s_linear_infinite]" />
       </div>
 
       <div className="container-custom relative z-10 px-4">
@@ -754,7 +751,7 @@ function FuturisticContactSection() {
                 className="group relative w-full h-14 mt-8 overflow-hidden transition-all duration-500 active:scale-95"
               >
                 {/* Neon core background */}
-                <div className="absolute inset-0 bg-[#00D1FF] transition-all duration-500 group-hover:bg-[#00FF88]" />
+                <div className="absolute inset-0 bg-[#10CEE4] transition-all duration-500 group-hover:bg-[#10CEE4]/80" />
                 
                 {/* Shimmer sweep effect */}
                 <div className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/40 to-transparent" />
