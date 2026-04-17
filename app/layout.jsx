@@ -1,5 +1,5 @@
 import './globals.css'
-import { Inter, Poppins } from 'next/font/google'
+import { Inter, Poppins, Manrope } from 'next/font/google'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -11,6 +11,13 @@ const poppins = Poppins({
   weight: ['300', '400', '500', '600', '700', '800', '900'],
   subsets: ['latin'],
   variable: '--font-poppins',
+  display: 'swap',
+})
+
+const manrope = Manrope({
+  weight: ['400', '500', '600', '700', '800'],
+  subsets: ['latin'],
+  variable: '--font-manrope',
   display: 'swap',
 })
 
@@ -66,20 +73,23 @@ export const metadata = {
   },
 }
 
+import WhatsAppButton from '../components/WhatsAppButton'
+
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
+    <html lang="en" className={`${inter.variable} ${poppins.variable} ${manrope.variable}`}>
       <head>
         <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap" rel="stylesheet" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-        <meta name="theme-color" content="#0A0A0A" />
+        <meta name="theme-color" content="#0B1220" />
       </head>
-      <body className={`${inter.className} antialiased`}>
-        <div className="relative min-h-screen bg-background">
+      <body className={`${inter.className} antialiased text-text-secondary bg-background`}>
+        <div className="relative min-h-screen">
           {children}
+          <WhatsAppButton />
         </div>
       </body>
     </html>

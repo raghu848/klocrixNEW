@@ -8,24 +8,36 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        background: '#050505',
-        surface: '#0D0D0D',
-        primary: '#10CEE4',
-        accent: '#f62727',
-        'text-primary': '#FFFFFF',
-        'text-secondary': '#A0A0A0',
+        background: '#0B1220',
+        'background-secondary': '#111827',
+        surface: '#162033',
+        'surface-elevated': '#1B2940',
+        primary: {
+          DEFAULT: '#0B1220',
+          light: '#111827',
+          dark: '#0B1220',
+        },
+        accent: {
+          DEFAULT: '#0EA5E9', // Sky Blue
+          secondary: '#14B8A6', // Teal
+        },
+        secondary: '#64748B',
+        'text-primary': '#F8FAFC',
+        'text-secondary': '#D6DEE8',
+        'text-muted': '#94A3B8',
         'glass-border': 'rgba(255, 255, 255, 0.1)',
       },
       fontFamily: {
-        'heading': ['Rajdhani', 'sans-serif'],
+        'heading': ['Manrope', 'sans-serif'],
         'body': ['Inter', 'sans-serif'],
-        'mono': ['Roboto Mono', 'monospace'],
+        'mono': ['JetBrains Mono', 'monospace'],
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',
         'slide-up': 'slideUp 0.6s ease-out',
         'marquee': 'marquee 30s linear infinite',
         'shooting-star': 'shootingStar 3s linear infinite',
+        'text-shine': 'textShine 3s linear infinite',
       },
       keyframes: {
         fadeIn: {
@@ -46,10 +58,14 @@ module.exports = {
           '90%': { opacity: '1' },
           '100%': { transform: 'translateX(100vw) translateY(100vh)', opacity: '0' },
         },
+        textShine: {
+          '0%': { backgroundPosition: '200% center' },
+          '100%': { backgroundPosition: '-200% center' },
+        },
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'cosmic-gradient': 'linear-gradient(135deg, #0A0A0A 0%, #161616 50%, #0A0A0A 100%)',
+        'cosmic-gradient': 'linear-gradient(135deg, #111827 0%, #162033 50%, #0B1220 100%)',
       },
     },
   },

@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, ChevronDown, Terminal } from 'lucide-react'
+import { Menu, X, ChevronDown, ArrowRight } from 'lucide-react'
 import { cn } from '../lib/utils'
 
 const navigation = [
@@ -14,17 +14,17 @@ const navigation = [
     name: 'Services',
     href: '/services',
     submenu: [
-      { name: 'Custom Software Development', href: '/services#custom-software' },
-      { name: 'Data Science & Engineering', href: '/services/data-science' },
-      { name: 'Web & Mobile Development', href: '/services#web-mobile' },
-      { name: 'ERP Solutions', href: '/services#erp' },
-      { name: 'Digital Marketing', href: '/services#digital-marketing' },
-      { name: 'AWS Cloud Services', href: '/services#cloud' },
+      { name: 'Web Development', href: '/services#web-development' },
+      { name: 'App Development', href: '/services#app-development' },
+      { name: 'UI/UX Design', href: '/services#ui-ux' },
+      { name: 'Digital Transformation', href: '/services#digital' },
+      { name: 'Cloud Solutions', href: '/services#cloud' },
+      { name: 'Maintenance & Support', href: '/services#support' },
     ]
   },
-  { name: 'Our Work', href: '/work' },
-  { name: 'Contact', href: '/contact' },
+  { name: 'Work', href: '/work' },
   { name: 'Training', href: '/training', highlight: true },
+  { name: 'Contact', href: '/contact' },
 ]
 
 export default function Header() {
@@ -51,236 +51,139 @@ export default function Header() {
   }
 
   return (
-    <>
-      <style dangerouslySetInnerHTML={{
-        __html: `
-        .nav-link-hover {
-          position: relative;
-        }
-        .nav-link-hover::after {
-          content: '';
-          position: absolute;
-          bottom: -4px;
-          left: 0;
-          width: 0%;
-          height: 1px;
-          background: #10CEE4;
-          transition: width 0.3s ease;
-          box-shadow: 0 0 8px #10CEE4;
-        }
-        .nav-link-hover:hover::after, .nav-link-active::after {
-          width: 100%;
-        }
-        .glitch-logo {
-          position: relative;
-        }
-        .glitch-logo::after {
-          content: 'KLOCRIX';
-          position: absolute;
-          left: 2px;
-          text-shadow: -1px 0 #10CEE4;
-          top: 0;
-          color: white;
-          background: transparent;
-          overflow: hidden;
-          clip: rect(0, 900px, 0, 0); 
-          animation: noise-anim 2s infinite linear alternate-reverse;
-        }
-        @keyframes noise-anim {
-          0% { clip: rect(21px, 9999px, 12px, 0); }
-          5% { clip: rect(6px, 9999px, 20px, 0); }
-          10% { clip: rect(10px, 9999px, 8px, 0); }
-          15% { clip: rect(2px, 9999px, 2px, 0); }
-          20% { clip: rect(14px, 9999px, 8px, 0); }
-          25% { clip: rect(22px, 9999px, 5px, 0); }
-          30% { clip: rect(1px, 9999px, 11px, 0); }
-          35% { clip: rect(8px, 9999px, 2px, 0); }
-          40% { clip: rect(15px, 9999px, 10px, 0); }
-          45% { clip: rect(11px, 9999px, 14px, 0); }
-          50% { clip: rect(5px, 9999px, 19px, 0); }
-          55% { clip: rect(13px, 9999px, 6px, 0); }
-        }
-        .hud-border {
-          position: absolute;
-          width: 8px;
-          height: 8px;
-          border: 1px solid #10CEE4;
-        }
-      ` }} />
-      <header className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-        isScrolled
-          ? "py-2 bg-[#050508]/85 backdrop-blur-xl border-b border-[rgba(16,206,228,0.15)] shadow-[0_4px_30px_rgba(0,0,0,0.5)]"
-          : "py-6 bg-transparent"
-      )}>
-        <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#10CEE4]/30 to-transparent" />
+    <header className={cn(
+      'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
+      isScrolled
+        ? 'py-4 bg-[#0B1220]/80 backdrop-blur-md border-b border-white/10 shadow-sm'
+        : 'py-6 bg-transparent'
+    )}>
+      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+        <Link href="/" className="relative z-50 flex items-center group">
+          <img
+            src="/case-studies/Asset 2.png"
+            alt="Klocrix Logo"
+            className="h-10 md:h-12 w-auto object-contain transition-transform duration-300 brightness-0 invert"
+          />
+        </Link>
 
-        <div className="max-w-[1400px] mx-auto px-6 flex items-center justify-between">
-
-          {/* Logo Section */}
-          <Link href="/" className="relative z-50 flex items-center group ml-4 md:ml-8">
-            <img
-              src="/case-studies/Asset 2.png"
-              alt="Klocrix Logo"
-              className="h-12 md:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.03]"
-            />
-          </Link>
-
-          {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-8">
-            {navigation.map((item, index) => {
-              const isActive = pathname === item.href || pathname.startsWith(item.href + '/');
-              return (
-                <div key={item.name} className="relative group/nav">
-                  {item.submenu ? (
-                    <div
-                      className="flex items-center gap-1 cursor-pointer py-2"
-                      onClick={() => handleDropdownToggle(index)}
-                    >
-                      <span className={cn(
-                        "text-[15px] tracking-[0.1em] transition-colors nav-link-hover",
-                        isActive ? "text-[#10CEE4] nav-link-active" : "text-gray-300 hover:text-white"
-                      )} style={{ fontFamily: "'Rajdhani', sans-serif", fontWeight: 600, textTransform: 'uppercase' }}>
-                        {item.name}
-                      </span>
-                      <ChevronDown className={cn("w-3.5 h-3.5 text-gray-400 transition-transform duration-300", activeDropdown === index ? "rotate-180 text-[#10CEE4]" : "")} />
-                    </div>
-                  ) : (
-                    <Link
-                      href={item.href}
-                      className={cn(
-                        "block py-2 text-[15px] tracking-[0.1em] transition-colors nav-link-hover relative",
-                        isActive ? "text-[#10CEE4] nav-link-active" : "text-gray-300 hover:text-white",
-                        item.highlight ? "text-[#10CEE4] hover:text-[#10CEE4]" : ""
-                      )}
-                      style={{ fontFamily: "'Rajdhani', sans-serif", fontWeight: 600, textTransform: 'uppercase' }}
-                    >
-                      {item.highlight && <span className="absolute -top-1 -right-2 w-1.5 h-1.5 bg-[#10CEE4] border border-black rounded-full animate-ping" />}
+        <nav className="hidden lg:flex items-center gap-8">
+          {navigation.map((item, index) => {
+            const isActive = pathname === item.href || pathname.startsWith(item.href + '/')
+            return (
+              <div key={item.name} className="relative group">
+                {item.submenu ? (
+                  <div
+                    className="flex items-center gap-1 cursor-pointer py-2"
+                    onMouseEnter={() => setActiveDropdown(index)}
+                    onMouseLeave={() => setActiveDropdown(null)}
+                  >
+                    <span className={cn(
+                      'text-[15px] font-medium transition-colors',
+                      isActive ? 'text-white' : 'text-slate-300 hover:text-white'
+                    )}>
                       {item.name}
-                    </Link>
-                  )}
+                    </span>
+                    <ChevronDown className={cn('w-4 h-4 text-slate-400 transition-transform duration-300', activeDropdown === index ? 'rotate-180' : '')} />
 
-                  {/* Desktop Dropdown */}
-                  {item.submenu && (
                     <AnimatePresence>
                       {activeDropdown === index && (
                         <motion.div
-                          initial={{ opacity: 0, y: 15, rotateX: -10 }}
-                          animate={{ opacity: 1, y: 0, rotateX: 0 }}
-                          exit={{ opacity: 0, y: 10, rotateX: -10 }}
-                          transition={{ duration: 0.2 }}
-                          className="absolute top-[calc(100%+15px)] left-1/2 -translate-x-1/2 w-64 bg-[#050508]/95 backdrop-blur-md border border-[rgba(16,206,228,0.2)] shadow-[0_10px_40px_rgba(16,206,228,0.15)] origin-top z-50 overflow-hidden"
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: 10 }}
+                          className="absolute top-full left-0 w-64 pt-4"
                         >
-                          {/* Decorative header */}
-                          <div className="bg-[rgba(0,209,255,0.05)] px-4 py-2 border-b border-[rgba(0,209,255,0.2)] flex items-center gap-2">
-                            <Terminal className="w-3 h-3 text-[#10CEE4]" />
-                            <span className="text-[#10CEE4] text-[9px] tracking-[0.2em] uppercase" style={{ fontFamily: "'Share Tech Mono', monospace" }}>Directory Access</span>
-                          </div>
-                          <div className="p-2 flex flex-col">
+                          <div className="bg-surface rounded-xl shadow-xl border border-white/10 p-4 overflow-hidden">
                             {item.submenu.map((subItem) => (
                               <Link
                                 key={subItem.name}
                                 href={subItem.href}
-                                className="group/sub block px-4 py-3 relative overflow-hidden"
-                                onClick={() => setActiveDropdown(null)}
+                                className="block px-4 py-3 text-[14px] text-slate-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
                               >
-                                <div className="absolute inset-0 bg-gradient-to-r from-[rgba(16,206,228,0.1)] to-transparent opacity-0 translate-x-[-100%] transition-all duration-300 group-hover/sub:opacity-100 group-hover/sub:translate-x-0" />
-                                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-0 bg-[#10CEE4] transition-all duration-300 group-hover/sub:h-4" />
-                                <span className="relative z-10 text-[13px] text-gray-300 group-hover/sub:text-white transition-colors" style={{ fontFamily: "'Rajdhani', sans-serif", fontWeight: 500, letterSpacing: '0.05em' }}>
-                                  {subItem.name}
-                                </span>
+                                {subItem.name}
                               </Link>
                             ))}
                           </div>
                         </motion.div>
                       )}
                     </AnimatePresence>
-                  )}
-                </div>
-              );
-            })}
-          </nav>
+                  </div>
+                ) : item.highlight ? (
+                  <Link
+                    href={item.href}
+                    className={cn(
+                      'inline-flex items-center rounded-full px-4 py-2 text-[14px] font-semibold transition-all duration-300 border uppercase tracking-widest',
+                      isActive
+                        ? 'bg-accent text-white border-accent shadow-[0_0_20px_rgba(14,165,233,0.3)]'
+                        : 'bg-accent/10 text-accent border-accent/20 hover:bg-accent hover:text-white hover:border-accent'
+                    )}
+                  >
+                    {item.name}
+                  </Link>
+                ) : (
+                  <Link
+                    href={item.href}
+                    className={cn(
+                      'text-[15px] font-medium transition-colors py-2',
+                      isActive ? 'text-white' : 'text-slate-300 hover:text-white'
+                    )}
+                  >
+                    {item.name}
+                  </Link>
+                )}
+              </div>
+            )
+          })}
+        </nav>
 
-          {/* Desktop CTA / Terminal Login */}
-          <div className="hidden lg:flex items-center gap-6">
-            <div className="h-6 w-px bg-white/10" />
-            <Link
-              href="/contact"
-              className="relative group px-8 py-3 overflow-hidden"
-            >
-              <div className="absolute inset-0 border border-[#10CEE4]/30 transition-all duration-300 group-hover:border-[#10CEE4]" />
-              <div className="absolute inset-0 bg-[#10CEE4] translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-              <span className="relative z-10 text-[#10CEE4] group-hover:text-black text-[11px] font-bold tracking-[0.3em] uppercase transition-colors duration-300" style={{ fontFamily: "'Roboto Mono', monospace" }}>
-                INIT.PROJECT
-              </span>
-              <div className="absolute -left-1 -top-1 w-2 h-2 bg-[#050505] rotate-45 border-r border-[#10CEE4]/40" />
-              <div className="absolute -right-1 -bottom-1 w-2 h-2 bg-[#050505] rotate-45 border-l border-[#10CEE4]/40" />
-            </Link>
-          </div>
-
-          {/* Mobile Menu Toggle */}
-          <button
-            className="lg:hidden relative z-50 p-2 text-white hover:text-[#10CEE4] transition-colors"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
+        <div className="hidden lg:block">
+          <Link href="/contact" className="btn-primary flex items-center gap-2 text-sm px-6 py-2.5">
+            Book Consultation
+            <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
 
-        {/* Mobile Navigation Menu */}
-        <AnimatePresence>
-          {isMobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3 }}
-              className="absolute top-full left-0 w-full lg:hidden bg-[#050508]/95 backdrop-blur-xl border-b border-[rgba(16,206,228,0.2)] shadow-2xl h-[calc(100vh-80px)] overflow-y-auto"
-            >
-              <div className="px-6 py-8 flex flex-col gap-6">
-                <div className="text-[10px] text-[rgba(16,206,228,0.5)] tracking-[0.3em] font-mono border-b border-white/5 pb-2 mb-2">
-                  // NAVIGATION_MATRIX
-                </div>
-                {navigation.map((item, index) => (
-                  <div key={item.name} className="flex flex-col gap-2">
-                    <div className="flex items-center justify-between">
-                      <Link
-                        href={item.href}
-                        className={cn(
-                          "text-xl tracking-[0.1em] uppercase transition-colors",
-                          pathname === item.href ? "text-[#10CEE4]" : "text-gray-200"
-                        )}
-                        style={{ fontFamily: "'Orbitron', sans-serif", fontWeight: 700 }}
-                        onClick={item.submenu ? undefined : closeMobileMenu}
+        <button
+          className="lg:hidden p-2 text-slate-300 hover:text-white transition-colors"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        </button>
+      </div>
+
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="lg:hidden bg-[#0B1220] border-b border-white/10 overflow-hidden"
+          >
+            <div className="px-6 py-8 flex flex-col gap-6">
+              {navigation.map((item, index) => (
+                <div key={item.name}>
+                  {item.submenu ? (
+                    <div className="flex flex-col gap-4">
+                      <button
+                        className="flex items-center justify-between text-lg font-semibold text-white"
+                        onClick={() => handleDropdownToggle(index)}
                       >
                         {item.name}
-                      </Link>
-                      {item.submenu && (
-                        <button
-                          className="p-2 text-gray-400 focus:outline-none"
-                          onClick={() => handleDropdownToggle(index)}
-                        >
-                          <ChevronDown className={cn("w-6 h-6 transition-transform", activeDropdown === index ? "rotate-180 text-[#10CEE4]" : "")} />
-                        </button>
-                      )}
-                    </div>
-
-                    {/* Mobile Submenu Dropdown */}
-                    {item.submenu && (
+                        <ChevronDown className={cn('w-5 h-5 transition-transform text-slate-400', activeDropdown === index ? 'rotate-180' : '')} />
+                      </button>
                       <AnimatePresence>
                         {activeDropdown === index && (
                           <motion.div
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: 'auto', opacity: 1 }}
-                            exit={{ height: 0, opacity: 0 }}
-                            className="overflow-hidden border-l-2 border-[#10CEE4]/30 ml-2 pl-4 mt-2 flex flex-col gap-4 py-2"
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            exit={{ opacity: 0, height: 0 }}
+                            className="flex flex-col gap-3 pl-4 border-l-2 border-white/10"
                           >
                             {item.submenu.map((subItem) => (
                               <Link
                                 key={subItem.name}
                                 href={subItem.href}
-                                className="text-[14px] text-gray-400 hover:text-white tracking-[0.05em]"
-                                style={{ fontFamily: "'Rajdhani', sans-serif", fontWeight: 500 }}
+                                className="text-slate-300 hover:text-white transition-colors"
                                 onClick={closeMobileMenu}
                               >
                                 {subItem.name}
@@ -289,30 +192,34 @@ export default function Header() {
                           </motion.div>
                         )}
                       </AnimatePresence>
-                    )}
-                  </div>
-                ))}
-
-                <div className="mt-8 pt-8 border-t border-white/5">
-                  <Link
-                    href="/contact"
-                    onClick={closeMobileMenu}
-                    className="group relative w-full h-14 overflow-hidden flex items-center justify-center transition-all active:scale-95"
-                  >
-                    <div className="absolute inset-0 border border-[#10CEE4]/30 transition-all group-hover:border-[#10CEE4]" />
-                    <div className="absolute inset-0 bg-[#10CEE4] translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-                    <span className="relative z-10 text-[#10CEE4] group-hover:text-black font-bold tracking-[0.3em] uppercase transition-colors duration-300 text-sm" style={{ fontFamily: "'Roboto Mono', monospace" }}>
-                      INITIATE_PROJECT
-                    </span>
-                    <div className="absolute -left-1 -top-1 w-2.5 h-2.5 bg-[#050505] rotate-45 border-r border-[#10CEE4]/40" />
-                    <div className="absolute -right-1 -bottom-1 w-2.5 h-2.5 bg-[#050505] rotate-45 border-l border-[#10CEE4]/40" />
-                  </Link>
+                    </div>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      className={cn(
+                        'text-lg font-semibold transition-colors',
+                        item.highlight
+                          ? 'text-accent'
+                          : 'text-white hover:text-accent'
+                      )}
+                      onClick={closeMobileMenu}
+                    >
+                      {item.name}
+                    </Link>
+                  )}
                 </div>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </header>
-    </>
+              ))}
+              <Link
+                href="/contact"
+                className="btn-primary text-center py-4 mt-4"
+                onClick={closeMobileMenu}
+              >
+                Book Consultation
+              </Link>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </header>
   )
 }

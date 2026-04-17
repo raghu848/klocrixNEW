@@ -19,7 +19,6 @@ export default function AboutPage() {
       <OurStorySection />
       <MissionVisionSection />
       <WhyChooseUsSection />
-      <TeamSection />
       <CTASection />
       <Footer />
     </main>

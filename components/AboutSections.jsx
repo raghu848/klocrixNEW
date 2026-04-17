@@ -1,13 +1,13 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Target, Eye, Award, Users, Globe, TrendingUp } from 'lucide-react'
+import { Target, Eye, Award, Users, Globe, TrendingUp, CheckCircle } from 'lucide-react'
 import Link from 'next/link'
-import CosmicBackground from './SimpleCosmicBackground'
+import PremiumHero from './PremiumHero'
 
 // Animation variants
 const fadeInUp = {
-  hidden: { opacity: 1, y: 0 },
+  hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
     y: 0,
@@ -16,7 +16,7 @@ const fadeInUp = {
 }
 
 const staggerContainer = {
-  hidden: { opacity: 1 },
+  hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
@@ -26,82 +26,56 @@ const staggerContainer = {
   }
 }
 
-const scaleIn = {
-  hidden: { opacity: 1, scale: 1 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: { duration: 0.5, ease: "easeOut" }
-  }
-}
-
 // Hero Section
 export function AboutHero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <CosmicBackground />
-
-      <div className="relative z-10 container-custom text-center px-4 pt-20">
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={staggerContainer}
-          className="max-w-4xl mx-auto"
-        >
-          <motion.h1
-            variants={fadeInUp}
-            className="text-5xl md:text-7xl lg:text-8xl xl:text-[8rem] font-bold font-heading mb-6 leading-none tracking-tighter"
-          >
-            <span className="block text-transparent bg-clip-text bg-gradient-to-b from-white to-white/20">The Void</span>
-            <span className="block text-5xl md:text-6xl lg:text-7xl xl:text-8xl mt-4" style={{ WebkitTextStroke: '2px rgba(255,255,255,0.8)', color: 'transparent' }}>We Exist to Fill</span>
-          </motion.h1>
-
-          <motion.p
-            variants={fadeInUp}
-            className="text-xl md:text-2xl text-text-secondary max-w-3xl mx-auto leading-relaxed"
-          >
-            Engineering the digital future without compromise since 1999
-          </motion.p>
-        </motion.div>
-      </div>
-    </section>
+    <PremiumHero 
+      title="Architecting Digital Evolution"
+      splitTitle={true}
+      subtitle="Our Journey"
+      description="We are a team of architects, engineers, and visionaries dedicated to building the foundational systems of the future since 1999."
+    />
   )
 }
 
 // Our Story Section
 export function OurStorySection() {
   return (
-    <section className="section-padding">
-      <div className="container-custom">
+    <section className="section-padding bg-[#F4FAFF] relative overflow-hidden">
+      <div className="container-custom grid lg:grid-cols-2 gap-24 items-center">
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={staggerContainer}
-          className="max-w-4xl mx-auto"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+          className="relative"
         >
-          <motion.h2
-            variants={fadeInUp}
-            className="text-4xl md:text-5xl font-bold font-heading mb-8 tracking-widest uppercase flex flex-wrap items-center justify-center gap-4 text-center"
-          >
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/50">Our</span>
-            <span style={{ WebkitTextStroke: '1px rgba(255,255,255,0.8)', color: 'transparent' }}>Story</span>
+          <div className="relative rounded-[3rem] overflow-hidden shadow-2xl">
+            <img 
+              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1000" 
+              alt="Our Story" 
+              className="w-full h-auto"
+            />
+            <div className="absolute inset-0 bg-primary/10" />
+          </div>
+          <div className="absolute -top-10 -left-10 w-40 h-40 bg-accent/10 rounded-full blur-3xl -z-10" />
+        </motion.div>
+
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={staggerContainer}
+        >
+          <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-bold mb-8 text-primary">
+            Our Legacy
           </motion.h2>
-
-          <motion.div
-            variants={fadeInUp}
-            className="card text-lg leading-relaxed space-y-6 text-text-secondary"
-          >
+          <motion.div variants={fadeInUp} className="space-y-8 text-lg text-slate-500 leading-relaxed">
             <p>
-              Klocrix was founded on a simple, frustrating observation: the world is full of software developers, but desperately short of true digital architects. Companies were being sold generic solutions that forced them to compromise their vision and alter their unique processes. We knew there was a better way.
+              Klocrix was founded on a simple, frustrating observation: the world is full of software developers, but desperately short of true digital architects. Companies were being sold generic solutions that forced them to compromise their vision.
             </p>
-
             <p>
               Founded in Mohali and operating globally, we are a collective of engineers, designers, and strategists united by a single mission: to become the external strategic partner that visionary companies rely on to build their digital future without compromise.
-            </p>
-
-            <p className="text-text-primary font-semibold">
-              We don't follow trends; we build the systems that set them.
             </p>
           </motion.div>
         </motion.div>
@@ -112,53 +86,42 @@ export function OurStorySection() {
 
 // Mission & Vision Section
 export function MissionVisionSection() {
-  const values = [
+  const items = [
     {
       icon: Target,
       title: "Our Mission",
-      description: "To arm ambitious businesses with the definitive technological advantage by fusing relentless innovation with proven expertise.",
-      gradient: "from-[#10CEE4] to-cyan-500"
+      description: "To empower ambitious companies with scalable, bespoke IT solutions that drive real-world growth and innovation."
     },
     {
       icon: Eye,
       title: "Our Vision",
-      description: "To be the undisputed first choice for leaders who refuse to let technology be a limiting factor in their growth.",
-      gradient: "from-purple-500 to-pink-500"
+      description: "To be the global benchmark for engineering excellence, known for architecting the most robust digital systems."
     }
   ]
 
   return (
-    <section className="section-padding bg-surface/30">
+    <section className="section-padding bg-[#FAF7F2]">
       <div className="container-custom">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={staggerContainer}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto"
-        >
-          {values.map((item, index) => {
-            const Icon = item.icon
-            return (
-              <motion.div
-                key={index}
-                variants={scaleIn}
-                className="card group hover:cosmic-glow transition-all duration-300"
-                whileHover={{ y: -5 }}
-              >
-                <div className={`w-16 h-16 bg-gradient-to-br ${item.gradient} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                  <Icon className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold font-heading mb-4 text-text-primary group-hover:text-accent transition-colors duration-300">
-                  {item.title}
-                </h3>
-                <p className="text-text-secondary leading-relaxed text-lg">
-                  {item.description}
-                </p>
-              </motion.div>
-            )
-          })}
-        </motion.div>
+        <div className="grid md:grid-cols-2 gap-12">
+          {items.map((item, index) => (
+            <motion.div
+              key={index}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInUp}
+              className="bg-white p-12 rounded-[2.5rem] shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-500"
+            >
+              <div className="w-16 h-16 rounded-2xl bg-primary/5 flex items-center justify-center text-primary mb-8">
+                <item.icon className="w-8 h-8" />
+              </div>
+              <h3 className="text-3xl font-bold mb-6 text-primary">{item.title}</h3>
+              <p className="text-xl text-slate-500 leading-relaxed">
+                {item.description}
+              </p>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   )
@@ -168,86 +131,49 @@ export function MissionVisionSection() {
 export function WhyChooseUsSection() {
   const reasons = [
     {
-      icon: Award,
-      title: "Proven Track Record",
-      description: "25+ years of delivering transformational results across industries, from startups to Fortune 500 companies.",
-      stats: "500+ Projects Delivered"
+      title: "25+ Years of Experience",
+      desc: "A quarter-century of engineering mastery and successful project deliveries."
     },
     {
-      icon: Users,
-      title: "Elite Team",
-      description: "Hand-picked specialists in engineering, data science, and strategic design who've worked with the world's most demanding companies.",
-      stats: "50+ Expert Engineers"
+      title: "Strategic Partnership",
+      desc: "We don't just work for you; we work with you as a long-term strategic ally."
     },
     {
-      icon: Globe,
-      title: "Global Perspective",
-      description: "Operating from Mohali and Luton, we combine local understanding with international best practices.",
-      stats: "20+ Countries Served"
+      title: "Scalable Solutions",
+      desc: "Systems architected to grow with your business, from startup to enterprise."
     },
     {
-      icon: TrendingUp,
-      title: "Measurable Impact",
-      description: "We don't just build software; we engineer solutions that drive real business value and competitive advantage.",
-      stats: "$50M+ Value Generated"
+      title: "Expert Global Team",
+      desc: "Access to top-tier talent from across the globe, bringing diverse perspectives."
     }
   ]
 
   return (
-    <section className="section-padding">
+    <section className="section-padding bg-[#F4FAFF]">
       <div className="container-custom">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={staggerContainer}
-          className="text-center mb-10"
-        >
-          <motion.h2
-            variants={fadeInUp}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-8 tracking-widest uppercase flex flex-wrap items-center justify-center gap-4 text-center"
-          >
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/50">Why Visionary Leaders</span>
-            <span style={{ WebkitTextStroke: '1.5px rgba(255,255,255,0.8)', color: 'transparent' }}>Choose Klocrix</span>
-          </motion.h2>
-        </motion.div>
+        <div className="text-center max-w-3xl mx-auto mb-24">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary">Why Leaders Choose Klocrix</h2>
+          <p className="text-lg text-slate-500">We combine technical depth with business strategy to deliver outcomes that matter.</p>
+        </div>
 
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={staggerContainer}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
-        >
-          {reasons.map((reason, index) => {
-            const Icon = reason.icon
-            return (
-              <motion.div
-                key={index}
-                variants={scaleIn}
-                className="card group hover:cosmic-glow transition-all duration-300"
-                whileHover={{ y: -5 }}
-              >
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                    <Icon className="w-6 h-6 text-white" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-bold font-heading mb-2 text-text-primary group-hover:text-accent transition-colors duration-300">
-                      {reason.title}
-                    </h3>
-                    <p className="text-text-secondary leading-relaxed mb-3">
-                      {reason.description}
-                    </p>
-                    <div className="text-accent font-semibold text-sm">
-                      {reason.stats}
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            )
-          })}
-        </motion.div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {reasons.map((reason, index) => (
+            <motion.div
+              key={index}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInUp}
+              className="p-10 rounded-3xl border border-slate-100 bg-slate-50 hover:bg-white hover:shadow-xl transition-all duration-500 group"
+            >
+              <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center text-accent mb-8 group-hover:bg-accent group-hover:text-white transition-colors duration-500">
+                <CheckCircle className="w-6 h-6" />
+              </div>
+              <h4 className="text-xl font-bold mb-4 text-primary">{reason.title}</h4>
+              <p className="text-slate-500 leading-relaxed">{reason.desc}</p>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   )
@@ -256,38 +182,40 @@ export function WhyChooseUsSection() {
 // Team Section
 export function TeamSection() {
   return (
-    <section className="section-padding bg-surface/30">
+    <section className="section-padding bg-[#FAF7F2]">
       <div className="container-custom">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={staggerContainer}
-          className="text-center max-w-4xl mx-auto"
-        >
-          <motion.h2
-            variants={fadeInUp}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-8 tracking-widest uppercase flex flex-wrap items-center justify-center gap-4 text-center"
-          >
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/50">Meet the</span>
-            <span style={{ WebkitTextStroke: '1.5px rgba(255,255,255,0.8)', color: 'transparent' }}>Architects of Innovation</span>
-          </motion.h2>
+        <div className="text-center max-w-3xl mx-auto mb-24">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary">Our Leadership</h2>
+          <p className="text-lg text-slate-500">The minds behind our engineering excellence.</p>
+        </div>
 
-          <motion.div
-            variants={fadeInUp}
-            className="card"
-          >
-            <p className="text-text-secondary text-lg leading-relaxed mb-6">
-              Our team combines decades of experience with cutting-edge expertise. From seasoned architects to brilliant innovators, every member of our team is united by one goal: engineering your digital evolution.
-            </p>
-
-            <div className="text-center">
-              <Link href="/contact" className="btn-primary">
-                Meet Our Team
-              </Link>
-            </div>
-          </motion.div>
-        </motion.div>
+        <div className="grid md:grid-cols-3 gap-12">
+          {[
+            { name: "Sanjay Sharma", role: "CEO & Founder", image: "https://i.pravatar.cc/300?u=sanjay" },
+            { name: "Priya Patel", role: "Chief Operating Officer", image: "https://i.pravatar.cc/300?u=priya" },
+            { name: "David Miller", role: "Head of Engineering", image: "https://i.pravatar.cc/300?u=david" }
+          ].map((member, index) => (
+            <motion.div
+              key={index}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInUp}
+              className="text-center group"
+            >
+              <div className="relative mb-10 rounded-[3rem] overflow-hidden aspect-square shadow-lg">
+                <img 
+                  src={member.image} 
+                  alt={member.name} 
+                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors duration-500" />
+              </div>
+              <h4 className="text-2xl font-bold text-primary mb-2">{member.name}</h4>
+              <p className="text-slate-400 font-bold uppercase tracking-widest text-xs">{member.role}</p>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   )
@@ -296,39 +224,29 @@ export function TeamSection() {
 // CTA Section
 export function CTASection() {
   return (
-    <section className="section-padding">
-      <div className="container-custom">
+    <section className="section-padding bg-white text-center relative overflow-hidden">
+      <div className="container-custom relative z-10">
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={staggerContainer}
-          className="card text-center cosmic-glow max-w-4xl mx-auto"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+          className="max-w-4xl mx-auto bg-primary rounded-[4rem] p-16 md:p-24 text-white overflow-hidden relative shadow-2xl"
         >
-          <motion.h2
-            variants={fadeInUp}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-8 tracking-widest uppercase flex flex-wrap items-center justify-center gap-4 text-center"
-          >
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/50">Ready to Join Our</span>
-            <span style={{ WebkitTextStroke: '1.5px rgba(255,255,255,0.8)', color: 'transparent' }}>Success Stories?</span>
-          </motion.h2>
-          <motion.p
-            variants={fadeInUp}
-            className="text-xl text-text-secondary mb-8 max-w-2xl mx-auto"
-          >
-            Discover how Klocrix can transform your business with 25+ years of proven expertise and cutting-edge innovation.
-          </motion.p>
-          <motion.div
-            variants={fadeInUp}
-            className="flex flex-col sm:flex-row gap-6 justify-center items-center"
-          >
-            <Link href="/contact" className="btn-primary text-lg px-10 py-4">
-              Start Your Journey
+          <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-[80px] pointer-events-none" />
+          
+          <h2 className="text-4xl md:text-6xl font-extrabold mb-10 leading-tight">Ready to architect your digital future?</h2>
+          <p className="text-xl text-slate-300 mb-16 max-w-2xl mx-auto">
+            Let's start a conversation about how we can help you achieve your most ambitious business goals.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-8 justify-center">
+            <Link href="/contact" className="px-12 py-6 bg-white text-primary font-black rounded-2xl shadow-xl hover:bg-slate-50 transition-all text-lg">
+              Get in Touch
             </Link>
-            <Link href="/work" className="btn-secondary text-lg px-10 py-4">
+            <Link href="/work" className="px-12 py-6 bg-white/10 text-white border border-white/20 font-black rounded-2xl backdrop-blur-md hover:bg-white/20 transition-all text-lg">
               View Our Work
             </Link>
-          </motion.div>
+          </div>
         </motion.div>
       </div>
     </section>

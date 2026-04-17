@@ -1,3 +1,5 @@
+'use client'
+
 import { 
   Database, 
   Brain, 
@@ -6,312 +8,186 @@ import {
   Zap,
   Shield,
   ArrowRight,
-  CheckCircle
+  CheckCircle,
+  Cpu,
+  LineChart,
+  Search,
+  PieChart
 } from 'lucide-react'
+import { motion } from 'framer-motion'
 import Link from 'next/link'
 import Header from '../../../components/Header'
 import Footer from '../../../components/Footer'
-import CosmicBackground from '../../../components/SimpleCosmicBackground'
-import CaseStudyCard from '../../../components/CaseStudyCard'
-import { caseStudies } from '../../../data/caseStudies'
 
-// Hero Section
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" }
+  }
+}
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.1
+    }
+  }
+}
+
+// 1. Data Science Hero
 function DataScienceHero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <CosmicBackground />
+    <section className="relative min-h-[70vh] flex items-center pt-20 overflow-hidden bg-slate-50">
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 -skew-x-12 translate-x-1/4 pointer-events-none" />
       
-      <div className="relative z-10 container-custom text-center px-4 pt-20">
-        <div className="max-w-5xl mx-auto">
-          <h1 className="text-5xl md:text-7xl lg:text-8xl xl:text-[8rem] font-bold font-heading mb-6 leading-none tracking-tighter">
-            <span className="block text-transparent bg-clip-text bg-gradient-to-b from-white to-white/20">Transform Data Chaos</span>
-            <span className="block text-5xl md:text-6xl lg:text-7xl xl:text-8xl mt-4 max-w-5xl mx-auto" style={{ WebkitTextStroke: '2px rgba(255,255,255,0.8)', color: 'transparent', lineHeight: '1.1' }}>Into Your Unfair Advantage</span>
-          </h1>
-          
-          <p className="text-xl md:text-2xl text-text-secondary max-w-4xl mx-auto mb-12 leading-relaxed">
-            In the new economy, data is the ultimate currency. But raw data is a liability. Klocrix engineers the intelligent systems that refine it into your most strategic asset—driving automated decisions, predicting market shifts, and creating unbreachable competitive moats.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <Link href="/contact" className="btn-primary text-lg px-10 py-4">
-              Unlock Your Data's Power
+      <div className="container-custom relative z-10 text-center px-4">
+        <motion.div initial="hidden" animate="visible" variants={staggerContainer} className="max-w-4xl mx-auto">
+          <motion.span variants={fadeInUp} className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-bold tracking-wider uppercase mb-6">
+            Data Science & AI
+          </motion.span>
+          <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-extrabold leading-tight mb-8 text-primary">
+            Transform Data Into Your <span className="text-accent">Strategic Asset</span>
+          </motion.h1>
+          <motion.p variants={fadeInUp} className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+            In the new economy, data is the ultimate currency. Klocrix engineers the intelligent systems that refine raw data into your most strategic advantage.
+          </motion.p>
+          <motion.div variants={fadeInUp} className="mt-12 flex flex-col sm:flex-row gap-6 justify-center">
+            <Link href="/contact" className="btn-primary">
+              Discuss AI Strategy
             </Link>
-            <Link href="#case-study" className="btn-secondary text-lg px-10 py-4">
-              See Success Stories
+            <Link href="#capabilities" className="btn-outline">
+              Explore Capabilities
             </Link>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   )
 }
 
-// Featured Case Study Section
-function FeaturedCaseStudySection() {
-  return (
-    <section id="case-study" className="section-padding bg-surface/30">
-      <div className="container-custom">
-        <div className="text-center mb-10">
-          <h2 className="text-4xl md:text-5xl font-bold font-heading mb-8 tracking-widest uppercase flex flex-wrap justify-center items-center gap-4 text-center">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/50">Featured</span>
-            <span style={{ WebkitTextStroke: '1px rgba(255,255,255,0.8)', color: 'transparent' }}>Success Story</span>
-          </h2>
-        </div>
-
-        <div className="max-w-4xl mx-auto">
-          <div className="card cosmic-glow">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-              <div>
-                <div className="flex items-center space-x-3 mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-500 rounded-lg flex items-center justify-center">
-                    <span className="text-white font-bold text-lg">BG</span>
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold font-heading text-text-primary">
-                      Baresght Portfolio Intelligence
-                    </h3>
-                    <p className="text-text-secondary">Singapore</p>
-                  </div>
-                </div>
-                
-                <p className="text-text-secondary leading-relaxed mb-6">
-                  Architected a centralized data warehouse and custom ML models to predict asset performance and tenant churn for a billion-dollar real estate portfolio.
-                </p>
-                
-                <div className="space-y-3 mb-6">
-                  <div className="flex items-center space-x-2">
-                    <CheckCircle className="w-5 h-5 text-accent" />
-                    <span className="text-text-secondary">Processed 10TB+ of historical real estate data</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <CheckCircle className="w-5 h-5 text-accent" />
-                    <span className="text-text-secondary">Built predictive models with 94% accuracy</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <CheckCircle className="w-5 h-5 text-accent" />
-                    <span className="text-text-secondary">Automated 80% of manual reporting processes</span>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="space-y-6">
-                <div className="card bg-background border-accent/30">
-                  <div className="text-3xl font-bold cosmic-text mb-1">22%</div>
-                  <div className="text-text-primary font-semibold">Operational Efficiency Increase</div>
-                </div>
-                <div className="card bg-background border-accent/30">
-                  <div className="text-3xl font-bold cosmic-text mb-1">75%</div>
-                  <div className="text-text-primary font-semibold">Reduction in Data Processing Time</div>
-                </div>
-                <div className="card bg-background border-accent/30">
-                  <div className="text-3xl font-bold cosmic-text mb-1">$2M+</div>
-                  <div className="text-text-primary font-semibold">Annual Cost Savings</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  )
-}
-
-// Our Process Section
-function ProcessSection() {
-  const steps = [
-    {
-      icon: Database,
-      title: 'Diagnose & Architect',
-      description: 'We audit your data landscape and design a target architecture that turns fragmentation into a single source of truth.',
-      gradient: 'from-blue-500 to-cyan-500'
-    },
-    {
-      icon: Zap,
-      title: 'Ingest & Cleanse',
-      description: 'We build robust pipelines to automate the flow of clean, trustworthy data from all sources.',
-      gradient: 'from-green-500 to-emerald-500'
-    },
-    {
-      icon: Brain,
-      title: 'Model & Predict',
-      description: 'Our team develops custom machine learning models tailored to your specific business questions.',
-      gradient: 'from-purple-500 to-pink-500'
-    },
-    {
-      icon: BarChart3,
-      title: 'Visualize & Act',
-      description: 'We deliver intuitive, powerful dashboards that transform complex insights into actionable commands.',
-      gradient: 'from-orange-500 to-red-500'
-    }
-  ]
-
-  return (
-    <section className="section-padding">
-      <div className="container-custom">
-        <div className="text-center mb-10">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-8 tracking-widest uppercase flex flex-wrap justify-center items-center gap-4 text-center">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/50">Our</span>
-            <span style={{ WebkitTextStroke: '1.5px rgba(255,255,255,0.8)', color: 'transparent' }}>Data Engineering Process</span>
-          </h2>
-          <p className="text-xl text-text-secondary max-w-3xl mx-auto">
-            A systematic approach to transforming your data into competitive intelligence
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {steps.map((step, index) => {
-            const Icon = step.icon
-            return (
-              <div
-                key={index}
-                className="card group hover:cosmic-glow transition-all duration-300"
-              >
-                <div className={`w-16 h-16 bg-gradient-to-br ${step.gradient} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                  <Icon className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold font-heading mb-4 text-text-primary group-hover:text-accent transition-colors duration-300">
-                  {step.title}
-                </h3>
-                <p className="text-text-secondary leading-relaxed">
-                  {step.description}
-                </p>
-              </div>
-            )
-          })}
-        </div>
-      </div>
-    </section>
-  )
-}
-
-// Capabilities Section
-function CapabilitiesSection() {
+// 2. Capabilities Section
+function DataCapabilities() {
   const capabilities = [
     {
-      category: 'Machine Learning & AI',
-      items: [
-        'Predictive analytics & forecasting',
-        'Natural language processing',
-        'Computer vision & image recognition',
-        'Recommendation systems',
-        'Anomaly detection'
-      ]
+      icon: Brain,
+      title: "Machine Learning",
+      desc: "Custom ML models designed to solve complex business problems and automate decision-making processes."
     },
     {
-      category: 'Data Engineering',
-      items: [
-        'Real-time data pipelines',
-        'Data warehouse architecture',
-        'ETL/ELT processes',
-        'Big data processing (Spark, Hadoop)',
-        'Cloud data platforms (AWS, Azure, GCP)'
-      ]
+      icon: LineChart,
+      title: "Predictive Analytics",
+      desc: "Anticipate market trends, customer behavior, and operational shifts before they happen."
     },
     {
-      category: 'Analytics & Visualization',
-      items: [
-        'Interactive dashboards',
-        'Business intelligence reporting',
-        'Statistical analysis',
-        'A/B testing frameworks',
-        'Performance monitoring'
-      ]
+      icon: Database,
+      title: "Data Engineering",
+      desc: "Robust data pipelines and architectures that ensure your data is clean, accessible, and secure."
     },
     {
-      category: 'Industry Expertise',
-      items: [
-        'Real estate & property management',
-        'Financial services & fintech',
-        'Healthcare & life sciences',
-        'E-commerce & retail',
-        'Manufacturing & logistics'
-      ]
+      icon: PieChart,
+      title: "Business Intelligence",
+      desc: "Interactive dashboards and reporting tools that provide real-time visibility into your business metrics."
+    },
+    {
+      icon: Cpu,
+      title: "AI Integration",
+      desc: "Seamlessly integrate artificial intelligence into your existing workflows and legacy systems."
+    },
+    {
+      icon: Search,
+      title: "Semantic Search",
+      desc: "Advanced search infrastructure that understands intent and context for more accurate results."
     }
   ]
 
   return (
-    <section className="section-padding bg-surface/30">
+    <section id="capabilities" className="section-padding bg-white">
       <div className="container-custom">
-        <div className="text-center mb-10">
-          <h2 className="text-4xl md:text-5xl font-bold font-heading mb-8 tracking-widest uppercase flex flex-wrap justify-center items-center gap-4 text-center">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/50">Our</span>
-            <span style={{ WebkitTextStroke: '1px rgba(255,255,255,0.8)', color: 'transparent' }}>Data Science Capabilities</span>
-          </h2>
+        <div className="text-center max-w-3xl mx-auto mb-20">
+          <h2 className="text-4xl font-bold mb-6 text-primary">Our Core Capabilities</h2>
+          <p className="text-lg text-slate-600">We provide the technical expertise and strategic vision needed to succeed in an AI-first world.</p>
         </div>
+        
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {capabilities.map((cap, i) => (
+            <motion.div
+              key={i}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInUp}
+              className="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-xl transition-all duration-300 group"
+            >
+              <div className="w-14 h-14 rounded-xl bg-primary/5 flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                <cap.icon className="w-7 h-7" />
+              </div>
+              <h3 className="text-xl font-bold mb-4 text-primary">{cap.title}</h3>
+              <p className="text-slate-600 leading-relaxed">{cap.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {capabilities.map((capability, index) => (
-            <div key={index} className="card hover:cosmic-glow transition-all duration-300">
-              <h3 className="text-xl font-bold font-heading mb-4 text-text-primary">
-                {capability.category}
-              </h3>
-              <ul className="space-y-3">
-                {capability.items.map((item, idx) => (
-                  <li key={idx} className="flex items-center space-x-2">
-                    <CheckCircle className="w-4 h-4 text-accent flex-shrink-0" />
-                    <span className="text-text-secondary">{item}</span>
-                  </li>
+// 3. Success Story Section
+function FeaturedSuccessStory() {
+  return (
+    <section className="section-padding bg-slate-50">
+      <div className="container-custom">
+        <div className="max-w-6xl mx-auto bg-white rounded-[40px] overflow-hidden shadow-2xl border border-slate-100">
+          <div className="grid lg:grid-cols-2">
+            <div className="p-12 md:p-16">
+              <span className="text-accent font-bold tracking-widest uppercase text-sm mb-4 block">Case Study</span>
+              <h2 className="text-4xl font-bold mb-8 text-primary leading-tight">Baresght Portfolio Intelligence</h2>
+              <p className="text-lg text-slate-600 mb-8 leading-relaxed">
+                Architected a centralized data warehouse and custom ML models to predict asset performance and tenant churn for a billion-dollar real estate portfolio in Singapore.
+              </p>
+              
+              <div className="space-y-6 mb-12">
+                {[
+                  "Processed 10TB+ of historical real estate data",
+                  "Built predictive models with 94% accuracy",
+                  "Automated 80% of manual reporting processes"
+                ].map((item, i) => (
+                  <div key={i} className="flex items-center gap-4">
+                    <div className="w-6 h-6 rounded-full bg-accent/10 flex items-center justify-center text-accent shrink-0">
+                      <CheckCircle className="w-4 h-4" />
+                    </div>
+                    <span className="font-medium text-slate-700">{item}</span>
+                  </div>
                 ))}
-              </ul>
+              </div>
+              
+              <Link href="/work" className="btn-primary">
+                View All Case Studies
+              </Link>
             </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
-
-// Related Case Studies Section
-function RelatedCaseStudiesSection() {
-  const relatedCases = [caseStudies.savvyApp, caseStudies.finaxar]
-
-  return (
-    <section className="section-padding">
-      <div className="container-custom">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold font-heading mb-8 tracking-widest uppercase flex flex-wrap justify-center items-center gap-4 text-center">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/50">More</span>
-            <span style={{ WebkitTextStroke: '1px rgba(255,255,255,0.8)', color: 'transparent' }}>Data Science Success Stories</span>
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-          {relatedCases.map((project, index) => (
-            <CaseStudyCard key={index} {...project} />
-          ))}
-        </div>
-
-        <div className="text-center">
-          <Link href="/work" className="btn-primary">
-            View All Case Studies
-            <ArrowRight className="w-5 h-5 ml-2" />
-          </Link>
-        </div>
-      </div>
-    </section>
-  )
-}
-
-// CTA Section
-function CTASection() {
-  return (
-    <section className="section-padding bg-surface/30">
-      <div className="container-custom">
-        <div className="card text-center cosmic-glow max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-8 tracking-widest uppercase flex flex-wrap justify-center items-center gap-4 text-center">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/50">Ready to Unlock</span>
-            <span style={{ WebkitTextStroke: '1.5px rgba(255,255,255,0.8)', color: 'transparent' }}>Your Data's Potential?</span>
-          </h2>
-          <p className="text-xl text-text-secondary mb-8 max-w-2xl mx-auto">
-            Transform your data from a cost center into your most valuable strategic asset. Let's engineer your competitive advantage.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <Link href="/contact" className="btn-primary text-lg px-10 py-4">
-              Start Your Data Journey
-            </Link>
-            <Link href="/services" className="btn-secondary text-lg px-10 py-4">
-              Explore All Services
-            </Link>
+            
+            <div className="bg-primary p-12 md:p-16 flex flex-col justify-center text-white relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-[80px] pointer-events-none" />
+              
+              <div className="space-y-12 relative z-10">
+                <div>
+                  <p className="text-6xl font-black text-accent mb-2">22%</p>
+                  <p className="text-xl font-medium text-slate-300">Operational Efficiency Increase</p>
+                </div>
+                <div>
+                  <p className="text-6xl font-black text-accent mb-2">$2M+</p>
+                  <p className="text-xl font-medium text-slate-300">Annual Savings Identified</p>
+                </div>
+                <div>
+                  <p className="text-6xl font-black text-accent mb-2">94%</p>
+                  <p className="text-xl font-medium text-slate-300">Prediction Accuracy Rate</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -321,20 +197,12 @@ function CTASection() {
 
 export default function DataSciencePage() {
   return (
-    <main className="relative">
+    <main className="min-h-screen bg-white">
       <Header />
       <DataScienceHero />
-      <FeaturedCaseStudySection />
-      <ProcessSection />
-      <CapabilitiesSection />
-      <RelatedCaseStudiesSection />
-      <CTASection />
+      <DataCapabilities />
+      <FeaturedSuccessStory />
       <Footer />
     </main>
   )
-}
-
-export const metadata = {
-  title: 'Data Science & Engineering',
-  description: 'Transform data chaos into your unfair advantage with Klocrix\'s AI and machine learning solutions. Custom predictive analytics and intelligent systems.',
 }
