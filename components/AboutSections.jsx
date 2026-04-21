@@ -50,11 +50,11 @@ export function OurStorySection() {
           variants={fadeInUp}
           className="relative"
         >
-          <div className="relative rounded-[3rem] overflow-hidden shadow-2xl">
+          <div className="relative rounded-[3rem] overflow-hidden shadow-2xl w-3/5 mx-auto lg:ml-12 lg:mr-0">
             <img 
-              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1000" 
+              src="/case-studies/about.jpeg" 
               alt="Our Story" 
-              className="w-full h-auto"
+              className="w-full h-auto block"
             />
             <div className="absolute inset-0 bg-primary/10" />
           </div>

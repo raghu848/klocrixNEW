@@ -83,6 +83,22 @@ const portfolioProjects = [
     summary: "Premium villa-based project in Himachal Pradesh focused on serene and modern living experiences.",
     result: "Premium Brand Positioning",
     tags: ["Hospitality", "Tourism", "Social Media"]
+  },
+  {
+    title: "Dr. Gaurav Saini",
+    category: "Healthcare",
+    image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=1000",
+    summary: "Leading Orthopedic Surgeon. We execute targeted digital campaigns to increase patient footfall and manage online reputation.",
+    result: "Increased Patient Consultations",
+    tags: ["Healthcare", "Digital Strategy", "Social Media"]
+  },
+  {
+    title: "Dr. Jasleen Mavi",
+    category: "Healthcare",
+    image: "https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&q=80&w=1000",
+    summary: "Experienced Gynaecologist & Obstetrician. Comprehensive social media marketing to establish authority and trust among patients.",
+    result: "Enhanced Brand Trust",
+    tags: ["Healthcare", "Brand Building", "Meta Ads"]
   }
 ]
 
@@ -101,7 +117,7 @@ export function WorkHero() {
 // 2. Work Grid
 export function WorkGrid() {
   const [activeFilter, setActiveFilter] = useState('All')
-  const categories = ['All', 'Real Estate', 'PropTech', 'Automotive', 'Manufacturing', 'Hospitality']
+  const categories = ['All', 'Real Estate', 'PropTech', 'Automotive', 'Manufacturing', 'Hospitality', 'Healthcare']
   
   const filteredProjects = activeFilter === 'All' 
     ? portfolioProjects 
