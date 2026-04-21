@@ -22,6 +22,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { cn } from '../lib/utils'
 import PremiumHero from './PremiumHero'
+import InteractiveWavesBackground from './InteractiveWavesBackground'
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -97,6 +98,7 @@ export function TrainingHero() {
       primaryLinkText="Explore Courses"
       secondaryLink="#contact"
       secondaryLinkText="Talk to Advisor"
+      bgComponent={<InteractiveWavesBackground className="absolute inset-0 z-0 opacity-80 [mask-image:linear-gradient(to_right,rgba(0,0,0,0.15)_0%,rgba(0,0,0,1)_50%)]" />}
     />
   )
 }

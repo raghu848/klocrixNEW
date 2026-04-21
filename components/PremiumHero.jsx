@@ -4,6 +4,7 @@ import { useRef, useEffect, useState } from 'react'
 import { motion, useScroll, useTransform, AnimatePresence, useMotionValue, useSpring } from 'framer-motion'
 import Link from 'next/link'
 import { ArrowRight, ChevronRight, Code, Shield, Activity, Database } from 'lucide-react'
+import TubesBackground from './TubesBackground'
 
 // Premium 3D Geometric Background
 const Elegant3DBackground = () => {
@@ -50,7 +51,7 @@ const Elegant3DBackground = () => {
         <motion.div 
           animate={{ y: [0, -20, 0], x: [0, 10, 0], rotateZ: [0, 5, 0] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute inset-0 m-auto w-72 h-72 z-10 rounded-[3rem] border border-white/20 shadow-[0_0_80px_rgba(14,165,233,0.15)] backdrop-blur-3xl bg-[#162033]/80 flex flex-col items-center justify-center overflow-hidden p-8"
+          className="absolute inset-0 m-auto w-72 h-72 z-10 rounded-[3rem] border border-white/20 shadow-[0_0_80px_rgba(14,165,233,0.15)] backdrop-blur-3xl bg-transparent flex flex-col items-center justify-center overflow-hidden p-8"
           style={{ transform: "translateZ(50px)" }}
         >
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/10 to-transparent pointer-events-none" />
@@ -90,7 +91,7 @@ const Elegant3DBackground = () => {
         <motion.div 
           animate={{ y: [0, 15, 0], x: [0, -15, 0], rotateZ: [0, -5, 0] }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-          className="absolute -bottom-16 -left-8 w-48 h-48 z-20 rounded-[2rem] border border-white/20 shadow-[0_30px_60px_rgba(20,184,166,0.15)] backdrop-blur-2xl bg-[#111827]/90 flex flex-col items-center justify-center"
+          className="absolute -bottom-16 -left-8 w-48 h-48 z-20 rounded-[2rem] border border-white/20 shadow-[0_30px_60px_rgba(20,184,166,0.15)] backdrop-blur-2xl bg-transparent flex flex-col items-center justify-center"
           style={{ transform: "translateZ(120px)" }}
         >
           <div className="absolute inset-0 w-full h-full rounded-[2rem] border border-white/10 bg-gradient-to-br from-[#14B8A6]/20 to-transparent pointer-events-none" />
@@ -138,7 +139,7 @@ const Elegant3DBackground = () => {
         <motion.div 
           animate={{ y: [0, -10, 0], rotateZ: [0, 3, 0] }}
           transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute top-0 -right-4 w-32 h-32 z-30 rounded-[1.5rem] border border-white/20 shadow-2xl backdrop-blur-xl bg-white/10 flex items-center justify-center overflow-hidden"
+          className="absolute top-0 -right-4 w-32 h-32 z-30 rounded-[1.5rem] border border-white/20 shadow-2xl backdrop-blur-xl bg-transparent flex items-center justify-center overflow-hidden"
           style={{ transform: "translateZ(180px)" }}
         >
           <div className="absolute inset-0 bg-gradient-to-tr from-[#0EA5E9]/20 to-transparent rounded-[1.5rem] pointer-events-none" />
@@ -168,7 +169,8 @@ export default function PremiumHero({
   secondaryLink = "/services", 
   secondaryLinkText = "Our Capabilities",
   children,
-  splitTitle = false
+  splitTitle = false,
+  bgComponent
 }) {
   const { scrollY } = useScroll()
   const opacity = useTransform(scrollY, [0, 300], [1, 0])
@@ -188,32 +190,15 @@ export default function PremiumHero({
   const titleWords = title.split(" ")
 
   return (
-    <section className="relative min-h-[85vh] flex items-center pt-24 pb-12 overflow-hidden bg-background">
-      {/* Absolute Background Elements */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
-        {/* Ambient Video Background */}
-        <video 
-          autoPlay 
-          loop 
-          muted 
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover mix-blend-screen opacity-50"
-        >
-          <source src="/case-studies/hero-bg.mp4" type="video/mp4" />
-        </video>
-        
-        {/* Dark overlay to ensure crisp text masking */}
-        <div className="absolute inset-0 bg-[#0B1220]/60 mix-blend-multiply" />
-
-        {/* Deep background glows */}
-        <div className="absolute top-0 right-0 w-[60vw] h-[60vw] bg-[#0EA5E9]/10 rounded-full blur-[150px] -translate-y-1/2 translate-x-1/3" />
-        <div className="absolute bottom-0 left-0 w-[50vw] h-[50vw] bg-[#14B8A6]/10 rounded-full blur-[150px] translate-y-1/2 -translate-x-1/4" />
-        
-        {/* Subtle Network Grid Depth */}
-        <div className="absolute inset-0 z-0 bg-[url('/grid-dark.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-10" />
-      </div>
+    <section className="relative min-h-[85vh] flex items-center pt-24 pb-12 overflow-hidden bg-[#0B1220]">
+      {/* Dynamic Background Layer */}
+      {bgComponent ? bgComponent : <TubesBackground className="absolute inset-0 z-0 !bg-transparent" />}
       
-      <div className="container-custom relative z-10">
+      {/* Gradient overlay to ensure text readability */}
+      <div className="absolute inset-0 z-[1] bg-gradient-to-r from-[#0B1220]/70 via-[#0B1220]/40 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 z-[1] bg-gradient-to-t from-[#0B1220]/60 via-transparent to-transparent pointer-events-none" />
+      
+      <div className="container-custom relative z-10 pointer-events-auto">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-8 items-center">
           
           {/* Left Hero Content */}

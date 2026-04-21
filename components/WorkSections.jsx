@@ -37,36 +37,52 @@ const staggerContainer = {
 
 const portfolioProjects = [
   {
-    title: "FinTech Revolution",
-    category: "Banking & Finance",
-    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=1000",
-    summary: "Built a blockchain-powered ledger system for a leading Asian bank.",
-    result: "40% increase in transaction speed",
-    tags: ["Blockchain", "Node.js", "React", "FinTech"]
+    title: "GDPL (Gill Developers)",
+    category: "Real Estate",
+    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=1000",
+    summary: "A prestigious residential development in Mohali. We manage their social media presence and execute result-driven advertising.",
+    result: "Consistent High-Quality Lead Generation",
+    tags: ["Social Media", "Meta Ads", "Real Estate"]
   },
   {
-    title: "E-Commerce Scale",
-    category: "Retail",
-    image: "https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&q=80&w=1000",
-    summary: "Migrated a global retailer to a serverless microservices architecture.",
-    result: "99.99% uptime and 2x conversion rate",
-    tags: ["AWS", "Microservices", "Next.js", "E-commerce"]
+    title: "WorkVEU CRM",
+    category: "PropTech",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000",
+    summary: "Specialized real estate CRM platform designed to streamline sales and client management through strategic digital execution.",
+    result: "Optimized Conversions & Growth",
+    tags: ["CRM", "SaaS", "Digital Strategy"]
   },
   {
-    title: "Smart Inventory Management",
-    category: "ERP",
-    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=1000",
-    summary: "Built an AI-powered inventory system that predicts demand and optimizes stock levels.",
-    result: "30% reduction in inventory costs",
-    tags: ["AI", "ERP", "Python", "Automation"]
+    title: "Monga Toyota",
+    category: "Automotive",
+    image: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&q=80&w=1000",
+    summary: "Authorized Toyota dealership in Ludhiana. We handle end-to-end social media and brand communication.",
+    result: "Strengthened Market Presence",
+    tags: ["Automotive", "Branding", "Social Media"]
   },
   {
-    title: "Healthcare Patient Portal",
-    category: "Web App",
-    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1000",
-    summary: "Developed a comprehensive patient portal with telemedicine capabilities.",
-    result: "95% patient satisfaction rate",
-    tags: ["Healthcare", "React Native", "Web App"]
+    title: "Fineness Australia",
+    category: "Manufacturing",
+    image: "https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80&w=1000",
+    summary: "Leading manufacturer of high-pressure laminates based in Melbourne. We manage their overall digital performance.",
+    result: "Global Brand Expansion",
+    tags: ["Manufacturing", "International", "Advertising"]
+  },
+  {
+    title: "The Grand Sky",
+    category: "Real Estate",
+    image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=1000",
+    summary: "Premium residential development in Greater Mohali. We execute result-driven advertising to enhance visibility.",
+    result: "3x Increase in Engagement",
+    tags: ["Google Ads", "Meta Ads", "Real Estate"]
+  },
+  {
+    title: "Gulfin Valley",
+    category: "Hospitality",
+    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=1000",
+    summary: "Premium villa-based project in Himachal Pradesh focused on serene and modern living experiences.",
+    result: "Premium Brand Positioning",
+    tags: ["Hospitality", "Tourism", "Social Media"]
   }
 ]
 
@@ -85,7 +101,7 @@ export function WorkHero() {
 // 2. Work Grid
 export function WorkGrid() {
   const [activeFilter, setActiveFilter] = useState('All')
-  const categories = ['All', 'Banking & Finance', 'Retail', 'ERP', 'Web App', 'Healthcare']
+  const categories = ['All', 'Real Estate', 'PropTech', 'Automotive', 'Manufacturing', 'Hospitality']
   
   const filteredProjects = activeFilter === 'All' 
     ? portfolioProjects 

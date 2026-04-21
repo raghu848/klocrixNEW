@@ -287,7 +287,7 @@ function AboutSection() {
               viewport={{ once: true }}
               className="absolute -bottom-10 -right-4 md:-right-10 p-10 bg-surface/90 backdrop-blur-2xl border border-white/10 text-white rounded-[2.5rem] shadow-[0_30px_60px_rgba(0,0,0,0.5)]"
             >
-              <p className="text-6xl font-black mb-1 text-accent">25+</p>
+              <p className="text-6xl font-black mb-1 text-accent">5+</p>
               <p className="text-slate-300 font-bold uppercase tracking-widest text-xs">Years of Excellence</p>
             </motion.div>
           </Reveal>
@@ -298,11 +298,11 @@ function AboutSection() {
             <span className="glass-badge mb-6 inline-block">About Klocrix</span>
           </Reveal>
           <Reveal delay={0.2}>
-            <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight text-white">Architecting Digital Futures Since 1999</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight text-white">Accelerating Brand Growth Since 2019</h2>
           </Reveal>
           <Reveal delay={0.3}>
             <p className="text-lg text-slate-400 mb-10 leading-relaxed">
-              At Klocrix, we don't just build software; we architect the foundational systems that transform ambitious companies into market leaders. We fuse 25 years of mastery with cutting-edge innovation.
+              Klocrix is a forward-thinking business consultancy founded by Mr. Nikhil Saini & Mrs. Reetika Saini. We are committed to accelerating your brand's growth through innovation, data-driven insights, and strategic execution.
             </p>
           </Reveal>
           
@@ -433,18 +433,18 @@ function CaseStudiesSection() {
         <div className="grid md:grid-cols-2 gap-16">
           {[
             {
-              title: "FinTech Revolution",
-              category: "Banking & Finance",
-              image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=1000",
-              problem: "Legacy systems slowing down transactions.",
-              result: "40% increase in speed."
+              title: "GDPL (Gill Developers)",
+              category: "Real Estate",
+              image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=1000",
+              problem: "Need for high-quality leads in the Mohali residential market.",
+              result: "Consistent delivery of premium leads via Meta & Google Ads."
             },
             {
-              title: "E-Commerce Scale",
-              category: "Retail",
-              image: "https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&q=80&w=1000",
-              problem: "Frequent downtime during sales peaks.",
-              result: "99.99% uptime achieved."
+              title: "WorkVEU CRM",
+              category: "PropTech",
+              image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000",
+              problem: "Manual lead management slowing down real estate sales.",
+              result: "Streamlined sales operations and 2x conversion rate."
             }
           ].map((project, i) => (
             <Reveal key={i} delay={0.2 + (i * 0.1)}>
@@ -486,22 +486,22 @@ function CaseStudiesSection() {
 // 7. Testimonials Section
 const testimonials = [
   {
-    name: "John Smith",
-    role: "CEO, TechCorp",
-    content: "Klocrix transformed our business. Their technical expertise and strategic insights were instrumental in our digital transformation journey.",
-    image: "https://i.pravatar.cc/150?u=john"
+    name: "Vikram Malhotra",
+    role: "Director, Real Estate Group",
+    content: "Klocrix transformed our lead generation process. Their expertise in Meta and Google advertising has been instrumental in our project sales.",
+    image: "https://i.pravatar.cc/150?u=vikram"
   },
   {
-    name: "Sarah Williams",
-    role: "CTO, Innovate Solutions",
-    content: "The team at Klocrix is exceptional. They delivered our complex cloud migration ahead of schedule and under budget. Highly recommended!",
-    image: "https://i.pravatar.cc/150?u=sarah"
+    name: "Anjali Sharma",
+    role: "Marketing Manager, Automotive",
+    content: "The team at Klocrix handles our brand communication with exceptional precision. They delivered a consistent digital presence that resonates with our customers.",
+    image: "https://i.pravatar.cc/150?u=anjali"
   },
   {
-    name: "Michael Chen",
-    role: "Founder, GrowthEngine",
-    content: "Working with Klocrix felt like having an in-house tech team. Their commitment to our success was evident in every interaction.",
-    image: "https://i.pravatar.cc/150?u=michael"
+    name: "Robert Thompson",
+    role: "CEO, International Manufacturing",
+    content: "Working with Klocrix helped us expand our reach internationally. Their strategic digital execution is truly world-class.",
+    image: "https://i.pravatar.cc/150?u=robert"
   }
 ]
 

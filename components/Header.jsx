@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, ChevronDown, ArrowRight } from 'lucide-react'
+import { Menu, X, ChevronDown } from 'lucide-react'
 import { cn } from '../lib/utils'
 
 const navigation = [
@@ -136,12 +136,7 @@ export default function Header() {
           })}
         </nav>
 
-        <div className="hidden lg:block">
-          <Link href="/contact" className="btn-primary flex items-center gap-2 text-sm px-6 py-2.5">
-            Book Consultation
-            <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
+
 
         <button
           className="lg:hidden p-2 text-slate-300 hover:text-white transition-colors"
@@ -209,13 +204,7 @@ export default function Header() {
                   )}
                 </div>
               ))}
-              <Link
-                href="/contact"
-                className="btn-primary text-center py-4 mt-4"
-                onClick={closeMobileMenu}
-              >
-                Book Consultation
-              </Link>
+
             </div>
           </motion.div>
         )}

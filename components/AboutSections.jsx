@@ -33,7 +33,7 @@ export function AboutHero() {
       title="Architecting Digital Evolution"
       splitTitle={true}
       subtitle="Our Journey"
-      description="We are a team of architects, engineers, and visionaries dedicated to building the foundational systems of the future since 1999."
+      description="We are a team of architects, engineers, and visionaries dedicated to building the foundational systems of the future since 2019."
     />
   )
 }
@@ -67,15 +67,18 @@ export function OurStorySection() {
           viewport={{ once: true }}
           variants={staggerContainer}
         >
-          <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-bold mb-8 text-primary">
-            Our Legacy
+          <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-bold mb-8 text-primary uppercase tracking-tighter">
+            Our Foundation
           </motion.h2>
           <motion.div variants={fadeInUp} className="space-y-8 text-lg text-slate-500 leading-relaxed">
-            <p>
-              Klocrix was founded on a simple, frustrating observation: the world is full of software developers, but desperately short of true digital architects. Companies were being sold generic solutions that forced them to compromise their vision.
+            <p className="font-medium text-slate-900 italic border-l-4 border-accent pl-6">
+              "At Klocrix, we don't just build strategies, we create impactful experiences that position your brand ahead of the competition."
             </p>
             <p>
-              Founded in Mohali and operating globally, we are a collective of engineers, designers, and strategists united by a single mission: to become the external strategic partner that visionary companies rely on to build their digital future without compromise.
+              Klocrix Business Solution was founded in 2019 by **Mr. Nikhil Saini & Mrs. Reetika Saini**. We are a forward-thinking business consultancy committed to accelerating brand growth across an ever-evolving marketplace. 
+            </p>
+            <p>
+              With a relentless focus on innovation, data-driven insights, and strategic execution, we empower businesses to stand out. Through comprehensive market analysis and tailored solutions, we ensure every element of your brand aligns seamlessly with your vision and goals.
             </p>
           </motion.div>
         </motion.div>
@@ -89,13 +92,13 @@ export function MissionVisionSection() {
   const items = [
     {
       icon: Target,
-      title: "Our Mission",
-      description: "To empower ambitious companies with scalable, bespoke IT solutions that drive real-world growth and innovation."
+      title: "Analytical Thinking",
+      description: "We dive deep into understanding your business landscape, audience behavior, and market dynamics to craft solutions that truly make an impact."
     },
     {
       icon: Eye,
-      title: "Our Vision",
-      description: "To be the global benchmark for engineering excellence, known for architecting the most robust digital systems."
+      title: "Creative Insight",
+      description: "By blending analytical thinking with creative insight, we transform complex challenges into clear, actionable strategies that drive brand visibility and growth."
     }
   ]
 
@@ -131,8 +134,8 @@ export function MissionVisionSection() {
 export function WhyChooseUsSection() {
   const reasons = [
     {
-      title: "25+ Years of Experience",
-      desc: "A quarter-century of engineering mastery and successful project deliveries."
+      title: "5+ Years of Mastery",
+      desc: "Years of engineering mastery and successful project deliveries since 2019."
     },
     {
       title: "Strategic Partnership",
@@ -191,9 +194,8 @@ export function TeamSection() {
 
         <div className="grid md:grid-cols-3 gap-12">
           {[
-            { name: "Sanjay Sharma", role: "CEO & Founder", image: "https://i.pravatar.cc/300?u=sanjay" },
-            { name: "Priya Patel", role: "Chief Operating Officer", image: "https://i.pravatar.cc/300?u=priya" },
-            { name: "David Miller", role: "Head of Engineering", image: "https://i.pravatar.cc/300?u=david" }
+            { name: "Nikhil Saini", role: "Founder & CEO", image: "https://i.pravatar.cc/300?u=nikhil" },
+            { name: "Reetika Saini", role: "Co-Founder", image: "https://i.pravatar.cc/300?u=reetika" },
           ].map((member, index) => (
             <motion.div
               key={index}

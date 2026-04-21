@@ -27,5 +27,5 @@ export default function AboutPage() {
 
 export const metadata = {
   title: 'About Us',
-  description: 'Learn about Klocrix Business Solutions - 25+ years of engineering digital evolution. Meet the team that transforms ambitious companies into market leaders.',
+  description: 'Learn about Klocrix Business Solutions - 5+ years of engineering digital evolution. Meet the team that transforms ambitious companies into market leaders.',
 }

@@ -4,14 +4,15 @@ import { motion } from 'framer-motion'
 import { cn } from '../lib/utils'
 
 const clients = [
-  { name: 'Savvy App', logo: 'SavvyApp' },
-  { name: 'Splore', logo: 'Splore' },
-  { name: 'Finaxar', logo: 'Finaxar' },
-  { name: 'Baresght', logo: 'Baresght' },
-  { name: 'TechCorp', logo: 'TechCorp' },
-  { name: 'DataFlow', logo: 'DataFlow' },
-  { name: 'GlobalSystems', logo: 'Global' },
-  { name: 'Innovate', logo: 'Innovate' },
+  { name: 'GDPL', logo: 'GDPL' },
+  { name: 'Prestige Realty', logo: 'Prestige Realty' },
+  { name: 'Gulfin Valley', logo: 'Gulfin Valley' },
+  { name: 'Amayra Trillium', logo: 'Amayra Trillium' },
+  { name: 'The Grand Sky', logo: 'The Grand Sky' },
+  { name: 'Monga Toyota', logo: 'Monga Toyota' },
+  { name: 'Fineness Australia', logo: 'Fineness Australia' },
+  { name: 'Fine Cabinets', logo: 'Fine Cabinets' },
+  { name: 'WorkVEU', logo: 'WorkVEU' },
 ]
 
 // Duplicate for seamless infinite scroll

@@ -26,7 +26,7 @@ export const metadata = {
     default: 'Klocrix - Engineering Digital Evolution',
     template: '%s | Klocrix'
   },
-  description: 'Klocrix Business Solutions: 25+ years of engineering excellence. We architect bespoke software solutions that transform ambitious companies into market leaders.',
+  description: 'Klocrix Business Solutions: 5+ years of engineering excellence. We architect bespoke software solutions that transform ambitious companies into market leaders.',
   keywords: ['custom software development', 'data science', 'web development', 'mobile apps', 'ERP solutions', 'digital transformation'],
   authors: [{ name: 'Klocrix Business Solutions Pvt. Ltd.' }],
   creator: 'Klocrix',
@@ -39,7 +39,7 @@ export const metadata = {
   metadataBase: new URL('https://klocrix.com'),
   openGraph: {
     title: 'Klocrix - Engineering Digital Evolution',
-    description: 'Transform your business with bespoke software solutions from industry veterans with 25+ years of experience.',
+    description: 'Transform your business with bespoke software solutions from industry veterans with 5+ years of experience.',
     url: 'https://klocrix.com',
     siteName: 'Klocrix',
     images: [
@@ -56,7 +56,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Klocrix - Engineering Digital Evolution',
-    description: 'Transform your business with bespoke software solutions from industry veterans with 25+ years of experience.',
+    description: 'Transform your business with bespoke software solutions from industry veterans with 5+ years of experience.',
     images: ['/og-image.jpg'],
     creator: '@klocrix',
   },
