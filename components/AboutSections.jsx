@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { Target, Eye, Award, Users, Globe, TrendingUp, CheckCircle } from 'lucide-react'
 import Link from 'next/link'
+import { useState, useEffect } from 'react'
 import PremiumHero from './PremiumHero'
 
 // Animation variants
@@ -29,7 +30,7 @@ const staggerContainer = {
 // Hero Section
 export function AboutHero() {
   return (
-    <PremiumHero 
+    <PremiumHero
       title="Architecting Digital Evolution"
       splitTitle={true}
       subtitle="Our Journey"
@@ -40,6 +41,23 @@ export function AboutHero() {
 
 // Our Story Section
 export function OurStorySection() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const foundationImages = [
+    "/case-studies/about.jpeg",
+    "/case-studies/WhatsApp Image 2026-04-22 at 3.23.06 PM.jpeg",
+    "/case-studies/WhatsApp Image 2026-04-22 at 3.23.09 PM.jpeg",
+    "/case-studies/WhatsApp Image 2026-04-22 at 3.23.24 PM.jpeg",
+
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % foundationImages.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section className="section-padding bg-[#F4FAFF] relative overflow-hidden">
       <div className="container-custom grid lg:grid-cols-2 gap-24 items-center">
@@ -50,13 +68,17 @@ export function OurStorySection() {
           variants={fadeInUp}
           className="relative"
         >
-          <div className="relative rounded-[3rem] overflow-hidden shadow-2xl w-3/5 mx-auto lg:ml-12 lg:mr-0">
-            <img 
-              src="/case-studies/about.jpeg" 
-              alt="Our Story" 
-              className="w-full h-auto block"
-            />
-            <div className="absolute inset-0 bg-primary/10" />
+          <div className="relative rounded-[3rem] overflow-hidden shadow-2xl w-3/5 mx-auto lg:ml-12 lg:mr-0 aspect-[4/5]">
+            {foundationImages.map((src, index) => (
+              <img
+                key={src}
+                src={src}
+                alt={`Our Story ${index + 1}`}
+                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${index === currentImageIndex ? "opacity-100 z-10" : "opacity-0 z-0"
+                  }`}
+              />
+            ))}
+            <div className="absolute inset-0 bg-primary/10 z-20 pointer-events-none" />
           </div>
           <div className="absolute -top-10 -left-10 w-40 h-40 bg-accent/10 rounded-full blur-3xl -z-10" />
         </motion.div>
@@ -75,7 +97,7 @@ export function OurStorySection() {
               "At Klocrix, we don't just build strategies, we create impactful experiences that position your brand ahead of the competition."
             </p>
             <p>
-              Klocrix Business Solution was founded in 2019 by **Mr. Nikhil Saini & Mrs. Reetika Saini**. We are a forward-thinking business consultancy committed to accelerating brand growth across an ever-evolving marketplace. 
+              Klocrix Business Solution was founded in 2019 by **Mr. Nikhil Saini & Mrs. Reetika Saini**. We are a forward-thinking business consultancy committed to accelerating brand growth across an ever-evolving marketplace.
             </p>
             <p>
               With a relentless focus on innovation, data-driven insights, and strategic execution, we empower businesses to stand out. Through comprehensive market analysis and tailored solutions, we ensure every element of your brand aligns seamlessly with your vision and goals.
@@ -206,9 +228,9 @@ export function TeamSection() {
               className="text-center group"
             >
               <div className="relative mb-10 rounded-[3rem] overflow-hidden aspect-square shadow-lg">
-                <img 
-                  src={member.image} 
-                  alt={member.name} 
+                <img
+                  src={member.image}
+                  alt={member.name}
                   className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors duration-500" />
@@ -236,7 +258,7 @@ export function CTASection() {
           className="max-w-4xl mx-auto bg-primary rounded-[4rem] p-16 md:p-24 text-white overflow-hidden relative shadow-2xl"
         >
           <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-[80px] pointer-events-none" />
-          
+
           <h2 className="text-4xl md:text-6xl font-extrabold mb-10 leading-tight">Ready to architect your digital future?</h2>
           <p className="text-xl text-slate-300 mb-16 max-w-2xl mx-auto">
             Let's start a conversation about how we can help you achieve your most ambitious business goals.

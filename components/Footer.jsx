@@ -64,7 +64,7 @@ export default function Footer() {
               <img
                 src="/case-studies/Asset 2.png"
                 alt="Klocrix Logo"
-                className="h-12 md:h-16 w-auto object-contain brightness-0 invert opacity-90"
+                className="h-12 md:h-16 w-auto object-contain"
               />
             </Link>
             <p className="text-slate-300 text-lg mb-10 leading-relaxed max-w-sm">

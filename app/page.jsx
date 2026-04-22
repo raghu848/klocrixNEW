@@ -2,16 +2,16 @@
 
 import { useRef, useEffect, useState } from 'react'
 import { motion, useInView, useAnimation, useScroll, useTransform } from 'framer-motion'
-import { 
-  ArrowRight, 
-  CheckCircle, 
-  Code, 
-  Smartphone, 
-  Palette, 
-  BarChart, 
-  Cloud, 
-  Settings, 
-  Users, 
+import {
+  ArrowRight,
+  CheckCircle,
+  Code,
+  Smartphone,
+  Palette,
+  BarChart,
+  Cloud,
+  Settings,
+  Users,
   Star,
   Quote,
   Clock,
@@ -28,6 +28,7 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import ClientLogoMarquee from '../components/ClientLogoMarquee'
 import PremiumHero from '../components/PremiumHero'
+import TypingHeading from '../components/TypingHeading'
 
 // Reveal Component for scroll animations
 function Reveal({ children, width = "fit-content", delay = 0.2 }) {
@@ -79,7 +80,7 @@ function TrustSection() {
   }, []);
 
   return (
-    <section 
+    <section
       ref={containerRef}
       className="py-28 bg-[#0B1220] relative border-b border-white/5 shadow-2xl z-20 overflow-hidden"
     >
@@ -87,18 +88,18 @@ function TrustSection() {
       <div className="absolute inset-0 pointer-events-none">
         {/* Ambient Dark Navy Mesh */}
         <div className="absolute inset-0 bg-[#0B1220]" />
-        
+
         {/* Slow Moving Atmospheric Glows */}
-        <motion.div 
-          animate={{ 
+        <motion.div
+          animate={{
             scale: [1, 1.2, 1],
             opacity: [0.1, 0.2, 0.1],
           }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
           className="absolute -top-1/2 -left-1/4 w-full h-full bg-accent/20 blur-[120px] rounded-full"
         />
-        <motion.div 
-          animate={{ 
+        <motion.div
+          animate={{
             scale: [1.2, 1, 1.2],
             opacity: [0.05, 0.15, 0.05],
           }}
@@ -107,7 +108,7 @@ function TrustSection() {
         />
 
         {/* Dynamic Mouse Spotlight */}
-        <div 
+        <div
           className="absolute inset-0 opacity-40 transition-opacity duration-1000"
           style={{
             background: `radial-gradient(800px circle at var(--mouse-x, 0) var(--mouse-y, 0), rgba(14, 165, 233, 0.08), transparent 40%)`
@@ -118,18 +119,18 @@ function TrustSection() {
         {[...Array(20)].map((_, i) => (
           <motion.div
             key={i}
-            initial={{ 
-              x: Math.random() * 100 + "%", 
+            initial={{
+              x: Math.random() * 100 + "%",
               y: Math.random() * 100 + "%",
               opacity: Math.random() * 0.3
             }}
-            animate={{ 
+            animate={{
               y: ["-10%", "110%"],
               opacity: [0, 0.3, 0]
             }}
-            transition={{ 
-              duration: Math.random() * 20 + 20, 
-              repeat: Infinity, 
+            transition={{
+              duration: Math.random() * 20 + 20,
+              repeat: Infinity,
               ease: "linear",
               delay: Math.random() * 20
             }}
@@ -203,22 +204,24 @@ function ServicesSection() {
           <Reveal delay={0.1}>
             <span className="glass-badge mb-6 inline-block">Our Expertise</span>
           </Reveal>
-          <Reveal delay={0.2}>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white leading-tight">Comprehensive IT Solutions for Modern Enterprises</h2>
-          </Reveal>
+          <TypingHeading
+            text="Comprehensive IT Solutions for Modern Enterprises"
+            className="text-4xl md:text-5xl font-bold mb-6 text-white leading-tight"
+            delay={0.2}
+          />
           <Reveal delay={0.3}>
             <p className="text-lg text-slate-400">
               We offer a wide range of services designed to help your business thrive in an increasingly digital world.
             </p>
           </Reveal>
         </div>
-        
+
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => {
             const isEven = index % 2 === 0;
             return (
-              <motion.div 
-                key={index} 
+              <motion.div
+                key={index}
                 initial={{ opacity: 0, x: isEven ? -100 : 100 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
@@ -227,23 +230,23 @@ function ServicesSection() {
                 style={{ perspective: "1000px" }}
               >
                 {/* Minimalist Dark Card Style - Flip triggered by outer stable group bounds */}
-                <div 
+                <div
                   className="bg-[#13192B] border border-white/5 rounded-3xl p-8 h-full overflow-hidden relative shadow-lg transition-all duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:shadow-2xl group-hover:shadow-accent/10 group-hover:[transform:rotateY(360deg)]"
                   style={{ transformStyle: "preserve-3d" }}
                 >
-                  
+
                   {/* Subtle large glow matching the first reference image */}
                   <div className="absolute -top-20 -right-20 w-64 h-64 bg-white/5 rounded-full blur-[80px] pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity duration-1000" />
-                  
+
                   <div className="relative z-10 block" style={{ transform: "translateZ(30px)" }}>
                     {/* Solid Organic Icon Shape matching the second reference image */}
-                    <div 
+                    <div
                       className={`w-14 h-14 flex items-center justify-center text-white mb-8 transition-transform duration-500 group-hover:scale-110 relative ${service.colorClass}`}
                       style={{ borderRadius: service.shape }}
                     >
                       <service.icon className="w-6 h-6 relative z-10" />
                     </div>
-                    
+
                     <h3 className="text-xl md:text-2xl font-bold mb-4 text-white">{service.title}</h3>
                     <p className="text-slate-400 mb-2 leading-relaxed text-sm md:text-base">
                       {service.description}
@@ -267,21 +270,21 @@ function AboutSection() {
   return (
     <section id="about" className="section-padding bg-[#111827] overflow-hidden relative border-t border-white/5">
       <motion.div style={{ y: yParallax }} className="absolute -top-40 -left-40 w-96 h-96 bg-accent/20 rounded-full blur-[120px] -z-10 pointer-events-none" />
-      
+
       <div className="container-custom grid lg:grid-cols-2 gap-24 items-center">
         <div className="relative z-10">
           <Reveal delay={0.2}>
             <div className="relative rounded-[3rem] overflow-hidden shadow-2xl border border-white/10 group">
               <div className="absolute inset-0 bg-[#0B1220]/40 group-hover:bg-transparent transition-colors duration-700 z-10 pointer-events-none" />
-              <img 
-                src="/case-studies/team-hero.jpeg" 
-                alt="Our Team" 
+              <img
+                src="/case-studies/team-hero.jpeg"
+                alt="Our Team"
                 className="w-full h-auto opacity-80 group-hover:opacity-100 transition-opacity duration-700 group-hover:scale-105"
               />
             </div>
-            
+
             {/* Experience Badge */}
-            <motion.div 
+            <motion.div
               initial={{ x: 50, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               viewport={{ once: true }}
@@ -292,7 +295,7 @@ function AboutSection() {
             </motion.div>
           </Reveal>
         </div>
-        
+
         <div className="relative z-10">
           <Reveal delay={0.1}>
             <span className="glass-badge mb-6 inline-block">About Klocrix</span>
@@ -305,7 +308,7 @@ function AboutSection() {
               Klocrix is a forward-thinking business consultancy founded by Mr. Nikhil Saini & Mrs. Reetika Saini. We are committed to accelerating your brand's growth through innovation, data-driven insights, and strategic execution.
             </p>
           </Reveal>
-          
+
           <div className="space-y-8 mb-12">
             {[
               { title: "Strategic Mastery", desc: "Decades of experience in high-stakes digital environments." },
@@ -325,7 +328,7 @@ function AboutSection() {
               </Reveal>
             ))}
           </div>
-          
+
           <Reveal delay={0.7}>
             <Link href="/about" className="glass-button-premium mt-4 group">
               Our Full Story <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-2" />
@@ -367,7 +370,7 @@ function ProcessSection() {
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-[100px] pointer-events-none z-0" />
       <div className="absolute inset-0 z-0 bg-[url('/grid-dark.svg')] bg-center opacity-[0.03]" />
-      
+
       <div className="container-custom relative z-10 w-full">
         <div className="text-center max-w-3xl mx-auto mb-24">
           <Reveal delay={0.1}>
@@ -377,17 +380,17 @@ function ProcessSection() {
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white leading-tight">Translating Vision into Reality</h2>
           </Reveal>
         </div>
-        
+
         <div className="relative w-full max-w-5xl mx-auto flex flex-col gap-10">
           {steps.map((step, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className="sticky w-full"
               style={{ top: `calc(10rem + ${index * 2}rem)`, zIndex: index }}
             >
               <div className="p-10 md:p-14 rounded-[2.5rem] bg-surface/90 backdrop-blur-3xl border border-white/10 shadow-[0_-10px_40px_rgba(0,0,0,0.5)] transition-colors min-h-[350px] flex flex-col justify-center relative overflow-hidden group">
                 <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-1000" />
-                
+
                 <div className="flex flex-col md:flex-row items-center gap-12 relative z-10">
                   <div className="text-8xl md:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white/20 to-white/0 shrink-0">
                     {step.number}
@@ -429,7 +432,7 @@ function CaseStudiesSection() {
             </Link>
           </Reveal>
         </div>
-        
+
         <div className="grid md:grid-cols-2 gap-16">
           {[
             {
@@ -450,8 +453,8 @@ function CaseStudiesSection() {
             <Reveal key={i} delay={0.2 + (i * 0.1)}>
               <div className="group cursor-pointer">
                 <div className="relative aspect-[16/10] rounded-[2.5rem] border border-white/10 overflow-hidden mb-10 shadow-2xl">
-                  <img 
-                    src={project.image} 
+                  <img
+                    src={project.image}
                     alt={project.title}
                     className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-1000 group-hover:scale-105"
                   />
@@ -463,7 +466,7 @@ function CaseStudiesSection() {
                 </div>
                 <span className="text-accent font-bold text-sm uppercase tracking-[0.2em] mb-3 block">{project.category}</span>
                 <h3 className="text-3xl font-bold mb-6 text-white group-hover:text-accent transition-colors">{project.title}</h3>
-                
+
                 <div className="grid grid-cols-2 gap-8 py-8 border-t border-white/10">
                   <div>
                     <p className="text-[10px] uppercase tracking-widest text-slate-500 font-bold mb-2">Challenge</p>
@@ -518,7 +521,7 @@ function TestimonialsSection() {
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white text-center">Trusted by CEOs & Founders</h2>
           </Reveal>
         </div>
-        
+
         <div className="grid md:grid-cols-3 gap-10">
           {testimonials.map((t, i) => (
             <Reveal key={i} delay={0.1 * i}>
@@ -555,7 +558,7 @@ function CTASection() {
           {/* Background decoration */}
           <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-br from-accent/5 to-transparent pointer-events-none" />
           <div className="absolute -top-24 -left-24 w-[40rem] h-[40rem] bg-accent/20 rounded-full blur-[120px] pointer-events-none" />
-          
+
           <div className="relative z-10 max-w-4xl mx-auto">
             <Reveal delay={0.1}>
               <h2 className="text-5xl md:text-7xl font-extrabold text-white mb-10 leading-tight">
@@ -588,12 +591,12 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-background">
       <Header />
-      <PremiumHero 
-        title="Transforming Businesses with"
+      <PremiumHero
+        title={"Transforming\nBusinesses with"}
         rotatingPhrases={[
-          "Scalable IT Solutions.", 
-          "Digital Evolution.", 
-          "Enterprise Software.", 
+          "Scalable IT Solutions.",
+          "Digital Evolution.",
+          "Enterprise Software.",
           "Cloud Innovation."
         ]}
         subtitle="Empowering the Future of Business"

@@ -187,7 +187,7 @@ export default function PremiumHero({
     }
   }, [rotatingPhrases.length])
 
-  const titleWords = title.split(" ")
+  const titleWords = typeof title === 'string' ? title.split(" ") : []
 
   return (
     <section className="relative min-h-[85vh] flex items-center pt-24 pb-12 overflow-hidden bg-[#0B1220]">
@@ -226,7 +226,7 @@ export default function PremiumHero({
             <h1 className="text-5xl md:text-6xl lg:text-[4.5rem] font-extrabold leading-[1.05] tracking-tight mb-8 text-white font-[family-name:var(--font-manrope)]">
               {rotatingPhrases.length > 0 ? (
                 <>
-                  <span className="block mb-2">{title}</span>
+                  <span className="block mb-4 text-3xl md:text-4xl lg:text-5xl text-slate-200 whitespace-pre-line">{title}</span>
                   <span className="block relative text-accent min-h-[3em] lg:min-h-[1.5em] overflow-visible">
                     <AnimatePresence mode="wait">
                       <motion.span
@@ -305,7 +305,7 @@ export default function PremiumHero({
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.5, delay: 0.2, ease: "easeOut" }}
-            className="hidden lg:block relative"
+            className="block relative mt-12 lg:mt-0 w-full"
           >
             {children ? children : <Elegant3DBackground />}
           </motion.div>

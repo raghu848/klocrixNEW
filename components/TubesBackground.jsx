@@ -3,23 +3,19 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { cn } from '../lib/utils';
 
-// Helper for randomized blue/red colors
+// Helper for random colors with blue majority
 const randomColors = (count) => {
-  return new Array(count)
-    .fill(0)
-    .map((_, i) => {
-      // Make the first and last colors red (outer lines), and the rest blue (inner majority)
-      if (i === 0 || i === count - 1) {
-        // Red hues
-        const r = Math.floor(Math.random() * 100 + 155); // 155-255
-        return "#" + ((1 << 24) + (r << 16) + (0 << 8) + 0).toString(16).slice(1);
-      } else {
-        // Blue hues
-        const b = Math.floor(Math.random() * 100 + 155); // 155-255
-        const g = Math.floor(Math.random() * 50); // slight teal/cyan variations
-        return "#" + ((1 << 24) + (0 << 16) + (g << 8) + b).toString(16).slice(1);
-      }
-    });
+  const blueShades = ["#10CEE4", "#0EA5E9", "#0284C7", "#38BDF8", "#7DD3FC"];
+  const redShades = ["#DC2626", "#E11D48", "#F43F5E"];
+  
+  return new Array(count).fill(0).map(() => {
+    // 80% chance for blue, 20% chance for red
+    if (Math.random() > 0.2) {
+      return blueShades[Math.floor(Math.random() * blueShades.length)];
+    } else {
+      return redShades[Math.floor(Math.random() * redShades.length)];
+    }
+  });
 };
 
 export default function TubesBackground({ 
@@ -33,43 +29,41 @@ export default function TubesBackground({
 
   useEffect(() => {
     let mounted = true;
+    let cleanup;
 
     const initTubes = async () => {
       if (!canvasRef.current) return;
 
       try {
-        // Bypass Webpack's static analysis to use native browser dynamic import
-        const importUrl = 'https://cdn.jsdelivr.net/npm/threejs-components@0.0.19/build/cursors/tubes1.min.js';
-        const module = await new Function('url', 'return import(url)')(importUrl);
+        // We use the specific build from the CDN as it contains the exact effect requested
+        // Using native dynamic import which works in modern browsers
+        const module = await import(/* webpackIgnore: true */ 'https://cdn.jsdelivr.net/npm/threejs-components@0.0.19/build/cursors/tubes1.min.js');
         const TubesCursor = module.default;
 
         if (!mounted) return;
 
         const app = TubesCursor(canvasRef.current, {
-          sleepRadiusX: 200,      // Range of automatic X movement when idle
-          sleepRadiusY: 200,      // Range of automatic Y movement when idle
-          sleepTimeCoefX: 0.001,  // Speed of automatic X movement
-          sleepTimeCoefY: 0.0015, // Speed of automatic Y movement
           tubes: {
-            // Majority blue, with red at the edges
-            colors: [
-              "#dc2626", // Red
-              "#2563eb", "#1d4ed8", "#1e40af", "#3b82f6", 
-              "#2563eb", "#1d4ed8", "#1e40af", "#3b82f6",
-              "#b91c1c"  // Red
-            ], 
+            colors: ["#10CEE4", "#0EA5E9", "#0284C7", "#10CEE4", "#DC2626"], // Majority Blue, One Red
             lights: {
-              intensity: 70,
-              colors: [
-                "#dc2626", "#1d4ed8", "#2563eb", "#1e40af", 
-                "#3b82f6", "#1d4ed8", "#1e40af", "#b91c1c"
-              ] 
+              intensity: 200,
+              colors: ["#10CEE4", "#0EA5E9", "#0284C7", "#DC2626"] // Majority Blue, One Red
             }
           }
         });
 
         tubesRef.current = app;
         setIsLoaded(true);
+
+        const handleResize = () => {
+          // The library might handle it, but typically we ensure canvas matches container
+        };
+
+        window.addEventListener('resize', handleResize);
+        
+        cleanup = () => {
+          window.removeEventListener('resize', handleResize);
+        };
 
       } catch (error) {
         console.error("Failed to load TubesCursor:", error);
@@ -80,17 +74,15 @@ export default function TubesBackground({
 
     return () => {
       mounted = false;
-      if (tubesRef.current && typeof tubesRef.current.destroy === 'function') {
-        tubesRef.current.destroy();
-      }
+      if (cleanup) cleanup();
     };
   }, []);
 
   const handleClick = () => {
     if (!enableClickInteraction || !tubesRef.current) return;
     
-    const colors = randomColors(10);
-    const lightsColors = randomColors(8);
+    const colors = randomColors(3);
+    const lightsColors = randomColors(4);
     
     tubesRef.current.tubes.setColors(colors);
     tubesRef.current.tubes.setLightsColors(lightsColors);
