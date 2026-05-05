@@ -7,13 +7,14 @@ import { Phone } from 'lucide-react'
 export default function WhatsAppButton() {
   const pathname = usePathname()
   
-  // Hide on training page as requested
-  if (pathname === '/training' || pathname.startsWith('/training/')) {
-    return null
-  }
-
-  const phoneNumber = "8146330346"
-  const whatsappUrl = `https://wa.me/91${phoneNumber}`
+  const isTrainingPage = pathname === '/training' || pathname.startsWith('/training/')
+  
+  const phoneNumber = isTrainingPage ? "7508535271" : "8146330346"
+  const message = isTrainingPage 
+    ? encodeURIComponent("Hello! I'm interested in the Klocrix Training program. Could you please provide more details?") 
+    : encodeURIComponent("Hello! I'm interested in your services. Could you please help me?")
+    
+  const whatsappUrl = `https://wa.me/91${phoneNumber}?text=${message}`
 
   return (
     <div className="fixed bottom-8 right-8 z-[60]">

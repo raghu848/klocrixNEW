@@ -87,7 +87,8 @@ const portfolioProjects = [
   {
     title: "Dr. Gaurav Saini",
     category: "Healthcare",
-    image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=1000",
+    image: "/case-studies/dr-saini-logo.jpg",
+    position: "top",
     summary: "Leading Orthopedic Surgeon. We execute targeted digital campaigns to increase patient footfall and manage online reputation.",
     result: "Increased Patient Consultations",
     tags: ["Healthcare", "Digital Strategy", "Social Media"]
@@ -159,6 +160,7 @@ export function WorkGrid() {
                   src={project.image} 
                   alt={project.title}
                   className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                  style={{ objectPosition: project.position || 'center' }}
                 />
                 <div className="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
                   <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center text-primary shadow-2xl scale-0 group-hover:scale-100 transition-transform duration-500 delay-100">

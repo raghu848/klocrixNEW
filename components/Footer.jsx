@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { motion } from 'framer-motion'
 import {
   Mail,
@@ -39,13 +40,18 @@ const footerLinks = {
 }
 
 const socialLinks = [
-  { name: 'LinkedIn', href: 'https://linkedin.com/company/klocrix', icon: Linkedin },
-  { name: 'Twitter', href: 'https://twitter.com/klocrix', icon: Twitter },
-  { name: 'Instagram', href: 'https://instagram.com/klocrix', icon: Instagram },
-  { name: 'Facebook', href: 'https://facebook.com/klocrix', icon: Facebook },
+  { name: 'LinkedIn', href: 'https://www.linkedin.com/in/klocrix-business-solution-4454a5237', icon: Linkedin },
+  { name: 'Facebook', href: 'https://www.facebook.com/Klocrix', icon: Facebook },
+  { name: 'Instagram', href: 'https://www.instagram.com/klocrixbusinesssolution?igsh=MWwyZDJ1ams5a3Uydw%3D%3D&utm_source=qr', icon: Instagram },
 ]
 
 export default function Footer() {
+  const pathname = usePathname()
+  const isTrainingPage = pathname === '/training' || pathname.startsWith('/training/')
+  
+  const phoneNumber = isTrainingPage ? "+91 75085 35271" : "+91 81463 30346"
+  const phoneTel = isTrainingPage ? "+917508535271" : "+918146330346"
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -134,7 +140,7 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-4 text-slate-400">
                 <Phone className="w-6 h-6 text-accent shrink-0" />
-                <a href="tel:+919876543210" className="hover:text-white transition-colors">+91 98765 43210</a>
+                <a href={`tel:${phoneTel}`} className="hover:text-white transition-colors">{phoneNumber}</a>
               </div>
             </div>
           </div>

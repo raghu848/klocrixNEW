@@ -94,7 +94,7 @@ export function ContactMain() {
     {
       icon: Phone,
       title: 'Call Us',
-      details: ['+91 98765 43210', '+44 20 1234 5678']
+      details: ['+91 81463 30346', '+44 20 1234 5678']
     }
   ]
 
@@ -124,14 +124,23 @@ export function ContactMain() {
               ))}
             </div>
 
-            {/* Social Connect */}
             <div className="mt-24 pt-16 border-t border-slate-100">
               <h4 className="text-xs font-black uppercase tracking-[0.2em] text-slate-400 mb-10">Follow Our Journey</h4>
               <div className="flex flex-wrap gap-4">
-                {['LinkedIn', 'Twitter', 'Instagram'].map(social => (
-                  <button key={social} className="px-8 py-3 rounded-2xl border border-slate-100 text-slate-600 font-bold text-sm hover:bg-primary hover:text-white hover:border-primary transition-all duration-300">
-                    {social}
-                  </button>
+                {[
+                  { name: 'LinkedIn', href: 'https://www.linkedin.com/in/klocrix-business-solution-4454a5237' },
+                  { name: 'Facebook', href: 'https://www.facebook.com/Klocrix' },
+                  { name: 'Instagram', href: 'https://www.instagram.com/klocrixbusinesssolution?igsh=MWwyZDJ1ams5a3Uydw%3D%3D&utm_source=qr' }
+                ].map(social => (
+                  <a 
+                    key={social.name} 
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-8 py-3 rounded-2xl border border-slate-100 text-slate-600 font-bold text-sm hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 inline-block"
+                  >
+                    {social.name}
+                  </a>
                 ))}
               </div>
             </div>

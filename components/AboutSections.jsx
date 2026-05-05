@@ -48,7 +48,8 @@ export function OurStorySection() {
     "/case-studies/WhatsApp Image 2026-04-22 at 3.23.06 PM.jpeg",
     "/case-studies/WhatsApp Image 2026-04-22 at 3.23.09 PM.jpeg",
     "/case-studies/WhatsApp Image 2026-04-22 at 3.23.24 PM.jpeg",
-
+    "/case-studies/about section1.jpeg",
+    "/case-studies/about section2.jpeg"
   ];
 
   useEffect(() => {

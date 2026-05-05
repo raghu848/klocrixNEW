@@ -227,7 +227,7 @@ export default function Header() {
         }
       ` }} />
 
-      <header className={cn('header-root fixed top-0 left-0 right-0 z-50 transition-all duration-500', isScrolled ? 'pt-3 pb-3' : 'pt-5 pb-5')}>
+      <header className={cn('header-root fixed top-0 left-0 right-0 z-50 transition-all duration-500', isScrolled ? 'pt-6 pb-6' : 'pt-10 pb-10')}>
         <div className="max-w-7xl mx-auto px-5 flex items-center justify-between">
 
           {/* ── Logo ── */}
@@ -235,7 +235,7 @@ export default function Header() {
             <img
               src="/case-studies/Asset 2.png"
               alt="Klocrix"
-              className="logo-img h-10 md:h-12 w-auto object-contain"
+              className="logo-img h-14 md:h-18 w-auto object-contain"
             />
           </Link>
 
@@ -253,7 +253,7 @@ export default function Header() {
                     onMouseLeave={() => setActiveDropdown(null)}
                   >
                     <button className="flex items-center gap-1.5 px-4 py-2 rounded-full group transition-colors hover:bg-white/5">
-                      <span className={cn('text-[14px] font-500 tracking-wide transition-colors', isActive ? 'text-white' : 'text-slate-400 group-hover:text-white')}>
+                      <span className={cn('text-[17px] font-500 tracking-wide transition-colors', isActive ? 'text-white' : 'text-slate-400 group-hover:text-white')}>
                         {item.name}
                       </span>
                       <ChevronDown className={cn('w-3.5 h-3.5 transition-transform duration-300 text-slate-500', activeDropdown === index ? 'rotate-180 text-sky-400' : '')} />
@@ -302,7 +302,7 @@ export default function Header() {
                   onMouseEnter={() => setHoveredItem(index)}
                   onMouseLeave={() => setHoveredItem(null)}
                 >
-                  <span className={cn('nav-link-wrap text-[14px] font-500 tracking-wide transition-colors', isActive ? 'text-white active' : 'text-slate-400 group-hover:text-white')}>
+                  <span className={cn('nav-link-wrap text-[17px] font-500 tracking-wide transition-colors', isActive ? 'text-white active' : 'text-slate-400 group-hover:text-white')}>
                     {item.name}
                   </span>
                   {isActive && <span className="active-dot" />}

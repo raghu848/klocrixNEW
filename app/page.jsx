@@ -275,14 +275,12 @@ function AboutSection() {
         <div className="relative z-10">
           <Reveal delay={0.2}>
             <div className="relative rounded-[3rem] overflow-hidden shadow-2xl border border-white/10 group">
-              <div className="absolute inset-0 bg-[#0B1220]/40 group-hover:bg-transparent transition-colors duration-700 z-10 pointer-events-none" />
               <img
-                src="/case-studies/team-hero.jpeg"
+                src="/case-studies/WhatsApp Image 2026-04-23 at 2.59.37 PM (1).jpeg"
                 alt="Our Team"
-                className="w-full h-auto opacity-80 group-hover:opacity-100 transition-opacity duration-700 group-hover:scale-105"
+                className="w-full h-auto transition-opacity duration-700 group-hover:scale-105"
               />
             </div>
-
             {/* Experience Badge */}
             <motion.div
               initial={{ x: 50, opacity: 0 }}
