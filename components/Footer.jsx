@@ -130,7 +130,9 @@ export default function Footer() {
               <div className="flex items-start gap-4 text-slate-400">
                 <MapPin className="w-6 h-6 text-accent shrink-0" />
                 <p className="text-slate-400 leading-snug">
-                  Mohali, Punjab, India<br />
+                  E 68, Shrinivasan building, Phase-8,<br />
+                  Industrial Area, Sahibzada Ajit Singh Nagar,<br />
+                  Punjab 140308, India<br />
                   Luton, United Kingdom
                 </p>
               </div>

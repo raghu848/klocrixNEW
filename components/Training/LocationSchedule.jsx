@@ -44,7 +44,7 @@ export default function LocationSchedule() {
               <div className="space-y-4">
                 <p className="text-lg text-[#243A73] font-bold leading-tight uppercase tracking-tight">
                   E 68, Shrinivasan building, Phase-8, <br />
-                  Industrial Area, SAS Nagar, <br />
+                  Industrial Area, Sahibzada Ajit Singh Nagar, <br />
                   Punjab 140308, India
                 </p>
                 <p className="text-[#243A73]/60 font-medium" style={{ textShadow: 'none' }}>

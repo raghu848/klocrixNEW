@@ -286,10 +286,10 @@ function AboutSection() {
               initial={{ x: 50, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               viewport={{ once: true }}
-              className="absolute -bottom-10 -right-4 md:-right-10 p-10 bg-surface/90 backdrop-blur-2xl border border-white/10 text-white rounded-[2.5rem] shadow-[0_30px_60px_rgba(0,0,0,0.5)]"
+              className="absolute -bottom-6 -right-2 md:-bottom-10 md:-right-10 p-5 md:p-10 bg-surface/90 backdrop-blur-2xl border border-white/10 text-white rounded-[1.5rem] md:rounded-[2.5rem] shadow-[0_30px_60px_rgba(0,0,0,0.5)]"
             >
-              <p className="text-6xl font-black mb-1 text-accent">5+</p>
-              <p className="text-slate-300 font-bold uppercase tracking-widest text-xs">Years of Excellence</p>
+              <p className="text-4xl md:text-6xl font-black mb-1 text-accent">5+</p>
+              <p className="text-slate-300 font-bold uppercase tracking-widest text-[10px] md:text-xs">Years of Excellence</p>
             </motion.div>
           </Reveal>
         </div>

@@ -79,7 +79,7 @@ export function ContactMain() {
     {
       icon: MapPin,
       title: 'Headquarters',
-      details: ['Mohali, Punjab, India']
+      details: ['E 68, Shrinivasan building, Phase-8, Industrial Area, Sahibzada Ajit Singh Nagar, Punjab 140308, India.']
     },
     {
       icon: MapPin,
