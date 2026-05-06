@@ -118,16 +118,16 @@ export function TrainingBenefits() {
     <section className="section-padding bg-[#FAF7F2]">
       <div className="container-custom">
         <div className="text-center max-w-3xl mx-auto mb-24">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary">Why Choose Klocrix Training?</h2>
+          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-primary">Why Choose Klocrix Training?</h2>
           <p className="text-lg text-slate-500">Our bootcamp is designed to bridge the gap between academic learning and industry requirements.</p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {benefits.map((benefit, i) => (
-            <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className="p-10 rounded-[2.5rem] bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-2xl transition-all duration-500 group">
+            <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className="p-8 md:p-10 rounded-[2rem] md:rounded-[2.5rem] bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-2xl transition-all duration-500 group">
               <div className="w-16 h-16 rounded-2xl bg-primary/5 flex items-center justify-center text-primary mb-10 group-hover:bg-primary group-hover:text-white transition-all duration-500">
                 <benefit.icon className="w-8 h-8" />
               </div>
-              <h3 className="text-2xl font-bold mb-4 text-primary">{benefit.title}</h3>
+              <h3 className="text-xl md:text-2xl font-bold mb-4 text-primary">{benefit.title}</h3>
               <p className="text-slate-500 leading-relaxed text-lg">{benefit.desc}</p>
             </motion.div>
           ))}
@@ -149,7 +149,7 @@ export function TrainingCurriculum() {
       <div className="container-custom">
         <div className="text-center max-w-3xl mx-auto mb-20">
           <span className="text-accent font-black tracking-widest uppercase text-sm mb-4 block">Our Curriculum</span>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary leading-tight">Expert-Led Learning Paths</h2>
+          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-primary leading-tight">Expert-Led Learning Paths</h2>
         </div>
 
         {/* Course Selector Tabs */}
@@ -180,7 +180,7 @@ export function TrainingCurriculum() {
                 key={i} 
                 onClick={() => setActiveModule(i)}
                 className={cn(
-                  "text-left p-8 rounded-3xl border transition-all duration-500 shadow-sm relative group overflow-hidden",
+                  "text-left p-6 md:p-8 rounded-2xl md:rounded-3xl border transition-all duration-500 shadow-sm relative group overflow-hidden",
                   activeModule === i 
                     ? "bg-primary text-white border-primary shadow-xl z-10" 
                     : "bg-white text-slate-500 border-slate-100 hover:border-primary/30"
@@ -191,12 +191,12 @@ export function TrainingCurriculum() {
                   activeModule === i ? "scale-150" : "scale-0"
                 )} />
                 <span className="text-xs font-black uppercase tracking-[0.2em] mb-2 block opacity-60">Module 0{i+1}</span>
-                <span className="text-2xl font-black relative z-10">{m.title}</span>
+                <span className="text-xl md:text-2xl font-black relative z-10">{m.title}</span>
               </button>
             ))}
           </div>
           
-          <div className="lg:col-span-8 bg-white rounded-[3rem] p-10 md:p-16 shadow-2xl border border-slate-100 relative overflow-hidden">
+          <div className="lg:col-span-8 bg-white rounded-[2rem] md:rounded-[3rem] p-8 md:p-16 shadow-2xl border border-slate-100 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-[80px] -z-10" />
             
             <AnimatePresence mode="wait">
@@ -207,7 +207,7 @@ export function TrainingCurriculum() {
                 exit={{ opacity: 0, x: -20 }}
                 transition={{ duration: 0.3 }}
               >
-                <h3 className="text-4xl font-black mb-12 text-primary">{currentCourse.modules[activeModule].title}</h3>
+                <h3 className="text-2xl md:text-4xl font-black mb-8 md:mb-12 text-primary">{currentCourse.modules[activeModule].title}</h3>
                 <div className="grid md:grid-cols-2 gap-8">
                   {currentCourse.modules[activeModule].items.map((item, i) => (
                     <div key={i} className="flex items-center gap-6 p-6 rounded-2xl bg-slate-50 border border-slate-100 group hover:border-accent transition-colors">
@@ -232,10 +232,10 @@ export function TrainingPricing() {
   return (
     <section className="section-padding bg-[#FAF7F2]">
       <div className="container-custom">
-        <div className="max-w-6xl mx-auto bg-primary rounded-[4rem] overflow-hidden shadow-2xl flex flex-col lg:flex-row">
+        <div className="max-w-6xl mx-auto bg-primary rounded-[2rem] md:rounded-[4rem] overflow-hidden shadow-2xl flex flex-col lg:flex-row">
           <div className="p-12 md:p-20 flex-1 text-white relative">
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-[80px] pointer-events-none" />
-            <h2 className="text-5xl font-black mb-10 leading-tight">Program Details</h2>
+            <h2 className="text-3xl md:text-5xl font-black mb-10 leading-tight">Program Details</h2>
             <div className="space-y-10 mb-16">
               <div className="flex items-center gap-6">
                 <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center text-accent shadow-lg backdrop-blur-md">
@@ -299,10 +299,10 @@ export function TrainingContact() {
   return (
     <section id="contact" className="section-padding bg-[#F4FAFF]">
       <div className="container-custom">
-        <div className="grid lg:grid-cols-12 gap-24 items-center">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-24 items-center">
           <div className="lg:col-span-5">
             <span className="text-accent font-bold tracking-widest uppercase text-sm mb-4 block">Get in Touch</span>
-            <h2 className="text-4xl md:text-6xl font-black mb-10 text-primary leading-tight">Ready to start your journey?</h2>
+            <h2 className="text-3xl md:text-6xl font-black mb-8 md:mb-10 text-primary leading-tight">Ready to start your journey?</h2>
             <p className="text-xl text-slate-500 mb-12 leading-relaxed">
               Have questions about the bootcamp? Our advisors are here to help you decide if this is the right path for your career goals.
             </p>
@@ -320,7 +320,7 @@ export function TrainingContact() {
             </div>
           </div>
           
-          <div className="lg:col-span-7 bg-white p-12 md:p-16 rounded-[4rem] shadow-2xl border border-slate-100">
+          <div className="lg:col-span-7 bg-white p-8 md:p-16 rounded-[2rem] md:rounded-[4rem] shadow-2xl border border-slate-100">
             <form className="space-y-8">
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="space-y-3">

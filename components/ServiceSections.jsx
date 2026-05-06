@@ -131,7 +131,7 @@ export function ServicesDetailedGrid() {
   return (
     <section className="section-padding bg-[#FAF7F2]">
       <div className="container-custom">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {services.map((service, i) => (
             <motion.div
               key={service.id}
@@ -139,7 +139,7 @@ export function ServicesDetailedGrid() {
               whileInView="visible"
               viewport={{ once: true }}
               variants={fadeInUp}
-              className="p-10 rounded-[2.5rem] bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-2xl transition-all duration-500 group"
+              className="p-8 md:p-10 rounded-[2rem] md:rounded-[2.5rem] bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-2xl transition-all duration-500 group"
             >
               <div className="w-16 h-16 rounded-2xl bg-primary/5 flex items-center justify-center text-primary mb-10 group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-sm">
                 <service.icon className="w-8 h-8" />
@@ -177,11 +177,11 @@ export function ServicesCTA() {
           whileInView="visible"
           viewport={{ once: true }}
           variants={fadeInUp}
-          className="max-w-4xl mx-auto bg-primary rounded-[4rem] p-16 md:p-24 text-white overflow-hidden relative shadow-2xl"
+          className="max-w-4xl mx-auto bg-primary rounded-[2rem] md:rounded-[4rem] p-10 md:p-24 text-white overflow-hidden relative shadow-2xl"
         >
           <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-[80px] pointer-events-none" />
           
-          <h2 className="text-4xl md:text-6xl font-extrabold mb-10 leading-tight">Have a specific requirement?</h2>
+          <h2 className="text-3xl md:text-6xl font-extrabold mb-10 leading-tight">Have a specific requirement?</h2>
           <p className="text-xl text-slate-300 mb-16 max-w-2xl mx-auto leading-relaxed">
             Our team of architects is ready to help you define and build the perfect solution for your business.
           </p>

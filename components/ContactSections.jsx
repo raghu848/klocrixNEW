@@ -50,11 +50,11 @@ export function ContactHero() {
             </span>
           </motion.div>
           
-          <motion.h1 variants={fadeInUp} className="text-5xl md:text-8xl font-extrabold leading-tight mb-8 text-primary">
+          <motion.h1 variants={fadeInUp} className="text-4xl sm:text-5xl md:text-8xl font-extrabold leading-tight mb-8 text-primary">
             Let's Start a <span className="text-accent italic">Conversation</span>
           </motion.h1>
           
-          <motion.p variants={fadeInUp} className="text-xl md:text-2xl text-slate-500 max-w-3xl mx-auto leading-relaxed mb-12">
+          <motion.p variants={fadeInUp} className="text-lg md:text-2xl text-slate-500 max-w-3xl mx-auto leading-relaxed mb-12">
             Whether you have a specific project in mind or just want to explore possibilities, our team is ready to help.
           </motion.p>
 
@@ -101,10 +101,10 @@ export function ContactMain() {
   return (
     <section className="section-padding bg-white">
       <div className="container-custom">
-        <div className="grid lg:grid-cols-12 gap-24">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-24">
           {/* Info Side */}
           <div className="lg:col-span-5">
-            <h2 className="text-4xl font-bold mb-16 text-primary">Contact Information</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-10 md:mb-16 text-primary">Contact Information</h2>
             
             <div className="space-y-12">
               {contactInfo.map((info, index) => (
@@ -124,7 +124,7 @@ export function ContactMain() {
               ))}
             </div>
 
-            <div className="mt-24 pt-16 border-t border-slate-100">
+            <div className="mt-12 md:mt-24 pt-10 md:pt-16 border-t border-slate-100">
               <h4 className="text-xs font-black uppercase tracking-[0.2em] text-slate-400 mb-10">Follow Our Journey</h4>
               <div className="flex flex-wrap gap-4">
                 {[
@@ -148,9 +148,9 @@ export function ContactMain() {
 
           {/* Form Side */}
           <div className="lg:col-span-7">
-            <div className="bg-slate-50 p-12 md:p-16 rounded-[4rem] border border-slate-100 shadow-sm relative overflow-hidden">
+            <div className="bg-slate-50 p-8 md:p-16 rounded-[2rem] md:rounded-[4rem] border border-slate-100 shadow-sm relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl" />
-              <h2 className="text-4xl font-bold mb-12 text-primary">Send us a Message</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-12 text-primary">Send us a Message</h2>
               <form className="space-y-10">
                 <div className="grid md:grid-cols-2 gap-10">
                   <div className="space-y-3">
@@ -187,7 +187,7 @@ export function ContactMain() {
                 
                 <button className="w-full py-6 bg-primary text-white font-black rounded-2xl shadow-xl flex items-center justify-center gap-4 hover:bg-primary-light transition-all text-xl">
                   Send Message
-                  <Send className="w-6 h-6" />
+                  <Send className="w-5 h-5 md:w-6 md:h-6" />
                 </button>
               </form>
             </div>

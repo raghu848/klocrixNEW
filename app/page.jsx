@@ -197,16 +197,16 @@ const services = [
 
 function ServicesSection() {
   return (
-    <section id="services" className="section-padding bg-background relative z-10">
+    <section id="services" className="section-padding bg-background relative z-10 scroll-mt-20 md:scroll-mt-32">
       <div className="absolute top-0 w-full h-[500px] bg-gradient-to-b from-accent/5 to-transparent pointer-events-none" />
       <div className="container-custom relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-20">
           <Reveal delay={0.1}>
             <span className="glass-badge mb-6 inline-block">Our Expertise</span>
           </Reveal>
-          <TypingHeading
+            <TypingHeading
             text="Comprehensive IT Solutions for Modern Enterprises"
-            className="text-4xl md:text-5xl font-bold mb-6 text-white leading-tight"
+            className="text-3xl md:text-5xl font-bold mb-6 text-white leading-tight"
             delay={0.2}
           />
           <Reveal delay={0.3}>
@@ -216,7 +216,7 @@ function ServicesSection() {
           </Reveal>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {services.map((service, index) => {
             const isEven = index % 2 === 0;
             return (
@@ -268,10 +268,10 @@ function AboutSection() {
   const yParallax = useTransform(scrollYProgress, [0, 1], [0, 150]);
 
   return (
-    <section id="about" className="section-padding bg-[#111827] overflow-hidden relative border-t border-white/5">
+    <section id="about" className="section-padding bg-[#111827] overflow-hidden relative border-t border-white/5 scroll-mt-20 md:scroll-mt-32">
       <motion.div style={{ y: yParallax }} className="absolute -top-40 -left-40 w-96 h-96 bg-accent/20 rounded-full blur-[120px] -z-10 pointer-events-none" />
 
-      <div className="container-custom grid lg:grid-cols-2 gap-24 items-center">
+      <div className="container-custom grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
         <div className="relative z-10">
           <Reveal delay={0.2}>
             <div className="relative rounded-[3rem] overflow-hidden shadow-2xl border border-white/10 group">
@@ -286,7 +286,7 @@ function AboutSection() {
               initial={{ x: 50, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               viewport={{ once: true }}
-              className="absolute -bottom-6 -right-2 md:-bottom-10 md:-right-10 p-5 md:p-10 bg-surface/90 backdrop-blur-2xl border border-white/10 text-white rounded-[1.5rem] md:rounded-[2.5rem] shadow-[0_30px_60px_rgba(0,0,0,0.5)]"
+              className="absolute -bottom-6 right-0 md:-bottom-10 md:-right-10 p-5 md:p-10 bg-surface/90 backdrop-blur-2xl border border-white/10 text-white rounded-[1.5rem] md:rounded-[2.5rem] shadow-[0_30px_60px_rgba(0,0,0,0.5)]"
             >
               <p className="text-4xl md:text-6xl font-black mb-1 text-accent">5+</p>
               <p className="text-slate-300 font-bold uppercase tracking-widest text-[10px] md:text-xs">Years of Excellence</p>
@@ -299,7 +299,7 @@ function AboutSection() {
             <span className="glass-badge mb-6 inline-block">About Klocrix</span>
           </Reveal>
           <Reveal delay={0.2}>
-            <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight text-white">Accelerating Brand Growth Since 2019</h2>
+            <h2 className="text-3xl md:text-5xl font-bold mb-8 leading-tight text-white">Accelerating Brand Growth Since 2019</h2>
           </Reveal>
           <Reveal delay={0.3}>
             <p className="text-lg text-slate-400 mb-10 leading-relaxed">
@@ -384,13 +384,13 @@ function ProcessSection() {
             <div
               key={index}
               className="sticky w-full"
-              style={{ top: `calc(10rem + ${index * 2}rem)`, zIndex: index }}
+              style={{ top: `calc(6rem + ${index * 1.5}rem)`, zIndex: index }}
             >
-              <div className="p-10 md:p-14 rounded-[2.5rem] bg-surface/90 backdrop-blur-3xl border border-white/10 shadow-[0_-10px_40px_rgba(0,0,0,0.5)] transition-colors min-h-[350px] flex flex-col justify-center relative overflow-hidden group">
+              <div className="p-8 md:p-14 rounded-[2rem] md:rounded-[2.5rem] bg-surface/90 backdrop-blur-3xl border border-white/10 shadow-[0_-10px_40px_rgba(0,0,0,0.5)] transition-colors min-h-[300px] md:min-h-[350px] flex flex-col justify-center relative overflow-hidden group">
                 <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-1000" />
 
                 <div className="flex flex-col md:flex-row items-center gap-12 relative z-10">
-                  <div className="text-8xl md:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white/20 to-white/0 shrink-0">
+                  <div className="text-6xl md:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white/20 to-white/0 shrink-0">
                     {step.number}
                   </div>
                   <div>
@@ -552,14 +552,14 @@ function CTASection() {
   return (
     <section className="section-padding bg-[#111827]">
       <div className="container-custom gap-8">
-        <div className="relative rounded-[3rem] bg-surface border border-white/10 overflow-hidden p-16 md:p-32 text-center shadow-2xl">
+        <div className="relative rounded-[2rem] md:rounded-[3rem] bg-surface border border-white/10 overflow-hidden p-10 md:p-32 text-center shadow-2xl">
           {/* Background decoration */}
           <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-br from-accent/5 to-transparent pointer-events-none" />
           <div className="absolute -top-24 -left-24 w-[40rem] h-[40rem] bg-accent/20 rounded-full blur-[120px] pointer-events-none" />
 
           <div className="relative z-10 max-w-4xl mx-auto">
             <Reveal delay={0.1}>
-              <h2 className="text-5xl md:text-7xl font-extrabold text-white mb-10 leading-tight">
+              <h2 className="text-4xl md:text-7xl font-extrabold text-white mb-10 leading-tight">
                 Let's build something <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent-secondary">legendary</span> together
               </h2>
             </Reveal>
@@ -587,7 +587,7 @@ function CTASection() {
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background">
+    <main className="min-h-screen bg-background overflow-x-hidden">
       <Header />
       <PremiumHero
         title={"Transforming\nBusinesses with"}

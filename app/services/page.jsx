@@ -8,7 +8,7 @@ import {
 
 export default function ServicesPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white overflow-x-hidden">
       <Header />
       <ServicesHero />
       <ServicesDetailedGrid />

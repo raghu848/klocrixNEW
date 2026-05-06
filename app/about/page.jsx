@@ -13,7 +13,7 @@ import {
 
 export default function AboutPage() {
   return (
-    <main className="relative">
+    <main className="relative overflow-x-hidden">
       <Header />
       <AboutHero />
       <OurStorySection />

@@ -128,13 +128,13 @@ export function WorkGrid() {
     <section className="section-padding bg-[#F4FAFF]">
       <div className="container-custom">
         {/* Filters */}
-        <div className="flex flex-wrap justify-center gap-4 mb-24">
+        <div className="flex flex-wrap justify-center gap-3 md:gap-4 mb-16 md:mb-24">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveFilter(cat)}
               className={cn(
-                "px-8 py-3 rounded-2xl text-sm font-bold transition-all duration-300 border",
+                "px-6 md:px-8 py-2 md:py-3 rounded-xl md:rounded-2xl text-xs md:text-sm font-bold transition-all duration-300 border",
                 activeFilter === cat 
                   ? "bg-primary text-white border-primary shadow-xl" 
                   : "bg-slate-50 text-slate-500 border-slate-100 hover:border-primary/30"
@@ -145,7 +145,7 @@ export function WorkGrid() {
           ))}
         </div>
 
-        <div className="grid md:grid-cols-2 gap-16">
+        <div className="grid md:grid-cols-2 gap-12 md:gap-16">
           {filteredProjects.map((project, i) => (
             <motion.div
               key={project.title}
@@ -155,7 +155,7 @@ export function WorkGrid() {
               variants={fadeInUp}
               className="group"
             >
-              <div className="relative aspect-[16/10] rounded-[3rem] overflow-hidden mb-10 shadow-2xl">
+              <div className="relative aspect-[16/10] rounded-[2rem] md:rounded-[3rem] overflow-hidden mb-8 md:mb-10 shadow-2xl">
                 <img 
                   src={project.image} 
                   alt={project.title}
@@ -171,13 +171,13 @@ export function WorkGrid() {
               
               <div className="px-4">
                 <span className="text-accent font-bold text-sm uppercase tracking-[0.2em] mb-3 block">{project.category}</span>
-                <h3 className="text-3xl font-bold text-primary mb-6 group-hover:text-accent transition-colors">{project.title}</h3>
+                <h3 className="text-2xl md:text-3xl font-bold text-primary mb-6 group-hover:text-accent transition-colors">{project.title}</h3>
                 
                 <p className="text-lg text-slate-500 mb-10 leading-relaxed">
                   {project.summary}
                 </p>
                 
-                <div className="p-8 bg-slate-50 rounded-[2rem] border border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+                <div className="p-6 md:p-8 bg-slate-50 rounded-[1.5rem] md:rounded-[2rem] border border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
                   <div>
                     <p className="text-[10px] uppercase tracking-widest text-slate-400 font-bold mb-2">Key Result</p>
                     <p className="text-xl font-black text-primary">{project.result}</p>

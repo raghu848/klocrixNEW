@@ -227,15 +227,15 @@ export default function Header() {
         }
       ` }} />
 
-      <header className={cn('header-root fixed top-0 left-0 right-0 z-50 transition-all duration-500', isScrolled ? 'pt-6 pb-6' : 'pt-10 pb-10')}>
+      <header className={cn('header-root fixed top-0 left-0 right-0 z-50 transition-all duration-500', isScrolled ? 'pt-4 pb-4 md:pt-6 md:pb-6' : 'pt-6 pb-6 md:pt-10 md:pb-10')}>
         <div className="max-w-7xl mx-auto px-5 flex items-center justify-between">
 
           {/* ── Logo ── */}
-          <Link href="/" className="relative z-50 flex-shrink-0 bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-2xl shadow-lg border border-white/10">
+          <Link href="/" className="relative z-50 flex-shrink-0 bg-black/40 backdrop-blur-md px-2.5 py-1 md:px-3 md:py-1.5 rounded-xl md:rounded-2xl shadow-lg border border-white/10">
             <img
               src="/case-studies/Asset 2.png"
               alt="Klocrix"
-              className="logo-img h-14 md:h-18 w-auto object-contain"
+              className="logo-img h-10 md:h-14 lg:h-18 w-auto object-contain"
             />
           </Link>
 

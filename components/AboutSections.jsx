@@ -61,7 +61,7 @@ export function OurStorySection() {
 
   return (
     <section className="section-padding bg-[#F4FAFF] relative overflow-hidden">
-      <div className="container-custom grid lg:grid-cols-2 gap-24 items-center">
+      <div className="container-custom grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -69,7 +69,7 @@ export function OurStorySection() {
           variants={fadeInUp}
           className="relative"
         >
-          <div className="relative rounded-[3rem] overflow-hidden shadow-2xl w-3/5 mx-auto lg:ml-12 lg:mr-0 aspect-[4/5]">
+          <div className="relative rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl w-full max-w-[300px] md:max-w-none md:w-3/5 mx-auto lg:ml-12 lg:mr-0 aspect-[4/5]">
             {foundationImages.map((src, index) => (
               <img
                 key={src}
@@ -90,7 +90,7 @@ export function OurStorySection() {
           viewport={{ once: true }}
           variants={staggerContainer}
         >
-          <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-bold mb-8 text-primary uppercase tracking-tighter">
+          <motion.h2 variants={fadeInUp} className="text-3xl md:text-5xl font-bold mb-8 text-primary uppercase tracking-tighter">
             Our Foundation
           </motion.h2>
           <motion.div variants={fadeInUp} className="space-y-8 text-lg text-slate-500 leading-relaxed">
@@ -136,13 +136,13 @@ export function MissionVisionSection() {
               whileInView="visible"
               viewport={{ once: true }}
               variants={fadeInUp}
-              className="bg-white p-12 rounded-[2.5rem] shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-500"
+              className="bg-white p-8 md:p-12 rounded-[2rem] md:rounded-[2.5rem] shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-500"
             >
               <div className="w-16 h-16 rounded-2xl bg-primary/5 flex items-center justify-center text-primary mb-8">
                 <item.icon className="w-8 h-8" />
               </div>
-              <h3 className="text-3xl font-bold mb-6 text-primary">{item.title}</h3>
-              <p className="text-xl text-slate-500 leading-relaxed">
+              <h3 className="text-2xl md:text-3xl font-bold mb-6 text-primary">{item.title}</h3>
+              <p className="text-lg md:text-xl text-slate-500 leading-relaxed">
                 {item.description}
               </p>
             </motion.div>
@@ -178,7 +178,7 @@ export function WhyChooseUsSection() {
     <section className="section-padding bg-[#F4FAFF]">
       <div className="container-custom">
         <div className="text-center max-w-3xl mx-auto mb-24">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary">Why Leaders Choose Klocrix</h2>
+          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-primary">Why Leaders Choose Klocrix</h2>
           <p className="text-lg text-slate-500">We combine technical depth with business strategy to deliver outcomes that matter.</p>
         </div>
 
@@ -211,7 +211,7 @@ export function TeamSection() {
     <section className="section-padding bg-[#FAF7F2]">
       <div className="container-custom">
         <div className="text-center max-w-3xl mx-auto mb-24">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary">Our Leadership</h2>
+          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-primary">Our Leadership</h2>
           <p className="text-lg text-slate-500">The minds behind our engineering excellence.</p>
         </div>
 
@@ -228,7 +228,7 @@ export function TeamSection() {
               variants={fadeInUp}
               className="text-center group"
             >
-              <div className="relative mb-10 rounded-[3rem] overflow-hidden aspect-square shadow-lg">
+              <div className="relative mb-10 rounded-[2rem] md:rounded-[3rem] overflow-hidden aspect-square shadow-lg">
                 <img
                   src={member.image}
                   alt={member.name}
@@ -256,11 +256,11 @@ export function CTASection() {
           whileInView="visible"
           viewport={{ once: true }}
           variants={fadeInUp}
-          className="max-w-4xl mx-auto bg-primary rounded-[4rem] p-16 md:p-24 text-white overflow-hidden relative shadow-2xl"
+          className="max-w-4xl mx-auto bg-primary rounded-[2rem] md:rounded-[4rem] p-10 md:p-24 text-white overflow-hidden relative shadow-2xl"
         >
           <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-[80px] pointer-events-none" />
 
-          <h2 className="text-4xl md:text-6xl font-extrabold mb-10 leading-tight">Ready to architect your digital future?</h2>
+          <h2 className="text-3xl md:text-6xl font-extrabold mb-10 leading-tight">Ready to architect your digital future?</h2>
           <p className="text-xl text-slate-300 mb-16 max-w-2xl mx-auto">
             Let's start a conversation about how we can help you achieve your most ambitious business goals.
           </p>

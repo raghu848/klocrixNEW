@@ -28,7 +28,7 @@ const Elegant3DBackground = () => {
   }, [mouseX, mouseY])
 
   return (
-    <div className="relative w-full h-[600px] flex items-center justify-center perspective-1000">
+    <div className="relative w-full h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center perspective-1000">
       
       <motion.div
         style={{ 
@@ -37,13 +37,13 @@ const Elegant3DBackground = () => {
           y: parallaxY,
           transformStyle: "preserve-3d" 
         }}
-        className="relative w-full max-w-lg"
+        className="relative w-full max-w-[280px] md:max-w-lg"
       >
         {/* Soft Depth Layer 1 - Outer Mesh Glow */}
         <motion.div 
           animate={{ rotateZ: 360 }}
           transition={{ duration: 100, repeat: Infinity, ease: "linear" }}
-          className="absolute inset-0 m-auto w-96 h-96 rounded-full border border-white/5 opacity-50"
+          className="absolute inset-0 m-auto w-64 h-64 md:w-96 md:h-96 rounded-full border border-white/5 opacity-50"
           style={{ transform: "translateZ(-100px)", background: "radial-gradient(circle, rgba(14,165,233,0.1) 0%, transparent 70%)" }}
         />
 
@@ -51,7 +51,7 @@ const Elegant3DBackground = () => {
         <motion.div 
           animate={{ y: [0, -20, 0], x: [0, 10, 0], rotateZ: [0, 5, 0] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute inset-0 m-auto w-72 h-72 z-10 rounded-[3rem] border border-white/20 shadow-[0_0_80px_rgba(14,165,233,0.15)] backdrop-blur-3xl bg-transparent flex flex-col items-center justify-center overflow-hidden p-8"
+          className="absolute inset-0 m-auto w-48 h-48 md:w-72 md:h-72 z-10 rounded-[2rem] md:rounded-[3rem] border border-white/20 shadow-[0_0_80px_rgba(14,165,233,0.15)] backdrop-blur-3xl bg-transparent flex flex-col items-center justify-center overflow-hidden p-4 md:p-8"
           style={{ transform: "translateZ(50px)" }}
         >
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/10 to-transparent pointer-events-none" />
@@ -91,7 +91,7 @@ const Elegant3DBackground = () => {
         <motion.div 
           animate={{ y: [0, 15, 0], x: [0, -15, 0], rotateZ: [0, -5, 0] }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-          className="absolute -bottom-16 -left-8 w-48 h-48 z-20 rounded-[2rem] border border-white/20 shadow-[0_30px_60px_rgba(20,184,166,0.15)] backdrop-blur-2xl bg-transparent flex flex-col items-center justify-center"
+          className="absolute -bottom-10 -left-4 md:-bottom-16 md:-left-8 w-32 h-32 md:w-48 md:h-48 z-20 rounded-[1.5rem] md:rounded-[2rem] border border-white/20 shadow-[0_30px_60px_rgba(20,184,166,0.15)] backdrop-blur-2xl bg-transparent flex flex-col items-center justify-center"
           style={{ transform: "translateZ(120px)" }}
         >
           <div className="absolute inset-0 w-full h-full rounded-[2rem] border border-white/10 bg-gradient-to-br from-[#14B8A6]/20 to-transparent pointer-events-none" />
@@ -139,7 +139,7 @@ const Elegant3DBackground = () => {
         <motion.div 
           animate={{ y: [0, -10, 0], rotateZ: [0, 3, 0] }}
           transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute top-0 -right-4 w-32 h-32 z-30 rounded-[1.5rem] border border-white/20 shadow-2xl backdrop-blur-xl bg-transparent flex items-center justify-center overflow-hidden"
+          className="absolute top-0 -right-2 md:-right-4 w-24 h-24 md:w-32 md:h-32 z-30 rounded-[1rem] md:rounded-[1.5rem] border border-white/20 shadow-2xl backdrop-blur-xl bg-transparent flex items-center justify-center overflow-hidden"
           style={{ transform: "translateZ(180px)" }}
         >
           <div className="absolute inset-0 bg-gradient-to-tr from-[#0EA5E9]/20 to-transparent rounded-[1.5rem] pointer-events-none" />
@@ -190,7 +190,7 @@ export default function PremiumHero({
   const titleWords = typeof title === 'string' ? title.split(" ") : []
 
   return (
-    <section className="relative min-h-[85vh] flex items-center pt-24 pb-12 overflow-hidden bg-[#0B1220]">
+    <section className="relative min-h-[85vh] flex items-center pt-28 md:pt-32 lg:pt-24 pb-12 overflow-hidden bg-[#0B1220]">
       {/* Dynamic Background Layer */}
       {bgComponent ? bgComponent : <TubesBackground className="absolute inset-0 z-0 !bg-transparent" />}
       
@@ -223,10 +223,10 @@ export default function PremiumHero({
             )}
             
             {/* Main Title using Manrope */}
-            <h1 className="text-5xl md:text-6xl lg:text-[4.5rem] font-extrabold leading-[1.05] tracking-tight mb-8 text-white font-[family-name:var(--font-manrope)]">
+            <h1 className="text-4xl md:text-6xl lg:text-[4.5rem] font-extrabold leading-[1.1] md:leading-[1.05] tracking-tight mb-8 text-white font-[family-name:var(--font-manrope)]">
               {rotatingPhrases.length > 0 ? (
                 <>
-                  <span className="block mb-4 text-3xl md:text-4xl lg:text-5xl text-slate-200 whitespace-pre-line">{title}</span>
+                  <span className="block mb-4 text-2xl md:text-4xl lg:text-5xl text-slate-200 whitespace-pre-line">{title}</span>
                   <span className="block relative text-accent min-h-[3em] lg:min-h-[1.5em] overflow-visible">
                     <AnimatePresence mode="wait">
                       <motion.span

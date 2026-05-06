@@ -15,11 +15,11 @@ export default function LocationSchedule() {
           variants={fadeInUp}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 flex flex-wrap justify-center gap-4 uppercase tracking-widest">
+          <h2 className="text-3xl md:text-5xl font-heading font-bold mb-6 flex flex-wrap justify-center gap-4 uppercase tracking-widest leading-tight">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#243A73] to-[#243A73]/60">Convenient for</span>
-            <span style={{ WebkitTextStroke: '1.5px rgba(36, 58, 115, 0.8)', color: 'transparent' }}>Tricity Students</span>
+            <span style={{ WebkitTextStroke: '1px md:WebkitTextStroke: 1.5px rgba(36, 58, 115, 0.8)', color: 'transparent' }}>Tricity Students</span>
           </h2>
-          <p className="text-xl text-[#243A73]/70" style={{ textShadow: 'none' }}>
+          <p className="text-lg md:text-xl text-[#243A73]/70" style={{ textShadow: 'none' }}>
             Easy to reach from Chandigarh, Mohali, and Zirakpur
           </p>
         </motion.div>
@@ -33,7 +33,7 @@ export default function LocationSchedule() {
               whileInView="animate"
               viewport={{ once: true }}
               variants={fadeInUp}
-              className="bg-white p-8 rounded-[2.5rem] shadow-xl border border-blue-500/10"
+              className="bg-white p-6 md:p-8 rounded-[1.5rem] md:rounded-[2.5rem] shadow-xl border border-blue-500/10"
             >
               <div className="flex items-center gap-4 mb-6">
                 <div className="bg-blue-500/10 p-3 rounded-2xl">
@@ -72,7 +72,7 @@ export default function LocationSchedule() {
               whileInView="animate"
               viewport={{ once: true }}
               variants={fadeInUp}
-              className="bg-white p-8 rounded-[2.5rem] shadow-xl border border-[#10CEE4]/10"
+              className="bg-white p-6 md:p-8 rounded-[1.5rem] md:rounded-[2.5rem] shadow-xl border border-[#10CEE4]/10"
             >
               <div className="flex items-center gap-4 mb-6">
                 <div className="bg-[#10CEE4]/10 p-3 rounded-2xl">
@@ -103,7 +103,7 @@ export default function LocationSchedule() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative h-[400px] lg:h-full min-h-[500px] rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white"
+            className="relative h-[300px] md:h-[400px] lg:h-full min-h-[400px] md:min-h-[500px] rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white"
           >
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3430.22!2d76.6895!3d30.7095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDQyJzM0LjIiTiA3NsKwNDEnMjIuMiJF!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"

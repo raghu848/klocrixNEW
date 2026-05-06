@@ -60,7 +60,7 @@ export default function Footer() {
   }
 
   return (
-    <footer className="bg-[#0B1220] border-t border-white/10 text-white pt-24 pb-12 overflow-hidden">
+    <footer className="bg-[#0B1220] border-t border-white/10 text-white pt-16 md:pt-24 pb-12 overflow-hidden">
       <div className="container-custom px-6 lg:px-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-16 mb-20">
           
@@ -70,7 +70,7 @@ export default function Footer() {
               <img
                 src="/case-studies/Asset 2.png"
                 alt="Klocrix Logo"
-                className="h-12 md:h-16 w-auto object-contain"
+                className="h-10 md:h-16 w-auto object-contain"
               />
             </Link>
             <p className="text-slate-300 text-lg mb-10 leading-relaxed max-w-sm">
@@ -129,7 +129,7 @@ export default function Footer() {
             <div className="flex flex-col gap-6">
               <div className="flex items-start gap-4 text-slate-400">
                 <MapPin className="w-6 h-6 text-accent shrink-0" />
-                <p className="text-slate-400 leading-snug">
+                <p className="text-slate-400 leading-snug text-sm md:text-base">
                   E 68, Shrinivasan building, Phase-8,<br />
                   Industrial Area, Sahibzada Ajit Singh Nagar,<br />
                   Punjab 140308, India<br />
