@@ -66,10 +66,10 @@ class Noise {
 }
 
 export const InteractiveWavesBackground = ({
-  lineColor = 'rgba(255, 250, 240, 0.7)', // Brighter, cream-colored lines
+  lineColor = 'rgba(255, 250, 240, 0.7)', 
   backgroundColor = 'transparent',
-  waveSpeedX = 0.005, // Slower movement
-  waveSpeedY = 0.002, // Slower movement
+  waveSpeedX = 0.005, 
+  waveSpeedY = 0.002, 
   waveAmpX = 32,
   waveAmpY = 16,
   xGap = 10,
@@ -83,6 +83,7 @@ export const InteractiveWavesBackground = ({
   const containerRef = useRef(null);
   const canvasRef = useRef(null);
   const ctxRef = useRef(null);
+  const [isMobile, setIsMobile] = React.useState(false);
   const boundingRef = useRef({ width: 0, height: 0, left: 0, top: 0 });
   const noiseRef = useRef(new Noise(Math.random()));
   const linesRef = useRef([]);
@@ -95,10 +96,14 @@ export const InteractiveWavesBackground = ({
   const frameIdRef = useRef(null);
 
   useEffect(() => {
-    configRef.current = { lineColor, waveSpeedX, waveSpeedY, waveAmpX, waveAmpY, friction, tension, maxCursorMove, xGap, yGap };
-  }, [lineColor, waveSpeedX, waveSpeedY, waveAmpX, waveAmpY, friction, tension, maxCursorMove, xGap, yGap]);
+    const checkMobile = () => {
+      const mobile = window.innerWidth < 768;
+      setIsMobile(mobile);
+      return mobile;
+    };
+    
+    if (checkMobile()) return;
 
-  useEffect(() => {
     const canvas = canvasRef.current;
     const container = containerRef.current;
     if (!canvas || !container) return;
@@ -267,6 +272,8 @@ export const InteractiveWavesBackground = ({
       }
     };
   }, []);
+
+  if (isMobile) return null;
 
   return (
     <div

@@ -17,7 +17,8 @@ export default function TypingHeading({ text, className, as: Component = "h2", d
           <motion.span
             key={`${char}-${index}`}
             initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.1, delay: delay + index * 0.05 }}
           >
             {char}

@@ -24,34 +24,28 @@ import {
 } from 'lucide-react'
 import { cn } from '../lib/utils'
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import ClientLogoMarquee from '../components/ClientLogoMarquee'
-import PremiumHero from '../components/PremiumHero'
 import TypingHeading from '../components/TypingHeading'
+
+import PremiumHero from '../components/PremiumHero'
 
 // Reveal Component for scroll animations
 function Reveal({ children, width = "fit-content", delay = 0.2 }) {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-50px" })
-  const mainControls = useAnimation()
-
-  useEffect(() => {
-    if (isInView) {
-      mainControls.start("visible")
-    }
-  }, [isInView, mainControls])
-
   return (
-    <div ref={ref} style={{ position: "relative", width, overflow: "visible" }}>
+    <div style={{ position: "relative", width, overflow: "visible" }}>
       <motion.div
-        variants={{
-          hidden: { opacity: 0, y: 40, filter: "blur(10px)", scale: 0.95 },
-          visible: { opacity: 1, y: 0, filter: "blur(0px)", scale: 1 },
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ 
+          duration: 0.6, 
+          delay, 
+          ease: [0.16, 1, 0.3, 1] 
         }}
-        initial="hidden"
-        animate={mainControls}
-        transition={{ duration: 0.8, delay, ease: [0.16, 1, 0.3, 1] }}
+        style={{ willChange: "transform, opacity" }}
       >
         {children}
       </motion.div>
@@ -60,7 +54,7 @@ function Reveal({ children, width = "fit-content", delay = 0.2 }) {
 }
 
 // 2. Trust Section
-function TrustSection() {
+const TrustSection = function TrustSection() {
   const containerRef = useRef(null);
 
   useEffect(() => {
@@ -82,7 +76,7 @@ function TrustSection() {
   return (
     <section
       ref={containerRef}
-      className="py-28 bg-[#0B1220] relative border-b border-white/5 shadow-2xl z-20 overflow-hidden"
+      className="py-12 bg-[#0B1220] relative border-b border-white/5 shadow-2xl z-20 overflow-hidden"
     >
       {/* Interactive Background Layers */}
       <div className="absolute inset-0 pointer-events-none">
@@ -195,7 +189,7 @@ const services = [
   }
 ]
 
-function ServicesSection() {
+const ServicesSection = function ServicesSection() {
   return (
     <section id="services" className="section-padding bg-background relative z-10 scroll-mt-20 md:scroll-mt-32">
       <div className="absolute top-0 w-full h-[500px] bg-gradient-to-b from-accent/5 to-transparent pointer-events-none" />
@@ -263,7 +257,7 @@ function ServicesSection() {
 }
 
 // 4. About Section
-function AboutSection() {
+const AboutSection = function AboutSection() {
   const { scrollYProgress } = useScroll();
   const yParallax = useTransform(scrollYProgress, [0, 1], [0, 150]);
 
@@ -362,7 +356,7 @@ const steps = [
   }
 ]
 
-function ProcessSection() {
+const ProcessSection = function ProcessSection() {
   return (
     <section className="section-padding bg-background relative border-y border-white/5 py-24 pb-48">
       {/* Background decoration */}
@@ -410,7 +404,7 @@ function ProcessSection() {
 }
 
 // 6. Case Studies Section
-function CaseStudiesSection() {
+const CaseStudiesSection = function CaseStudiesSection() {
   return (
     <section className="section-padding bg-[#111827] relative z-20">
       <div className="container-custom">
@@ -506,7 +500,7 @@ const testimonials = [
   }
 ]
 
-function TestimonialsSection() {
+const TestimonialsSection = function TestimonialsSection() {
   return (
     <section className="section-padding bg-background overflow-hidden relative">
       <div className="absolute inset-0 z-0 bg-[url('/grid-dark.svg')] bg-center bg-fixed opacity-[0.03]" />
@@ -548,7 +542,7 @@ function TestimonialsSection() {
 }
 
 // 8. CTA Section
-function CTASection() {
+const CTASection = function CTASection() {
   return (
     <section className="section-padding bg-[#111827]">
       <div className="container-custom gap-8">

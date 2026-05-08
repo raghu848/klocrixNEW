@@ -9,6 +9,7 @@ import TubesBackground from './TubesBackground'
 // Premium 3D Geometric Background
 const Elegant3DBackground = () => {
   const { scrollY } = useScroll()
+  const [isMobile, setIsMobile] = useState(false)
   const mouseX = useMotionValue(0)
   const mouseY = useMotionValue(0)
 
@@ -17,15 +18,41 @@ const Elegant3DBackground = () => {
   const parallaxY = useTransform(scrollY, [0, 500], [0, 100])
 
   useEffect(() => {
+    const checkMobile = () => {
+      const mobile = window.innerWidth < 768
+      setIsMobile(mobile)
+    }
+    checkMobile()
+    
+    const handleResize = () => checkMobile()
     const handleMouseMove = (e) => {
+      if (window.innerWidth < 768) return
       const x = e.clientX / window.innerWidth - 0.5
       const y = e.clientY / window.innerHeight - 0.5
       mouseX.set(x)
       mouseY.set(y)
     }
+    
     window.addEventListener("mousemove", handleMouseMove)
-    return () => window.removeEventListener("mousemove", handleMouseMove)
+    window.addEventListener("resize", handleResize)
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove)
+      window.removeEventListener("resize", handleResize)
+    }
   }, [mouseX, mouseY])
+
+  if (isMobile) {
+    return (
+      <div className="relative w-full h-[300px] flex items-center justify-center">
+        <div className="absolute w-64 h-64 bg-accent/20 rounded-full blur-[80px]" />
+        <div className="relative z-10 w-48 h-48 rounded-[2rem] border border-white/20 backdrop-blur-xl bg-white/5 flex flex-col items-center justify-center p-6 text-center shadow-2xl">
+           <Database className="w-10 h-10 text-accent mb-4" />
+           <p className="text-white font-bold">Cloud Ready</p>
+           <p className="text-slate-400 text-[10px] mt-2">Enterprise Infrastructure</p>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="relative w-full h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center perspective-1000">
@@ -110,7 +137,7 @@ const Elegant3DBackground = () => {
         </motion.div>
 
         {/* Small floating particles */}
-        {[...Array(5)].map((_, i) => (
+        {[...Array(3)].map((_, i) => (
           <motion.div
             key={i}
             animate={{ 
@@ -231,9 +258,9 @@ export default function PremiumHero({
                     <AnimatePresence mode="wait">
                       <motion.span
                         key={currentPhrase}
-                        initial={{ y: 20, opacity: 0, filter: "blur(10px)" }}
-                        animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
-                        exit={{ y: -20, opacity: 0, filter: "blur(10px)" }}
+                        initial={{ y: 20, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        exit={{ y: -20, opacity: 0 }}
                         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                         className="inline-block w-full"
                       >
@@ -246,8 +273,8 @@ export default function PremiumHero({
                 titleWords.map((word, i) => (
                   <motion.span
                     key={i}
-                    initial={{ y: "20%", opacity: 0, filter: "blur(5px)" }}
-                    animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
+                    initial={{ y: "20%", opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
                     transition={{ duration: 0.8, delay: i * 0.05, ease: [0.16, 1, 0.3, 1] }}
                     className={`inline-block mr-3 ${['Scalable', 'IT', 'Solutions', 'Excellence', 'Digital', 'Evolution'].includes(word) ? "text-accent" : ""}`}
                   >

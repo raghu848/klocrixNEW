@@ -69,7 +69,7 @@ export function OurStorySection() {
           variants={fadeInUp}
           className="relative"
         >
-          <div className="relative rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl w-full max-w-[300px] md:max-w-none md:w-3/5 mx-auto lg:ml-12 lg:mr-0 aspect-[4/5]">
+          <div className="relative rounded-[3rem] overflow-hidden shadow-2xl w-full max-w-[600px] mx-auto lg:mr-0 aspect-[4/5]">
             {foundationImages.map((src, index) => (
               <img
                 key={src}
