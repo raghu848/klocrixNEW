@@ -49,7 +49,7 @@ export default function Credibility() {
           </h2>
           <div className="max-w-3xl mx-auto space-y-4">
             <p className="text-xl text-[#243A73]/80 font-semibold">
-              Klocrix Business Solutions - Engineering Digital Evolution since 2020
+              Klocrix Business Solutions - Engineering Digital Evolution since 2019
             </p>
             <p className="text-lg text-[#243A73]/70">
               Multiple client campaigns | Local agency expertise | Mohali-based

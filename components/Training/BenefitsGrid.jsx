@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
+import Image from 'next/image'
 import { Video, Briefcase, Target, TrendingUp, CheckCircle, ArrowRight, Sparkles } from 'lucide-react'
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion'
 import { cn } from '../../lib/utils'
@@ -115,10 +116,13 @@ export default function BenefitsGrid() {
             animate={{ scale: 1 + (activeSection * 0.05) }}
             transition={{ duration: 1.5, ease: "easeInOut" }}
           >
-            <img
+            <Image
               src="/training-benefits-bg.jpeg"
-              alt="Developer Workspace"
-              className="w-full h-full object-cover opacity-40 mix-blend-luminosity"
+              alt="Professional developer workspace showing a coding environment"
+              fill
+              className="object-cover opacity-40 mix-blend-luminosity"
+              sizes="50vw"
+              priority
             />
           </motion.div>
           

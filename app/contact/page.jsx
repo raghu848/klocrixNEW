@@ -17,6 +17,10 @@ export default function ContactPage() {
 }
 
 export const metadata = {
-  title: 'Contact Us',
-  description: 'Get in touch with Klocrix Business Solutions. We are here to help you with your next digital project.',
+  title: 'Contact Klocrix | Start Your Digital Transformation Journey',
+  description: 'Get in touch with Klocrix Business Solutions today. Whether you have a project in mind or need expert IT consulting, our team is ready to help you scale your business.',
+  keywords: 'contact klocrix, hire developers india, software development inquiry, IT consulting contact',
+  alternates: {
+    canonical: 'https://klocrix.com/contact/',
+  },
 }

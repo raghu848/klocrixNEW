@@ -27,6 +27,8 @@ const navigation = [
   { name: 'Contact', href: '/contact' },
 ]
 
+import Image from 'next/image'
+
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -231,11 +233,14 @@ export default function Header() {
         <div className="container-custom flex items-center justify-between">
 
           {/* ── Logo ── */}
-          <Link href="/" className="relative z-50 flex-shrink-0 bg-black/40 backdrop-blur-md py-1 md:py-1.5 rounded-xl md:rounded-2xl shadow-lg border border-white/10">
-            <img
-              src="/case-studies/Asset 2.png"
-              alt="Klocrix"
+          <Link href="/" className="relative z-50 flex-shrink-0 bg-black/40 backdrop-blur-md py-1 md:py-1.5 px-3 rounded-xl md:rounded-2xl shadow-lg border border-white/10" aria-label="Klocrix Home">
+            <Image
+              src="/case-studies/klocrix-logo.png"
+              alt="Klocrix Logo"
+              width={140}
+              height={56}
               className="logo-img h-10 md:h-14 lg:h-18 w-auto object-contain"
+              priority
             />
           </Link>
 

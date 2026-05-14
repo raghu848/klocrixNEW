@@ -39,7 +39,7 @@ const staggerContainer = {
 // 1. Contact Hero
 export function ContactHero() {
   return (
-    <section className="relative min-h-[60vh] flex items-center pt-24 overflow-hidden bg-white">
+    <section className="relative min-h-[60vh] flex items-center pt-32 overflow-hidden bg-white">
       <PremiumBackground />
       
       <div className="container-custom relative z-10 text-center px-4">
@@ -115,9 +115,21 @@ export function ContactMain() {
                   <div>
                     <h3 className="text-xl font-bold text-primary mb-3">{info.title}</h3>
                     <div className="space-y-2">
-                      {info.details.map((detail, idx) => (
-                        <p key={idx} className="text-slate-500 font-medium">{detail}</p>
-                      ))}
+                      {info.details.map((detail, idx) => {
+                        const isEmail = detail.includes('@')
+                        const isPhone = detail.includes('+')
+                        return (
+                          <p key={idx} className="text-slate-500 font-medium">
+                            {isEmail ? (
+                              <a href={`mailto:${detail}`} className="hover:text-accent transition-colors">{detail}</a>
+                            ) : isPhone ? (
+                              <a href={`tel:${detail.replace(/\s+/g, '')}`} className="hover:text-accent transition-colors">{detail}</a>
+                            ) : (
+                              detail
+                            )}
+                          </p>
+                        )
+                      })}
                     </div>
                   </div>
                 </div>

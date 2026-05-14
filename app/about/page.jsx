@@ -26,6 +26,10 @@ export default function AboutPage() {
 }
 
 export const metadata = {
-  title: 'About Us',
-  description: 'Learn about Klocrix Business Solutions - 5+ years of engineering digital evolution. Meet the team that transforms ambitious companies into market leaders.',
+  title: 'About Klocrix | Our Mission, Vision & Engineering Excellence',
+  description: 'Discover Klocrix Business Solutions. With over 5 years of experience, we specialize in digital transformation, custom software engineering, and strategic consulting for global brands.',
+  keywords: 'about klocrix, software engineering team, digital transformation agency, IT consulting india',
+  alternates: {
+    canonical: 'https://klocrix.com/about/',
+  },
 }

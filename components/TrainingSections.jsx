@@ -314,7 +314,9 @@ export function TrainingContact() {
                 </div>
                 <div>
                   <p className="text-xs text-slate-400 font-bold uppercase tracking-widest mb-1">Call Advisor</p>
-                  <p className="text-2xl font-black text-primary">+91 75085 35271</p>
+                  <p className="text-2xl font-black text-primary">
+                    <a href="tel:+917508535271" className="hover:text-accent transition-colors">+91 75085 35271</a>
+                  </p>
                 </div>
               </div>
             </div>

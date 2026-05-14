@@ -10,6 +10,7 @@ import TubesBackground from './TubesBackground'
 const Elegant3DBackground = () => {
   const { scrollY } = useScroll()
   const [isMobile, setIsMobile] = useState(false)
+  const [mounted, setMounted] = useState(false)
   const mouseX = useMotionValue(0)
   const mouseY = useMotionValue(0)
 
@@ -18,6 +19,7 @@ const Elegant3DBackground = () => {
   const parallaxY = useTransform(scrollY, [0, 500], [0, 100])
 
   useEffect(() => {
+    setMounted(true)
     const checkMobile = () => {
       const mobile = window.innerWidth < 768
       setIsMobile(mobile)
@@ -40,6 +42,10 @@ const Elegant3DBackground = () => {
       window.removeEventListener("resize", handleResize)
     }
   }, [mouseX, mouseY])
+
+  if (!mounted) {
+    return <div className="relative w-full h-[400px] md:h-[500px] lg:h-[600px]" />
+  }
 
   if (isMobile) {
     return (
@@ -141,23 +147,23 @@ const Elegant3DBackground = () => {
           <motion.div
             key={i}
             animate={{ 
-              y: [0, -Math.random() * 50 - 20, 0],
-              x: [0, Math.random() * 50 - 25, 0],
+              y: [0, -((i * 15) % 50) - 20, 0],
+              x: [0, ((i * 25) % 50) - 25, 0],
               opacity: [0.2, 0.6, 0.2]
             }}
             transition={{ 
-              duration: Math.random() * 5 + 5, 
+              duration: ((i * 7) % 5) + 5, 
               repeat: Infinity, 
               ease: "easeInOut",
               delay: i * 0.5
             }}
             className="absolute rounded-full bg-[#0EA5E9]/40 blur-[2px]"
             style={{
-              width: Math.random() * 10 + 4 + "px",
-              height: Math.random() * 10 + 4 + "px",
-              left: Math.random() * 100 + "%",
-              top: Math.random() * 100 + "%",
-              transform: `translateZ(${Math.random() * 150 + 50}px)`
+              width: ((i * 3) % 10) + 4 + "px",
+              height: ((i * 3) % 10) + 4 + "px",
+              left: ((i * 21) % 100) + "%",
+              top: ((i * 37) % 100) + "%",
+              transform: `translateZ(${((i * 41) % 150) + 50}px)`
             }}
           />
         ))}
@@ -217,7 +223,7 @@ export default function PremiumHero({
   const titleWords = typeof title === 'string' ? title.split(" ") : []
 
   return (
-    <section className="relative min-h-[85vh] flex items-center pt-28 md:pt-32 lg:pt-24 pb-12 overflow-hidden bg-[#0B1220]">
+    <section className="relative min-h-[85vh] flex items-center pt-28 md:pt-32 lg:pt-32 pb-12 overflow-hidden bg-[#0B1220]">
       {/* Dynamic Background Layer */}
       {bgComponent ? bgComponent : <TubesBackground className="absolute inset-0 z-0 !bg-transparent" />}
       

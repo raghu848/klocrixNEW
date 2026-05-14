@@ -12,6 +12,7 @@ import {
 } from 'lucide-react'
 import Link from 'next/link'
 import { useState } from 'react'
+import Image from 'next/image'
 import { cn } from '../lib/utils'
 import PremiumHero from './PremiumHero'
 
@@ -156,11 +157,13 @@ export function WorkGrid() {
               className="group"
             >
               <div className="relative aspect-[16/10] rounded-[2rem] md:rounded-[3rem] overflow-hidden mb-8 md:mb-10 shadow-2xl">
-                <img 
+                <Image 
                   src={project.image} 
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                  alt={`${project.title} - ${project.category} Portfolio`}
+                  fill
+                  className="object-cover transition-transform duration-1000 group-hover:scale-110"
                   style={{ objectPosition: project.position || 'center' }}
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
                 <div className="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
                   <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center text-primary shadow-2xl scale-0 group-hover:scale-100 transition-transform duration-500 delay-100">

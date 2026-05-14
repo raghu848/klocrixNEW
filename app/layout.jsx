@@ -16,14 +16,17 @@ const manrope = Manrope({
 
 export const metadata = {
   title: {
-    default: 'Klocrix - Engineering Digital Evolution',
+    default: 'Klocrix - Engineering Digital Evolution | IT Solutions & Consulting',
     template: '%s | Klocrix'
   },
-  description: 'Klocrix Business Solutions: 5+ years of engineering excellence. We architect bespoke software solutions that transform ambitious companies into market leaders.',
-  keywords: ['custom software development', 'data science', 'web development', 'mobile apps', 'ERP solutions', 'digital transformation'],
+  description: 'Klocrix Business Solutions: 5+ years of engineering excellence. We architect bespoke software solutions, data science models, and ERP systems that transform ambitious companies.',
+  keywords: ['custom software development', 'data science india', 'web development mohali', 'mobile app development chandigarh', 'ERP solutions', 'digital transformation services', 'Klocrix Business Solutions'],
   authors: [{ name: 'Klocrix Business Solutions Pvt. Ltd.' }],
   creator: 'Klocrix',
   publisher: 'Klocrix',
+  alternates: {
+    canonical: 'https://klocrix.com',
+  },
   formatDetection: {
     email: false,
     address: false,
@@ -34,7 +37,7 @@ export const metadata = {
     title: 'Klocrix - Engineering Digital Evolution',
     description: 'Transform your business with bespoke software solutions from industry veterans with 5+ years of experience.',
     url: 'https://klocrix.com',
-    siteName: 'Klocrix',
+    siteName: 'Klocrix Business Solutions',
     images: [
       {
         url: '/og-image.jpg',
@@ -64,21 +67,30 @@ export const metadata = {
       'max-snippet': -1,
     },
   },
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+  },
 }
 
 import WhatsAppButton from '../components/WhatsAppButton'
+import { OrganizationSchema, WebsiteSchema } from '../components/JsonLd'
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${inter.variable} ${manrope.variable}`}>
       <head>
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <meta name="theme-color" content="#0B1220" />
+        <OrganizationSchema />
+        <WebsiteSchema />
       </head>
-      <body className={`${inter.className} antialiased text-text-secondary bg-background`}>
+      <body className={`${inter.className} antialiased text-text-secondary bg-background selection:bg-accent/30 selection:text-white`}>
         <div className="relative min-h-screen">
           {children}
           <WhatsAppButton />

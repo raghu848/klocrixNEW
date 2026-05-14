@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { Target, Eye, Award, Users, Globe, TrendingUp, CheckCircle } from 'lucide-react'
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 import PremiumHero from './PremiumHero'
 
 // Animation variants
@@ -45,11 +46,11 @@ export function OurStorySection() {
 
   const foundationImages = [
     "/case-studies/about.jpeg",
-    "/case-studies/WhatsApp Image 2026-04-22 at 3.23.06 PM.jpeg",
-    "/case-studies/WhatsApp Image 2026-04-22 at 3.23.09 PM.jpeg",
-    "/case-studies/WhatsApp Image 2026-04-22 at 3.23.24 PM.jpeg",
-    "/case-studies/about section1.jpeg",
-    "/case-studies/about section2.jpeg"
+    "/case-studies/klocrix-team-1.jpeg",
+    "/case-studies/klocrix-team-2.jpeg",
+    "/case-studies/klocrix-team-3.jpeg",
+    "/case-studies/about-section-1.jpeg",
+    "/case-studies/about-section-2.jpeg"
   ];
 
   useEffect(() => {
@@ -71,12 +72,14 @@ export function OurStorySection() {
         >
           <div className="relative rounded-[3rem] overflow-hidden shadow-2xl w-full max-w-[600px] mx-auto lg:mr-0 aspect-[4/5]">
             {foundationImages.map((src, index) => (
-              <img
+              <Image
                 key={src}
                 src={src}
-                alt={`Our Story ${index + 1}`}
-                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${index === currentImageIndex ? "opacity-100 z-10" : "opacity-0 z-0"
+                alt={`Our Story - Klocrix Milestone ${index + 1}`}
+                fill
+                className={`absolute inset-0 object-cover transition-opacity duration-1000 ${index === currentImageIndex ? "opacity-100 z-10" : "opacity-0 z-0"
                   }`}
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             ))}
             <div className="absolute inset-0 bg-primary/10 z-20 pointer-events-none" />
@@ -229,10 +232,12 @@ export function TeamSection() {
               className="text-center group"
             >
               <div className="relative mb-10 rounded-[2rem] md:rounded-[3rem] overflow-hidden aspect-square shadow-lg">
-                <img
+                <Image
                   src={member.image}
-                  alt={member.name}
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-110"
+                  alt={`${member.name} - ${member.role} at Klocrix`}
+                  fill
+                  className="object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-110"
+                  sizes="(max-width: 768px) 100vw, 33vw"
                 />
                 <div className="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors duration-500" />
               </div>

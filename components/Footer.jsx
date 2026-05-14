@@ -45,6 +45,8 @@ const socialLinks = [
   { name: 'Instagram', href: 'https://www.instagram.com/klocrixbusinesssolution?igsh=MWwyZDJ1ams5a3Uydw%3D%3D&utm_source=qr', icon: Instagram },
 ]
 
+import Image from 'next/image'
+
 export default function Footer() {
   const pathname = usePathname()
   const isTrainingPage = pathname === '/training' || pathname.startsWith('/training/')
@@ -67,10 +69,13 @@ export default function Footer() {
           {/* Company Info */}
           <div className="lg:col-span-4">
             <Link href="/" className="inline-block mb-8">
-              <img
-                src="/case-studies/Asset 2.png"
-                alt="Klocrix Logo"
+              <Image
+                src="/case-studies/klocrix-logo.png"
+                alt="Klocrix Logo Footer"
+                width={120}
+                height={48}
                 className="h-10 md:h-16 w-auto object-contain"
+                loading="lazy"
               />
             </Link>
             <p className="text-slate-300 text-lg mb-10 leading-relaxed max-w-sm">
@@ -86,6 +91,7 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-slate-300 hover:text-white hover:bg-accent hover:border-accent transition-all duration-300"
+                    aria-label={`Follow Klocrix on ${social.name}`}
                   >
                     <Icon className="w-5 h-5" />
                   </a>
