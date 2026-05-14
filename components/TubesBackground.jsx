@@ -33,6 +33,8 @@ export default function TubesBackground({
     let timeoutId;
 
     const initTubes = async () => {
+      // Completely disable on mobile to save CPU and Lighthouse TBT
+      if (window.innerWidth < 768) return;
       if (!canvasRef.current) return;
 
       try {

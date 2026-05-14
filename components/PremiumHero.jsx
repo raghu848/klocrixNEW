@@ -74,25 +74,20 @@ const Elegant3DBackground = () => {
         className="relative w-full max-w-[280px] md:max-w-lg"
       >
         {/* Soft Depth Layer 1 - Outer Mesh Glow */}
-        <motion.div 
-          animate={{ rotateZ: 360 }}
-          transition={{ duration: 100, repeat: Infinity, ease: "linear" }}
-          className="absolute inset-0 m-auto w-64 h-64 md:w-96 md:h-96 rounded-full border border-white/5 opacity-50"
-          style={{ transform: "translateZ(-100px)", background: "radial-gradient(circle, rgba(14,165,233,0.1) 0%, transparent 70%)" }}
+        <div 
+          className="absolute inset-0 m-auto w-64 h-64 md:w-96 md:h-96 rounded-full border border-white/5 opacity-50 animate-spin-slow"
+          style={{ transform: "translateZ(-100px)", background: "radial-gradient(circle, rgba(14,165,233,0.1) 0%, transparent 70%)", animationDuration: '100s' }}
         />
 
         {/* Floating Glass Plate 1 - Code/Data Component */}
-        <motion.div 
-          animate={{ y: [0, -20, 0], x: [0, 10, 0], rotateZ: [0, 5, 0] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute inset-0 m-auto w-48 h-48 md:w-72 md:h-72 z-10 rounded-[2rem] md:rounded-[3rem] border border-white/20 shadow-[0_0_80px_rgba(14,165,233,0.15)] backdrop-blur-3xl bg-transparent flex flex-col items-center justify-center overflow-hidden p-4 md:p-8"
+        <div 
+          className="absolute inset-0 m-auto w-48 h-48 md:w-72 md:h-72 z-10 rounded-[2rem] md:rounded-[3rem] border border-white/20 shadow-[0_0_80px_rgba(14,165,233,0.15)] backdrop-blur-3xl bg-transparent flex flex-col items-center justify-center overflow-hidden p-4 md:p-8 animate-float"
           style={{ transform: "translateZ(50px)" }}
         >
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/10 to-transparent pointer-events-none" />
-          <motion.div 
-            animate={{ scale: [1, 1.2, 1], opacity: [0.15, 0.4, 0.15] }}
-            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute m-auto w-40 h-40 bg-[#0EA5E9] rounded-full blur-[60px] pointer-events-none"
+          <div 
+            className="absolute m-auto w-40 h-40 bg-[#0EA5E9] rounded-full blur-[60px] pointer-events-none animate-pulse"
+            style={{ animationDuration: '6s' }}
           />
           
           <div className="relative z-10 flex flex-col items-center text-center">
@@ -104,89 +99,70 @@ const Elegant3DBackground = () => {
             
             <div className="w-full mt-6 space-y-2">
               <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden">
-                <motion.div 
-                  animate={{ width: ["20%", "80%", "40%"] }} 
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="h-full bg-accent rounded-full" 
+                <div 
+                  className="h-full bg-accent rounded-full w-4/5" 
                 />
               </div>
               <div className="h-2 w-3/4 mx-auto bg-white/5 rounded-full overflow-hidden">
-                <motion.div 
-                  animate={{ width: ["50%", "30%", "90%"] }} 
-                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                  className="h-full bg-[#14B8A6] rounded-full" 
+                <div 
+                  className="h-full bg-[#14B8A6] rounded-full w-full" 
                 />
               </div>
             </div>
           </div>
-        </motion.div>
+        </div>
 
         {/* Floating Glass Plate 2 - Security */}
-        <motion.div 
-          animate={{ y: [0, 15, 0], x: [0, -15, 0], rotateZ: [0, -5, 0] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-          className="absolute -bottom-10 -left-4 md:-bottom-16 md:-left-8 w-32 h-32 md:w-48 md:h-48 z-20 rounded-[1.5rem] md:rounded-[2rem] border border-white/20 shadow-[0_30px_60px_rgba(20,184,166,0.15)] backdrop-blur-2xl bg-transparent flex flex-col items-center justify-center"
-          style={{ transform: "translateZ(120px)" }}
+        <div 
+          className="absolute -bottom-10 -left-4 md:-bottom-16 md:-left-8 w-32 h-32 md:w-48 md:h-48 z-20 rounded-[1.5rem] md:rounded-[2rem] border border-white/20 shadow-[0_30px_60px_rgba(20,184,166,0.15)] backdrop-blur-2xl bg-transparent flex flex-col items-center justify-center animate-float"
+          style={{ transform: "translateZ(120px)", animationDelay: '1s', animationDuration: '10s' }}
         >
           <div className="absolute inset-0 w-full h-full rounded-[2rem] border border-white/10 bg-gradient-to-br from-[#14B8A6]/20 to-transparent pointer-events-none" />
           
           <div className="relative z-10 text-center">
-            <motion.div 
-              animate={{ rotateY: 360 }}
-              transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-              className="text-[#14B8A6] mb-3"
+            <div 
+              className="text-[#14B8A6] mb-3 animate-spin-slow"
+              style={{ animationDuration: '8s' }}
             >
               <Shield className="w-10 h-10 mx-auto" />
-            </motion.div>
+            </div>
             <p className="text-white font-black tracking-widest text-xl">99.99%</p>
             <p className="text-slate-400 uppercase text-[10px] font-bold tracking-widest mt-1">Uptime</p>
           </div>
-        </motion.div>
+        </div>
 
         {/* Small floating particles */}
         {[...Array(3)].map((_, i) => (
-          <motion.div
+          <div
             key={i}
-            animate={{ 
-              y: [0, -((i * 15) % 50) - 20, 0],
-              x: [0, ((i * 25) % 50) - 25, 0],
-              opacity: [0.2, 0.6, 0.2]
-            }}
-            transition={{ 
-              duration: ((i * 7) % 5) + 5, 
-              repeat: Infinity, 
-              ease: "easeInOut",
-              delay: i * 0.5
-            }}
-            className="absolute rounded-full bg-[#0EA5E9]/40 blur-[2px]"
+            className="absolute rounded-full bg-[#0EA5E9]/40 blur-[2px] animate-float"
             style={{
               width: ((i * 3) % 10) + 4 + "px",
               height: ((i * 3) % 10) + 4 + "px",
               left: ((i * 21) % 100) + "%",
               top: ((i * 37) % 100) + "%",
-              transform: `translateZ(${((i * 41) % 150) + 50}px)`
+              transform: `translateZ(${((i * 41) % 150) + 50}px)`,
+              animationDuration: `${((i * 7) % 5) + 5}s`,
+              animationDelay: `${i * 0.5}s`
             }}
           />
         ))}
 
         {/* Floating Glass Plate 3 - Performance */}
-        <motion.div 
-          animate={{ y: [0, -10, 0], rotateZ: [0, 3, 0] }}
-          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute top-0 -right-2 md:-right-4 w-24 h-24 md:w-32 md:h-32 z-30 rounded-[1rem] md:rounded-[1.5rem] border border-white/20 shadow-2xl backdrop-blur-xl bg-transparent flex items-center justify-center overflow-hidden"
-          style={{ transform: "translateZ(180px)" }}
+        <div 
+          className="absolute top-0 -right-2 md:-right-4 w-24 h-24 md:w-32 md:h-32 z-30 rounded-[1rem] md:rounded-[1.5rem] border border-white/20 shadow-2xl backdrop-blur-xl bg-transparent flex items-center justify-center overflow-hidden animate-float"
+          style={{ transform: "translateZ(180px)", animationDuration: '7s', animationDelay: '2s' }}
         >
           <div className="absolute inset-0 bg-gradient-to-tr from-[#0EA5E9]/20 to-transparent rounded-[1.5rem] pointer-events-none" />
           <div className="relative z-10 flex items-center justify-center">
-            <motion.div
-               animate={{ scale: [1, 1.2, 1] }}
-               transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-               className="p-3 bg-white/10 rounded-full"
+            <div
+               className="p-3 bg-white/10 rounded-full animate-pulse"
+               style={{ animationDuration: '2s' }}
             >
               <Activity className="w-8 h-8 text-white" />
-            </motion.div>
+            </div>
           </div>
-        </motion.div>
+        </div>
 
       </motion.div>
     </div>

@@ -25,20 +25,9 @@ export default function ClientLogoMarquee() {
       <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#111827] to-transparent z-10" />
       <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#111827] to-transparent z-10" />
       
-      <div className="flex select-none">
-        <motion.div
-          className="flex space-x-12 items-center flex-shrink-0 px-10"
-          animate={{
-            x: ["0%", "-33.33%"],
-          }}
-          transition={{
-            x: {
-              repeat: Infinity,
-              repeatType: "loop",
-              duration: 35,
-              ease: "linear",
-            },
-          }}
+      <div className="flex select-none overflow-hidden">
+        <div
+          className="flex space-x-12 items-center flex-shrink-0 px-10 animate-marquee"
         >
           {/* Leading Text that flows with the logos */}
           <div className="flex items-center gap-8 mr-8">
@@ -58,7 +47,7 @@ export default function ClientLogoMarquee() {
               </span>
             </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </div>
   )

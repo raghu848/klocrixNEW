@@ -61,24 +61,14 @@ export default function TrustSection() {
 
         {/* Subtle Drifting Data Particles */}
         {[...Array(20)].map((_, i) => (
-          <motion.div
+          <div
             key={i}
-            initial={{
-              x: ((i * 17) % 100) + "%",
-              y: ((i * 23) % 100) + "%",
-              opacity: ((i * 7) % 30) / 100
+            className="absolute w-[1px] h-12 bg-gradient-to-b from-transparent via-accent/30 to-transparent animate-drift"
+            style={{
+              left: ((i * 17) % 100) + "%",
+              animationDelay: `${(i * 3) % 20}s`,
+              animationDuration: `${((i * 11) % 20) + 20}s`
             }}
-            animate={{
-              y: ["-10%", "110%"],
-              opacity: [0, 0.3, 0]
-            }}
-            transition={{
-              duration: ((i * 11) % 20) + 20,
-              repeat: Infinity,
-              ease: "linear",
-              delay: (i * 3) % 20
-            }}
-            className="absolute w-[1px] h-12 bg-gradient-to-b from-transparent via-accent/30 to-transparent"
           />
         ))}
 
