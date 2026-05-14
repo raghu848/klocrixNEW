@@ -1,5 +1,5 @@
 1:HL["/_next/static/css/e1f78e8ca1a980c0.css","style",{"crossOrigin":""}]
-0:["eaRYo-I6eELlRvcQJQKl6",[[["",{"children":["services",{"children":["data-science",{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],"$L2",[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/e1f78e8ca1a980c0.css","precedence":"next","crossOrigin":""}]],"$L3"]]]]
+0:["XDNrrzJYwMjhoO4pWs2TN",[[["",{"children":["services",{"children":["data-science",{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],"$L2",[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/e1f78e8ca1a980c0.css","precedence":"next","crossOrigin":""}]],"$L3"]]]]
 4:I[6954,[],""]
 5:I[7264,[],""]
 6:I[4307,["371","static/chunks/371-c5e4221fc20618b1.js","892","static/chunks/892-a5325852ba72adee.js","575","static/chunks/575-4cc06975a3089f1d.js","160","static/chunks/app/not-found-9953e1ce8b7f4aed.js"],""]

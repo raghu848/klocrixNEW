@@ -4,7 +4,8 @@ import { useRef, useEffect, useState } from 'react'
 import { motion, useScroll, useTransform, AnimatePresence, useMotionValue, useSpring } from 'framer-motion'
 import Link from 'next/link'
 import { ArrowRight, ChevronRight, Code, Shield, Activity, Database } from 'lucide-react'
-import TubesBackground from './TubesBackground'
+import dynamic from 'next/dynamic'
+const TubesBackground = dynamic(() => import('./TubesBackground'), { ssr: false })
 
 // Premium 3D Geometric Background
 const Elegant3DBackground = () => {

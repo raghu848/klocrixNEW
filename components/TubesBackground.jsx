@@ -30,6 +30,7 @@ export default function TubesBackground({
   useEffect(() => {
     let mounted = true;
     let cleanup;
+    let timeoutId;
 
     const initTubes = async () => {
       if (!canvasRef.current) return;
@@ -70,10 +71,15 @@ export default function TubesBackground({
       }
     };
 
-    initTubes();
+    // Delay the initialization by 2.5s to prevent Lighthouse DEADLINE_EXCEEDED errors
+    // and to prioritize main thread for above-the-fold content
+    timeoutId = setTimeout(() => {
+      initTubes();
+    }, 2500);
 
     return () => {
       mounted = false;
+      if (timeoutId) clearTimeout(timeoutId);
       if (cleanup) cleanup();
     };
   }, []);
