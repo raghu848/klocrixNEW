@@ -14,8 +14,8 @@ export const OrganizationSchema = () => {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Klocrix Business Solutions",
-    "url": "https://klocrix.com",
-    "logo": "https://klocrix.com/klocrix-logo.png",
+    "url": "https://www.klocrix.com",
+    "logo": "https://www.klocrix.com/case-studies/klocrix-logo.png",
     "sameAs": [
       "https://www.linkedin.com/in/klocrix-business-solution-4454a5237",
       "https://www.facebook.com/Klocrix",
@@ -37,10 +37,10 @@ export const WebsiteSchema = () => {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Klocrix",
-    "url": "https://klocrix.com",
+    "url": "https://www.klocrix.com/",
     "potentialAction": {
       "@type": "SearchAction",
-      "target": "https://klocrix.com/search?q={search_term_string}",
+      "target": "https://www.klocrix.com/search?q={search_term_string}",
       "query-input": "required name=search_term_string"
     }
   };

@@ -138,8 +138,7 @@ export default function Footer() {
                 <p className="text-slate-400 leading-snug text-sm md:text-base">
                   E 68, Shrinivasan building, Phase-8,<br />
                   Industrial Area, Sahibzada Ajit Singh Nagar,<br />
-                  Punjab 140308, India<br />
-                  Luton, United Kingdom
+                  Punjab 140308, India
                 </p>
               </div>
               <div className="flex items-center gap-4 text-slate-400">

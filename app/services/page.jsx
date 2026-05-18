@@ -23,6 +23,6 @@ export const metadata = {
   description: 'Explore Klocrix Business Solutions comprehensive IT services. From bespoke web applications and native mobile apps to AI-driven data science and scalable cloud infrastructure.',
   keywords: 'it services mohali, custom software development, mobile app development, data science services, cloud solutions, ui/ux design agency',
   alternates: {
-    canonical: 'https://klocrix.com/services/',
+    canonical: 'https://www.klocrix.comservices',
   },
 }

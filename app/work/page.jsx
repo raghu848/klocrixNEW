@@ -21,6 +21,6 @@ export const metadata = {
   description: 'Explore the Klocrix portfolio. See how we have helped businesses across industries like Real Estate, FinTech, and E-commerce with bespoke software solutions and digital strategies.',
   keywords: 'klocrix portfolio, software development case studies, web development projects, real estate tech solutions',
   alternates: {
-    canonical: 'https://klocrix.com/work/',
+    canonical: 'https://www.klocrix.comwork',
   },
 }

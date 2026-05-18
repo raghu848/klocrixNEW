@@ -13,8 +13,7 @@ const nextConfig = {
     })
     return config
   },
-  output: 'export',
-  trailingSlash: true,
+  trailingSlash: false,
 }
 
 module.exports = nextConfig

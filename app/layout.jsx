@@ -25,18 +25,18 @@ export const metadata = {
   creator: 'Klocrix',
   publisher: 'Klocrix',
   alternates: {
-    canonical: 'https://klocrix.com',
+    canonical: 'https://www.klocrix.com',
   },
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://klocrix.com'),
+  metadataBase: new URL('https://www.klocrix.com'),
   openGraph: {
     title: 'Klocrix - Engineering Digital Evolution',
     description: 'Transform your business with bespoke software solutions from industry veterans with 5+ years of experience.',
-    url: 'https://klocrix.com',
+    url: 'https://www.klocrix.com',
     siteName: 'Klocrix Business Solutions',
     images: [
       {

@@ -14,12 +14,12 @@ const navigation = [
     name: 'Services',
     href: '/services',
     submenu: [
-      { name: 'Web Development', href: '/services#web-development', desc: 'Custom websites & platforms' },
-      { name: 'App Development', href: '/services#app-development', desc: 'iOS, Android & cross-platform' },
-      { name: 'UI/UX Design', href: '/services#ui-ux', desc: 'Interfaces people love' },
+      { name: 'Web Development', href: '/services/web-development', desc: 'Custom websites & platforms' },
+      { name: 'App Development', href: '/services/app-development', desc: 'iOS, Android & cross-platform' },
+      { name: 'UI/UX Design', href: '/services/ui-ux-design', desc: 'Interfaces people love' },
+      { name: 'Data Science & AI', href: '/services/data-science', desc: 'ML models & analytics' },
       { name: 'Digital Transformation', href: '/services#digital', desc: 'Modernise your operations' },
       { name: 'Cloud Solutions', href: '/services#cloud', desc: 'Scale with confidence' },
-      { name: 'Maintenance & Support', href: '/services#support', desc: '24/7 peace of mind' },
     ]
   },
   { name: 'Work', href: '/work' },

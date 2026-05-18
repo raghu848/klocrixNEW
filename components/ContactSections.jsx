@@ -1,11 +1,11 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Clock, 
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Clock,
   Send,
   Globe,
   MessageSquare,
@@ -41,7 +41,7 @@ export function ContactHero() {
   return (
     <section className="relative min-h-[60vh] flex items-center pt-32 overflow-hidden bg-white">
       <PremiumBackground />
-      
+
       <div className="container-custom relative z-10 text-center px-4">
         <motion.div initial="hidden" animate="visible" variants={staggerContainer} className="max-w-4xl mx-auto">
           <motion.div variants={fadeInUp}>
@@ -49,11 +49,11 @@ export function ContactHero() {
               Contact Us
             </span>
           </motion.div>
-          
+
           <motion.h1 variants={fadeInUp} className="text-4xl sm:text-5xl md:text-8xl font-extrabold leading-tight mb-8 text-primary">
             Let's Start a <span className="text-accent italic">Conversation</span>
           </motion.h1>
-          
+
           <motion.p variants={fadeInUp} className="text-lg md:text-2xl text-slate-500 max-w-3xl mx-auto leading-relaxed mb-12">
             Whether you have a specific project in mind or just want to explore possibilities, our team is ready to help.
           </motion.p>
@@ -81,11 +81,7 @@ export function ContactMain() {
       title: 'Headquarters',
       details: ['E 68, Shrinivasan building, Phase-8, Industrial Area, Sahibzada Ajit Singh Nagar, Punjab 140308, India.']
     },
-    {
-      icon: MapPin,
-      title: 'UK Office',
-      details: ['Luton, United Kingdom']
-    },
+
     {
       icon: Mail,
       title: 'Email Us',
@@ -94,7 +90,7 @@ export function ContactMain() {
     {
       icon: Phone,
       title: 'Call Us',
-      details: ['+91 81463 30346', '+44 20 1234 5678']
+      details: ['+91 81463 30346']
     }
   ]
 
@@ -105,7 +101,7 @@ export function ContactMain() {
           {/* Info Side */}
           <div className="lg:col-span-5">
             <h2 className="text-3xl md:text-4xl font-bold mb-10 md:mb-16 text-primary">Contact Information</h2>
-            
+
             <div className="space-y-12">
               {contactInfo.map((info, index) => (
                 <div key={index} className="flex items-start gap-8 group">
@@ -144,8 +140,8 @@ export function ContactMain() {
                   { name: 'Facebook', href: 'https://www.facebook.com/Klocrix' },
                   { name: 'Instagram', href: 'https://www.instagram.com/klocrixbusinesssolution?igsh=MWwyZDJ1ams5a3Uydw%3D%3D&utm_source=qr' }
                 ].map(social => (
-                  <a 
-                    key={social.name} 
+                  <a
+                    key={social.name}
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -174,7 +170,7 @@ export function ContactMain() {
                     <input type="email" className="w-full p-5 rounded-2xl bg-white border border-slate-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-bold" placeholder="john@example.com" />
                   </div>
                 </div>
-                
+
                 <div className="grid md:grid-cols-2 gap-10">
                   <div className="space-y-3">
                     <label className="text-xs font-black text-slate-400 uppercase tracking-widest">Phone</label>
@@ -196,7 +192,7 @@ export function ContactMain() {
                   <label className="text-xs font-black text-slate-400 uppercase tracking-widest">Message</label>
                   <textarea className="w-full p-5 rounded-2xl bg-white border border-slate-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all h-48 font-bold" placeholder="Tell us about your project or inquiry..."></textarea>
                 </div>
-                
+
                 <button className="w-full py-6 bg-primary text-white font-black rounded-2xl shadow-xl flex items-center justify-center gap-4 hover:bg-primary-light transition-all text-xl">
                   Send Message
                   <Send className="w-5 h-5 md:w-6 md:h-6" />

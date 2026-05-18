@@ -10,7 +10,7 @@ export default function AboutSection() {
   const yParallax = useTransform(scrollYProgress, [0, 1], [0, 150]);
 
   return (
-    <section id="about" className="section-padding bg-[#111827] overflow-hidden relative border-t border-white/5 scroll-mt-20 md:scroll-mt-32">
+    <section id="about" className="py-10 md:py-16 lg:py-20 bg-[#111827] overflow-hidden relative border-t border-white/5 scroll-mt-20 md:scroll-mt-32">
       <motion.div style={{ y: yParallax }} className="absolute -top-40 -left-40 w-96 h-96 bg-accent/20 rounded-full blur-[120px] -z-10 pointer-events-none" />
 
       <div className="container-custom grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
