@@ -5,7 +5,7 @@ export const metadata = {
   description: 'Transform your digital products with our expert UI UX design services. As a leading UI UX design agency, we deliver stunning website and mobile app UI UX design.',
   keywords: 'ui ux design services, ui ux design company, website ui ux design, mobile app ui ux design, ui ux consulting services, ui ux design agency, mobile app ui ux design agency, what is ui ux design, ui vs ux design difference, latest ui ux design trends',
   alternates: {
-    canonical: 'https://www.klocrix.comservices/ui-ux-design',
+    canonical: 'https://www.klocrix.com/services/ui-ux-design',
   },
 }
 

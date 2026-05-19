@@ -5,7 +5,7 @@ export const metadata = {
   title: 'Careers | Join Klocrix',
   description: 'Join the Klocrix team and engineer the future of digital solutions. Explore our open roles and company culture.',
   alternates: {
-    canonical: 'https://www.klocrix.comcareers',
+    canonical: 'https://www.klocrix.com/careers',
   },
 }
 

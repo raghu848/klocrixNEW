@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Phone, Download, X } from 'lucide-react'
+import { getWhatsAppUrl, WHATSAPP_NUMBERS } from '../../lib/whatsapp'
 
 export default function StickyCTA() {
   const [isVisible, setIsVisible] = useState(true)
@@ -17,7 +18,7 @@ export default function StickyCTA() {
     setDaysLeft(Math.max(0, diffDays))
   }, [])
 
-  const whatsappLink = 'https://wa.me/917508535271?text=Hi%2C%20I%27m%20interested%20in%20Klocrix%20Training'
+  const whatsappLink = getWhatsAppUrl(WHATSAPP_NUMBERS.TRAINING, "Hi I am interested in Klocrix Training")
 
   if (!isVisible) return null
 

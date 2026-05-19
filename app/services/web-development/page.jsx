@@ -5,7 +5,7 @@ export const metadata = {
   description: 'Looking for a leading web development company in Mohali? We provide custom web development, ecommerce solutions, and full stack web development services.',
   keywords: 'web development company in mohali, web development company, website development services, custom web development, ecommerce web development, web development company in chandigarh, business website development company, full stack web development company',
   alternates: {
-    canonical: 'https://www.klocrix.comservices/web-development',
+    canonical: 'https://www.klocrix.com/services/web-development',
   },
 }
 

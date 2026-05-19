@@ -5,7 +5,7 @@ export const metadata = {
   title: 'Privacy Policy | Klocrix',
   description: 'Learn how Klocrix handles your data and protects your privacy across our digital services.',
   alternates: {
-    canonical: 'https://www.klocrix.comprivacy',
+    canonical: 'https://www.klocrix.com/privacy',
   },
 }
 

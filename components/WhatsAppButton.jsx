@@ -3,18 +3,19 @@
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Phone } from 'lucide-react'
+import { getWhatsAppUrl, WHATSAPP_NUMBERS } from '../lib/whatsapp'
 
 export default function WhatsAppButton() {
   const pathname = usePathname()
   
   const isTrainingPage = pathname === '/training' || pathname.startsWith('/training/')
   
-  const phoneNumber = isTrainingPage ? "7508535271" : "8146330346"
-  const message = isTrainingPage 
-    ? encodeURIComponent("Hello! I'm interested in the Klocrix Training program. Could you please provide more details?") 
-    : encodeURIComponent("Hello! I'm interested in your services. Could you please help me?")
+  const phoneNumber = isTrainingPage ? WHATSAPP_NUMBERS.TRAINING : WHATSAPP_NUMBERS.MAIN
+  const rawMessage = isTrainingPage 
+    ? "Hello I am interested in the Klocrix Training program" 
+    : "Hello I am interested in your services"
     
-  const whatsappUrl = `https://wa.me/91${phoneNumber}?text=${message}`
+  const whatsappUrl = getWhatsAppUrl(phoneNumber, rawMessage)
 
   return (
     <div className="fixed bottom-8 right-8 z-[60]">

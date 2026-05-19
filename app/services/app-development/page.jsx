@@ -5,7 +5,7 @@ export const metadata = {
   description: 'Elevate your digital presence with the best mobile app development company. We offer custom mobile app development, iOS app development, and Android app development services.',
   keywords: 'mobile app development company, app development services, custom mobile app development, android app development, app development company, mobile app development, ios app development, best mobile app development company, custom mobile app development company, ios and android app development',
   alternates: {
-    canonical: 'https://www.klocrix.comservices/app-development',
+    canonical: 'https://www.klocrix.com/services/app-development',
   },
 }
 

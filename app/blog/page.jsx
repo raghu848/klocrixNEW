@@ -5,7 +5,7 @@ export const metadata = {
   title: 'Blog & Insights | Klocrix',
   description: 'Read the latest insights on custom software development, AI, data science, and digital transformation.',
   alternates: {
-    canonical: 'https://www.klocrix.comblog',
+    canonical: 'https://www.klocrix.com/blog',
   },
 }
 

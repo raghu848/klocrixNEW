@@ -5,7 +5,7 @@ import Reveal from '../Reveal'
 
 export default function CTASection() {
   return (
-    <section className="section-padding bg-[#111827]">
+    <section className="section-padding bg-[#111827] pt-8">
       <div className="container-custom gap-8">
         <div className="relative rounded-[2rem] md:rounded-[3rem] bg-surface border border-white/10 overflow-hidden p-10 md:p-32 text-center shadow-2xl">
           {/* Background decoration */}

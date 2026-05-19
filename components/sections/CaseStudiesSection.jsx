@@ -7,7 +7,7 @@ import Reveal from '../Reveal'
 
 export default function CaseStudiesSection() {
   return (
-    <section className="section-padding bg-[#111827] relative z-20">
+    <section className="section-padding bg-[#111827] relative z-20 pt-8 pb-8">
       <div className="container-custom">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8">
           <div className="max-w-2xl">

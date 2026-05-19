@@ -21,6 +21,6 @@ export const metadata = {
   description: 'Get in touch with Klocrix Business Solutions today. Whether you have a project in mind or need expert IT consulting, our team is ready to help you scale your business.',
   keywords: 'contact klocrix, hire developers india, software development inquiry, IT consulting contact',
   alternates: {
-    canonical: 'https://www.klocrix.comcontact',
+    canonical: 'https://www.klocrix.com/contact',
   },
 }

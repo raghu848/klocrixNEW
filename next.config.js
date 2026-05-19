@@ -13,6 +13,21 @@ const nextConfig = {
     })
     return config
   },
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'klocrix.com',
+          },
+        ],
+        destination: 'https://www.klocrix.com/:path*',
+        permanent: true,
+      },
+    ]
+  },
   trailingSlash: false,
 }
 

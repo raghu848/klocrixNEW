@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
 import { ArrowDown, Check, Phone, Zap, Target, TrendingUp, BookOpen, GraduationCap, ArrowRight, Star } from 'lucide-react'
 import { cn } from '../../lib/utils'
+import { getWhatsAppUrl, WHATSAPP_NUMBERS } from '../../lib/whatsapp'
 
 const features = [
   {
@@ -197,7 +198,7 @@ export default function HeroSimple() {
   const opacity = useTransform(smoothScrollProgress, [0, 0.5], [1, 0])
   const scale = useTransform(smoothScrollProgress, [0, 0.5], [1, 0.9])
 
-  const whatsappLink = 'https://wa.me/917508535271?text=Hi%2C%20I%27m%20interested%20in%20Klocrix%20Training'
+  const whatsappLink = getWhatsAppUrl(WHATSAPP_NUMBERS.TRAINING, "Hi I am interested in Klocrix Training")
 
   return (
     <section

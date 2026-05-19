@@ -27,7 +27,7 @@ const steps = [
 
 export default function ProcessSection() {
   return (
-    <section className="section-padding bg-background relative border-y border-white/5 py-24 pb-48">
+    <section className="section-padding bg-background relative border-y border-white/5 pt-24 pb-8">
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-[100px] pointer-events-none z-0" />
       <div className="absolute inset-0 z-0 bg-[url('/grid-dark.svg')] bg-center opacity-[0.03]" />

@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { fadeInUp } from '../../lib/animations'
 import { Check, Phone, Sparkles, TrendingUp, Award, Users, Clock, Shield } from 'lucide-react'
+import { getWhatsAppUrl, WHATSAPP_NUMBERS } from '../../lib/whatsapp'
 
 const features = [
   {
@@ -44,7 +45,7 @@ const bonuses = [
 ]
 
 export default function PricingTable() {
-  const whatsappLink = 'https://wa.me/917508535271?text=Hi%2C%20I%27m%20interested%20in%20Klocrix%20Training'
+  const whatsappLink = getWhatsAppUrl(WHATSAPP_NUMBERS.TRAINING, "Hi I am interested in Klocrix Training")
 
   return (
     <section id="pricing" className="py-16 md:py-24 relative overflow-hidden bg-[#FAF7F2]">

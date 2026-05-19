@@ -5,7 +5,7 @@ export const metadata = {
   title: 'Terms of Service | Klocrix',
   description: 'The terms and conditions governing the use of Klocrix digital services and website.',
   alternates: {
-    canonical: 'https://www.klocrix.comterms',
+    canonical: 'https://www.klocrix.com/terms',
   },
 }
 

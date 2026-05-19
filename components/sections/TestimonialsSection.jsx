@@ -27,7 +27,7 @@ const testimonials = [
 
 export default function TestimonialsSection() {
   return (
-    <section className="section-padding bg-background overflow-hidden relative">
+    <section className="section-padding bg-background overflow-hidden relative py-8">
       <div className="absolute inset-0 z-0 bg-[url('/grid-dark.svg')] bg-center bg-fixed opacity-[0.03]" />
       <div className="container-custom relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-24">
