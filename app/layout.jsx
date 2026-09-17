@@ -1,5 +1,6 @@
 import './globals.css'
 import { Inter, Manrope } from 'next/font/google'
+import Script from 'next/script'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -26,6 +27,9 @@ export const metadata = {
   publisher: 'Klocrix',
   alternates: {
     canonical: 'https://www.klocrix.com',
+  },
+  verification: {
+    google: 'googled605252d4c5bcd21',
   },
   formatDetection: {
     email: false,
@@ -86,6 +90,20 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${inter.variable} ${manrope.variable}`}>
       <head>
+        {/* Google tag (gtag.js) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-S0930H7JZ0"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-S0930H7JZ0');
+          `}
+        </Script>
         {/* Google Tag Manager */}
         <script
           dangerouslySetInnerHTML={{
