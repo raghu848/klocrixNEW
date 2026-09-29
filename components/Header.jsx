@@ -18,7 +18,7 @@ const navigation = [
       { name: 'App Development', href: '/services/app-development', desc: 'iOS, Android & cross-platform' },
       { name: 'UI/UX Design', href: '/services/ui-ux-design', desc: 'Interfaces people love' },
       { name: 'Data Science & AI', href: '/services/data-science', desc: 'ML models & analytics' },
-      { name: 'Digital Transformation', href: '/services#digital', desc: 'Modernise your operations' },
+      { name: 'Digital Transformation', href: '/services#digital-transformation', desc: 'Modernise your operations' },
       { name: 'Cloud Solutions', href: '/services#cloud', desc: 'Scale with confidence' },
     ]
   },
@@ -50,15 +50,14 @@ export default function Header() {
   return (
     <>
       <style dangerouslySetInnerHTML={{ __html: `
-        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap');
 
         .header-root {
-          font-family: 'Syne', sans-serif;
+          font-family: var(--font-syne), sans-serif;
         }
 
         /* Pill container */
         .nav-pill {
-          background: rgba(11, 18, 32, 0.55);
+          background: rgba(15,15,17, 0.55);
           border: 1px solid rgba(255,255,255,0.08);
           backdrop-filter: blur(20px);
           -webkit-backdrop-filter: blur(20px);
@@ -66,9 +65,9 @@ export default function Header() {
           transition: background 0.4s, box-shadow 0.4s, border-color 0.4s;
         }
         .nav-pill.scrolled {
-          background: rgba(11, 18, 32, 0.85);
+          background: rgba(15,15,17, 0.85);
           border-color: rgba(255,255,255,0.12);
-          box-shadow: 0 8px 40px rgba(0,0,0,0.45), 0 0 0 1px rgba(14,165,233,0.06);
+          box-shadow: 0 8px 40px rgba(0,0,0,0.45), 0 0 0 1px rgba(217,51,31,0.06);
         }
 
         /* Animated underline on nav links */
@@ -80,7 +79,7 @@ export default function Header() {
           position: absolute;
           left: 0; bottom: -3px;
           width: 0; height: 1.5px;
-          background: #0ea5e9;
+          background: #D9331F;
           border-radius: 99px;
           transition: width 0.3s cubic-bezier(0.4,0,0.2,1);
         }
@@ -93,29 +92,29 @@ export default function Header() {
         .active-dot {
           width: 4px; height: 4px;
           border-radius: 50%;
-          background: #0ea5e9;
+          background: #D9331F;
           position: absolute;
           bottom: -8px; left: 50%;
           transform: translateX(-50%);
-          box-shadow: 0 0 6px #0ea5e9;
+          box-shadow: 0 0 6px #D9331F;
         }
 
         /* Highlight / CTA button */
         .cta-btn {
           position: relative;
           overflow: hidden;
-          background: linear-gradient(135deg, #0ea5e9 0%, #38bdf8 100%);
+          background: linear-gradient(135deg, #D9331F 0%, #F0503A 100%);
           border: none;
           border-radius: 999px;
           padding: 8px 20px;
-          font-family: 'Syne', sans-serif;
+          font-family: var(--font-syne), sans-serif;
           font-size: 13px;
           font-weight: 700;
           letter-spacing: 0.12em;
           text-transform: uppercase;
           color: #fff;
           transition: transform 0.2s, box-shadow 0.2s;
-          box-shadow: 0 0 0 0 rgba(14,165,233,0);
+          box-shadow: 0 0 0 0 rgba(217,51,31,0);
         }
         .cta-btn::before {
           content: '';
@@ -127,7 +126,7 @@ export default function Header() {
         }
         .cta-btn:hover {
           transform: translateY(-1px);
-          box-shadow: 0 4px 24px rgba(14,165,233,0.45);
+          box-shadow: 0 4px 24px rgba(217,51,31,0.45);
         }
         .cta-btn:hover::before { opacity: 1; }
         .cta-btn:active { transform: translateY(0); }
@@ -137,7 +136,7 @@ export default function Header() {
           transition: filter 0.3s, transform 0.3s;
         }
         .logo-img:hover {
-          filter: brightness(1.15) drop-shadow(0 0 8px rgba(14,165,233,0.4));
+          filter: brightness(1.15) drop-shadow(0 0 8px rgba(217,51,31,0.4));
           transform: scale(1.03);
         }
 
@@ -151,19 +150,19 @@ export default function Header() {
           transition: background 0.2s, color 0.2s, border-color 0.2s;
         }
         .ham-btn:hover {
-          background: rgba(14,165,233,0.1);
-          border-color: rgba(14,165,233,0.3);
+          background: rgba(217,51,31,0.1);
+          border-color: rgba(217,51,31,0.3);
           color: #fff;
         }
 
         /* Dropdown card */
         .dropdown-card {
-          background: rgba(11, 18, 32, 0.95);
+          background: rgba(15,15,17, 0.95);
           border: 1px solid rgba(255,255,255,0.1);
           backdrop-filter: blur(24px);
           -webkit-backdrop-filter: blur(24px);
           border-radius: 16px;
-          box-shadow: 0 24px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(14,165,233,0.05);
+          box-shadow: 0 24px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(217,51,31,0.05);
           overflow: hidden;
         }
         .dropdown-item {
@@ -177,7 +176,7 @@ export default function Header() {
           text-decoration: none;
         }
         .dropdown-item:hover {
-          background: rgba(14,165,233,0.08);
+          background: rgba(217,51,31,0.08);
         }
         .dropdown-item:hover .arrow-icon {
           opacity: 1;
@@ -186,7 +185,7 @@ export default function Header() {
         .arrow-icon {
           opacity: 0;
           transition: opacity 0.2s, transform 0.2s;
-          color: #0ea5e9;
+          color: #D9331F;
         }
 
         /* Mobile menu */
@@ -197,7 +196,7 @@ export default function Header() {
           border-bottom: 1px solid rgba(255,255,255,0.07);
         }
         .mobile-link {
-          font-family: 'Syne', sans-serif;
+          font-family: var(--font-syne), sans-serif;
           font-size: 18px;
           font-weight: 600;
           color: #e2e8f0;
@@ -207,7 +206,7 @@ export default function Header() {
         }
         .mobile-link:hover { color: #fff; }
         .mobile-sub-link {
-          font-family: 'DM Sans', sans-serif;
+          font-family: var(--font-dm-sans), sans-serif;
           font-size: 14px;
           font-weight: 400;
           color: #64748b;
@@ -220,7 +219,7 @@ export default function Header() {
 
         /* Number tag (decorative) */
         .nav-number {
-          font-family: 'DM Sans', sans-serif;
+          font-family: var(--font-dm-sans), sans-serif;
           font-size: 10px;
           font-weight: 300;
           color: #334155;
@@ -233,13 +232,13 @@ export default function Header() {
         <div className="container-custom flex items-center justify-between">
 
           {/* ── Logo ── */}
-          <Link href="/" className="relative z-50 flex-shrink-0 bg-black/40 backdrop-blur-md py-1 md:py-1.5 px-3 rounded-xl md:rounded-2xl shadow-lg border border-white/10" aria-label="Klocrix Home">
+          <Link href="/" className="relative z-50 flex-shrink-0 bg-black/40 backdrop-blur-md py-1.5 md:py-2 px-3 md:px-4 rounded-xl md:rounded-2xl shadow-lg border border-white/10" aria-label="Klocrix Home">
             <Image
-              src="/case-studies/klocrix-logo.png"
-              alt="Klocrix Logo"
-              width={140}
+              src="/klocrix-logo-dark.png"
+              alt="Klocrix Business Solutions"
+              width={180}
               height={56}
-              className="logo-img h-10 md:h-14 lg:h-18 w-auto object-contain"
+              className="logo-img h-10 md:h-12 lg:h-14 w-auto object-contain"
               priority
             />
           </Link>
@@ -261,7 +260,7 @@ export default function Header() {
                       <span className={cn('text-[17px] font-500 tracking-wide transition-colors', isActive ? 'text-white' : 'text-slate-400 group-hover:text-white')}>
                         {item.name}
                       </span>
-                      <ChevronDown className={cn('w-3.5 h-3.5 transition-transform duration-300 text-slate-500', activeDropdown === index ? 'rotate-180 text-sky-400' : '')} />
+                      <ChevronDown className={cn('w-3.5 h-3.5 transition-transform duration-300 text-slate-500', activeDropdown === index ? 'rotate-180 text-accent-light' : '')} />
                     </button>
 
                     <AnimatePresence>
@@ -277,8 +276,8 @@ export default function Header() {
                             {item.submenu.map((sub) => (
                               <Link key={sub.name} href={sub.href} className="dropdown-item">
                                 <div>
-                                  <p className="text-[13.5px] font-600 text-slate-200 leading-tight" style={{ fontFamily: 'Syne, sans-serif', fontWeight: 600 }}>{sub.name}</p>
-                                  {sub.desc && <p className="text-[11.5px] text-slate-500 mt-0.5" style={{ fontFamily: 'DM Sans, sans-serif' }}>{sub.desc}</p>}
+                                  <p className="text-[13.5px] font-600 text-slate-200 leading-tight" style={{ fontFamily: 'var(--font-syne), sans-serif', fontWeight: 600 }}>{sub.name}</p>
+                                  {sub.desc && <p className="text-[11.5px] text-slate-500 mt-0.5" style={{ fontFamily: 'var(--font-dm-sans), sans-serif' }}>{sub.desc}</p>}
                                 </div>
                                 <ArrowUpRight className="arrow-icon w-4 h-4 flex-shrink-0" />
                               </Link>
@@ -352,7 +351,7 @@ export default function Header() {
                             <span className="nav-number">0{index + 1}</span>
                             {item.name}
                           </span>
-                          <ChevronDown className={cn('w-4 h-4 text-slate-600 transition-transform duration-300', activeDropdown === index ? 'rotate-180 text-sky-400' : '')} />
+                          <ChevronDown className={cn('w-4 h-4 text-slate-600 transition-transform duration-300', activeDropdown === index ? 'rotate-180 text-accent-light' : '')} />
                         </button>
                         <AnimatePresence>
                           {activeDropdown === index && (
@@ -363,7 +362,7 @@ export default function Header() {
                               transition={{ duration: 0.22 }}
                               className="overflow-hidden"
                             >
-                              <div className="mt-3 pl-5 border-l border-sky-400/20 flex flex-col gap-1">
+                              <div className="mt-3 pl-5 border-l border-accent-light/20 flex flex-col gap-1">
                                 {item.submenu.map((sub) => (
                                   <Link key={sub.name} href={sub.href} className="mobile-sub-link" onClick={closeMobileMenu}>
                                     {sub.name}
@@ -381,14 +380,14 @@ export default function Header() {
                     <div key={item.name} className="py-3 border-b border-white/5">
                       <Link
                         href={item.href}
-                        className={cn('mobile-link', item.highlight ? 'text-sky-400' : isActive ? 'text-white' : '')}
+                        className={cn('mobile-link', item.highlight ? 'text-accent-light' : isActive ? 'text-white' : '')}
                         onClick={closeMobileMenu}
                       >
                         <span className="flex items-center gap-2">
                           <span className="nav-number">0{index + 1}</span>
                           {item.name}
                         </span>
-                        {item.highlight && <ArrowUpRight className="w-4 h-4 text-sky-400" />}
+                        {item.highlight && <ArrowUpRight className="w-4 h-4 text-accent-light" />}
                       </Link>
                     </div>
                   )

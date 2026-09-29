@@ -17,42 +17,42 @@ const services = [
     icon: Code,
     title: "Web Development",
     description: "Scalable, high-performance web applications built with the latest frameworks like React and Next.js.",
-    colorClass: "bg-[#1E3A8A]", // Deep Blue
+    colorClass: "bg-[#0B5E73]", // Deep Blue
     shape: "80% 20% 41% 59% / 46% 62% 38% 54%"
   },
   {
     icon: Smartphone,
     title: "App Development",
     description: "Native and cross-platform mobile solutions that provide seamless experiences across all devices.",
-    colorClass: "bg-[#833857]", // Plum/Magenta (From Image)
+    colorClass: "bg-[#9C1848]", // Plum/Magenta (From Image)
     shape: "31% 69% 51% 49% / 56% 36% 64% 44%"
   },
   {
     icon: Palette,
     title: "UI/UX Design",
     description: "User-centric design thinking that combines aesthetic beauty with functional excellence.",
-    colorClass: "bg-[#92400E]", // Deep Amber
+    colorClass: "bg-[#A8561A]", // Deep Amber
     shape: "62% 38% 28% 72% / 37% 55% 45% 63%"
   },
   {
     icon: Zap,
     title: "Digital Transformation",
     description: "Modernizing legacy systems and integrating AI to streamline your business operations.",
-    colorClass: "bg-[#065F46]", // Deep Emerald
+    colorClass: "bg-[#1F7A36]", // Deep Emerald
     shape: "36% 64% 71% 29% / 42% 43% 57% 58%"
   },
   {
     icon: Cloud,
     title: "Cloud Solutions",
     description: "Secure, scalable cloud infrastructure and migration services using AWS, Azure, and Google Cloud.",
-    colorClass: "bg-[#075985]", // Deep Sky
+    colorClass: "bg-[#8E231A]", // Deep Sky
     shape: "43% 57% 41% 59% / 64% 53% 47% 36%"
   },
   {
     icon: Settings,
     title: "Maintenance & Support",
     description: "24/7 dedicated support and continuous optimization to ensure your systems never skip a beat.",
-    colorClass: "bg-[#5B21B6]", // Deep Violet
+    colorClass: "bg-[#8A6A0C]", // Deep Violet
     shape: "53% 47% 31% 69% / 47% 65% 35% 53%"
   }
 ]
@@ -93,7 +93,7 @@ export default function ServicesSection() {
               >
                 {/* Minimalist Dark Card Style - Flip triggered by outer stable group bounds */}
                 <div
-                  className="bg-[#13192B] border border-white/5 rounded-3xl p-8 h-full overflow-hidden relative shadow-lg transition-all duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:shadow-2xl group-hover:shadow-accent/10 group-hover:[transform:rotateY(360deg)]"
+                  className="bg-[#18181B] border border-white/5 rounded-3xl p-8 h-full overflow-hidden relative shadow-lg transition-all duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:shadow-2xl group-hover:shadow-accent/10 group-hover:[transform:rotateY(360deg)]"
                   style={{ transformStyle: "preserve-3d" }}
                 >
 

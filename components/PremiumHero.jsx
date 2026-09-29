@@ -45,7 +45,7 @@ const Elegant3DBackground = () => {
   }, [mouseX, mouseY])
 
   if (!mounted) {
-    return <div className="relative w-full h-[400px] md:h-[500px] lg:h-[600px]" />
+    return <div className="relative w-full h-[300px] md:h-[500px] lg:h-[600px]" />
   }
 
   if (isMobile) {
@@ -76,17 +76,17 @@ const Elegant3DBackground = () => {
         {/* Soft Depth Layer 1 - Outer Mesh Glow */}
         <div 
           className="absolute inset-0 m-auto w-64 h-64 md:w-96 md:h-96 rounded-full border border-white/5 opacity-50 animate-spin-slow"
-          style={{ transform: "translateZ(-100px)", background: "radial-gradient(circle, rgba(14,165,233,0.1) 0%, transparent 70%)", animationDuration: '100s' }}
+          style={{ transform: "translateZ(-100px)", background: "radial-gradient(circle, rgba(217,51,31,0.1) 0%, transparent 70%)", animationDuration: '100s' }}
         />
 
         {/* Floating Glass Plate 1 - Code/Data Component */}
         <div 
-          className="absolute inset-0 m-auto w-48 h-48 md:w-72 md:h-72 z-10 rounded-[2rem] md:rounded-[3rem] border border-white/20 shadow-[0_0_80px_rgba(14,165,233,0.15)] backdrop-blur-3xl bg-transparent flex flex-col items-center justify-center overflow-hidden p-4 md:p-8 animate-float"
+          className="absolute inset-0 m-auto w-48 h-48 md:w-72 md:h-72 z-10 rounded-[2rem] md:rounded-[3rem] border border-white/20 shadow-[0_0_80px_rgba(217,51,31,0.15)] backdrop-blur-3xl bg-transparent flex flex-col items-center justify-center overflow-hidden p-4 md:p-8 animate-float"
           style={{ transform: "translateZ(50px)" }}
         >
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/10 to-transparent pointer-events-none" />
           <div 
-            className="absolute m-auto w-40 h-40 bg-[#0EA5E9] rounded-full blur-[60px] pointer-events-none animate-pulse"
+            className="absolute m-auto w-40 h-40 bg-[#D9331F] rounded-full blur-[60px] pointer-events-none animate-pulse"
             style={{ animationDuration: '6s' }}
           />
           
@@ -105,7 +105,7 @@ const Elegant3DBackground = () => {
               </div>
               <div className="h-2 w-3/4 mx-auto bg-white/5 rounded-full overflow-hidden">
                 <div 
-                  className="h-full bg-[#14B8A6] rounded-full w-full" 
+                  className="h-full bg-[#ED8529] rounded-full w-full" 
                 />
               </div>
             </div>
@@ -114,14 +114,14 @@ const Elegant3DBackground = () => {
 
         {/* Floating Glass Plate 2 - Security */}
         <div 
-          className="absolute -bottom-10 -left-4 md:-bottom-16 md:-left-8 w-32 h-32 md:w-48 md:h-48 z-20 rounded-[1.5rem] md:rounded-[2rem] border border-white/20 shadow-[0_30px_60px_rgba(20,184,166,0.15)] backdrop-blur-2xl bg-transparent flex flex-col items-center justify-center animate-float"
+          className="absolute -bottom-10 -left-4 md:-bottom-16 md:-left-8 w-32 h-32 md:w-48 md:h-48 z-20 rounded-[1.5rem] md:rounded-[2rem] border border-white/20 shadow-[0_30px_60px_rgba(237,133,41,0.15)] backdrop-blur-2xl bg-transparent flex flex-col items-center justify-center animate-float"
           style={{ transform: "translateZ(120px)", animationDelay: '1s', animationDuration: '10s' }}
         >
-          <div className="absolute inset-0 w-full h-full rounded-[2rem] border border-white/10 bg-gradient-to-br from-[#14B8A6]/20 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 w-full h-full rounded-[2rem] border border-white/10 bg-gradient-to-br from-[#ED8529]/20 to-transparent pointer-events-none" />
           
           <div className="relative z-10 text-center">
             <div 
-              className="text-[#14B8A6] mb-3 animate-spin-slow"
+              className="text-[#ED8529] mb-3 animate-spin-slow"
               style={{ animationDuration: '8s' }}
             >
               <Shield className="w-10 h-10 mx-auto" />
@@ -135,7 +135,7 @@ const Elegant3DBackground = () => {
         {[...Array(3)].map((_, i) => (
           <div
             key={i}
-            className="absolute rounded-full bg-[#0EA5E9]/40 blur-[2px] animate-float"
+            className="absolute rounded-full bg-[#D9331F]/40 blur-[2px] animate-float"
             style={{
               width: ((i * 3) % 10) + 4 + "px",
               height: ((i * 3) % 10) + 4 + "px",
@@ -153,7 +153,7 @@ const Elegant3DBackground = () => {
           className="absolute top-0 -right-2 md:-right-4 w-24 h-24 md:w-32 md:h-32 z-30 rounded-[1rem] md:rounded-[1.5rem] border border-white/20 shadow-2xl backdrop-blur-xl bg-transparent flex items-center justify-center overflow-hidden animate-float"
           style={{ transform: "translateZ(180px)", animationDuration: '7s', animationDelay: '2s' }}
         >
-          <div className="absolute inset-0 bg-gradient-to-tr from-[#0EA5E9]/20 to-transparent rounded-[1.5rem] pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-tr from-[#D9331F]/20 to-transparent rounded-[1.5rem] pointer-events-none" />
           <div className="relative z-10 flex items-center justify-center">
             <div
                className="p-3 bg-white/10 rounded-full animate-pulse"
@@ -200,13 +200,13 @@ export default function PremiumHero({
   const titleWords = typeof title === 'string' ? title.split(" ") : []
 
   return (
-    <section className="relative min-h-[85vh] flex items-center pt-28 md:pt-32 lg:pt-32 pb-12 overflow-hidden bg-[#0B1220]">
+    <section className="relative min-h-[85vh] flex items-center pt-28 md:pt-32 lg:pt-32 pb-12 overflow-hidden bg-[#0F0F11]">
       {/* Dynamic Background Layer */}
       {bgComponent ? bgComponent : <TubesBackground className="absolute inset-0 z-0 !bg-transparent" />}
       
       {/* Gradient overlay to ensure text readability */}
-      <div className="absolute inset-0 z-[1] bg-gradient-to-r from-[#0B1220]/70 via-[#0B1220]/40 to-transparent pointer-events-none" />
-      <div className="absolute inset-0 z-[1] bg-gradient-to-t from-[#0B1220]/60 via-transparent to-transparent pointer-events-none" />
+      <div className="absolute inset-0 z-[1] bg-gradient-to-r from-[#0F0F11]/70 via-[#0F0F11]/40 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 z-[1] bg-gradient-to-t from-[#0F0F11]/60 via-transparent to-transparent pointer-events-none" />
       
       <div className="container-custom relative z-10 pointer-events-auto">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-8 items-center">
@@ -218,27 +218,24 @@ export default function PremiumHero({
           >
             {/* Subtitle Badge */}
             {subtitle && (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-white/5 bg-white/5 backdrop-blur-md text-slate-300 text-xs font-bold tracking-[0.2em] uppercase mb-8"
+              <div
+                className="animate-hero-in inline-flex items-center gap-3 px-4 py-2 rounded-full border border-white/5 bg-white/5 backdrop-blur-md text-slate-300 text-xs font-bold tracking-[0.2em] uppercase mb-8"
               >
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
                 </span>
                 {subtitle}
-              </motion.div>
+              </div>
             )}
             
             {/* Main Title using Manrope */}
             <h1 className="text-4xl md:text-6xl lg:text-[4.5rem] font-extrabold leading-[1.1] md:leading-[1.05] tracking-tight mb-8 text-white font-[family-name:var(--font-manrope)]">
               {rotatingPhrases.length > 0 ? (
                 <>
-                  <span className="block mb-4 text-2xl md:text-4xl lg:text-5xl text-slate-200 whitespace-pre-line">{title}</span>
+                  <span className="block mb-4 text-2xl md:text-4xl lg:text-5xl text-slate-200 whitespace-pre-line">{title}</span>{' '}
                   <span className="block relative text-accent min-h-[3em] lg:min-h-[1.5em] overflow-visible">
-                    <AnimatePresence mode="wait">
+                    <AnimatePresence mode="wait" initial={false}>
                       <motion.span
                         key={currentPhrase}
                         initial={{ y: 20, opacity: 0 }}
@@ -254,48 +251,36 @@ export default function PremiumHero({
                 </>
               ) : splitTitle ? (
                 titleWords.map((word, i) => (
-                  <motion.span
-                    key={i}
-                    initial={{ y: "20%", opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.8, delay: i * 0.05, ease: [0.16, 1, 0.3, 1] }}
-                    className={`inline-block mr-3 ${['Scalable', 'IT', 'Solutions', 'Excellence', 'Digital', 'Evolution'].includes(word) ? "text-accent" : ""}`}
-                  >
-                    {word}
-                  </motion.span>
+                  <span key={i}>
+                    <span
+                      style={{ animationDelay: `${i * 0.05}s` }}
+                      className={`animate-hero-in inline-block ${['Scalable', 'IT', 'Solutions', 'Excellence', 'Digital', 'Evolution'].includes(word) ? "text-accent" : ""}`}
+                    >
+                      {word}
+                    </span>{' '}
+                  </span>
                 ))
               ) : (
-                <motion.span
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, ease: "easeOut" }}
-                  className="block"
-                >
+                <span className="animate-hero-in block">
                   {title}
-                </motion.span>
+                </span>
               )}
             </h1>
 
             {/* Description */}
             {description && (
-              <motion.p 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-                className="text-lg md:text-xl text-slate-400 mb-10 max-w-xl leading-relaxed font-light"
+              <p
+                className="animate-hero-in [animation-delay:150ms] text-lg md:text-xl text-slate-400 mb-10 max-w-xl leading-relaxed font-light"
               >
                 {description}
-              </motion.p>
+              </p>
             )}
 
             {/* CTAs */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="flex flex-col sm:flex-row gap-5 w-full sm:w-auto"
+            <div
+              className="animate-hero-in [animation-delay:250ms] flex flex-col sm:flex-row gap-5 w-full sm:w-auto"
             >
-              <Link href={primaryLink} className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 bg-accent text-white font-bold rounded-xl overflow-hidden shadow-[0_10px_40px_-10px_rgba(14,165,233,0.4)] transition-all hover:bg-accent/90 active:scale-95">
+              <Link href={primaryLink} className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 bg-accent text-white font-bold rounded-xl overflow-hidden shadow-[0_10px_40px_-10px_rgba(217,51,31,0.4)] transition-all hover:bg-accent/90 active:scale-95">
                 <span className="relative z-10 flex items-center gap-2">
                   {primaryLinkText}
                   <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -306,8 +291,8 @@ export default function PremiumHero({
                 {secondaryLinkText}
                 <ChevronRight className="w-4 h-4 text-accent transition-transform group-hover:translate-x-1" />
               </Link>
-            </motion.div>
-            
+            </div>
+
           </motion.div>
           
           {/* Right Hero Graphic */}

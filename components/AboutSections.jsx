@@ -61,7 +61,7 @@ export function OurStorySection() {
   }, []);
 
   return (
-    <section className="section-padding bg-[#F4FAFF] relative overflow-hidden">
+    <section className="section-padding bg-[#FFFAF8] relative overflow-hidden">
       <div className="container-custom grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
         <motion.div
           initial="hidden"
@@ -101,7 +101,7 @@ export function OurStorySection() {
               "At Klocrix, we don't just build strategies, we create impactful experiences that position your brand ahead of the competition."
             </p>
             <p>
-              Klocrix Business Solution was founded in 2019 by **Mr. Nikhil Saini & Mrs. Reetika Saini**. We are a forward-thinking business consultancy committed to accelerating brand growth across an ever-evolving marketplace.
+              Klocrix Business Solution was founded in 2019 by <strong className="text-slate-700">Mr. Nikhil Saini &amp; Mrs. Reetika Saini</strong>. We are a forward-thinking business consultancy committed to accelerating brand growth across an ever-evolving marketplace.
             </p>
             <p>
               With a relentless focus on innovation, data-driven insights, and strategic execution, we empower businesses to stand out. Through comprehensive market analysis and tailored solutions, we ensure every element of your brand aligns seamlessly with your vision and goals.
@@ -178,7 +178,7 @@ export function WhyChooseUsSection() {
   ]
 
   return (
-    <section className="section-padding bg-[#F4FAFF]">
+    <section className="section-padding bg-[#FFFAF8]">
       <div className="container-custom">
         <div className="text-center max-w-3xl mx-auto mb-24">
           <h2 className="text-3xl md:text-5xl font-bold mb-6 text-primary">Why Leaders Choose Klocrix</h2>
@@ -198,7 +198,7 @@ export function WhyChooseUsSection() {
               <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center text-accent mb-8 group-hover:bg-accent group-hover:text-white transition-colors duration-500">
                 <CheckCircle className="w-6 h-6" />
               </div>
-              <h4 className="text-xl font-bold mb-4 text-primary">{reason.title}</h4>
+              <h3 className="text-xl font-bold mb-4 text-primary">{reason.title}</h3>
               <p className="text-slate-500 leading-relaxed">{reason.desc}</p>
             </motion.div>
           ))}
@@ -241,7 +241,7 @@ export function TeamSection() {
                 />
                 <div className="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors duration-500" />
               </div>
-              <h4 className="text-2xl font-bold text-primary mb-2">{member.name}</h4>
+              <h3 className="text-2xl font-bold text-primary mb-2">{member.name}</h3>
               <p className="text-slate-400 font-bold uppercase tracking-widest text-xs">{member.role}</p>
             </motion.div>
           ))}

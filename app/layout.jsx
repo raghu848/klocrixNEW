@@ -1,33 +1,45 @@
 import './globals.css'
-import { Inter, Manrope } from 'next/font/google'
-import Script from 'next/script'
+import { OG_IMAGE } from '../lib/seo'
+import { Inter, Manrope, Syne, DM_Sans } from 'next/font/google'
 
+// 'optional' avoids a late font swap that re-wraps hero text (layout shift + delayed LCP on mobile)
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
-  display: 'swap',
+  display: 'optional',
 })
 
 const manrope = Manrope({
   weight: ['400', '500', '600', '700', '800'],
   subsets: ['latin'],
   variable: '--font-manrope',
+  display: 'optional',
+})
+
+const syne = Syne({
+  weight: ['400', '500', '600', '700', '800'],
+  subsets: ['latin'],
+  variable: '--font-syne',
+  display: 'swap',
+})
+
+const dmSans = DM_Sans({
+  weight: ['300', '400', '500'],
+  subsets: ['latin'],
+  variable: '--font-dm-sans',
   display: 'swap',
 })
 
 export const metadata = {
   title: {
-    default: 'Klocrix - Engineering Digital Evolution | IT Solutions & Consulting',
+    default: 'Klocrix | Custom Software, Web & App Development Company',
     template: '%s | Klocrix'
   },
-  description: 'Klocrix Business Solutions: 5+ years of engineering excellence. We architect bespoke software solutions, data science models, and ERP systems that transform ambitious companies.',
+  description: 'Klocrix Business Solutions builds custom software, web & mobile apps, data science models and ERP systems for ambitious companies. 5+ years of engineering excellence.',
   keywords: ['custom software development', 'data science india', 'web development mohali', 'mobile app development chandigarh', 'ERP solutions', 'digital transformation services', 'Klocrix Business Solutions'],
   authors: [{ name: 'Klocrix Business Solutions Pvt. Ltd.' }],
   creator: 'Klocrix',
   publisher: 'Klocrix',
-  alternates: {
-    canonical: 'https://www.klocrix.com',
-  },
   verification: {
     google: 'googled605252d4c5bcd21',
   },
@@ -42,14 +54,7 @@ export const metadata = {
     description: 'Transform your business with bespoke software solutions from industry veterans with 5+ years of experience.',
     url: 'https://www.klocrix.com',
     siteName: 'Klocrix Business Solutions',
-    images: [
-      {
-        url: '/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Klocrix - Engineering Digital Evolution',
-      },
-    ],
+    images: [OG_IMAGE],
     locale: 'en_US',
     type: 'website',
   },
@@ -57,8 +62,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Klocrix - Engineering Digital Evolution',
     description: 'Transform your business with bespoke software solutions from industry veterans with 5+ years of experience.',
-    images: ['/og-image.jpg'],
-    creator: '@klocrix',
+    images: [OG_IMAGE.url],
   },
   robots: {
     index: true,
@@ -73,74 +77,23 @@ export const metadata = {
   },
   icons: {
     icon: [
-      { url: '/favicon.ico' },
+      { url: '/favicon.ico', sizes: 'any' },
       { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
       { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
     ],
-    apple: [
-      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
-    ],
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
   },
 }
 
 import WhatsAppButton from '../components/WhatsAppButton'
 import { OrganizationSchema, WebsiteSchema } from '../components/JsonLd'
+import DeferredAnalytics from '../components/DeferredAnalytics'
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${inter.variable} ${manrope.variable}`}>
+    <html lang="en" className={`${inter.variable} ${manrope.variable} ${syne.variable} ${dmSans.variable}`}>
       <head>
-        {/* Google tag (gtag.js) */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-S0930H7JZ0"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'G-S0930H7JZ0');
-          `}
-        </Script>
-        {/* Google Tag Manager */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-ML5CHCLJ');`,
-          }}
-        />
-        {/* End Google Tag Manager */}
-        {/* Meta Pixel Code */}
-        <Script id="meta-pixel" strategy="afterInteractive">
-          {`
-            !function(f,b,e,v,n,t,s)
-            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-            n.queue=[];t=b.createElement(e);t.async=!0;
-            t.src=v;s=b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t,s)}(window, document,'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '1409744298031274');
-            fbq('track', 'PageView');
-          `}
-        </Script>
-        <noscript>
-          <img
-            height="1"
-            width="1"
-            style={{ display: 'none' }}
-            src="https://www.facebook.com/tr?id=1409744298031274&ev=PageView&noscript=1"
-            alt=""
-          />
-        </noscript>
-        {/* End Meta Pixel Code */}
-        <meta name="theme-color" content="#0B1220" />
+        <meta name="theme-color" content="#0F0F11" />
         <OrganizationSchema />
         <WebsiteSchema />
       </head>
@@ -154,7 +107,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             style={{ display: 'none', visibility: 'hidden' }}
           />
         </noscript>
-        {/* End Google Tag Manager (noscript) */}
+        {/* Meta Pixel (noscript) */}
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: 'none' }}
+            src="https://www.facebook.com/tr?id=1409744298031274&ev=PageView&noscript=1"
+            alt=""
+          />
+        </noscript>
+        <DeferredAnalytics />
         <div className="relative min-h-screen">
           {children}
           <WhatsAppButton />

@@ -17,6 +17,7 @@ import {
   Cpu
 } from 'lucide-react'
 import Link from 'next/link'
+import { useEffect } from 'react'
 import PremiumHero from './PremiumHero'
 
 const fadeInUp = {
@@ -53,6 +54,12 @@ export function ServicesHero() {
 
 // 2. Services Detailed Grid
 export function ServicesDetailedGrid() {
+  // Opening /services#cloud directly doesn't scroll on first load, so jump to the anchor once mounted
+  useEffect(() => {
+    const id = window.location.hash.slice(1)
+    if (id) document.getElementById(id)?.scrollIntoView()
+  }, [])
+
   const services = [
     {
       id: 'custom-software',
@@ -131,15 +138,17 @@ export function ServicesDetailedGrid() {
   return (
     <section className="section-padding bg-[#FAF7F2]">
       <div className="container-custom">
+        <h2 className="sr-only">Our IT Services</h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {services.map((service, i) => (
             <motion.div
               key={service.id}
+              id={service.id}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               variants={fadeInUp}
-              className="p-8 md:p-10 rounded-[2rem] md:rounded-[2.5rem] bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-2xl transition-all duration-500 group"
+              className="scroll-mt-32 p-8 md:p-10 rounded-[2rem] md:rounded-[2.5rem] bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-2xl transition-all duration-500 group"
             >
               <div className="w-16 h-16 rounded-2xl bg-primary/5 flex items-center justify-center text-primary mb-10 group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-sm">
                 <service.icon className="w-8 h-8" />

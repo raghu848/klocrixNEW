@@ -1,13 +1,12 @@
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
+import { pageMetadata } from '../../lib/seo'
 
-export const metadata = {
-  title: 'Privacy Policy | Klocrix',
-  description: 'Learn how Klocrix handles your data and protects your privacy across our digital services.',
-  alternates: {
-    canonical: 'https://www.klocrix.com/privacy',
-  },
-}
+export const metadata = pageMetadata({
+  title: 'Privacy Policy',
+  description: 'Learn how Klocrix Business Solutions collects, uses and protects your personal data across our website and digital services.',
+  path: '/privacy',
+})
 
 export default function PrivacyPage() {
   return (

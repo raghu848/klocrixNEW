@@ -46,7 +46,7 @@ function DataScienceHero() {
       <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 -skew-x-12 translate-x-1/4 pointer-events-none" />
       
       <div className="container-custom relative z-10 text-center px-4">
-        <motion.div initial="hidden" animate="visible" variants={staggerContainer} className="max-w-4xl mx-auto">
+        <motion.div initial={false} animate="visible" variants={staggerContainer} className="animate-hero-in max-w-4xl mx-auto">
           <motion.span variants={fadeInUp} className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-bold tracking-wider uppercase mb-6">
             Data Science & AI
           </motion.span>

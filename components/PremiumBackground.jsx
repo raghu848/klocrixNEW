@@ -23,7 +23,7 @@ export default function PremiumBackground() {
       <div 
         className="absolute inset-0 opacity-[0.03]"
         style={{
-          backgroundImage: `linear-gradient(#0B1F3A 1px, transparent 1px), linear-gradient(90deg, #0B1F3A 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(#2A1512 1px, transparent 1px), linear-gradient(90deg, #2A1512 1px, transparent 1px)`,
           backgroundSize: '100px 100px'
         }}
       />

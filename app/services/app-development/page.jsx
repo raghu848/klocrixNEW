@@ -1,13 +1,12 @@
 import AppDevClient from './AppDevClient'
+import { pageMetadata } from '../../../lib/seo'
 
-export const metadata = {
-  title: 'Premier Mobile App Development Company | Custom iOS & Android Apps',
-  description: 'Elevate your digital presence with the best mobile app development company. We offer custom mobile app development, iOS app development, and Android app development services.',
+export const metadata = pageMetadata({
+  title: 'Mobile App Development Company – iOS & Android',
+  description: 'Custom mobile app development for iOS and Android. Klocrix designs and builds fast, scalable native and cross-platform apps that users love.',
+  path: '/services/app-development',
   keywords: 'mobile app development company, app development services, custom mobile app development, android app development, app development company, mobile app development, ios app development, best mobile app development company, custom mobile app development company, ios and android app development',
-  alternates: {
-    canonical: 'https://www.klocrix.com/services/app-development',
-  },
-}
+})
 
 export default function Page() {
   return (

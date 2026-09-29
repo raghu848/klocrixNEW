@@ -15,7 +15,7 @@ export const OrganizationSchema = () => {
     "@type": "Organization",
     "name": "Klocrix Business Solutions",
     "url": "https://www.klocrix.com",
-    "logo": "https://www.klocrix.com/case-studies/klocrix-logo.png",
+    "logo": "https://www.klocrix.com/icon-512.png",
     "sameAs": [
       "https://www.linkedin.com/in/klocrix-business-solution-4454a5237",
       "https://www.facebook.com/Klocrix",

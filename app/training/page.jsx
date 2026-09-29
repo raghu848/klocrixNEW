@@ -7,15 +7,14 @@ import {
 } from '../../components/TrainingSections'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
+import { pageMetadata } from '../../lib/seo'
 
-export const metadata = {
-  title: 'Klocrix Training - Industrial Training in Python, Fullstack & Digital Marketing',
-  description: 'Join Chandigarh\'s most practical industrial training bootcamp. 12-week job-ready courses in Python Engineering, MERN Fullstack, and Performance Marketing. Real projects, live mentorship, and placement support.',
+export const metadata = pageMetadata({
+  title: 'Python, MERN & Marketing Training in Mohali',
+  description: 'Job-ready industrial training in Mohali: 12-week courses in Python, MERN full stack and performance marketing with real projects and placement support.',
+  path: '/training',
   keywords: 'python training mohali, fullstack development course chandigarh, digital marketing bootcamp, industrial training mohali, mern stack course, klocrix training, six months industrial training mohali',
-  alternates: {
-    canonical: 'https://www.klocrix.com/training',
-  },
-}
+})
 
 export default function TrainingPage() {
   return (

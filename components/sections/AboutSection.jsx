@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { CheckCircle, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 import Reveal from '../Reveal'
 
 export default function AboutSection() {
@@ -10,18 +11,19 @@ export default function AboutSection() {
   const yParallax = useTransform(scrollYProgress, [0, 1], [0, 150]);
 
   return (
-    <section id="about" className="py-10 md:py-16 lg:py-20 bg-[#111827] overflow-hidden relative border-t border-white/5 scroll-mt-20 md:scroll-mt-32">
+    <section id="about" className="py-10 md:py-16 lg:py-20 bg-[#151517] overflow-hidden relative border-t border-white/5 scroll-mt-20 md:scroll-mt-32">
       <motion.div style={{ y: yParallax }} className="absolute -top-40 -left-40 w-96 h-96 bg-accent/20 rounded-full blur-[120px] -z-10 pointer-events-none" />
 
       <div className="container-custom grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
         <div className="relative z-10">
-          <Reveal delay={0.2}>
-            <div className="relative rounded-[3rem] overflow-hidden shadow-2xl border border-white/10 group aspect-[4/3]">
-              <img
+          <Reveal delay={0.2} width="100%">
+            <div className="relative w-full rounded-[3rem] overflow-hidden shadow-2xl border border-white/10 group aspect-[4/3]">
+              <Image
                 src="/case-studies/klocrix-team-digital-transformation.jpeg"
                 alt="Klocrix Team collaborating on digital transformation projects"
-                className="w-full h-full object-cover transition-opacity duration-700 group-hover:scale-105"
-                loading="lazy"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover transition-opacity duration-700 group-hover:scale-105"
               />
             </div>
             {/* Experience Badge */}
@@ -62,7 +64,7 @@ export default function AboutSection() {
                     <CheckCircle className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="text-xl font-bold text-white mb-1">{item.title}</h4>
+                    <h3 className="text-xl font-bold text-white mb-1">{item.title}</h3>
                     <p className="text-slate-400 leading-relaxed">{item.desc}</p>
                   </div>
                 </div>

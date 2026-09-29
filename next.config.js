@@ -1,17 +1,24 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['localhost'],
-    unoptimized: true,
+    formats: ['image/avif', 'image/webp'],
+    minimumCacheTTL: 60 * 60 * 24 * 30,
+    // External hosts used by next/image (case study photos and testimonial avatars)
+    remotePatterns: [
+      { protocol: 'https', hostname: 'images.unsplash.com' },
+      { protocol: 'https', hostname: 'i.pravatar.cc' },
+    ],
   },
-  transpilePackages: ['three', '@react-three/fiber', '@react-three/drei'],
-  webpack: (config) => {
-    config.externals.push({
-      'three': 'three',
-      '@react-three/fiber': '@react-three/fiber',
-      '@react-three/drei': '@react-three/drei'
-    })
-    return config
+  poweredByHeader: false,
+  async headers() {
+    return [
+      {
+        source: '/:file(.*\\.(?:png|jpg|jpeg|svg|ico|webp|avif))',
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=2592000, stale-while-revalidate=86400' },
+        ],
+      },
+    ]
   },
   async redirects() {
     return [

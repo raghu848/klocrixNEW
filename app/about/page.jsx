@@ -10,6 +10,7 @@ import {
   TeamSection, 
   CTASection 
 } from '../../components/AboutSections'
+import { pageMetadata } from '../../lib/seo'
 
 export default function AboutPage() {
   return (
@@ -25,11 +26,9 @@ export default function AboutPage() {
   )
 }
 
-export const metadata = {
-  title: 'About Klocrix | Our Mission, Vision & Engineering Excellence',
-  description: 'Discover Klocrix Business Solutions. With over 5 years of experience, we specialize in digital transformation, custom software engineering, and strategic consulting for global brands.',
+export const metadata = pageMetadata({
+  title: 'About Us – Our Mission & Engineering Team',
+  description: 'Meet Klocrix Business Solutions: 5+ years of digital transformation, custom software engineering and IT consulting for ambitious brands worldwide.',
+  path: '/about',
   keywords: 'about klocrix, software engineering team, digital transformation agency, IT consulting india',
-  alternates: {
-    canonical: 'https://www.klocrix.com/about',
-  },
-}
+})

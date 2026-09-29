@@ -25,18 +25,13 @@ const footerLinks = {
     { name: 'Blog', href: '/blog' },
   ],
   services: [
-    { name: 'Web Development', href: '/services#web-development' },
-    { name: 'App Development', href: '/services#app-development' },
-    { name: 'UI/UX Design', href: '/services#ui-ux' },
-    { name: 'Digital Transformation', href: '/services#digital' },
+    { name: 'Web Development', href: '/services/web-development' },
+    { name: 'App Development', href: '/services/app-development' },
+    { name: 'UI/UX Design', href: '/services/ui-ux-design' },
+    { name: 'Data Science & AI', href: '/services/data-science' },
+    { name: 'Digital Transformation', href: '/services#digital-transformation' },
     { name: 'Cloud Solutions', href: '/services#cloud' },
   ],
-  support: [
-    { name: 'Contact Us', href: '/contact' },
-    { name: 'Privacy Policy', href: '/privacy' },
-    { name: 'Terms of Service', href: '/terms' },
-    { name: 'Support Center', href: '/support' },
-  ]
 }
 
 const socialLinks = [
@@ -62,7 +57,7 @@ export default function Footer() {
   }
 
   return (
-    <footer className="bg-[#0B1220] border-t border-white/10 text-white pt-16 md:pt-24 pb-12 overflow-hidden">
+    <footer className="bg-[#0F0F11] border-t border-white/10 text-white pt-16 md:pt-24 pb-12 overflow-hidden">
       <div className="container-custom px-6 lg:px-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-16 mb-20">
           
@@ -70,11 +65,11 @@ export default function Footer() {
           <div className="lg:col-span-4">
             <Link href="/" className="inline-block mb-8">
               <Image
-                src="/case-studies/klocrix-logo.png"
-                alt="Klocrix Logo Footer"
-                width={120}
-                height={48}
-                className="h-10 md:h-16 w-auto object-contain"
+                src="/klocrix-logo-dark.png"
+                alt="Klocrix Business Solutions"
+                width={206}
+                height={64}
+                className="h-12 md:h-16 w-auto object-contain"
                 loading="lazy"
               />
             </Link>
@@ -102,7 +97,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div className="lg:col-span-2">
-            <h4 className="text-lg font-bold mb-8">Company</h4>
+            <h2 className="text-lg font-bold mb-8">Company</h2>
             <ul className="flex flex-col gap-4">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
@@ -116,7 +111,7 @@ export default function Footer() {
           </div>
 
           <div className="lg:col-span-3">
-            <h4 className="text-lg font-bold mb-8">Services</h4>
+            <h2 className="text-lg font-bold mb-8">Services</h2>
             <ul className="flex flex-col gap-4">
               {footerLinks.services.map((link) => (
                 <li key={link.name}>
@@ -131,7 +126,7 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div className="lg:col-span-3">
-            <h4 className="text-lg font-bold mb-8">Get in Touch</h4>
+            <h2 className="text-lg font-bold mb-8">Get in Touch</h2>
             <div className="flex flex-col gap-6">
               <div className="flex items-start gap-4 text-slate-400">
                 <MapPin className="w-6 h-6 text-accent shrink-0" />
@@ -155,15 +150,16 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-slate-500 text-sm">
+          <p className="text-slate-400 text-sm">
             © {new Date().getFullYear()} Klocrix. All rights reserved.
           </p>
           <div className="flex gap-8">
-            <Link href="/privacy" className="text-slate-500 hover:text-white text-sm transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="text-slate-500 hover:text-white text-sm transition-colors">Terms of Service</Link>
+            <Link href="/privacy" className="text-slate-400 hover:text-white text-sm transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="text-slate-400 hover:text-white text-sm transition-colors">Terms of Service</Link>
           </div>
           <button
             onClick={scrollToTop}
+            aria-label="Back to top"
             className="w-12 h-12 flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-white hover:bg-accent hover:border-accent transition-all duration-300"
           >
             <ArrowUp className="w-5 h-5" />

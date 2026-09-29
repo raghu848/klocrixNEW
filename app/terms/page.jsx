@@ -1,13 +1,12 @@
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
+import { pageMetadata } from '../../lib/seo'
 
-export const metadata = {
-  title: 'Terms of Service | Klocrix',
-  description: 'The terms and conditions governing the use of Klocrix digital services and website.',
-  alternates: {
-    canonical: 'https://www.klocrix.com/terms',
-  },
-}
+export const metadata = pageMetadata({
+  title: 'Terms of Service',
+  description: 'The terms and conditions that govern your use of the Klocrix Business Solutions website and our digital services.',
+  path: '/terms',
+})
 
 export default function TermsPage() {
   return (

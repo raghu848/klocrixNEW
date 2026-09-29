@@ -15,26 +15,7 @@ import {
 import { useState } from 'react'
 import { cn } from '../lib/utils'
 import PremiumBackground from './PremiumBackground'
-
-const fadeInUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: "easeOut" }
-  }
-}
-
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.1
-    }
-  }
-}
+import { getWhatsAppUrl, WHATSAPP_NUMBERS } from '../lib/whatsapp'
 
 // 1. Contact Hero
 export function ContactHero() {
@@ -43,22 +24,22 @@ export function ContactHero() {
       <PremiumBackground />
 
       <div className="container-custom relative z-10 text-center px-4">
-        <motion.div initial="hidden" animate="visible" variants={staggerContainer} className="max-w-4xl mx-auto">
-          <motion.div variants={fadeInUp}>
+        <div className="max-w-4xl mx-auto">
+          <div className="animate-hero-in">
             <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-bold tracking-wider uppercase mb-6">
               Contact Us
             </span>
-          </motion.div>
+          </div>
 
-          <motion.h1 variants={fadeInUp} className="text-4xl sm:text-5xl md:text-8xl font-extrabold leading-tight mb-8 text-primary">
+          <h1 className="animate-hero-in [animation-delay:100ms] text-4xl sm:text-5xl md:text-8xl font-extrabold leading-tight mb-8 text-primary">
             Let's Start a <span className="text-accent italic">Conversation</span>
-          </motion.h1>
+          </h1>
 
-          <motion.p variants={fadeInUp} className="text-lg md:text-2xl text-slate-500 max-w-3xl mx-auto leading-relaxed mb-12">
+          <p className="animate-hero-in [animation-delay:200ms] text-lg md:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed mb-12">
             Whether you have a specific project in mind or just want to explore possibilities, our team is ready to help.
-          </motion.p>
+          </p>
 
-          <motion.div variants={fadeInUp} className="flex justify-center">
+          <div className="animate-hero-in [animation-delay:300ms] flex justify-center">
             <motion.div
               animate={{ scale: [1, 1.1, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
@@ -66,8 +47,8 @@ export function ContactHero() {
             >
               <Headphones className="w-8 h-8" />
             </motion.div>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   )
@@ -75,6 +56,25 @@ export function ContactHero() {
 
 // 2. Contact Main Section (Form + Info)
 export function ContactMain() {
+  const [sent, setSent] = useState(false)
+
+  // No mail backend yet: hand the enquiry to WhatsApp as a pre-filled message
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const data = new FormData(e.currentTarget)
+    const text = [
+      `New enquiry from the website (${data.get('subject')})`,
+      `Name: ${data.get('name')}`,
+      `Email: ${data.get('email')}`,
+      data.get('phone') ? `Phone: ${data.get('phone')}` : null,
+      '',
+      data.get('message'),
+    ].filter((line) => line !== null).join('\n')
+
+    window.open(getWhatsAppUrl(WHATSAPP_NUMBERS.MAIN, text), '_blank', 'noopener,noreferrer')
+    setSent(true)
+  }
+
   const contactInfo = [
     {
       icon: MapPin,
@@ -133,7 +133,7 @@ export function ContactMain() {
             </div>
 
             <div className="mt-12 md:mt-24 pt-10 md:pt-16 border-t border-slate-100">
-              <h4 className="text-xs font-black uppercase tracking-[0.2em] text-slate-400 mb-10">Follow Our Journey</h4>
+              <h3 className="text-xs font-black uppercase tracking-[0.2em] text-slate-500 mb-10">Follow Our Journey</h3>
               <div className="flex flex-wrap gap-4">
                 {[
                   { name: 'LinkedIn', href: 'https://www.linkedin.com/in/klocrix-business-solution-4454a5237' },
@@ -159,26 +159,26 @@ export function ContactMain() {
             <div className="bg-slate-50 p-8 md:p-16 rounded-[2rem] md:rounded-[4rem] border border-slate-100 shadow-sm relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl" />
               <h2 className="text-3xl md:text-4xl font-bold mb-12 text-primary">Send us a Message</h2>
-              <form className="space-y-10">
+              <form onSubmit={handleSubmit} className="space-y-10">
                 <div className="grid md:grid-cols-2 gap-10">
                   <div className="space-y-3">
-                    <label className="text-xs font-black text-slate-400 uppercase tracking-widest">Full Name</label>
-                    <input type="text" className="w-full p-5 rounded-2xl bg-white border border-slate-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-bold" placeholder="John Doe" />
+                    <label htmlFor="contact-name" className="text-xs font-black text-slate-500 uppercase tracking-widest">Full Name</label>
+                    <input id="contact-name" name="name" type="text" required autoComplete="name" className="w-full p-5 rounded-2xl bg-white border border-slate-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-bold text-slate-900" placeholder="John Doe" />
                   </div>
                   <div className="space-y-3">
-                    <label className="text-xs font-black text-slate-400 uppercase tracking-widest">Email Address</label>
-                    <input type="email" className="w-full p-5 rounded-2xl bg-white border border-slate-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-bold" placeholder="john@example.com" />
+                    <label htmlFor="contact-email" className="text-xs font-black text-slate-500 uppercase tracking-widest">Email Address</label>
+                    <input id="contact-email" name="email" type="email" required autoComplete="email" className="w-full p-5 rounded-2xl bg-white border border-slate-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-bold text-slate-900" placeholder="john@example.com" />
                   </div>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-10">
                   <div className="space-y-3">
-                    <label className="text-xs font-black text-slate-400 uppercase tracking-widest">Phone</label>
-                    <input type="tel" className="w-full p-5 rounded-2xl bg-white border border-slate-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-bold" placeholder="+91 00000 00000" />
+                    <label htmlFor="contact-phone" className="text-xs font-black text-slate-500 uppercase tracking-widest">Phone</label>
+                    <input id="contact-phone" name="phone" type="tel" autoComplete="tel" className="w-full p-5 rounded-2xl bg-white border border-slate-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-bold text-slate-900" placeholder="+91 00000 00000" />
                   </div>
                   <div className="space-y-3 relative">
-                    <label className="text-xs font-black text-slate-400 uppercase tracking-widest">Subject</label>
-                    <select className="w-full p-5 rounded-2xl bg-white border border-slate-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all appearance-none font-bold">
+                    <label htmlFor="contact-subject" className="text-xs font-black text-slate-500 uppercase tracking-widest">Subject</label>
+                    <select id="contact-subject" name="subject" className="w-full p-5 rounded-2xl bg-white border border-slate-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all appearance-none font-bold text-slate-900">
                       <option>General Inquiry</option>
                       <option>New Project</option>
                       <option>Partnership</option>
@@ -189,14 +189,20 @@ export function ContactMain() {
                 </div>
 
                 <div className="space-y-3">
-                  <label className="text-xs font-black text-slate-400 uppercase tracking-widest">Message</label>
-                  <textarea className="w-full p-5 rounded-2xl bg-white border border-slate-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all h-48 font-bold" placeholder="Tell us about your project or inquiry..."></textarea>
+                  <label htmlFor="contact-message" className="text-xs font-black text-slate-500 uppercase tracking-widest">Message</label>
+                  <textarea id="contact-message" name="message" required className="w-full p-5 rounded-2xl bg-white border border-slate-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all h-48 font-bold text-slate-900" placeholder="Tell us about your project or inquiry..."></textarea>
                 </div>
 
-                <button className="w-full py-6 bg-primary text-white font-black rounded-2xl shadow-xl flex items-center justify-center gap-4 hover:bg-primary-light transition-all text-xl">
+                <button type="submit" className="w-full py-6 bg-primary text-white font-black rounded-2xl shadow-xl flex items-center justify-center gap-4 hover:bg-primary-light transition-all text-xl">
                   Send Message
                   <Send className="w-5 h-5 md:w-6 md:h-6" />
                 </button>
+                {sent && (
+                  <p role="status" className="text-center text-slate-600 font-medium">
+                    WhatsApp opened with your message — just press send. Prefer email? Write to{' '}
+                    <a href="mailto:hello@klocrix.com" className="text-primary underline">hello@klocrix.com</a>.
+                  </p>
+                )}
               </form>
             </div>
           </div>

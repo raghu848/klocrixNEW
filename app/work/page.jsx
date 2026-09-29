@@ -4,6 +4,7 @@ import {
   WorkHero, 
   WorkGrid 
 } from '../../components/WorkSections'
+import { pageMetadata } from '../../lib/seo'
 
 export default function WorkPage() {
   return (
@@ -16,11 +17,9 @@ export default function WorkPage() {
   )
 }
 
-export const metadata = {
-  title: 'Our Portfolio | Case Studies in Engineering Digital Evolution',
-  description: 'Explore the Klocrix portfolio. See how we have helped businesses across industries like Real Estate, FinTech, and E-commerce with bespoke software solutions and digital strategies.',
+export const metadata = pageMetadata({
+  title: 'Portfolio & Case Studies',
+  description: 'See how Klocrix has helped businesses in real estate, fintech and e-commerce grow with bespoke software, data solutions and digital strategy.',
+  path: '/work',
   keywords: 'klocrix portfolio, software development case studies, web development projects, real estate tech solutions',
-  alternates: {
-    canonical: 'https://www.klocrix.com/work',
-  },
-}
+})

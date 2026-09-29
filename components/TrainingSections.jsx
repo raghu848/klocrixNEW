@@ -22,6 +22,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { cn } from '../lib/utils'
 import PremiumHero from './PremiumHero'
+import { getWhatsAppUrl, WHATSAPP_NUMBERS } from '../lib/whatsapp'
 import InteractiveWavesBackground from './InteractiveWavesBackground'
 
 const fadeInUp = {
@@ -119,7 +120,7 @@ export function TrainingBenefits() {
       <div className="container-custom">
         <div className="text-center max-w-3xl mx-auto mb-24">
           <h2 className="text-3xl md:text-5xl font-bold mb-6 text-primary">Why Choose Klocrix Training?</h2>
-          <p className="text-lg text-slate-500">Our bootcamp is designed to bridge the gap between academic learning and industry requirements.</p>
+          <p className="text-lg text-slate-600">Our bootcamp is designed to bridge the gap between academic learning and industry requirements.</p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {benefits.map((benefit, i) => (
@@ -145,7 +146,7 @@ export function TrainingCurriculum() {
   const currentCourse = COURSES[activeCourse]
 
   return (
-    <section id="curriculum" className="section-padding bg-[#F4FAFF] overflow-hidden">
+    <section id="curriculum" className="section-padding bg-[#FFFAF8] overflow-hidden">
       <div className="container-custom">
         <div className="text-center max-w-3xl mx-auto mb-20">
           <span className="text-accent font-black tracking-widest uppercase text-sm mb-4 block">Our Curriculum</span>
@@ -165,7 +166,7 @@ export function TrainingCurriculum() {
                 "px-8 py-4 rounded-2xl font-black text-sm uppercase tracking-widest transition-all duration-300",
                 activeCourse === i 
                   ? "bg-primary text-white shadow-xl scale-105" 
-                  : "bg-white text-slate-400 border border-slate-100 hover:border-primary/40"
+                  : "bg-white text-slate-500 border border-slate-100 hover:border-primary/40"
               )}
             >
               {course.name}
@@ -190,7 +191,7 @@ export function TrainingCurriculum() {
                   "absolute top-0 right-0 w-24 h-24 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 transition-transform duration-500",
                   activeModule === i ? "scale-150" : "scale-0"
                 )} />
-                <span className="text-xs font-black uppercase tracking-[0.2em] mb-2 block opacity-60">Module 0{i+1}</span>
+                <span className="text-xs font-black uppercase tracking-[0.2em] mb-2 block">Module 0{i+1}</span>
                 <span className="text-xl md:text-2xl font-black relative z-10">{m.title}</span>
               </button>
             ))}
@@ -269,10 +270,10 @@ export function TrainingPricing() {
           </div>
           
           <div className="p-12 md:p-20 bg-slate-50 flex-1 flex flex-col justify-center items-center text-center">
-            <p className="text-slate-400 font-black uppercase tracking-[0.2em] mb-6">Course Investment</p>
+            <p className="text-slate-500 font-black uppercase tracking-[0.2em] mb-6">Course Investment</p>
             <div className="mb-12">
               <span className="text-8xl font-black text-primary tracking-tighter">₹30,000</span>
-              <p className="text-slate-400 mt-2 font-bold uppercase text-sm tracking-widest">All Industrial Tracks</p>
+              <p className="text-slate-500 mt-2 font-bold uppercase text-sm tracking-widest">All Industrial Tracks</p>
             </div>
             <ul className="space-y-6 mb-16 text-left w-full max-w-sm">
               {["Corporate Project Access", "1-on-1 Mentorship", "Placement Assistance", "Industry Certifications"].map((item, i) => (
@@ -284,7 +285,7 @@ export function TrainingPricing() {
                 </li>
               ))}
             </ul>
-            <Link href="#contact" className="w-full py-6 bg-primary text-white font-black rounded-2xl shadow-[0_20px_40px_-10px_rgba(11,18,32,0.4)] hover:scale-[1.02] transition-all text-xl">
+            <Link href="#contact" className="w-full py-6 bg-primary text-white font-black rounded-2xl shadow-[0_20px_40px_-10px_rgba(15,15,17,0.4)] hover:scale-[1.02] transition-all text-xl">
               Apply Now
             </Link>
           </div>
@@ -294,10 +295,28 @@ export function TrainingPricing() {
   )
 }
 
-// 5. Contact Form Section (Unchanged)
+// 5. Contact Form Section
 export function TrainingContact() {
+  const [sent, setSent] = useState(false)
+
+  // No mail backend yet: send the enquiry to the training advisor on WhatsApp
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const data = new FormData(e.currentTarget)
+    const text = [
+      'New training enquiry from the website',
+      `Name: ${data.get('name')}`,
+      `Phone: ${data.get('phone')}`,
+      data.get('email') ? `Email: ${data.get('email')}` : null,
+      data.get('message') ? `\n${data.get('message')}` : null,
+    ].filter((line) => line !== null).join('\n')
+
+    window.open(getWhatsAppUrl(WHATSAPP_NUMBERS.TRAINING, text), '_blank', 'noopener,noreferrer')
+    setSent(true)
+  }
+
   return (
-    <section id="contact" className="section-padding bg-[#F4FAFF]">
+    <section id="contact" className="section-padding bg-[#FFFAF8]">
       <div className="container-custom">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-24 items-center">
           <div className="lg:col-span-5">
@@ -313,7 +332,7 @@ export function TrainingContact() {
                   <Users className="w-8 h-8" />
                 </div>
                 <div>
-                  <p className="text-xs text-slate-400 font-bold uppercase tracking-widest mb-1">Call Advisor</p>
+                  <p className="text-xs text-slate-500 font-bold uppercase tracking-widest mb-1">Call Advisor</p>
                   <p className="text-2xl font-black text-primary">
                     <a href="tel:+917508535271" className="hover:text-accent transition-colors">+91 75085 35271</a>
                   </p>
@@ -323,26 +342,31 @@ export function TrainingContact() {
           </div>
           
           <div className="lg:col-span-7 bg-white p-8 md:p-16 rounded-[2rem] md:rounded-[4rem] shadow-2xl border border-slate-100">
-            <form className="space-y-8">
+            <form onSubmit={handleSubmit} className="space-y-8">
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="space-y-3">
-                  <label className="text-xs font-black text-slate-400 uppercase tracking-widest">Full Name</label>
-                  <input type="text" className="w-full p-5 rounded-2xl bg-slate-50 border border-slate-100 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-bold" placeholder="John Doe" />
+                  <label htmlFor="training-name" className="text-xs font-black text-slate-500 uppercase tracking-widest">Full Name</label>
+                  <input id="training-name" name="name" type="text" required autoComplete="name" className="w-full p-5 rounded-2xl bg-slate-50 border border-slate-100 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-bold text-slate-900" placeholder="John Doe" />
                 </div>
                 <div className="space-y-3">
-                  <label className="text-xs font-black text-slate-400 uppercase tracking-widest">Phone Number</label>
-                  <input type="tel" className="w-full p-5 rounded-2xl bg-slate-50 border border-slate-100 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-bold" placeholder="+91 00000 00000" />
+                  <label htmlFor="training-phone" className="text-xs font-black text-slate-500 uppercase tracking-widest">Phone Number</label>
+                  <input id="training-phone" name="phone" type="tel" required autoComplete="tel" className="w-full p-5 rounded-2xl bg-slate-50 border border-slate-100 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-bold text-slate-900" placeholder="+91 00000 00000" />
                 </div>
               </div>
               <div className="space-y-3">
-                <label className="text-xs font-black text-slate-400 uppercase tracking-widest">Email Address</label>
-                <input type="email" className="w-full p-5 rounded-2xl bg-slate-50 border border-slate-100 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-bold" placeholder="john@example.com" />
+                <label htmlFor="training-email" className="text-xs font-black text-slate-500 uppercase tracking-widest">Email Address</label>
+                <input id="training-email" name="email" type="email" autoComplete="email" className="w-full p-5 rounded-2xl bg-slate-50 border border-slate-100 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-bold text-slate-900" placeholder="john@example.com" />
               </div>
               <div className="space-y-3">
-                <label className="text-xs font-black text-slate-400 uppercase tracking-widest">Message</label>
-                <textarea className="w-full p-5 rounded-2xl bg-slate-50 border border-slate-100 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all h-40 font-bold" placeholder="Tell us about your goals..."></textarea>
+                <label htmlFor="training-message" className="text-xs font-black text-slate-500 uppercase tracking-widest">Message</label>
+                <textarea id="training-message" name="message" className="w-full p-5 rounded-2xl bg-slate-50 border border-slate-100 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all h-40 font-bold text-slate-900" placeholder="Tell us about your goals..."></textarea>
               </div>
-              <button className="w-full py-6 bg-primary text-white font-black rounded-2xl shadow-xl hover:bg-primary-light transition-all text-xl">Send Message</button>
+              <button type="submit" className="w-full py-6 bg-primary text-white font-black rounded-2xl shadow-xl hover:bg-primary-light transition-all text-xl">Send Message</button>
+              {sent && (
+                <p role="status" className="text-center text-slate-600 font-medium">
+                  WhatsApp opened with your details — just press send, or call us on +91 75085 35271.
+                </p>
+              )}
             </form>
           </div>
         </div>

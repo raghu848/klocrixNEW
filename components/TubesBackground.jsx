@@ -3,18 +3,14 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { cn } from '../lib/utils';
 
-// Helper for random colors with blue majority
+// Random colours from the logo palette: mostly reds/orange, occasionally a stripe colour
 const randomColors = (count) => {
-  const blueShades = ["#10CEE4", "#0EA5E9", "#0284C7", "#38BDF8", "#7DD3FC"];
-  const redShades = ["#DC2626", "#E11D48", "#F43F5E"];
-  
+  const warmShades = ["#E63825", "#D9331F", "#B12D21", "#ED8529"];
+  const stripeShades = ["#F1C524", "#33AB4C", "#0B7E9B", "#D02162"];
+
   return new Array(count).fill(0).map(() => {
-    // 80% chance for blue, 20% chance for red
-    if (Math.random() > 0.2) {
-      return blueShades[Math.floor(Math.random() * blueShades.length)];
-    } else {
-      return redShades[Math.floor(Math.random() * redShades.length)];
-    }
+    const palette = Math.random() > 0.2 ? warmShades : stripeShades;
+    return palette[Math.floor(Math.random() * palette.length)];
   });
 };
 
@@ -30,7 +26,6 @@ export default function TubesBackground({
   useEffect(() => {
     let mounted = true;
     let cleanup;
-    let timeoutId;
 
     const initTubes = async () => {
       // Completely disable on mobile to save CPU and Lighthouse TBT
@@ -47,10 +42,10 @@ export default function TubesBackground({
 
         const app = TubesCursor(canvasRef.current, {
           tubes: {
-            colors: ["#10CEE4", "#0EA5E9", "#0284C7", "#10CEE4", "#DC2626"], // Majority Blue, One Red
+            colors: ["#E63825", "#D9331F", "#ED8529", "#B12D21", "#D02162"], // Logo reds/orange + magenta
             lights: {
               intensity: 200,
-              colors: ["#10CEE4", "#0EA5E9", "#0284C7", "#DC2626"] // Majority Blue, One Red
+              colors: ["#E63825", "#ED8529", "#B12D21", "#F1C524"] // Logo reds/orange + yellow
             }
           }
         });
@@ -73,15 +68,14 @@ export default function TubesBackground({
       }
     };
 
-    // Delay the initialization by 2.5s to prevent Lighthouse DEADLINE_EXCEEDED errors
-    // and to prioritize main thread for above-the-fold content
-    timeoutId = setTimeout(() => {
-      initTubes();
-    }, 2500);
+    // The effect follows the cursor, so only load the ~200KB WebGL bundle once the mouse moves.
+    // This keeps it off the main thread during initial load.
+    const onFirstMove = () => initTubes();
+    window.addEventListener('pointermove', onFirstMove, { once: true, passive: true });
 
     return () => {
       mounted = false;
-      if (timeoutId) clearTimeout(timeoutId);
+      window.removeEventListener('pointermove', onFirstMove);
       if (cleanup) cleanup();
     };
   }, []);

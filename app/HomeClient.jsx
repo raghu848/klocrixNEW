@@ -10,14 +10,14 @@ import Footer from '../components/Footer'
 
 import PremiumHero from '../components/PremiumHero'
 
-// Dynamically import heavy sections for performance
-const TrustSection = dynamic(() => import('../components/sections/TrustSection'), { ssr: false })
-const ServicesSection = dynamic(() => import('../components/sections/ServicesSection'), { ssr: false })
-const AboutSection = dynamic(() => import('../components/sections/AboutSection'), { ssr: false })
-const ProcessSection = dynamic(() => import('../components/sections/ProcessSection'), { ssr: false })
-const CaseStudiesSection = dynamic(() => import('../components/sections/CaseStudiesSection'), { ssr: false })
-const TestimonialsSection = dynamic(() => import('../components/sections/TestimonialsSection'), { ssr: false })
-const CTASection = dynamic(() => import('../components/sections/CTASection'), { ssr: false })
+// Below-the-fold sections are code-split but still server-rendered so their content is in the HTML for search engines
+const TrustSection = dynamic(() => import('../components/sections/TrustSection'))
+const ServicesSection = dynamic(() => import('../components/sections/ServicesSection'))
+const AboutSection = dynamic(() => import('../components/sections/AboutSection'))
+const ProcessSection = dynamic(() => import('../components/sections/ProcessSection'))
+const CaseStudiesSection = dynamic(() => import('../components/sections/CaseStudiesSection'))
+const TestimonialsSection = dynamic(() => import('../components/sections/TestimonialsSection'))
+const CTASection = dynamic(() => import('../components/sections/CTASection'))
 
 export default function HomeClient() {
   return (

@@ -26,12 +26,12 @@ export default function TrustSection() {
   return (
     <section
       ref={containerRef}
-      className="py-12 bg-[#0B1220] relative border-b border-white/5 shadow-2xl z-20 overflow-hidden"
+      className="py-12 bg-[#0F0F11] relative border-b border-white/5 shadow-2xl z-20 overflow-hidden"
     >
       {/* Interactive Background Layers */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Ambient Dark Navy Mesh */}
-        <div className="absolute inset-0 bg-[#0B1220]" />
+        <div className="absolute inset-0 bg-[#0F0F11]" />
 
         {/* Slow Moving Atmospheric Glows */}
         <motion.div
@@ -55,7 +55,7 @@ export default function TrustSection() {
         <div
           className="absolute inset-0 opacity-40 transition-opacity duration-1000"
           style={{
-            background: `radial-gradient(800px circle at var(--mouse-x, 0) var(--mouse-y, 0), rgba(14, 165, 233, 0.08), transparent 40%)`
+            background: `radial-gradient(800px circle at var(--mouse-x, 0) var(--mouse-y, 0), rgba(217,51,31, 0.08), transparent 40%)`
           }}
         />
 

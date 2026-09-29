@@ -1,13 +1,12 @@
 import UiUxClient from './UiUxClient'
+import { pageMetadata } from '../../../lib/seo'
 
-export const metadata = {
-  title: 'Premium UI UX Design Services | Expert UI/UX Design Company',
-  description: 'Transform your digital products with our expert UI UX design services. As a leading UI UX design agency, we deliver stunning website and mobile app UI UX design.',
+export const metadata = pageMetadata({
+  title: 'UI/UX Design Services & Agency in Mohali',
+  description: 'Expert UI/UX design services for websites and mobile apps. Klocrix designs intuitive, conversion-focused interfaces backed by user research.',
+  path: '/services/ui-ux-design',
   keywords: 'ui ux design services, ui ux design company, website ui ux design, mobile app ui ux design, ui ux consulting services, ui ux design agency, mobile app ui ux design agency, what is ui ux design, ui vs ux design difference, latest ui ux design trends',
-  alternates: {
-    canonical: 'https://www.klocrix.com/services/ui-ux-design',
-  },
-}
+})
 
 export default function Page() {
   return (

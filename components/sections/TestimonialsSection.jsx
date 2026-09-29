@@ -56,6 +56,7 @@ export default function TestimonialsSection() {
                       src={t.image} 
                       alt={t.name} 
                       fill
+                      sizes="64px"
                       className="rounded-2xl object-cover shadow-lg border border-white/10" 
                     />
                   </div>

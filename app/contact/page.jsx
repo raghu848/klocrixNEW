@@ -4,6 +4,7 @@ import {
   ContactHero, 
   ContactMain 
 } from '../../components/ContactSections'
+import { pageMetadata } from '../../lib/seo'
 
 export default function ContactPage() {
   return (
@@ -16,11 +17,9 @@ export default function ContactPage() {
   )
 }
 
-export const metadata = {
-  title: 'Contact Klocrix | Start Your Digital Transformation Journey',
-  description: 'Get in touch with Klocrix Business Solutions today. Whether you have a project in mind or need expert IT consulting, our team is ready to help you scale your business.',
+export const metadata = pageMetadata({
+  title: 'Contact Us – Start Your Project',
+  description: 'Get in touch with Klocrix Business Solutions. Have a project in mind or need expert IT consulting? Our team in Mohali is ready to help you scale.',
+  path: '/contact',
   keywords: 'contact klocrix, hire developers india, software development inquiry, IT consulting contact',
-  alternates: {
-    canonical: 'https://www.klocrix.com/contact',
-  },
-}
+})

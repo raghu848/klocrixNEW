@@ -1,13 +1,12 @@
 import HomeClient from './HomeClient'
+import { pageMetadata } from '../lib/seo'
 
-export const metadata = {
-  title: 'Klocrix - Engineering Digital Evolution | IT Solutions & Consulting',
-  description: 'Klocrix Business Solutions: 5+ years of engineering excellence. We architect bespoke software solutions, data science models, and ERP systems that transform ambitious companies.',
+export const metadata = pageMetadata({
+  absoluteTitle: 'Software & App Development Company in Mohali | Klocrix',
+  description: 'Klocrix builds custom software, websites, mobile apps and AI solutions for growing businesses. 5+ years of engineering excellence in Mohali & Chandigarh.',
+  path: '',
   keywords: 'custom software, web development, app development, data science, digital transformation, Klocrix',
-  alternates: {
-    canonical: 'https://www.klocrix.com',
-  },
-}
+})
 
 export default function Page() {
   return <HomeClient />

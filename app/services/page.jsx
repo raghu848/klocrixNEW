@@ -5,6 +5,7 @@ import {
   ServicesDetailedGrid, 
   ServicesCTA 
 } from '../../components/ServiceSections'
+import { pageMetadata } from '../../lib/seo'
 
 export default function ServicesPage() {
   return (
@@ -18,11 +19,9 @@ export default function ServicesPage() {
   )
 }
 
-export const metadata = {
-  title: 'Our IT Services | Custom Software, Web & App Development',
-  description: 'Explore Klocrix Business Solutions comprehensive IT services. From bespoke web applications and native mobile apps to AI-driven data science and scalable cloud infrastructure.',
+export const metadata = pageMetadata({
+  title: 'IT Services: Software, Web & App Development',
+  description: 'Explore Klocrix IT services: custom web applications, native mobile apps, UI/UX design, AI-driven data science and scalable cloud infrastructure.',
+  path: '/services',
   keywords: 'it services mohali, custom software development, mobile app development, data science services, cloud solutions, ui/ux design agency',
-  alternates: {
-    canonical: 'https://www.klocrix.com/services',
-  },
-}
+})

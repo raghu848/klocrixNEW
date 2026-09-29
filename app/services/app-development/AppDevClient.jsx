@@ -40,7 +40,7 @@ function AppDevHero() {
       <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 -skew-x-12 translate-x-1/4 pointer-events-none" />
       
       <div className="container-custom relative z-10 text-center px-4">
-        <motion.div initial="hidden" animate="visible" variants={staggerContainer} className="max-w-4xl mx-auto">
+        <motion.div initial={false} animate="visible" variants={staggerContainer} className="animate-hero-in max-w-4xl mx-auto">
           <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-extrabold leading-tight mb-8 text-primary">
             Transform Your Vision with a Leading <span className="text-accent">Mobile App Development Company</span>
           </motion.h1>

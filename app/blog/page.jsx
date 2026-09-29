@@ -1,13 +1,12 @@
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
+import { pageMetadata } from '../../lib/seo'
 
-export const metadata = {
-  title: 'Blog & Insights | Klocrix',
-  description: 'Read the latest insights on custom software development, AI, data science, and digital transformation.',
-  alternates: {
-    canonical: 'https://www.klocrix.com/blog',
-  },
-}
+export const metadata = pageMetadata({
+  title: 'Blog & Insights',
+  description: 'Insights from the Klocrix team on custom software development, AI, data science, cloud and digital transformation for growing businesses.',
+  path: '/blog',
+})
 
 export default function BlogPage() {
   return (

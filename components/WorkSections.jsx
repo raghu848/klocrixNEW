@@ -126,7 +126,7 @@ export function WorkGrid() {
     : portfolioProjects.filter(p => p.category === activeFilter)
 
   return (
-    <section className="section-padding bg-[#F4FAFF]">
+    <section className="section-padding bg-[#FFFAF8]">
       <div className="container-custom">
         {/* Filters */}
         <div className="flex flex-wrap justify-center gap-3 md:gap-4 mb-16 md:mb-24">

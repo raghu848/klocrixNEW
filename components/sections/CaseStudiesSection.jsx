@@ -7,7 +7,7 @@ import Reveal from '../Reveal'
 
 export default function CaseStudiesSection() {
   return (
-    <section className="section-padding bg-[#111827] relative z-20 pt-8 pb-8">
+    <section className="section-padding bg-[#151517] relative z-20 pt-8 pb-8">
       <div className="container-custom">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8">
           <div className="max-w-2xl">
@@ -53,8 +53,8 @@ export default function CaseStudiesSection() {
                     className="object-cover opacity-80 group-hover:opacity-100 transition-all duration-1000 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
-                  <div className="absolute inset-0 bg-[#0B1220]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center backdrop-blur-sm">
-                    <div className="w-20 h-20 rounded-full bg-accent/20 border border-white/20 backdrop-blur-xl flex items-center justify-center text-white shadow-[0_0_40px_rgba(14,165,233,0.5)] scale-0 group-hover:scale-100 transition-transform duration-500 delay-100">
+                  <div className="absolute inset-0 bg-[#0F0F11]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center backdrop-blur-sm">
+                    <div className="w-20 h-20 rounded-full bg-accent/20 border border-white/20 backdrop-blur-xl flex items-center justify-center text-white shadow-[0_0_40px_rgba(217,51,31,0.5)] scale-0 group-hover:scale-100 transition-transform duration-500 delay-100">
                       <ExternalLink className="w-8 h-8" />
                     </div>
                   </div>
