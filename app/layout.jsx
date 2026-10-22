@@ -1,6 +1,6 @@
 import './globals.css'
 import { OG_IMAGE } from '../lib/seo'
-import { Inter, Manrope, Syne, DM_Sans } from 'next/font/google'
+import { Inter, Manrope, Syne, DM_Sans, Sora } from 'next/font/google'
 
 // 'optional' avoids a late font swap that re-wraps hero text (layout shift + delayed LCP on mobile)
 const inter = Inter({
@@ -30,6 +30,13 @@ const dmSans = DM_Sans({
   display: 'swap',
 })
 
+
+const sora = Sora({
+  weight: ['500', '600', '700'],
+  subsets: ['latin'],
+  variable: '--font-sora',
+  display: 'swap',
+})
 export const metadata = {
   title: {
     default: 'Klocrix | Custom Software, Web & App Development Company',
@@ -88,10 +95,11 @@ export const metadata = {
 import WhatsAppButton from '../components/WhatsAppButton'
 import { OrganizationSchema, WebsiteSchema } from '../components/JsonLd'
 import DeferredAnalytics from '../components/DeferredAnalytics'
+import { MotionProvider } from '../components/motion/MotionProvider'
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${inter.variable} ${manrope.variable} ${syne.variable} ${dmSans.variable}`}>
+    <html lang="en" className={`${inter.variable} ${manrope.variable} ${syne.variable} ${dmSans.variable} ${sora.variable}`}>
       <head>
         <meta name="theme-color" content="#0F0F11" />
         <OrganizationSchema />
@@ -118,10 +126,12 @@ export default function RootLayout({ children }) {
           />
         </noscript>
         <DeferredAnalytics />
-        <div className="relative min-h-screen">
-          {children}
-          <WhatsAppButton />
-        </div>
+        <MotionProvider>
+          <div className="relative min-h-screen">
+            {children}
+            <WhatsAppButton />
+          </div>
+        </MotionProvider>
       </body>
     </html>
   )

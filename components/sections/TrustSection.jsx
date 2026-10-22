@@ -26,7 +26,7 @@ export default function TrustSection() {
   return (
     <section
       ref={containerRef}
-      className="py-12 bg-[#0F0F11] relative border-b border-white/5 shadow-2xl z-20 overflow-hidden"
+      className="cv-auto py-12 bg-[#0F0F11] relative border-b border-white/5 shadow-2xl z-20 overflow-hidden"
     >
       {/* Interactive Background Layers */}
       <div className="absolute inset-0 pointer-events-none">

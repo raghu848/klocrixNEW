@@ -59,7 +59,7 @@ const services = [
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="section-padding bg-background relative z-10 scroll-mt-20 md:scroll-mt-32">
+    <section id="services" className="cv-auto section-padding bg-background relative z-10 scroll-mt-20 md:scroll-mt-32">
       <div className="absolute top-0 w-full h-[500px] bg-gradient-to-b from-accent/5 to-transparent pointer-events-none" />
       <div className="container-custom relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-20">

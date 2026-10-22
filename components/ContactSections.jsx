@@ -1,60 +1,34 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import {
-  Mail,
-  Phone,
-  MapPin,
-  Clock,
-  Send,
-  Globe,
-  MessageSquare,
-  ChevronDown,
-  Headphones
-} from 'lucide-react'
 import { useState } from 'react'
-import { cn } from '../lib/utils'
-import PremiumBackground from './PremiumBackground'
+import { MapPin, Mail, Phone, Send } from 'lucide-react'
+import { PageHero, Section } from './redesign/page-kit'
 import { getWhatsAppUrl, WHATSAPP_NUMBERS } from '../lib/whatsapp'
 
-// 1. Contact Hero
+const CONTACT_INFO = [
+  { icon: MapPin, title: 'Headquarters', details: ['E 68, Shrinivasan building, Phase-8, Industrial Area, Sahibzada Ajit Singh Nagar, Punjab 140308, India.'] },
+  { icon: Mail, title: 'Email us', details: ['hello@klocrix.com', 'careers@klocrix.com'] },
+  { icon: Phone, title: 'Call us', details: ['+91 81463 30346'] },
+]
+
+const SOCIALS = [
+  { name: 'LinkedIn', href: 'https://www.linkedin.com/in/klocrix-business-solution-4454a5237' },
+  { name: 'Facebook', href: 'https://www.facebook.com/Klocrix' },
+  { name: 'Instagram', href: 'https://www.instagram.com/klocrixbusinesssolution?igsh=MWwyZDJ1ams5a3Uydw%3D%3D&utm_source=qr' },
+]
+
+// 1. Contact hero
 export function ContactHero() {
   return (
-    <section className="relative min-h-[60vh] flex items-center pt-32 overflow-hidden bg-white">
-      <PremiumBackground />
-
-      <div className="container-custom relative z-10 text-center px-4">
-        <div className="max-w-4xl mx-auto">
-          <div className="animate-hero-in">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-bold tracking-wider uppercase mb-6">
-              Contact Us
-            </span>
-          </div>
-
-          <h1 className="animate-hero-in [animation-delay:100ms] text-4xl sm:text-5xl md:text-8xl font-extrabold leading-tight mb-8 text-primary">
-            Let's Start a <span className="text-accent italic">Conversation</span>
-          </h1>
-
-          <p className="animate-hero-in [animation-delay:200ms] text-lg md:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed mb-12">
-            Whether you have a specific project in mind or just want to explore possibilities, our team is ready to help.
-          </p>
-
-          <div className="animate-hero-in [animation-delay:300ms] flex justify-center">
-            <motion.div
-              animate={{ scale: [1, 1.1, 1] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              className="w-16 h-16 rounded-2xl bg-primary/5 flex items-center justify-center text-primary"
-            >
-              <Headphones className="w-8 h-8" />
-            </motion.div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <PageHero
+      eyebrow="Contact us"
+      title={<>Let&apos;s start a <span className="kx-grad">conversation</span></>}
+      desc="Whether you have a specific project in mind or just want to explore possibilities, our team is ready to help."
+    />
   )
 }
 
-// 2. Contact Main Section (Form + Info)
+// 2. Contact details + form
 export function ContactMain() {
   const [sent, setSent] = useState(false)
 
@@ -75,139 +49,67 @@ export function ContactMain() {
     setSent(true)
   }
 
-  const contactInfo = [
-    {
-      icon: MapPin,
-      title: 'Headquarters',
-      details: ['E 68, Shrinivasan building, Phase-8, Industrial Area, Sahibzada Ajit Singh Nagar, Punjab 140308, India.']
-    },
-
-    {
-      icon: Mail,
-      title: 'Email Us',
-      details: ['hello@klocrix.com', 'careers@klocrix.com']
-    },
-    {
-      icon: Phone,
-      title: 'Call Us',
-      details: ['+91 81463 30346']
-    }
-  ]
-
   return (
-    <section className="section-padding bg-white">
-      <div className="container-custom">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-24">
-          {/* Info Side */}
-          <div className="lg:col-span-5">
-            <h2 className="text-3xl md:text-4xl font-bold mb-10 md:mb-16 text-primary">Contact Information</h2>
-
-            <div className="space-y-12">
-              {contactInfo.map((info, index) => (
-                <div key={index} className="flex items-start gap-8 group">
-                  <div className="w-16 h-16 rounded-2xl bg-slate-50 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-sm">
-                    <info.icon className="w-7 h-7" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-primary mb-3">{info.title}</h3>
-                    <div className="space-y-2">
-                      {info.details.map((detail, idx) => {
-                        const isEmail = detail.includes('@')
-                        const isPhone = detail.includes('+')
-                        return (
-                          <p key={idx} className="text-slate-500 font-medium">
-                            {isEmail ? (
-                              <a href={`mailto:${detail}`} className="hover:text-accent transition-colors">{detail}</a>
-                            ) : isPhone ? (
-                              <a href={`tel:${detail.replace(/\s+/g, '')}`} className="hover:text-accent transition-colors">{detail}</a>
-                            ) : (
-                              detail
-                            )}
-                          </p>
-                        )
-                      })}
-                    </div>
-                  </div>
+    <Section id="contact-form">
+      <div className="kx-contact">
+        <div className="kx-rv">
+          <h2 className="kx-h2s" style={{ marginTop: 0, marginBottom: 32 }}>Contact information</h2>
+          <div className="kx-info">
+            {CONTACT_INFO.map(({ icon: Icon, title, details }, i) => (
+              <div key={title} className="kx-tile" style={{ flexDirection: 'row', padding: 24, borderRadius: 22 }}>
+                <span className="kx-ico" style={{ '--acc': ['#FF7A1A', '#F23D7A', '#22D3C5'][i] }}><Icon size={24} aria-hidden="true" /></span>
+                <div>
+                  <h3>{title}</h3>
+                  {details.map((d) => (
+                    <p key={d}>
+                      {d.includes('@') ? <a href={`mailto:${d}`}>{d}</a>
+                        : d.includes('+') ? <a href={`tel:${d.replace(/\s+/g, '')}`}>{d}</a>
+                          : d}
+                    </p>
+                  ))}
                 </div>
-              ))}
-            </div>
-
-            <div className="mt-12 md:mt-24 pt-10 md:pt-16 border-t border-slate-100">
-              <h3 className="text-xs font-black uppercase tracking-[0.2em] text-slate-500 mb-10">Follow Our Journey</h3>
-              <div className="flex flex-wrap gap-4">
-                {[
-                  { name: 'LinkedIn', href: 'https://www.linkedin.com/in/klocrix-business-solution-4454a5237' },
-                  { name: 'Facebook', href: 'https://www.facebook.com/Klocrix' },
-                  { name: 'Instagram', href: 'https://www.instagram.com/klocrixbusinesssolution?igsh=MWwyZDJ1ams5a3Uydw%3D%3D&utm_source=qr' }
-                ].map(social => (
-                  <a
-                    key={social.name}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-8 py-3 rounded-2xl border border-slate-100 text-slate-600 font-bold text-sm hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 inline-block"
-                  >
-                    {social.name}
-                  </a>
-                ))}
               </div>
-            </div>
+            ))}
           </div>
-
-          {/* Form Side */}
-          <div className="lg:col-span-7">
-            <div className="bg-slate-50 p-8 md:p-16 rounded-[2rem] md:rounded-[4rem] border border-slate-100 shadow-sm relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl" />
-              <h2 className="text-3xl md:text-4xl font-bold mb-12 text-primary">Send us a Message</h2>
-              <form onSubmit={handleSubmit} className="space-y-10">
-                <div className="grid md:grid-cols-2 gap-10">
-                  <div className="space-y-3">
-                    <label htmlFor="contact-name" className="text-xs font-black text-slate-500 uppercase tracking-widest">Full Name</label>
-                    <input id="contact-name" name="name" type="text" required autoComplete="name" className="w-full p-5 rounded-2xl bg-white border border-slate-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-bold text-slate-900" placeholder="John Doe" />
-                  </div>
-                  <div className="space-y-3">
-                    <label htmlFor="contact-email" className="text-xs font-black text-slate-500 uppercase tracking-widest">Email Address</label>
-                    <input id="contact-email" name="email" type="email" required autoComplete="email" className="w-full p-5 rounded-2xl bg-white border border-slate-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-bold text-slate-900" placeholder="john@example.com" />
-                  </div>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-10">
-                  <div className="space-y-3">
-                    <label htmlFor="contact-phone" className="text-xs font-black text-slate-500 uppercase tracking-widest">Phone</label>
-                    <input id="contact-phone" name="phone" type="tel" autoComplete="tel" className="w-full p-5 rounded-2xl bg-white border border-slate-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-bold text-slate-900" placeholder="+91 00000 00000" />
-                  </div>
-                  <div className="space-y-3 relative">
-                    <label htmlFor="contact-subject" className="text-xs font-black text-slate-500 uppercase tracking-widest">Subject</label>
-                    <select id="contact-subject" name="subject" className="w-full p-5 rounded-2xl bg-white border border-slate-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all appearance-none font-bold text-slate-900">
-                      <option>General Inquiry</option>
-                      <option>New Project</option>
-                      <option>Partnership</option>
-                      <option>Careers</option>
-                    </select>
-                    <ChevronDown className="absolute right-5 bottom-6 w-5 h-5 text-slate-400 pointer-events-none" />
-                  </div>
-                </div>
-
-                <div className="space-y-3">
-                  <label htmlFor="contact-message" className="text-xs font-black text-slate-500 uppercase tracking-widest">Message</label>
-                  <textarea id="contact-message" name="message" required className="w-full p-5 rounded-2xl bg-white border border-slate-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all h-48 font-bold text-slate-900" placeholder="Tell us about your project or inquiry..."></textarea>
-                </div>
-
-                <button type="submit" className="w-full py-6 bg-primary text-white font-black rounded-2xl shadow-xl flex items-center justify-center gap-4 hover:bg-primary-light transition-all text-xl">
-                  Send Message
-                  <Send className="w-5 h-5 md:w-6 md:h-6" />
-                </button>
-                {sent && (
-                  <p role="status" className="text-center text-slate-600 font-medium">
-                    WhatsApp opened with your message — just press send. Prefer email? Write to{' '}
-                    <a href="mailto:hello@klocrix.com" className="text-primary underline">hello@klocrix.com</a>.
-                  </p>
-                )}
-              </form>
-            </div>
+          <h3 style={{ margin: '40px 0 12px', fontSize: 18, fontWeight: 600 }}>Follow our journey</h3>
+          <div className="kx-socials">
+            {SOCIALS.map((s) => (
+              <a key={s.name} href={s.href} target="_blank" rel="noopener noreferrer" className="kx-btn kx-btn-glass" style={{ padding: '12px 22px', fontSize: 14 }}>{s.name}</a>
+            ))}
           </div>
         </div>
+
+        <div className="kx-panel kx-rv" style={{ padding: '48px 40px' }}>
+          <div className="blob" style={{ width: 360, height: 360, right: -120, top: -140, background: '#F23D7A', opacity: 0.18 }} />
+          <h2 className="kx-h2s" style={{ marginTop: 0, marginBottom: 28, position: 'relative' }}>Send us a message</h2>
+          <form onSubmit={handleSubmit} className="kx-form" style={{ position: 'relative' }}>
+            <div className="kx-row2">
+              <label className="kx-field"><span>Full name</span><input name="name" type="text" required autoComplete="name" placeholder="John Doe" /></label>
+              <label className="kx-field"><span>Email address</span><input name="email" type="email" required autoComplete="email" placeholder="john@example.com" /></label>
+            </div>
+            <div className="kx-row2">
+              <label className="kx-field"><span>Phone</span><input name="phone" type="tel" autoComplete="tel" placeholder="+91 00000 00000" /></label>
+              <label className="kx-field"><span>Subject</span>
+                <select name="subject" defaultValue="General Inquiry">
+                  <option>General Inquiry</option>
+                  <option>New Project</option>
+                  <option>Partnership</option>
+                  <option>Careers</option>
+                </select>
+              </label>
+            </div>
+            <label className="kx-field"><span>Message</span><textarea name="message" required placeholder="Tell us about your project or inquiry..." /></label>
+            <button type="submit" className="kx-btn kx-btn-primary" style={{ justifyContent: 'center', padding: '20px 28px', fontSize: 17 }}>
+              Send message <Send size={18} aria-hidden="true" />
+            </button>
+            {sent && (
+              <p role="status" className="kx-note" style={{ textAlign: 'center' }}>
+                WhatsApp opened with your message. Just press send. Prefer email? Write to <a href="mailto:hello@klocrix.com">hello@klocrix.com</a>.
+              </p>
+            )}
+          </form>
+        </div>
       </div>
-    </section>
+    </Section>
   )
 }

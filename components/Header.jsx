@@ -131,13 +131,27 @@ export default function Header() {
         .cta-btn:hover::before { opacity: 1; }
         .cta-btn:active { transform: translateY(0); }
 
-        /* Logo shimmer */
-        .logo-img {
-          transition: filter 0.3s, transform 0.3s;
+        /* Logo: transparent PNG lifted off the page with layered shadows, tilts on hover */
+        .logo-link {
+          display: block;
+          perspective: 700px;
         }
-        .logo-img:hover {
-          filter: brightness(1.15) drop-shadow(0 0 8px rgba(217,51,31,0.4));
-          transform: scale(1.03);
+        .logo-img {
+          filter:
+            drop-shadow(0 0 1px rgba(0,0,0,0.9))
+            drop-shadow(0 1px 1px rgba(0,0,0,0.7))
+            drop-shadow(0 6px 8px rgba(0,0,0,0.5))
+            drop-shadow(0 16px 24px rgba(255,77,58,0.22));
+          transform-style: preserve-3d;
+          transition: filter 0.4s, transform 0.5s cubic-bezier(0.2,0.7,0.1,1);
+        }
+        .logo-link:hover .logo-img {
+          filter:
+            drop-shadow(0 0 1px rgba(0,0,0,0.9))
+            drop-shadow(0 1px 1px rgba(0,0,0,0.7))
+            drop-shadow(0 10px 12px rgba(0,0,0,0.55))
+            drop-shadow(0 22px 30px rgba(255,122,26,0.35));
+          transform: translateY(-3px) rotateX(8deg) rotateY(-10deg) scale(1.04);
         }
 
         /* Hamburger */
@@ -232,9 +246,9 @@ export default function Header() {
         <div className="container-custom flex items-center justify-between">
 
           {/* ── Logo ── */}
-          <Link href="/" className="relative z-50 flex-shrink-0 bg-black/40 backdrop-blur-md py-1.5 md:py-2 px-3 md:px-4 rounded-xl md:rounded-2xl shadow-lg border border-white/10" aria-label="Klocrix Home">
+          <Link href="/" className="logo-link relative z-50 flex-shrink-0" aria-label="Klocrix Home">
             <Image
-              src="/klocrix-logo-dark.png"
+              src="/klocrix-logo-white.png"
               alt="Klocrix Business Solutions"
               width={180}
               height={56}

@@ -1,19 +1,13 @@
-import Header from '../../components/Header'
-import Footer from '../../components/Footer'
-import { 
-  ContactHero, 
-  ContactMain 
-} from '../../components/ContactSections'
+import { ContactHero, ContactMain } from '../../components/ContactSections'
+import { PageShell } from '../../components/redesign/page-kit'
 import { pageMetadata } from '../../lib/seo'
 
 export default function ContactPage() {
   return (
-    <main className="min-h-screen bg-white overflow-x-hidden">
-      <Header />
+    <PageShell>
       <ContactHero />
       <ContactMain />
-      <Footer />
-    </main>
+    </PageShell>
   )
 }
 

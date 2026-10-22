@@ -1,12 +1,6 @@
-import { 
-  TrainingHero, 
-  TrainingBenefits, 
-  TrainingCurriculum, 
-  TrainingPricing, 
-  TrainingContact 
-} from '../../components/TrainingSections'
-import Header from '../../components/Header'
-import Footer from '../../components/Footer'
+import { TrainingHero, TrainingBenefits, TrainingCurriculum, TrainingPricing, TrainingContact } from '../../components/TrainingSections'
+import { TrainingJourney } from '../../components/TrainingExtras'
+import { PageShell } from '../../components/redesign/page-kit'
 import { pageMetadata } from '../../lib/seo'
 
 export const metadata = pageMetadata({
@@ -18,14 +12,13 @@ export const metadata = pageMetadata({
 
 export default function TrainingPage() {
   return (
-    <main className="min-h-screen bg-white overflow-x-hidden">
-      <Header />
+    <PageShell>
       <TrainingHero />
       <TrainingBenefits />
       <TrainingCurriculum />
+      <TrainingJourney />
       <TrainingPricing />
       <TrainingContact />
-      <Footer />
-    </main>
+    </PageShell>
   )
 }

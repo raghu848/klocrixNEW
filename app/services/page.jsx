@@ -1,21 +1,14 @@
-import Header from '../../components/Header'
-import Footer from '../../components/Footer'
-import { 
-  ServicesHero, 
-  ServicesDetailedGrid, 
-  ServicesCTA 
-} from '../../components/ServiceSections'
+import { ServicesHero, ServicesDetailedGrid, ServicesCTA } from '../../components/ServiceSections'
+import { PageShell } from '../../components/redesign/page-kit'
 import { pageMetadata } from '../../lib/seo'
 
 export default function ServicesPage() {
   return (
-    <main className="min-h-screen bg-white overflow-x-hidden">
-      <Header />
+    <PageShell>
       <ServicesHero />
       <ServicesDetailedGrid />
       <ServicesCTA />
-      <Footer />
-    </main>
+    </PageShell>
   )
 }
 

@@ -48,6 +48,7 @@ module.exports = {
         'fade-in': 'fadeIn 0.5s ease-in-out',
         'slide-up': 'slideUp 0.6s ease-out',
         'marquee': 'marquee 35s linear infinite',
+        'chip-glow': 'chipGlow 12s ease-in-out infinite',
         'shooting-star': 'shootingStar 3s linear infinite',
         'text-shine': 'textShine 3s linear infinite',
         'float': 'float 8s ease-in-out infinite',
@@ -68,6 +69,11 @@ module.exports = {
         slideUp: {
           '0%': { opacity: '0', transform: 'translateY(20px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        // Each chip lights up briefly once per cycle; staggered delays make the glow travel
+        chipGlow: {
+          '0%, 12%, 100%': { opacity: '0' },
+          '4%': { opacity: '1' },
         },
         marquee: {
           '0%': { transform: 'translateX(0%)' },

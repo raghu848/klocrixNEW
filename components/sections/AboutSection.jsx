@@ -11,19 +11,21 @@ export default function AboutSection() {
   const yParallax = useTransform(scrollYProgress, [0, 1], [0, 150]);
 
   return (
-    <section id="about" className="py-10 md:py-16 lg:py-20 bg-[#151517] overflow-hidden relative border-t border-white/5 scroll-mt-20 md:scroll-mt-32">
+    <section id="about" className="cv-auto py-10 md:py-16 lg:py-20 bg-[#151517] overflow-hidden relative border-t border-white/5 scroll-mt-20 md:scroll-mt-32">
       <motion.div style={{ y: yParallax }} className="absolute -top-40 -left-40 w-96 h-96 bg-accent/20 rounded-full blur-[120px] -z-10 pointer-events-none" />
 
       <div className="container-custom grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
         <div className="relative z-10">
           <Reveal delay={0.2} width="100%">
-            <div className="relative w-full rounded-[3rem] overflow-hidden shadow-2xl border border-white/10 group aspect-[4/3]">
+            {/* Frame matches the photo's own 797x607 ratio so the whole team is visible */}
+            <div className="relative w-full rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border border-white/10 group">
               <Image
                 src="/case-studies/klocrix-team-digital-transformation.jpeg"
-                alt="Klocrix Team collaborating on digital transformation projects"
-                fill
+                alt="The Klocrix team together on the office rooftop at sunset"
+                width={797}
+                height={607}
                 sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover transition-opacity duration-700 group-hover:scale-105"
+                className="w-full h-auto transition-transform duration-700 group-hover:scale-[1.03]"
               />
             </div>
             {/* Experience Badge */}
@@ -31,7 +33,7 @@ export default function AboutSection() {
               initial={{ x: 50, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               viewport={{ once: true }}
-              className="absolute -bottom-6 right-0 md:-bottom-10 md:-right-10 p-5 md:p-10 bg-surface/90 backdrop-blur-2xl border border-white/10 text-white rounded-[1.5rem] md:rounded-[2.5rem] shadow-[0_30px_60px_rgba(0,0,0,0.5)]"
+              className="absolute -top-6 right-0 md:-top-10 md:-right-10 p-5 md:p-8 bg-surface/90 backdrop-blur-2xl border border-white/10 text-white rounded-[1.5rem] md:rounded-[2.5rem] shadow-[0_30px_60px_rgba(0,0,0,0.5)]"
             >
               <p className="text-4xl md:text-6xl font-black mb-1 text-accent">5+</p>
               <p className="text-slate-300 font-bold uppercase tracking-widest text-[10px] md:text-xs">Years of Excellence</p>

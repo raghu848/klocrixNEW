@@ -1,17 +1,17 @@
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
-import { 
-  WorkHero, 
-  WorkGrid 
-} from '../../components/WorkSections'
+import { WorkHero, WorkGrid, WorkCTA } from '../../components/WorkSections'
 import { pageMetadata } from '../../lib/seo'
 
 export default function WorkPage() {
   return (
-    <main className="min-h-screen bg-white overflow-x-hidden">
+    <main className="rd min-h-screen overflow-x-clip">
       <Header />
-      <WorkHero />
-      <WorkGrid />
+      <div className="wrap">
+        <WorkHero />
+        <WorkGrid />
+        <WorkCTA />
+      </div>
       <Footer />
     </main>
   )

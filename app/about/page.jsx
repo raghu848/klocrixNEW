@@ -1,28 +1,19 @@
-import { Target, Eye, Award, Users, Globe, TrendingUp } from 'lucide-react'
-import Link from 'next/link'
-import Header from '../../components/Header'
-import Footer from '../../components/Footer'
-import { 
-  AboutHero, 
-  OurStorySection, 
-  MissionVisionSection, 
-  WhyChooseUsSection, 
-  TeamSection, 
-  CTASection 
-} from '../../components/AboutSections'
+import { AboutHero, OurStorySection, MissionVisionSection, WhyChooseUsSection, CTASection } from '../../components/AboutSections'
+import { JourneySection, LifeAtKlocrixSection } from '../../components/AboutExtras'
+import { PageShell } from '../../components/redesign/page-kit'
 import { pageMetadata } from '../../lib/seo'
 
 export default function AboutPage() {
   return (
-    <main className="relative overflow-x-hidden">
-      <Header />
+    <PageShell>
       <AboutHero />
       <OurStorySection />
+      <JourneySection />
       <MissionVisionSection />
+      <LifeAtKlocrixSection />
       <WhyChooseUsSection />
       <CTASection />
-      <Footer />
-    </main>
+    </PageShell>
   )
 }
 

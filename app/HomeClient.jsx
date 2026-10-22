@@ -12,6 +12,8 @@ import PremiumHero from '../components/PremiumHero'
 
 // Below-the-fold sections are code-split but still server-rendered so their content is in the HTML for search engines
 const TrustSection = dynamic(() => import('../components/sections/TrustSection'))
+const StatementSection = dynamic(() => import('../components/sections/StatementSection'))
+const TechMarquee = dynamic(() => import('../components/motion/TechMarquee'))
 const ServicesSection = dynamic(() => import('../components/sections/ServicesSection'))
 const AboutSection = dynamic(() => import('../components/sections/AboutSection'))
 const ProcessSection = dynamic(() => import('../components/sections/ProcessSection'))
@@ -21,7 +23,7 @@ const CTASection = dynamic(() => import('../components/sections/CTASection'))
 
 export default function HomeClient() {
   return (
-    <main className="min-h-screen bg-background overflow-x-hidden">
+    <main className="min-h-screen bg-background overflow-x-clip">
       <Header />
       <PremiumHero
         title={"Transforming\nBusinesses with"}
@@ -35,8 +37,10 @@ export default function HomeClient() {
         description="We empower ambitious companies with cutting-edge technology, strategic consulting, and bespoke software that drives real-world growth."
       />
       <TrustSection />
+      <StatementSection />
       <ServicesSection />
       <AboutSection />
+      <TechMarquee />
       <ProcessSection />
       <CaseStudiesSection />
       <TestimonialsSection />

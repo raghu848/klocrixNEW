@@ -57,7 +57,7 @@ export default function Footer() {
   }
 
   return (
-    <footer className="bg-[#0F0F11] border-t border-white/10 text-white pt-16 md:pt-24 pb-12 overflow-hidden">
+    <footer className="cv-auto bg-[#0F0F11] border-t border-white/10 text-white pt-16 md:pt-24 pb-12 overflow-hidden">
       <div className="container-custom px-6 lg:px-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-16 mb-20">
           
@@ -65,7 +65,7 @@ export default function Footer() {
           <div className="lg:col-span-4">
             <Link href="/" className="inline-block mb-8">
               <Image
-                src="/klocrix-logo-dark.png"
+                src="/klocrix-logo-white.png"
                 alt="Klocrix Business Solutions"
                 width={206}
                 height={64}

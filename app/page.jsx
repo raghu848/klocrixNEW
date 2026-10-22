@@ -1,4 +1,4 @@
-import HomeClient from './HomeClient'
+import RedesignHome from '../components/redesign/RedesignHome'
 import { pageMetadata } from '../lib/seo'
 
 export const metadata = pageMetadata({
@@ -9,5 +9,5 @@ export const metadata = pageMetadata({
 })
 
 export default function Page() {
-  return <HomeClient />
+  return <RedesignHome />
 }
