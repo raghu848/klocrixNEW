@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
 import useTilt from './useTilt'
+import useDesktop from './useDesktop'
 import Header from '../Header'
 import Footer from '../Footer'
 import '../../app/redesign.css'
@@ -75,13 +76,14 @@ function HeroGraphic({ stats }) {
 
 /** Page opener: animated background, staged headline, intro, buttons and a floating stat graphic. */
 export function PageHero({ eyebrow, title, desc, actions, stats, size, bg = 'tubes', id = 'page-title' }) {
+  const desktop = useDesktop()
   return (
     <section className={'kx-whero' + (stats ? '' : ' solo')} aria-labelledby={id}>
       <div className="kx-hero-light" />
       <div className="grid-bg" />
       <div className="blob" style={{ width: 420, height: 420, right: -120, top: -140, background: '#F23D7A', opacity: 0.22, animation: 'rd-b1 20s ease-in-out infinite' }} />
-      {bg === 'tubes' && <TubesBackground className="absolute inset-0 z-0 !bg-transparent" />}
-      {bg === 'waves' && <WavesBackground backgroundColor="transparent" className="absolute inset-0 z-0 opacity-80 [mask-image:linear-gradient(to_right,rgba(0,0,0,0.15)_0%,rgba(0,0,0,1)_50%)]" />}
+      {desktop && bg === 'tubes' && <TubesBackground className="absolute inset-0 z-0 !bg-transparent" />}
+      {desktop && bg === 'waves' && <WavesBackground backgroundColor="transparent" className="absolute inset-0 z-0 opacity-80 [mask-image:linear-gradient(to_right,rgba(0,0,0,0.15)_0%,rgba(0,0,0,1)_50%)]" />}
       <div className="kx-hero-veil" />
       <div className="kx-hcopy">
         {eyebrow && <p className="kx-eyebrow kx-ent" style={{ '--d': '.05s' }}>{eyebrow}</p>}

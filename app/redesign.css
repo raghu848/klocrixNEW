@@ -63,3 +63,6 @@
 .rd :focus-visible{outline:2px solid var(--y);outline-offset:3px;border-radius:6px}
 .rd::after{content:"";position:fixed;inset:0;z-index:5;pointer-events:none;opacity:.05;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 .rd .sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* skip rendering work for sections below the fold until they get close (not the sticky process section) */
+.rd .wrap>section:nth-child(n+3):not(#process){content-visibility:auto;contain-intrinsic-size:auto 900px}

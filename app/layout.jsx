@@ -10,21 +10,21 @@ const inter = Inter({
 })
 
 const manrope = Manrope({
-  weight: ['400', '500', '600', '700', '800'],
+  weight: ['400', '600', '700'],
   subsets: ['latin'],
   variable: '--font-manrope',
   display: 'optional',
 })
 
 const syne = Syne({
-  weight: ['400', '500', '600', '700', '800'],
+  weight: ['600', '700'],
   subsets: ['latin'],
   variable: '--font-syne',
   display: 'swap',
 })
 
 const dmSans = DM_Sans({
-  weight: ['300', '400', '500'],
+  weight: ['400', '500'],
   subsets: ['latin'],
   variable: '--font-dm-sans',
   display: 'swap',

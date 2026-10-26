@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
 import useTilt from './useTilt'
+import useDesktop from './useDesktop'
 import './kx.css'
 
 const TubesBackground = dynamic(() => import('../TubesBackground'), { ssr: false })
@@ -35,6 +36,7 @@ export default function Hero({ ready = true }) {
   const [cycled, setCycled] = useState(false)
   const [slide, setSlide] = useState(0)
   const tilt = useTilt()
+  const desktop = useDesktop()
 
   useEffect(() => {
     const id = setInterval(() => { setCycled(true); setPhrase((p) => (p + 1) % PHRASES.length) }, 3000)
@@ -51,7 +53,7 @@ export default function Hero({ ready = true }) {
     <section className={'kx-hero' + (ready ? ' go' : '')} aria-labelledby="hero-title">
       <div className="kx-hero-light" />
       <div className="grid-bg" />
-      <TubesBackground className="absolute inset-0 z-0 !bg-transparent" />
+      {desktop && <TubesBackground className="absolute inset-0 z-0 !bg-transparent" />}
       <div className="kx-hero-veil" />
 
       <div className="kx-copy">

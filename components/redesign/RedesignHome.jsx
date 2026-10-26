@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import Image from 'next/image'
 import Header from '../Header'
 import Hero from './Hero'
 import CaseStudyExplorer from './CaseStudyExplorer'
@@ -88,33 +89,11 @@ const QUOTES = [
 ]
 
 export default function RedesignHome() {
-  const [loaded, setLoaded] = useState(false)
-  const [progress, setProgress] = useState(0)
-  const [showLoader, setShowLoader] = useState(true)
   const [openSvc, setOpenSvc] = useState(0)
   const [course, setCourse] = useState(0)
   const [quote, setQuote] = useState(0)
   const [need, setNeed] = useState(0)
   const root = useRef(null)
-
-  // loader (only the first visit in a session)
-  useEffect(() => {
-    let seen = false
-    try { seen = sessionStorage.getItem('kx-loaded') === '1' } catch (e) {}
-    if (seen) { setShowLoader(false); return }
-    let p = 0
-    const id = setInterval(() => {
-      p = Math.min(100, p + 3 + Math.floor(Math.random() * 6))
-      setProgress(p)
-      if (p >= 100) {
-        clearInterval(id)
-        setTimeout(() => setLoaded(true), 250)
-        setTimeout(() => setShowLoader(false), 900)
-        try { sessionStorage.setItem('kx-loaded', '1') } catch (e) {}
-      }
-    }, 45)
-    return () => clearInterval(id)
-  }, [])
 
 
   // scroll reveal, word light-up, parallax
@@ -147,21 +126,12 @@ export default function RedesignHome() {
 
   return (
     <div className="rd" ref={root}>
-      {showLoader && (
-        <div className={'loader' + (loaded ? ' done' : '')}>
-          <img src="/klocrix-logo-white.png" alt="Klocrix" style={S('width:220px;height:auto')} />
-          <div style={S('width:240px;height:3px;background:rgba(245,239,232,.15);border-radius:3px;overflow:hidden')}>
-            <div style={{ height: '100%', width: progress + '%', background: 'linear-gradient(90deg,#FFC52E,#FF7A1A,#FF4D3A,#F23D7A)' }} />
-          </div>
-          <div className="display" style={S('font-size:44px;font-weight:700')}>{progress}%</div>
-        </div>
-      )}
 
       <Header />
 
       <div className="wrap">
         {/* HERO */}
-        <Hero ready={!showLoader || loaded} />
+        <Hero />
 
         {/* CLIENT MARQUEE */}
         <section style={S('padding:64px 0 40px;overflow:hidden')}>
@@ -170,7 +140,7 @@ export default function RedesignHome() {
             <div className="track">
               {[...CLIENTS, ...CLIENTS].map(([n, f], i) => (
                 <div key={i} style={S('padding:0 44px;display:flex;align-items:center')}>
-                  {f ? <img src={logo(f)} alt={n} loading="lazy" style={S('height:64px;width:auto;max-width:190px;object-fit:contain;opacity:.85')} />
+                  {f ? <Image src={logo(f)} alt={n} width={190} height={64} sizes="190px" style={S('height:64px;width:auto;max-width:190px;object-fit:contain;opacity:.85')} />
                     : <span className="display" style={S('font-size:28px;font-weight:700;white-space:nowrap;opacity:.85')}>{n}</span>}
                 </div>
               ))}
@@ -243,7 +213,7 @@ export default function RedesignHome() {
         </section>
 
         {/* PROCESS */}
-        <section className="pad g12" style={S('padding:24px 44px 128px;display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;align-items:start')}>
+        <section id="process" className="pad g12" style={S('padding:24px 44px 128px;display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;align-items:start')}>
           <div style={S('grid-column:1/span 5;position:sticky;top:40px;display:flex;flex-direction:column;gap:20px')}>
             <div className="eyebrow" style={S('margin:0')}>Chapter 02 — Our Process</div>
             <h2 className="display big" style={S('margin:0;font-size:76px;line-height:1.02;font-weight:700;letter-spacing:-.02em')}>Translating Vision into Reality</h2>
