@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { MapPin, Mail, Phone, Send } from 'lucide-react'
-import { PageHero, Section } from './redesign/page-kit'
+import { PageHero, Section, Arrow } from './redesign/page-kit'
 import { getWhatsAppUrl, WHATSAPP_NUMBERS } from '../lib/whatsapp'
 
 const CONTACT_INFO = [
@@ -10,6 +10,9 @@ const CONTACT_INFO = [
   { icon: Mail, title: 'Email us', details: ['hello@klocrix.com', 'careers@klocrix.com'] },
   { icon: Phone, title: 'Call us', details: ['+91 81463 30346'] },
 ]
+
+const ADDRESS = 'E 68, Shrinivasan building, Phase-8, Industrial Area, Sahibzada Ajit Singh Nagar, Punjab 140308, India'
+const MAP_QUERY = encodeURIComponent('Klocrix Business Solutions, ' + ADDRESS)
 
 const SOCIALS = [
   { name: 'LinkedIn', href: 'https://www.linkedin.com/in/klocrix-business-solution-4454a5237' },
@@ -50,6 +53,7 @@ export function ContactMain() {
   }
 
   return (
+    <>
     <Section id="contact-form">
       <div className="kx-contact">
         <div className="kx-rv">
@@ -111,5 +115,22 @@ export function ContactMain() {
         </div>
       </div>
     </Section>
+
+      <Section id="find-us" eyebrow="Find us" title="Visit our Mohali office">
+        <div className="kx-map kx-rv">
+          <iframe
+            title="Klocrix Business Solutions on Google Maps"
+            src={`https://www.google.com/maps?q=${MAP_QUERY}&output=embed`}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            allowFullScreen
+          />
+        </div>
+        <div className="kx-map-bar">
+          <p>{ADDRESS}.</p>
+          <a href={`https://www.google.com/maps/dir/?api=1&destination=${MAP_QUERY}`} target="_blank" rel="noopener noreferrer" className="kx-btn kx-btn-primary">Get directions <Arrow /></a>
+        </div>
+      </Section>
+    </>
   )
 }
