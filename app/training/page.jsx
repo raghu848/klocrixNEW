@@ -1,6 +1,6 @@
 import { TrainingHero, TrainingBenefits, TrainingCurriculum, TrainingPricing, TrainingContact } from '../../components/TrainingSections'
 import { TrainingJourney } from '../../components/TrainingExtras'
-import { PageShell } from '../../components/redesign/page-kit'
+import { PageShell, PageWaves } from '../../components/redesign/page-kit'
 import { pageMetadata } from '../../lib/seo'
 
 export const metadata = pageMetadata({
@@ -13,6 +13,7 @@ export const metadata = pageMetadata({
 export default function TrainingPage() {
   return (
     <PageShell>
+      <PageWaves />
       <TrainingHero />
       <TrainingBenefits />
       <TrainingCurriculum />

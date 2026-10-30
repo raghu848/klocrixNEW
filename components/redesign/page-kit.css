@@ -3,7 +3,7 @@
 .rd .kx-rv.on{opacity:1;transform:none}
 .rd .kx-whero.solo{grid-template-columns:minmax(0,1fr)}
 .rd .kx-whero.solo .kx-h1{max-width:14em}
-.rd .kx-whero .kx-h1.md{font-size:clamp(36px,5vw,76px);line-height:1.04}
+.rd .kx-whero .kx-h1.md{font-size:clamp(32px,4vw,56px);line-height:1.04}
 .rd .kx-whero .kx-actions{margin-top:36px}
 .rd .kx-sec{position:relative;padding:112px 44px 0;scroll-margin-top:96px}
 .rd .kx-sec-head{max-width:880px;margin-bottom:48px}
@@ -150,7 +150,7 @@
   .rd .kx-stage-row{padding:14px;gap:24px}
 }
 
-.rd .kx-cta .kx-h2{font-size:clamp(34px,5vw,72px)}
+.rd .kx-cta .kx-h2{font-size:clamp(32px,4.4vw,56px)}
 
 /* ---------- animated page hero ---------- */
 .rd .kx-whero:not(.solo){align-items:center}
@@ -188,3 +188,42 @@
 .rd .kx-map-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;margin-top:16px}
 .rd .kx-map-bar p{margin:0;max-width:40em;font-size:16px;line-height:1.6;color:#cfc8bf}
 @media (max-width:760px){.rd .kx-map{aspect-ratio:4/3}}
+
+/* training page: wave background behind the whole page */
+.rd .wrap{position:relative;z-index:1}
+.rd>footer{position:relative;z-index:1}
+.rd .kx-page-waves{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.55;-webkit-mask-image:linear-gradient(90deg,rgba(0,0,0,.35),#000 60%);mask-image:linear-gradient(90deg,rgba(0,0,0,.35),#000 60%)}
+.rd .kx-whero.clear{background:transparent;border-color:transparent}
+
+/* training curriculum: no solid backgrounds, waves show through */
+.rd #curriculum .kx-panel{background:transparent;border-color:rgba(245,239,232,.14)}
+.rd #curriculum .kx-panel>.blob,.rd #curriculum .kx-course-lead .blob{display:none}
+.rd #curriculum .kx-mod{background:transparent;border-color:rgba(245,239,232,.18)}
+.rd #curriculum .kx-course-lead{background:transparent;border:1.5px solid var(--c);color:var(--cream)}
+.rd #curriculum .kx-course-lead h3{color:var(--c)}
+
+/* frosted glass on the curriculum cards (off on phones for speed) */
+.rd #curriculum .kx-panel,.rd #curriculum .kx-mod,.rd #curriculum .kx-course-lead{background:rgba(18,19,26,.35);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px)}
+.rd #curriculum .kx-mod,.rd #curriculum .kx-course-lead{background:rgba(245,239,232,.05)}
+@media (max-width:760px){
+  .rd #curriculum .kx-panel,.rd #curriculum .kx-mod,.rd #curriculum .kx-course-lead{-webkit-backdrop-filter:none;backdrop-filter:none}
+}
+
+/* curriculum: no background on the whole section, only on the content cards */
+.rd #curriculum .kx-panel{background:transparent;border-color:transparent;-webkit-backdrop-filter:none;backdrop-filter:none}
+
+/* course card: filled-in design */
+.rd #curriculum .kx-course-lead{justify-content:flex-start;gap:18px;padding:32px;min-height:0;overflow:hidden}
+.rd #curriculum .kx-course-lead::before{content:"";position:absolute;right:-80px;top:-80px;width:320px;height:320px;border-radius:50%;background:var(--c);filter:blur(80px);opacity:.38;pointer-events:none}
+.rd #curriculum .kx-course-lead>*{position:relative}
+.rd .kx-ghost{position:absolute!important;right:20px;bottom:-14px;font-family:var(--font-sora),system-ui,sans-serif;font-size:clamp(90px,10vw,150px);font-weight:700;letter-spacing:-.05em;line-height:1;color:var(--c);opacity:.12;pointer-events:none}
+.rd .kx-lead-badge{display:inline-flex;align-items:center;gap:10px;align-self:flex-start;padding:8px 16px;border-radius:999px;border:1px solid color-mix(in srgb,var(--c) 55%,transparent);background:color-mix(in srgb,var(--c) 14%,transparent);font-size:14px;font-weight:600}
+.rd .kx-lead-badge i{width:8px;height:8px;border-radius:50%;background:var(--c);box-shadow:0 0 12px var(--c)}
+.rd #curriculum .kx-course-lead h3{font-size:clamp(26px,2.8vw,38px)}
+.rd #curriculum .kx-course-lead p{font-weight:400;color:#d9d2c9}
+.rd .kx-lead-tags{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.rd .kx-lead-tags li{padding:6px 14px;border-radius:999px;border:1px solid rgba(245,239,232,.22);font-size:13px;font-weight:600}
+.rd .kx-lead-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:auto 0 0;padding-top:20px;border-top:1px solid rgba(245,239,232,.16)}
+.rd .kx-lead-stats div{display:flex;flex-direction:column-reverse;justify-content:flex-end;gap:2px}
+.rd .kx-lead-stats dd{margin:0;font-family:var(--font-sora),system-ui,sans-serif;font-size:clamp(26px,2.6vw,36px);font-weight:700;letter-spacing:-.03em;line-height:1;color:var(--c)}
+.rd .kx-lead-stats dt{font-size:13px;color:var(--mut)}

@@ -74,11 +74,22 @@ function HeroGraphic({ stats }) {
   )
 }
 
+/** Full-page animated wave background, fixed behind the content (desktop only). */
+export function PageWaves() {
+  const desktop = useDesktop()
+  if (!desktop) return null
+  return (
+    <div className="kx-page-waves" aria-hidden="true">
+      <WavesBackground backgroundColor="transparent" className="absolute inset-0" />
+    </div>
+  )
+}
+
 /** Page opener: animated background, staged headline, intro, buttons and a floating stat graphic. */
-export function PageHero({ eyebrow, title, desc, actions, stats, size, bg = 'tubes', id = 'page-title' }) {
+export function PageHero({ eyebrow, title, desc, actions, stats, size, bg = 'tubes', clear, id = 'page-title' }) {
   const desktop = useDesktop()
   return (
-    <section className={'kx-whero' + (stats ? '' : ' solo')} aria-labelledby={id}>
+    <section className={'kx-whero' + (stats ? '' : ' solo') + (clear ? ' clear' : '')} aria-labelledby={id}>
       <div className="kx-hero-light" />
       <div className="grid-bg" />
       <div className="blob" style={{ width: 420, height: 420, right: -120, top: -140, background: '#F23D7A', opacity: 0.22, animation: 'rd-b1 20s ease-in-out infinite' }} />

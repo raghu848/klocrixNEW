@@ -8,7 +8,7 @@ import { getWhatsAppUrl, WHATSAPP_NUMBERS } from '../lib/whatsapp'
 
 const COURSES = [
   {
-    id: 'marketing', name: 'Digital Marketing', color: '#FF7A1A',
+    id: 'marketing', short: 'MKT', name: 'Digital Marketing', color: '#FF7A1A',
     heroTitle: 'Master Digital Marketing',
     description: "Join Mohali's most practical digital marketing bootcamp. 12 weeks of intensive, hands-on training.",
     modules: [
@@ -19,7 +19,7 @@ const COURSES = [
     ],
   },
   {
-    id: 'python', name: 'Python Development', color: '#FFC52E',
+    id: 'python', short: 'PY', name: 'Python Development', color: '#FFC52E',
     heroTitle: 'Python Engineering Mastery',
     description: "Build robust backend systems and data automation tools with the world's most versatile language.",
     modules: [
@@ -30,7 +30,7 @@ const COURSES = [
     ],
   },
   {
-    id: 'fullstack', name: 'Fullstack MERN', color: '#75D94C',
+    id: 'fullstack', short: 'MERN', name: 'Fullstack MERN', color: '#75D94C',
     heroTitle: 'MERN Stack Architecture',
     description: 'Become a Fullstack Architect. Build scalable enterprise applications from frontend to cloud deployment.',
     modules: [
@@ -57,7 +57,8 @@ const PERKS = ['Corporate Project Access', '1-on-1 Mentorship', 'Placement Assis
 export function TrainingHero() {
   return (
     <PageHero
-      bg="waves"
+      bg="none"
+      clear
       eyebrow="Job-ready programs"
       title={<>Elite <span className="kx-grad">industrial training</span></>}
       desc="Join Chandigarh's most rigorous industrial training programs. We don't just teach code; we build engineers and architects."
@@ -89,9 +90,16 @@ export function TrainingCurriculum() {
       </div>
       <div className="kx-course" style={{ '--c': course.color }}>
         <div className="kx-course-lead kx-swap" key={course.id}>
-          <div className="blob" style={{ width: 320, height: 320, right: -100, top: -100, background: '#fff', opacity: 0.35 }} />
+          <span className="kx-lead-badge"><i />12 weeks · Mohali / Online</span>
           <h3>{course.heroTitle}</h3>
           <p>{course.description}</p>
+          <ul className="kx-lead-tags" aria-label="Topics covered">
+            {course.modules.map((m) => <li key={m.title}>{m.title}</li>)}
+          </ul>
+          <dl className="kx-lead-stats">
+            {[['12', 'Weeks'], ['90%', 'Practical'], ['15', 'Seats']].map(([v, l]) => <div key={l}><dd>{v}</dd><dt>{l}</dt></div>)}
+          </dl>
+          <Link href="#apply" className="kx-btn kx-btn-primary" style={{ alignSelf: 'flex-start' }}>Apply now <Arrow /></Link>
         </div>
         <div className="kx-mods">
           {course.modules.map((m) => (

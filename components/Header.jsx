@@ -57,17 +57,15 @@ export default function Header() {
 
         /* Pill container */
         .nav-pill {
-          background: rgba(15,15,17, 0.55);
-          border: 1px solid rgba(255,255,255,0.08);
-          backdrop-filter: blur(20px);
-          -webkit-backdrop-filter: blur(20px);
+          background: transparent;
+          border: 1px solid transparent;
           border-radius: 999px;
-          transition: background 0.4s, box-shadow 0.4s, border-color 0.4s;
+          text-shadow: 0 1px 8px rgba(0,0,0,0.6);
         }
         .nav-pill.scrolled {
-          background: rgba(15,15,17, 0.85);
-          border-color: rgba(255,255,255,0.12);
-          box-shadow: 0 8px 40px rgba(0,0,0,0.45), 0 0 0 1px rgba(217,51,31,0.06);
+          background: transparent;
+          border-color: transparent;
+          box-shadow: none;
         }
 
         /* Animated underline on nav links */
@@ -243,7 +241,7 @@ export default function Header() {
       ` }} />
 
       <header className={cn('header-root fixed top-0 left-0 right-0 z-50 transition-all duration-500', isScrolled ? 'pt-4 pb-4 md:pt-6 md:pb-6' : 'pt-6 pb-6 md:pt-10 md:pb-10')}>
-        <div className="container-custom flex items-center justify-between">
+        <div className="w-full px-4 md:px-8 lg:px-10 flex items-center justify-between">
 
           {/* ── Logo ── */}
           <Link href="/" className="logo-link relative z-50 flex-shrink-0" aria-label="Klocrix Home">
