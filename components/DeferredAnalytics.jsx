@@ -3,7 +3,7 @@
 import { useEffect } from 'react'
 
 const GTM_ID = 'GTM-ML5CHCLJ'
-const META_PIXEL_ID = '1409744298031274'
+const META_PIXEL_ID = '1058982530465266'
 
 // Loads GTM (which carries the GA4 tag) and the Meta Pixel after the first user
 // interaction, or after a short idle delay, so third-party JS doesn't block the
